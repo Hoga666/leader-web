@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-zh="Leader Design | 原则" data-i18n-en="Leader Design | Principles">Leader Design | 原则</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --brand-primary: #EC6443;
+            --brand-light: #FFE5E0;
+            --text-main: #1D1D1F;
+            --text-secondary: #86868B;
+            --glass-bg: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.4);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #F5F7FA;
+            color: var(--text-main);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .aura-background {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+            background: #f4f4f4;
+        }
+        .aura-blob {
+            position: absolute;
+            filter: blur(120px);
+            opacity: 0.6;
+            animation: float 20s infinite ease-in-out alternate;
+        }
+        .aura-blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #e6e6e6; animation-delay: 0s; }
+        .aura-blob-2 { bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: #e6e6e6; animation-delay: -5s; }
+        .aura-blob-3 { top: 40%; left: 60%; width: 40vw; height: 40vw; background: #e6e6e6; animation-delay: -10s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(10%, 15%) scale(1.1); }
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            border-radius: 24px;
+        }
+
+        .sidebar-nav-item {
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        .sidebar-nav-item.active {
+            color: var(--brand-primary);
+            font-weight: 600;
+            border-left-color: var(--brand-primary);
+            background: linear-gradient(90deg, var(--brand-light) 0%, transparent 100%);
+        }
+
+        .token-block {
+            background: rgba(255,255,255,0.8);
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.85rem;
+        }
+        
+        /* ===== 优化滚动条 ===== */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, 0.10) transparent;
+        }
+
+        *::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+
+        *::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        *::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.10);
+            border-radius: 10px;
+            transition: background 0.2s;
+        }
+
+        *::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.20);
+        }
+
+        #main-content {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, 0.10) transparent;
+        }
+
+        #main-content::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        #main-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        #main-content::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.10);
+            border-radius: 10px;
+        }
+
+        #main-content::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.20);
+        }
+
+        #sidebar {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, 0.08) transparent;
+        }
+
+        #sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        #sidebar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        #sidebar::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+        }
+
+        #sidebar::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.16);
+        }
+
+        .leader-logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #EC6443;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+        .lang-btn {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .lang-btn:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <div class="aura-background">
+        <div class="aura-blob aura-blob-1"></div>
+        <div class="aura-blob aura-blob-2"></div>
+        <div class="aura-blob aura-blob-3"></div>
+    </div>
+    <header class="md:hidden glass-panel rounded-none fixed top-0 w-full z-50 p-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <div class="leader-logo-container w-10 h-10 mr-3 text-[14px]">Leader</div>
+            <h1 class="font-bold text-lg" data-i18n-zh="Leader Design" data-i18n-en="Leader Design">Leader Design</h1>
+        </div>
+        <button id="mobile-menu-btn" class="p-2 bg-black/5 rounded-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </header>
+
+    <div class="flex h-screen pt-16 md:pt-0">
+        <aside id="sidebar" class="hidden md:flex flex-col w-72 h-full fixed top-0 left-0 glass-panel rounded-none border-r border-white/50 z-40 overflow-y-auto" aria-label="Leader Design 设计规范导航" aria-hidden="true"></aside>
+        <div id="sidebar-backdrop" class="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 hidden md:hidden" aria-hidden="true"></div>
+        
+        <main class="flex-1 md:ml-72 p-6 md:p-10 lg:p-12 overflow-y-auto h-full scroll-smooth" id="main-content">
+            <div class="max-w-[1200px] mx-auto pb-24">
+                <div class="hidden md:flex items-center justify-between mb-8">
+                    <a href="leader_os_design_system.html" class="px-4 py-2 bg-white/50 hover:bg-white/90 rounded-xl transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md">
+                        <span class="text-sm font-semibold" data-i18n-zh="返回首页" data-i18n-en="Home">返回首页</span>
+                    </a>
+                    <button id="lang-toggle" class="lang-btn px-4 py-2 bg-white/50 hover:bg-white/90 rounded-xl transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md text-sm font-semibold" data-lang="zh">
+                        <span id="lang-label">EN</span>
+                    </button>
+                </div>
+
+                <section id="principles" class="mb-12 scroll-mt-10">
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gray-900 text-left" data-i18n-zh="原则" data-i18n-en="Principles">原则</h2>
+                    <p class="text-lg text-text-secondary max-w-4xl leading-relaxed text-left" data-i18n-zh="此部分作为 UI 设计争议的最高决策依据，帮助团队在复杂取舍中保持一致判断。" data-i18n-en="This section serves as the highest decision-making authority for UI design disputes, helping the team maintain consistent judgment in complex trade-offs.">此部分作为 UI 设计争议的最高决策依据，帮助团队在复杂取舍中保持一致判断。</p>
+                </section>
+
+                <hr class="border-t border-black/5 mb-12">
+
+                <section id="principles-ux" class="mb-16 scroll-mt-10">
+                    <h3 class="text-2xl font-bold mb-8 text-gray-900 border-b border-gray-200 pb-4 text-left" data-i18n-zh="设计体验原则" data-i18n-en="Design Experience Principles">设计体验原则</h3>
+                    
+                    <div class="flex flex-col gap-5">
+                        <div class="bg-white/60 rounded-xl p-6 border border-gray-200 hover:bg-orange-50 hover:border-orange-200 hover:shadow-md transition-all group text-left">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="p-2 bg-orange-100/50 rounded-lg text-orange-600 group-hover:bg-[#EC6443] group-hover:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 group-hover:text-[#EC6443] transition-colors" data-i18n-zh="化繁为简" data-i18n-en="Simplify Complexity">化繁为简</h4>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-700 leading-relaxed font-medium" data-i18n-zh="家电的核心价值在于高效完成任务。优秀的设计应当是隐形且克制的。系统需通过多模态传感器与场景算法精准预测用户意图，将复杂的底层机器运转逻辑封装于极简的交互架构之中，最大化降低用户的操作成本。" data-i18n-en="The core value of home appliances lies in completing tasks efficiently. Excellent design should be invisible and restrained. The system must use multimodal sensors and contextual algorithms to accurately predict user intent, encapsulating complex underlying machine logic within a minimalist interaction architecture to maximize reduction of user operation cost.">家电的核心价值在于高效完成任务。优秀的设计应当是隐形且克制的。系统需通过多模态传感器与场景算法精准预测用户意图，将复杂的底层机器运转逻辑封装于极简的交互架构之中，最大化降低用户的操作成本。</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/60 rounded-xl p-6 border border-gray-200 hover:bg-orange-50 hover:border-orange-200 hover:shadow-md transition-all group text-left">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="p-2 bg-orange-100/50 rounded-lg text-orange-600 group-hover:bg-[#EC6443] group-hover:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 group-hover:text-[#EC6443] transition-colors" data-i18n-zh="信息克制" data-i18n-en="Information Restraint">信息克制</h4>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-700 leading-relaxed font-medium" data-i18n-zh="界面设计应保持视觉焦点的绝对专注。在任何场景下，仅优先呈现与当前任务最关键的数据和核心操作。坚决避免将所有功能平铺堆砌在同一视区，通过清晰的主次划分，有效降低界面的视觉噪音与用户的决策负担。" data-i18n-en="Interface design should maintain absolute focus on the visual focal point. In any scenario, only the most critical data and core actions for the current task should be presented first. Firmly avoid piling all functions flatly into the same viewport. Through clear primary-secondary division, effectively reduce visual noise of the interface and decision-making burden of users.">界面设计应保持视觉焦点的绝对专注。在任何场景下，仅优先呈现与当前任务最关键的数据和核心操作。坚决避免将所有功能平铺堆砌在同一视区，通过清晰的主次划分，有效降低界面的视觉噪音与用户的决策负担。</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/60 rounded-xl p-6 border border-gray-200 hover:bg-orange-50 hover:border-orange-200 hover:shadow-md transition-all group text-left">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="p-2 bg-orange-100/50 rounded-lg text-orange-600 group-hover:bg-[#EC6443] group-hover:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 group-hover:text-[#EC6443] transition-colors" data-i18n-zh="允许犯错" data-i18n-en="Allow Mistakes">允许犯错</h4>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-700 leading-relaxed font-medium" data-i18n-zh="构建安全的系统探索环境。所有的破坏性或关键性操作均需提供清晰的状态预警与非破坏性的回退机制。通过降低误操作的不可逆成本，消除用户在交互过程中的认知负担与焦虑感。" data-i18n-en="Build a safe environment for system exploration. All destructive or critical operations must provide clear status warnings and non-destructive fallback mechanisms. By reducing the irreversible cost of misoperations, eliminate users' cognitive burden and anxiety during interaction.">构建安全的系统探索环境。所有的破坏性或关键性操作均需提供清晰的状态预警与非破坏性的回退机制。通过降低误操作的不可逆成本，消除用户在交互过程中的认知负担与焦虑感。</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/60 rounded-xl p-6 border border-gray-200 hover:bg-orange-50 hover:border-orange-200 hover:shadow-md transition-all group text-left">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="p-2 bg-orange-100/50 rounded-lg text-orange-600 group-hover:bg-[#EC6443] group-hover:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 group-hover:text-[#EC6443] transition-colors" data-i18n-zh="一致性" data-i18n-en="Consistency">一致性</h4>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-700 leading-relaxed font-medium" data-i18n-zh="跨端认知要保持一致，系统图标、语义色彩、操控手势等必须要具备唯一且确定的含义。同时全局性的底层视觉基建不可以随意篡改，各产业再接入规范时，必须严格调用基础平台下的视觉构建块。" data-i18n-en="Cross-device perception must remain consistent. System icons, semantic colors, and control gestures must have unique and definite meanings. Meanwhile, global foundational visual infrastructure must not be altered at will. When various business units adopt the guidelines, they must strictly use the visual building blocks from the base platform.">跨端认知要保持一致，系统图标、语义色彩、操控手势等必须要具备唯一且确定的含义。同时全局性的底层视觉基建不可以随意篡改，各产业再接入规范时，必须严格调用基础平台下的视觉构建块。</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/60 rounded-xl p-6 border border-gray-200 hover:bg-orange-50 hover:border-orange-200 hover:shadow-md transition-all group text-left">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="p-2 bg-orange-100/50 rounded-lg text-orange-600 group-hover:bg-[#EC6443] group-hover:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 group-hover:text-[#EC6443] transition-colors" data-i18n-zh="多维协同" data-i18n-en="Multi-dimensional Synergy">多维协同</h4>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-700 leading-relaxed font-medium" data-i18n-zh="在体验上，用户不应该被困在单一的屏幕玻璃内。界面的视觉内容需要向物理环境延伸，保证硬件如实体灯带、旋钮等以及触觉反馈或系统音效之间的无缝联动，避免多维之间各行其事，割裂用户体验。" data-i18n-en="In terms of experience, users should not be trapped within a single piece of screen glass. Visual content of the interface needs to extend into the physical environment, ensuring seamless coordination between hardware such as physical light strips and knobs, as well as haptic feedback or system audio—avoiding each dimension acting on its own and fragmenting the user experience.">在体验上，用户不应该被困在单一的屏幕玻璃内。界面的视觉内容需要向物理环境延伸，保证硬件如实体灯带、旋钮等以及触觉反馈或系统音效之间的无缝联动，避免多维之间各行其事，割裂用户体验。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="pt-10 pb-16 text-center text-gray-400 text-sm border-t border-gray-200">
+                    <p class="font-light" data-i18n-zh="&copy; 2026 Haier UX Design Lab. Internal Confidential." data-i18n-en="&copy; 2026 Haier UX Design Lab. Internal Confidential.">&copy; 2026 Haier UX Design Lab. Internal Confidential.</p>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script src="leader-nav.js"></script>
+    <script>
+        // 左侧导航由 leader-nav.js 统一渲染与管理。
+
+        (function() {
+            const langBtn = document.getElementById('lang-toggle');
+            const langLabel = document.getElementById('lang-label');
+            const allElements = document.querySelectorAll('[data-i18n-zh][data-i18n-en]');
+            let currentLang = 'zh';
+
+            function updateLanguage(lang) {
+                currentLang = lang;
+                allElements.forEach(el => {
+                    const text = el.getAttribute(`data-i18n-${lang}`);
+                    if (text) {
+                        // 检查元素内是否包含 HTML 标签（如 <span>），使用 innerHTML 保留格式
+                        if (el.querySelector('span, br, strong, em, i, b')) {
+                            el.innerHTML = text;
+                        } else {
+                            el.textContent = text;
+                        }
+                    }
+                });
+                langLabel.textContent = lang === 'zh' ? 'EN' : '中文';
+                langBtn.setAttribute('data-lang', lang);
+                document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+                const title = document.querySelector('title');
+                if (title) {
+                    const titleText = lang === 'zh' ? 'Leader Design | 原则' : 'Leader Design | Principles';
+                    title.textContent = titleText;
+                }
+            }
+
+            langBtn.addEventListener('click', function() {
+                const nextLang = currentLang === 'zh' ? 'en' : 'zh';
+                updateLanguage(nextLang);
+            });
+
+            updateLanguage('zh');
+        })();
+    </script>
+</body>
+</html>
