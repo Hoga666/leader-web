@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-zh="Haier Design | 原则" data-i18n-en="Haier Design | Principles">Haier Design | 原则</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --brand-primary: #2283E2;
+            --brand-light: #E5F0FF;
+            --text-main: #1D1D1F;
+            --text-secondary: #86868B;
+            --glass-bg: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.4);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #F5F7FA;
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* 弥散光晕动画背景 */
+        .aura-background {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+            background: #F4F7FB;
+        }
+        .aura-blob {
+            position: absolute;
+            filter: blur(120px);
+            opacity: 0.6;
+            animation: float 20s infinite ease-in-out alternate;
+        }
+        .aura-blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #C4E0FF; animation-delay: 0s; }
+        .aura-blob-2 { bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: #E0E8FF; animation-delay: -5s; }
+        .aura-blob-3 { top: 40%; left: 60%; width: 40vw; height: 40vw; background: #E8F4FF; animation-delay: -10s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(10%, 15%) scale(1.1); }
+        }
+
+        /* 磨玻璃质感卡片核心类 */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            border-radius: 24px;
+        }
+
+        /* 侧边栏样式 */
+        .sidebar-nav-item {
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        .sidebar-nav-item.active {
+            color: var(--brand-primary);
+            font-weight: 600;
+            border-left-color: var(--brand-primary);
+            background: linear-gradient(90deg, var(--brand-light) 0%, transparent 100%);
+        }
+
+        /* 代码与Token块 */
+        .token-block {
+            background: rgba(255,255,255,0.8);
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.85rem;
+        }
+        
+        /* 隐藏原生滚动条，美化 */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.2); }
+
+        /* Haier 纯文本 Logo 的基础样式 */
+        .haier-logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #2283E2; /* 海尔蓝 */
+            color: white;
+            font-family: Arial, Helvetica, sans-serif; /* 使用最基础的无衬线字体 */
+            font-weight: bold;
+            border-radius: 8px; /* 轻微圆角 */
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <div class="aura-background">
+        <div class="aura-blob aura-blob-1"></div>
+        <div class="aura-blob aura-blob-2"></div>
+        <div class="aura-blob aura-blob-3"></div>
+    </div>
+    <header class="md:hidden glass-panel rounded-none fixed top-0 w-full z-50 p-4 flex justify-between items-center">
+        <div class="flex items-center">
+            <div class="haier-logo-container w-10 h-10 mr-3 text-[14px]">
+                Haier
+            </div>
+            <h1 class="font-bold text-lg">Haier Design</h1>
+        </div>
+        <button id="mobile-menu-btn" class="p-2 bg-black/5 rounded-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </header>
+
+    <div class="flex h-screen pt-16 md:pt-0">
+<aside id="sidebar" class="hidden md:flex flex-col w-72 h-full fixed top-0 left-0 glass-panel rounded-none border-r border-white/50 z-40 overflow-y-auto" aria-label="Haier Design 设计规范导航" aria-hidden="true"></aside>
+<div id="sidebar-backdrop" class="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 hidden md:hidden" aria-hidden="true"></div>
+        <main class="flex-1 md:ml-72 p-6 md:p-12 lg:p-20 overflow-y-auto h-full scroll-smooth" id="main-content">
+            <section id="principles" class="mb-20 scroll-mt-10">
+                <h2 class="text-3xl font-bold mb-2" data-i18n-zh="1. 原则" data-i18n-en="1. Principles">1. 原则</h2>
+                <p class="text-gray-500 mb-10">此部分作为所有设计争议的最高决策依据。</p>
+                <div id="principles-ux" class="mb-16 scroll-mt-10">
+                    <h3 class="text-2xl font-bold mb-8 text-gray-900 border-b border-gray-200 pb-4" data-i18n-zh="1.1 设计体验原则" data-i18n-en="1.1 User Experience Principles">1.1 设计体验原则</h3>
+                    
+                    <div class="flex flex-col gap-5">
+                        <div class="bg-white/60 rounded-xl p-6 border border-gray-200 hover:bg-blue-50 hover:border-blue-200 hover:shadow-md transition-all group">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="p-2 bg-blue-100/50 rounded-lg text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition-colors">化繁为简 Simplify Complexity</h4>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-700 leading-relaxed font-medium">
+                                    家电的核心价值在于高效完成任务。优秀的设计应当是隐形且克制的。系统需通过多模态传感器与场景算法精准预测用户意图，将复杂的底层机器运转逻辑封装于极简的交互架构之中，最大化降低用户的操作成本。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-white/60 rounded-xl p-6 border border-gray-200 hover:bg-blue-50 hover:border-blue-200 hover:shadow-md transition-all group">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="p-2 bg-blue-100/50 rounded-lg text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition-colors">信息克制 Information Restraint</h4>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-700 leading-relaxed font-medium">
+                                    界面设计应保持视觉焦点的绝对专注。在任何场景下，仅优先呈现与当前任务最关键的数据和核心操作。坚决避免将所有功能平铺堆砌在同一视区，通过清晰的主次划分，有效降低界面的视觉噪音与用户的决策负担。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-white/60 rounded-xl p-6 border border-gray-200 hover:bg-blue-50 hover:border-blue-200 hover:shadow-md transition-all group">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="p-2 bg-blue-100/50 rounded-lg text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition-colors">允许犯错 Tolerance for Error</h4>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-700 leading-relaxed font-medium">
+                                    构建安全的系统探索环境。所有的破坏性或关键性操作均需提供清晰的状态预警与非破坏性的回退机制。通过降低误操作的不可逆成本，消除用户在交互过程中的认知负担与焦虑感。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-white/60 rounded-xl p-6 border border-gray-200 hover:bg-blue-50 hover:border-blue-200 hover:shadow-md transition-all group">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="p-2 bg-blue-100/50 rounded-lg text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition-colors">一致性 Consistency</h4>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-700 leading-relaxed font-medium">
+                                    跨端认知要保持一致，系统图标、语义色彩、操控手势等必须要具备唯一且确定的含义。同时全局性的底层视觉基建不可以随意篡改，各产业再接入规范时，必须严格调用基础平台下的视觉构建块。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-white/60 rounded-xl p-6 border border-gray-200 hover:bg-blue-50 hover:border-blue-200 hover:shadow-md transition-all group">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="p-2 bg-blue-100/50 rounded-lg text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition-colors">多维协同 Multi-dimensional Synergy</h4>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-700 leading-relaxed font-medium">
+                                    在体验上，用户不应该被困在单一的屏幕玻璃内。界面的视觉内容需要向物理环境延伸，保证硬件如实体灯带、旋钮等以及触觉反馈或系统音效之间的无缝联动，避免多维之间各行其事，割裂用户体验。
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="principles-brand" class="mb-16 scroll-mt-10">
+                    <div class="mb-10 border-b border-gray-200 pb-8">
+                        <p class="text-sm font-semibold text-blue-600 mb-3" data-i18n-zh="品牌体验" data-i18n-en="Brand Experience">品牌体验</p>
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4" data-i18n-zh="1.2 品牌" data-i18n-en="1.2 Brand Identity">1.2 品牌</h3>
+                        <p class="text-gray-600 text-base md:text-lg leading-relaxed max-w-4xl">
+                            在海尔庞大且多元的硬件生态中，数字界面是用户与我们进行对话的最前沿触点。品牌体验的核心目标不是堆叠视觉符号，而是在不同设备、场景和触点之间建立一致、清晰、可信赖的体验秩序。
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 mb-10">
+                        <div class="glass-panel p-8 md:p-10 overflow-hidden relative">
+                            <div class="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-blue-400/20 blur-3xl"></div>
+                            <div class="relative z-10">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold mb-6">One Haier</span>
+                                <h4 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5" data-i18n-zh="一个海尔，一套体验语言" data-i18n-en="One Haier, One Experience Language">一个海尔，一套体验语言</h4>
+                                <p class="text-gray-700 leading-relaxed font-medium mb-4">
+                                    海尔拥有丰富的家电品类，但用户面对的应该是“一个海尔”，而不是彼此割裂的孤立设备。UI 界面、灯光、触觉与声音反馈都应共同服务于同一套品牌识别和交互秩序。
+                                </p>
+                                <p class="text-sm text-gray-500 leading-relaxed">
+                                    统一不是简单复制样式，而是让用户从洗衣机切换到烤箱、从中控屏切换到移动应用时，仍能保持稳定的认知路径和操作信任。
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="bg-white/70 border border-gray-200 rounded-2xl p-6 shadow-sm">
+                                <div class="text-xs font-semibold text-blue-600 mb-2">01</div>
+                                <h5 class="text-lg font-bold text-gray-900 mb-2" data-i18n-zh="一致" data-i18n-en="Consistent">一致</h5>
+                                <p class="text-sm text-gray-600 leading-relaxed">视觉、交互、反馈和语言在跨品类体验中保持同源，降低重新学习成本。</p>
+                            </div>
+                            <div class="bg-white/70 border border-gray-200 rounded-2xl p-6 shadow-sm">
+                                <div class="text-xs font-semibold text-blue-600 mb-2">02</div>
+                                <h5 class="text-lg font-bold text-gray-900 mb-2" data-i18n-zh="克制" data-i18n-en="Restrained">克制</h5>
+                                <p class="text-sm text-gray-600 leading-relaxed">品牌表达服务于任务效率，不以装饰性元素干扰设备核心信息。</p>
+                            </div>
+                            <div class="bg-white/70 border border-gray-200 rounded-2xl p-6 shadow-sm">
+                                <div class="text-xs font-semibold text-blue-600 mb-2">03</div>
+                                <h5 class="text-lg font-bold text-gray-900 mb-2" data-i18n-zh="可信" data-i18n-en="Trustworthy">可信</h5>
+                                <p class="text-sm text-gray-600 leading-relaxed">状态表达清晰、反馈及时、关键操作可预期，建立长期品牌信任。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-12">
+                        <div class="flex items-end justify-between gap-6 mb-6">
+                            <div>
+                                <p class="text-sm font-semibold text-blue-600 mb-2" data-i18n-zh="品牌设计原则" data-i18n-en="Brand Design Principles">品牌设计原则</p>
+                                <h4 class="text-2xl font-bold text-gray-900" data-i18n-zh="从价值到视觉表达" data-i18n-en="From Values to Visual Expression">从价值到视觉表达</h4>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-white/70 border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-all">
+                                <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold mb-5">A</div>
+                                <h5 class="text-lg font-bold text-gray-900 mb-2">科技创新</h5>
+                                <p class="text-sm text-gray-600 leading-relaxed">体现前瞻、迭代和自信的科技探索精神，为品牌视觉提供坚实基底。</p>
+                            </div>
+                            <div class="bg-white/70 border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-all">
+                                <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold mb-5">B</div>
+                                <h5 class="text-lg font-bold text-gray-900 mb-2">高端质感</h5>
+                                <p class="text-sm text-gray-600 leading-relaxed">以现代简约、智慧亲和、优雅愉悦的表达建立高品质体验感知。</p>
+                            </div>
+                            <div class="bg-white/70 border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-all">
+                                <div class="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center font-bold mb-5">C</div>
+                                <h5 class="text-lg font-bold text-gray-900 mb-2">生活品味</h5>
+                                <p class="text-sm text-gray-600 leading-relaxed">连接真实生活方式，让科技体验具有温度、灵感和亲近感。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="glass-panel p-7 md:p-8 border-l-4 border-l-indigo-500">
+                            <p class="text-xs font-semibold text-indigo-600 mb-3" data-i18n-zh="核心方向" data-i18n-en="Core Direction">核心方向</p>
+                            <h4 class="text-2xl font-bold text-gray-900 mb-4">Calm Tech</h4>
+                            <p class="text-gray-700 leading-relaxed font-medium mb-3">科技不应表现为冰冷、复杂的机器指令，而应通过智能化的多模态交互提供无缝、精准的使用体验。</p>
+                            <p class="text-sm text-gray-500 leading-relaxed">复杂的机器算力与 AI 模型应隐藏在极简、直觉的界面之下，在用户需要时精准出现，在不需要时安静隐去。</p>
+                        </div>
+                        <div class="glass-panel p-7 md:p-8 border-l-4 border-l-teal-500">
+                            <p class="text-xs font-semibold text-teal-600 mb-3" data-i18n-zh="核心方向" data-i18n-en="Core Direction">核心方向</p>
+                            <h4 class="text-2xl font-bold text-gray-900 mb-4">Balance Life</h4>
+                            <p class="text-gray-700 leading-relaxed font-medium mb-3">家电是家庭空间的一部分，设计必须尊重用户的居住环境与生活节奏。</p>
+                            <p class="text-sm text-gray-500 leading-relaxed">数字界面应展现温润的生命力，与真实家居生活达成视觉与心理上的双重平衡。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            
+            <footer class="pt-10 pb-16 text-center text-gray-400 text-sm border-t border-gray-200">
+                <p class="font-light">&copy; 2026 Haier Design Lab. Internal Confidential.</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="haier-nav.js"></script>
+    <script>
+        // 左侧导航由 haier-nav.js 统一渲染与管理。
+    </script>
+</body>
+</html>
