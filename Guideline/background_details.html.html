@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-zh="Leader Design | 背景规范" data-i18n-en="Leader Design | Background">Leader Design | 背景规范</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --brand-primary: #EC6443;
+            --brand-light: #FFE5E0;
+            --text-main: #1D1D1F;
+            --text-secondary: #86868B;
+            --glass-bg: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            
+            --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-family-mono: monospace;
+        }
+        body {
+            font-family: var(--font-family-body);
+            background-color: #F5F7FA;
+            color: var(--text-main);
+            overflow: hidden;
+            height: 100vh;
+        }
+        .aura-background {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+            background: #f4f4f4;
+        }
+        .aura-blob {
+            position: absolute;
+            filter: blur(120px);
+            opacity: 0.6;
+            animation: float 20s infinite ease-in-out alternate;
+        }
+        .aura-blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #e6e6e6; animation-delay: 0s; }
+        .aura-blob-2 { bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: #e6e6e6; animation-delay: -5s; }
+        .aura-blob-3 { top: 40%; left: 60%; width: 40vw; height: 40vw; background: #e6e6e6; animation-delay: -10s; }
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(10%, 15%) scale(1.1); }
+        }
+        .rounded-cat { border-radius: 40px !important; }
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            border-radius: 28px;
+        }
+        .color-swatch-container {
+            display: flex;
+            flex-direction: column;
+            border-radius: 40px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        
+        .color-swatch {
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            font-size: 0.85rem;
+            font-family: var(--font-family-body);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        .color-swatch:hover {
+            transform: scale(1.02);
+            z-index: 10;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+        }
+        .swatch-hex { 
+            margin-left: auto; 
+            opacity: 0; 
+            transform: translateX(6px); 
+            font-size: 0.85rem; 
+            font-weight: 400; 
+            font-family: var(--font-family-body);
+            transition: opacity .18s ease, transform .18s ease; 
+        }
+        .color-swatch:hover .swatch-hex, .color-swatch:focus-visible .swatch-hex { 
+            opacity: 1; 
+            transform: translateX(0); 
+        }
+        .copy-toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 1000;
+        }
+        .copy-toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+        /* ===== 优化滚动条 ===== */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, 0.10) transparent;
+        }
+        *::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        *::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        *::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.10);
+            border-radius: 10px;
+            transition: background 0.2s;
+        }
+        *::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.20);
+        }
+        #main-content {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, 0.10) transparent;
+        }
+        #main-content::-webkit-scrollbar {
+            width: 5px;
+        }
+        #main-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        #main-content::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.10);
+            border-radius: 10px;
+        }
+        #main-content::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.20);
+        }
+        #sidebar {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, 0.08) transparent;
+        }
+        #sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+        #sidebar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        #sidebar::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+        }
+        #sidebar::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.16);
+        }
+        .leader-logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--brand-primary);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+        .sidebar-nav-item {
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        .sidebar-nav-item.active {
+            color: var(--brand-primary);
+            font-weight: 600;
+            border-left-color: var(--brand-primary);
+            background: linear-gradient(90deg, var(--brand-light) 0%, transparent 100%);
+        }
+        .usage-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+        .usage-card { background: rgba(255,255,255,.72); border: 1px solid rgba(203,213,225,.72); border-radius: 40px; padding: 18px; }
+        .usage-card h4 { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; font-size: 14px; font-weight: 700; color: #1f2937; }
+        .usage-card p { color: #667085; font-size: 13px; line-height: 1.65; }
+        .color-dot { width: 12px; height: 12px; border-radius: 4px; flex: 0 0 auto; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+        
+        .principle-card { 
+            background: #ffffff; 
+            border: 1px solid #EC6443; 
+            border-radius: 28px; 
+            padding: 20px; 
+        }
+        .principle-grid-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+        .principle-number { width: auto; height: 28px; padding: 0 12px; display: inline-grid; place-items: center; border-radius: 9999px; background: #EC6443; color: white; font-size: 12px; font-weight: 700; margin-bottom: 14px; }
+        /* ===== 统一的色块样式 ===== */
+        .secondary-color-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+        .secondary-color-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 48px;
+            padding: 0 16px;
+            border-radius: 40px;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: transform 0.2s;
+            font-family: var(--font-family-body);
+            font-size: 0.85rem;
+        }
+        .secondary-color-item .label-en {
+            font-family: var(--font-family-body);
+            font-size: 0.85rem;
+            font-weight: 400;
+        }
+        .secondary-color-item .label-cn {
+            font-family: var(--font-family-body);
+            font-size: 0.875rem;
+            font-weight: 400;
+        }
+        .baseline-table { width:100%; border-collapse:separate; border-spacing:0; font-size:14px; }
+        .baseline-table th { padding:14px 16px; color:#86909C; font-size:12px; font-weight:500; text-align:left; background:rgba(255,144,75,0.2); border-bottom:1px solid #E5E6EB; }
+        .baseline-table td { padding:16px; color:#4E5969; border-bottom:1px solid #E5E6EB; vertical-align:middle; }
+        .baseline-table tr:last-child td { border-bottom:0; }
+        .baseline-table td:first-child { color:#1D2129; font-weight:500; }
+        .form-table th,
+        .form-table td { padding-left: 46px; }
+        .form-table th:nth-child(2),
+        .form-table td:nth-child(2) { padding-left: 86px; }
+        .secondary-color-item .swatch-hex {
+            font-family: var(--font-family-body);
+            font-size: 0.85rem;
+            font-weight: 400;
+            opacity: 0;
+            transform: translateX(6px);
+            transition: opacity .18s ease, transform .18s ease;
+        }
+        .secondary-color-item:hover .swatch-hex {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .secondary-color-item:hover {
+            transform: scale(1.02);
+            z-index: 10;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+        }
+        .secondary-color-item.gradient-swatch {
+            border: none;
+        }
+        .secondary-color-item.border-visible {
+            border: 1px solid #e5e7eb;
+        }
+        .bg-category-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #4B5563;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 4px 0 2px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            margin-bottom: 4px;
+            font-family: var(--font-family-body);
+        }
+        .color-grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            width: 100%;
+        }
+        .color-grid-2col .secondary-color-item {
+            width: 100%;
+        }
+        .lang-btn {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .lang-btn:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        @media (max-width: 720px) { 
+            .usage-grid { grid-template-columns: 1fr; }
+            .color-grid-2col { grid-template-columns: 1fr; }
+        }
+
+        /* ============================================================
+           颜色规范布局
+           ============================================================ */
+        .color-layout-row {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        @media (min-width: 1024px) {
+            .color-layout-row {
+                flex-direction: row;
+                align-items: stretch;
+            }
+            .color-left-col {
+                width: 520px;
+                flex-shrink: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
+            .color-right-col {
+                flex: 1;
+                min-width: 0;
+                position: relative;
+            }
+        }
+        @media (max-width: 1023px) {
+            .color-right-col {
+                display: none;
+            }
+        }
+        .color-right-col .image-frame {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 28px;
+            border: 16px solid #eeeeee;
+            overflow: hidden;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        .color-right-col .image-frame img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 12px;
+        }
+
+        /* ============================================================
+           基础形态类型卡片内的图片样式
+           ============================================================ */
+        .form-type-image-frame {
+            width: 100%;
+            border-radius: 28px;
+            border: 16px solid #eeeeee;
+            overflow: hidden;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        .form-type-image-frame img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        /* ============================================================
+           形态粒度
+           ============================================================ */
+        .granularity-row {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        @media (min-width: 768px) {
+            .granularity-row {
+                flex-direction: row;
+                align-items: center;
+                gap: 24px;
+            }
+            .granularity-text {
+                flex: 1;
+                min-width: 0;
+            }
+            .granularity-image {
+                flex-shrink: 0;
+                width: 560px;
+                position: relative;
+            }
+        }
+        @media (max-width: 767px) {
+            .granularity-image {
+                width: 100%;
+            }
+        }
+        .granularity-image-frame {
+            position: relative;
+            width: 100%;
+            border-radius: 28px;
+            border: 4px solid #F52828;
+            overflow: hidden;
+            box-sizing: border-box;
+            background-color: #ffffff;
+        }
+        .granularity-image-frame img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+        }
+        .granularity-badge {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            width: 44px;
+            height: 44px;
+            border-radius: 9999px;
+            background-color: #F52828;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+            z-index: 2;
+        }
+        .granularity-badge svg {
+            width: 22px;
+            height: 22px;
+            display: block;
+        }
+
+        /* ============================================================
+           变形规则：并列布局
+           ============================================================ */
+        .deform-pair-row {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        @media (min-width: 768px) {
+            .deform-pair-row {
+                flex-direction: row;
+                align-items: stretch;
+            }
+            .deform-pair-row > * {
+                flex: 1;
+                min-width: 0;
+            }
+        }
+        .deform-card-green {
+            border: 2px solid #3BD08D !important;
+        }
+
+        /* ============================================================
+           变形后的可读性校验：4 张错误示例图片横向排列
+           ============================================================ */
+        .readability-image-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+            align-items: stretch;
+        }
+        @media (min-width: 768px) {
+            .readability-image-row {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+        }
+        .readability-image-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border-radius: 28px;
+            border: 4px solid #F52828;
+            overflow: hidden;
+            box-sizing: border-box;
+            background-color: #ffffff;
+        }
+        .readability-image-frame img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 24px;
+        }
+        .readability-badge {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            width: 44px;
+            height: 44px;
+            border-radius: 9999px;
+            background-color: #F52828;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+            z-index: 2;
+        }
+        .readability-badge svg {
+            width: 22px;
+            height: 22px;
+            display: block;
+        }
+
+        /* ============================================================
+           黄色圆圈问号（可读性校验）
+           ============================================================ */
+        .question-mark-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 9999px;
+            border: 2px solid #F5C518;
+            color: #F5C518;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1;
+            flex-shrink: 0;
+            margin-right: 8px;
+            font-family: var(--font-family-body);
+        }
+        .readability-check-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        .readability-check-item .question-mark-icon {
+            margin-top: 1px;
+        }
+
+        /* ============================================================
+           红色圆环 + 红色 × 号（禁止的变形方式）
+           ============================================================ */
+        .prohibited-check-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        .prohibited-x-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-right: 8px;
+            margin-top: 1px;
+            color: #F52828;
+        }
+        .prohibited-x-icon svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* ============================================================
+           禁止的变形方式：3 张错误示例图片横向排列
+           ============================================================ */
+        .prohibited-image-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+            align-items: stretch;
+        }
+        @media (min-width: 768px) {
+            .prohibited-image-row {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+        }
+        .prohibited-image-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border-radius: 28px;
+            border: 4px solid #F52828;
+            overflow: hidden;
+            box-sizing: border-box;
+            background-color: #ffffff;
+        }
+        .prohibited-image-frame img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 24px;
+        }
+        .prohibited-badge {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            width: 44px;
+            height: 44px;
+            border-radius: 9999px;
+            background-color: #F52828;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+            z-index: 2;
+        }
+        .prohibited-badge svg {
+            width: 22px;
+            height: 22px;
+            display: block;
+        }
+
+        /* ============================================================
+           【修复】颜色规范 A/B/C 段落中的小图标与文字垂直居中
+           - 用 align-items: center 让图标与文字首行严格居中
+           - 移除 margin-top 偏移（避免图标偏上）
+           ============================================================ */
+        .palette-item {
+            display: flex;
+            align-items: center;    /* 关键：垂直居中，不再偏上 */
+        }
+        .palette-item > svg {
+            flex-shrink: 0;
+            margin-right: 8px;
+            display: block;         /* 消除 SVG 默认的 inline 间隙 */
+        }
+        .palette-item > p {
+            margin: 0;              /* 消除 p 默认 margin，避免影响 flex 居中 */
+            line-height: 1.65;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="aura-background">
+        <div class="aura-blob aura-blob-1"></div>
+        <div class="aura-blob aura-blob-2"></div>
+        <div class="aura-blob aura-blob-3"></div>
+    </div>
+    <header class="md:hidden glass-panel rounded-none fixed top-0 w-full z-50 p-4 flex justify-between items-center border-b border-white/50">
+        <div class="flex items-center">
+            <a href="leader_os_design_system.html" class="mr-3 p-2 bg-black/5 hover:bg-black/10 rounded-lg transition-colors flex items-center text-gray-700">
+            </a>
+            <div class="leader-logo-container w-8 h-8 mr-2 text-[12px]">Leader</div>
+            <h1 class="font-bold text-base text-gray-800">背景规范</h1>
+        </div>
+        <button id="mobile-menu-btn" class="p-2 bg-black/5 hover:bg-black/10 rounded-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </header>
+    <div class="flex h-screen pt-16 md:pt-0">
+        <aside id="sidebar" class="hidden md:flex flex-col w-72 h-full fixed top-0 left-0 glass-panel rounded-none border-r border-white/50 z-40 overflow-y-auto" aria-label="Leader Design 设计规范导航" aria-hidden="true"></aside>
+        <div id="sidebar-backdrop" class="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 hidden md:hidden" aria-hidden="true"></div>
+        <main class="flex-1 md:ml-72 p-6 md:p-10 lg:p-12 overflow-y-auto h-full scroll-smooth" id="main-content">
+            <div class="max-w-[1200px] mx-auto pb-24">
+                <div class="hidden md:flex items-center justify-between mb-8">
+                    <a href="leader_os_design_system.html" class="px-4 py-2 bg-white/50 hover:bg-white/90 rounded-full transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md">
+                        <span class="text-sm font-semibold" data-i18n-zh="返回主页" data-i18n-en="Home">返回主页</span>
+                    </a>
+                    <button id="lang-toggle" class="lang-btn px-4 py-2 bg-white/50 hover:bg-white/90 rounded-full transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md text-sm font-semibold" data-lang="zh">
+                        <span id="lang-label">EN</span>
+                    </button>
+                </div>
+                <section class="mb-12">
+                    <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gray-900" data-i18n-zh="背景" data-i18n-en="Background">背景</h1>
+                    <p class="text-lg text-text-secondary max-w-3xl leading-relaxed" data-i18n-zh="背景色彩与形态 Token 作为界面视觉基底，确保跨设备呈现一致。" data-i18n-en="Background color and form tokens serve as the interface visual base, ensuring consistent presentation across devices.">背景色彩与形态 Token 作为界面视觉基底，确保跨设备呈现一致。</p>
+                </section>
+                <hr class="border-t border-black/5 mb-12">
+                <section class="mb-16">
+                    <h2 class="text-2xl font-bold mb-6 text-gray-900" data-i18n-zh="1. 设计原则" data-i18n-en="1. Design Principles">1. 设计原则</h2>
+                    <div class="glass-panel p-6 sm:p-10">
+                        <div class="usage-grid principle-grid-5">
+                            <div class="principle-card">
+                                <div class="principle-number">01</div>
+                                <h3 class="font-bold text-gray-900 mb-2" data-i18n-zh="识别性优先" data-i18n-en="Recognition First">识别性优先</h3>
+                                <p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="背景服务于内容，不抢主体信息。" data-i18n-en="Background serves content and does not compete with primary information.">背景服务于内容，不抢主体信息。</p>
+                            </div>
+                            <div class="principle-card">
+                                <div class="principle-number">02</div>
+                                <h3 class="font-bold text-gray-900 mb-2" data-i18n-zh="简化形态" data-i18n-en="Simplify Form">简化形态</h3>
+                                <p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="远距离观看下细节会丢失，形态需概括。" data-i18n-en="Details are lost at long distances; forms must be generalized.">远距离观看下细节会丢失，形态需概括。</p>
+                            </div>
+                            <div class="principle-card">
+                                <div class="principle-number">03</div>
+                                <h3 class="font-bold text-gray-900 mb-2" data-i18n-zh="限制色数" data-i18n-en="Limit Color Count">限制色数</h3>
+                                <p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="单屏主色颜色过多会导致视觉混乱。" data-i18n-en="Too many primary colors on a single screen causes visual chaos.">单屏主色颜色过多会导致视觉混乱。</p>
+                            </div>
+                            <div class="principle-card">
+                                <div class="principle-number">04</div>
+                                <h3 class="font-bold text-gray-900 mb-2" data-i18n-zh="预留安全区" data-i18n-en="Reserve Safe Area">预留安全区</h3>
+                                <p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="边缘区域可能因拼接或边框被遮挡。" data-i18n-en="Edge areas may be obscured by splicing or bezels.">边缘区域可能因拼接或边框被遮挡。</p>
+                            </div>
+                            <div class="principle-card">
+                                <div class="principle-number">05</div>
+                                <h3 class="font-bold text-gray-900 mb-2" data-i18n-zh="可执行优先" data-i18n-en="Executable First">可执行优先</h3>
+                                <p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="规范以定性规则为主，不设难以落地的硬性参数。" data-i18n-en="Guidelines focus on qualitative rules, avoiding hard parameters that are difficult to implement.">规范以定性规则为主，不设难以落地的硬性参数。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="mb-16">
+                    <h2 class="text-2xl font-bold mb-6 text-gray-900" data-i18n-zh="2. 颜色规范" data-i18n-en="2. Color Specification">2. 颜色规范</h2>
+                    <div class="glass-panel p-6 sm:p-10">
+                        <div class="color-layout-row">
+                            <div class="color-left-col">
+                                <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60 max-w-[520px]">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <div class="w-7 h-7 rounded-full bg-[#EC6443] text-white grid place-items-center text-xs font-bold leading-none">A</div>
+                                        <h3 class="text-base font-semibold text-gray-900" data-i18n-zh="基础色板" data-i18n-en="Basic Palette">基础色板</h3>
+                                    </div>
+                                    <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
+                                        <div class="palette-item">
+                                            <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="6" fill="#EC6443"/></svg>
+                                            <p data-i18n-zh="品牌色：用于品牌露出、氛围装饰，需严格控制面积。" data-i18n-en="Brand color: used for brand exposure and ambient decoration, area must be strictly controlled.">品牌色：用于品牌露出、氛围装饰，需严格控制面积。</p>
+                                        </div>
+                                        <div class="palette-item">
+                                            <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="6" fill="#999999"/></svg>
+                                            <p data-i18n-zh="中性色：黑、白、灰阶，作为背景色和低端色主力。" data-i18n-en="Neutral colors: black, white, and grayscale, serving as the mainstay for background and low-end colors.">中性色：黑、白、灰阶，作为背景色和低端色主力。</p>
+                                        </div>
+                                        <div class="palette-item">
+                                            <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="6" fill="#47B2A7"/></svg>
+                                            <p data-i18n-zh="功能色：橙、绿、蓝、紫，用于参数色表达，不作为大面积背景。" data-i18n-en="Functional colors: orange, green, blue, purple, used for parameter color expression, not as large-area backgrounds.">功能色：橙、绿、蓝、紫，用于参数色表达，不作为大面积背景。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60 max-w-[520px]">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <div class="w-7 h-7 rounded-full bg-[#EC6443] text-white grid place-items-center text-xs font-bold leading-none">B</div>
+                                        <h3 class="text-base font-semibold text-gray-900" data-i18n-zh="色数限制" data-i18n-en="Color Count Limit">色数限制</h3>
+                                    </div>
+                                    <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
+                                        <p data-i18n-zh="单屏背景颜色数量不超过 4 种主色。" data-i18n-en="No more than 4 primary colors per screen background.">单屏背景颜色数量不超过 4 种主色。</p>
+                                        <p data-i18n-zh="渐变背景的色标不超过 4 个。" data-i18n-en="Gradient backgrounds should not exceed 4 color stops.">渐变背景的色标不超过 4 个。</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60 max-w-[520px]">
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <div class="w-7 h-7 rounded-full bg-[#EC6443] text-white grid place-items-center text-xs font-bold leading-none">C</div>
+                                        <h3 class="text-base font-semibold text-gray-900" data-i18n-zh="禁用色与慎用色" data-i18n-en="Prohibited and Cautionary Colors">禁用色与慎用色</h3>
+                                    </div>
+                                    <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
+                                        <div class="palette-item">
+                                            <svg class="w-5 h-5 text-red-500" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M7 7l6 6M13 7l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                            <p data-i18n-zh="纯红大面积背景（易与警示混淆）。" data-i18n-en="Pure red large-area background (easily confused with warnings).">纯红大面积背景（易与警示混淆）。</p>
+                                        </div>
+                                        <div class="palette-item">
+                                            <svg class="w-5 h-5 text-red-500" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M7 7l6 6M13 7l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                            <p data-i18n-zh="纯蓝大面积背景（LED 蓝光衰减快，易偏色）。" data-i18n-en="Pure blue large-area background (LED blue light decays quickly and easily shifts color).">纯蓝大面积背景（LED 蓝光衰减快，易偏色）。</p>
+                                        </div>
+                                        <div class="palette-item">
+                                            <svg class="w-5 h-5 text-yellow-500" viewBox="0 0 20 20" fill="none"><path d="M10 3L2 17h16L10 3z" stroke="currentColor" stroke-width="1.5"/><path d="M10 9v4M10 15h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                            <p data-i18n-zh="高饱和绿色（部分 LED 屏绿色偏黄）。" data-i18n-en="Highly saturated green (some LED screens render green with a yellow tint).">高饱和绿色（部分 LED 屏绿色偏黄）。</p>
+                                        </div>
+                                        <div class="palette-item">
+                                            <svg class="w-5 h-5 text-yellow-500" viewBox="0 0 20 20" fill="none"><path d="M10 3L2 17h16L10 3z" stroke="currentColor" stroke-width="1.5"/><path d="M10 9v4M10 15h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                            <p data-i18n-zh="低对比灰色组合（远距离下无法分辨）。" data-i18n-en="Low-contrast gray combinations (indistinguishable at long distances).">低对比灰色组合（远距离下无法分辨）。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="color-right-col">
+                                <div class="image-frame">
+                                    <img src="leader-assets/examples/background/bg-Indication.png" alt="背景示意">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="mb-16">
+                    <h2 class="text-2xl font-bold mb-6 text-gray-900" data-i18n-zh="3. 形态规范" data-i18n-en="3. Form Specification">3. 形态规范</h2>
+                    <div class="glass-panel p-6 sm:p-10">
+                        <div class="space-y-6">
+                            <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60">
+                                <h3 class="text-base font-semibold text-gray-900 mb-4" data-i18n-zh="基础形态类型" data-i18n-en="Basic Form Types">基础形态类型</h3>
+                                <div class="form-type-image-frame">
+                                    <img src="leader-assets/examples/background/background all.png" alt="基础形态类型示意">
+                                </div>
+                            </div>
+                            <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60">
+                                <h3 class="text-base font-semibold text-gray-900 mb-4" data-i18n-zh="形态粒度" data-i18n-en="Form Granularity">形态粒度</h3>
+                                <div class="granularity-row">
+                                    <div class="granularity-text space-y-2 text-sm text-gray-600 leading-relaxed">
+                                        <p data-i18n-zh="线条、点阵、条纹的密度需保证远距离可辨识，过密会闪烁或消失。" data-i18n-en="The density of lines, dot matrices, and stripes must remain recognizable at long distances; excessive density causes flickering or disappearance.">线条、点阵、条纹的密度需保证远距离可辨识，过密会闪烁或消失。</p>
+                                        <p data-i18n-zh="具体尺寸不设硬性参数，以实际屏幕观看效果为准。" data-i18n-en="Specific dimensions do not have hard parameters; actual screen viewing effect is the standard.">具体尺寸不设硬性参数，以实际屏幕观看效果为准。</p>
+                                        <p data-i18n-zh="原则：宁可粗放，不可细碎。" data-i18n-en="Principle: prefer coarse over fragmented.">原则：宁可粗放，不可细碎。</p>
+                                    </div>
+                                    <div class="granularity-image">
+                                        <div class="granularity-image-frame">
+                                            <img src="leader-assets/examples/background/bg-wrong example one.png" alt="形态粒度反例示意">
+                                            <div class="granularity-badge" aria-label="错误示例">
+                                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6 6L18 18M18 6L6 18" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="mb-16">
+                    <h2 class="text-2xl font-bold mb-6 text-gray-900" data-i18n-zh="4. 变形规则" data-i18n-en="4. Deformation Rules">4. 变形规则</h2>
+                    <div class="glass-panel p-6 sm:p-10">
+                        <div class="space-y-6">
+                            <div class="deform-pair-row">
+                                <div class="bg-white/60 p-8 md:p-10 rounded-[28px] deform-card-green">
+                                    <h3 class="text-base font-semibold text-gray-900 mb-4" data-i18n-zh="变形的触发条件" data-i18n-en="Deformation Triggers">变形的触发条件</h3>
+                                    <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
+                                        <p data-i18n-zh="尺寸变化：屏幕分辨率或拼接数量变化。" data-i18n-en="Size change: screen resolution or splicing quantity changes.">尺寸变化：屏幕分辨率或拼接数量变化。</p>
+                                        <p data-i18n-zh="观看距离变化：近看与远看的识别需求不同。" data-i18n-en="Viewing distance change: recognition requirements differ between close and long distances.">观看距离变化：近看与远看的识别需求不同。</p>
+                                        <p data-i18n-zh="内容密度变化：信息量大时需简化背景。" data-i18n-en="Content density change: background needs simplification when information volume is high.">内容密度变化：信息量大时需简化背景。</p>
+                                        <p data-i18n-zh="环境光变化：强光或暗光下需调整背景策略。" data-i18n-en="Ambient light change: background strategy needs adjustment under strong or dim light.">环境光变化：强光或暗光下需调整背景策略。</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white/60 p-8 md:p-10 rounded-[28px] deform-card-green">
+                                    <h3 class="text-base font-semibold text-gray-900 mb-4" data-i18n-zh="缩放规则" data-i18n-en="Scaling Rules">缩放规则</h3>
+                                    <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
+                                        <p data-i18n-zh="背景形态优先等比缩放，保持比例不失真。" data-i18n-en="Background forms should be scaled proportionally first to maintain ratio without distortion.">背景形态优先等比缩放，保持比例不失真。</p>
+                                        <p data-i18n-zh="非等比拉伸仅限纯色和均匀渐变，禁止用于点阵、条纹、几何图形。" data-i18n-en="Non-proportional stretching is only allowed for solid colors and uniform gradients, prohibited for dot matrices, stripes, and geometric shapes.">非等比拉伸仅限纯色和均匀渐变，禁止用于点阵、条纹、几何图形。</p>
+                                        <p data-i18n-zh="缩放后需重新确认形态是否仍然可辨识。" data-i18n-en="After scaling, reconfirm whether the form remains recognizable.">缩放后需重新确认形态是否仍然可辨识。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60">
+                                <h3 class="text-base font-semibold text-gray-900 mb-4" data-i18n-zh="形态简化规则" data-i18n-en="Form Simplification Rules">形态简化规则</h3>
+                                <div class="overflow-x-auto border border-gray-200" style="border-radius:28px">
+                                    <table class="baseline-table form-table min-w-[480px]">
+                                        <thead>
+                                            <tr>
+                                                <th data-i18n-zh="原始形态" data-i18n-en="Original Form">原始形态</th>
+                                                <th data-i18n-zh="降级策略" data-i18n-en="Downgrade Strategy">降级策略</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td data-i18n-zh="多色渐变" data-i18n-en="Multi-color Gradient">多色渐变</td>
+                                                <td data-i18n-zh="减为双色渐变或纯色" data-i18n-en="Reduce to two-color gradient or solid color">减为双色渐变或纯色</td>
+                                            </tr>
+                                            <tr>
+                                                <td data-i18n-zh="细密点阵" data-i18n-en="Dense Dot Matrix">细密点阵</td>
+                                                <td data-i18n-zh="加大点间距或改为纯色" data-i18n-en="Increase dot spacing or change to solid color">加大点间距或改为纯色</td>
+                                            </tr>
+                                            <tr>
+                                                <td data-i18n-zh="细条纹" data-i18n-en="Fine Stripes">细条纹</td>
+                                                <td data-i18n-zh="加粗间距或取消" data-i18n-en="Widen spacing or remove">加粗间距或取消</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60">
+                                <h3 class="text-base font-semibold text-gray-900 mb-4" data-i18n-zh="变形后的可读性校验" data-i18n-en="Post-Deformation Readability Check">变形后的可读性校验</h3>
+                                <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
+                                    <div class="readability-check-item">
+                                        <span class="question-mark-icon">?</span>
+                                        <p data-i18n-zh="变形后文字是否仍然清晰可读。" data-i18n-en="Is text still clearly readable after deformation?">变形后文字是否仍然清晰可读。</p>
+                                    </div>
+                                    <div class="readability-check-item">
+                                        <span class="question-mark-icon">?</span>
+                                        <p data-i18n-zh="变形后形态是否产生摩尔纹或闪烁。" data-i18n-en="Does the form produce moiré patterns or flickering after deformation?">变形后形态是否产生摩尔纹或闪烁。</p>
+                                    </div>
+                                    <div class="readability-check-item">
+                                        <span class="question-mark-icon">?</span>
+                                        <p data-i18n-zh="变形后层级关系是否清晰。" data-i18n-en="Are hierarchical relationships still clear after deformation?">变形后层级关系是否清晰。</p>
+                                    </div>
+                                    <div class="readability-check-item">
+                                        <span class="question-mark-icon">?</span>
+                                        <p data-i18n-zh="变形后是否仍符合品牌调性。" data-i18n-en="Does it still align with brand tone after deformation?">变形后是否仍符合品牌调性。</p>
+                                    </div>
+                                </div>
+                                <div class="readability-image-row">
+                                    <div class="readability-image-frame">
+                                        <img src="leader-assets/examples/background/bg-wrong example three.png" alt="可读性反例三">
+                                        <div class="readability-badge" aria-label="错误示例">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6 6L18 18M18 6L6 18" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="readability-image-frame">
+                                        <img src="leader-assets/examples/background/bg-wrong example four.png" alt="可读性反例四">
+                                        <div class="readability-badge" aria-label="错误示例">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6 6L18 18M18 6L6 18" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="readability-image-frame">
+                                        <img src="leader-assets/examples/background/bg-wrong example five.png" alt="可读性反例五">
+                                        <div class="readability-badge" aria-label="错误示例">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6 6L18 18M18 6L6 18" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="readability-image-frame">
+                                        <img src="leader-assets/examples/background/bg-wrong example six.png" alt="可读性反例六">
+                                        <div class="readability-badge" aria-label="错误示例">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6 6L18 18M18 6L6 18" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60">
+                                <h3 class="text-base font-semibold text-gray-900 mb-4" data-i18n-zh="禁止的变形方式" data-i18n-en="Prohibited Deformation Methods">禁止的变形方式</h3>
+                                <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
+                                    <div class="prohibited-check-item">
+                                        <span class="prohibited-x-icon">
+                                            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
+                                                <path d="M7 7l6 6M13 7l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                            </svg>
+                                        </span>
+                                        <p data-i18n-zh="禁止扭曲、倾斜导致形态失真的变形。" data-i18n-en="Prohibited: distortions or tilts that cause form distortion.">禁止扭曲、倾斜导致形态失真的变形。</p>
+                                    </div>
+                                    <div class="prohibited-check-item">
+                                        <span class="prohibited-x-icon">
+                                            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
+                                                <path d="M7 7l6 6M13 7l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                            </svg>
+                                        </span>
+                                        <p data-i18n-zh="禁止过度压缩导致形态细节丢失。" data-i18n-en="Prohibited: excessive compression that causes loss of form details.">禁止过度压缩导致形态细节丢失。</p>
+                                    </div>
+                                    <div class="prohibited-check-item">
+                                        <span class="prohibited-x-icon">
+                                            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
+                                                <path d="M7 7l6 6M13 7l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                            </svg>
+                                        </span>
+                                        <p data-i18n-zh="禁止在文字下方叠加高对比变形形态。" data-i18n-en="Prohibited: overlaying high-contrast deformation forms under text.">禁止在文字下方叠加高对比变形形态。</p>
+                                    </div>
+                                    <div class="prohibited-check-item">
+                                        <span class="prohibited-x-icon">
+                                            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
+                                                <path d="M7 7l6 6M13 7l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                            </svg>
+                                        </span>
+                                        <p data-i18n-zh="禁止无规律随机变形，需有明确规则。" data-i18n-en="Prohibited: random deformation without rules; clear rules are required.">禁止无规律随机变形，需有明确规则。</p>
+                                    </div>
+                                </div>
+                                <div class="prohibited-image-row">
+                                    <div class="prohibited-image-frame">
+                                        <img src="leader-assets/examples/background/bg-wrong example seven.png" alt="禁止变形反例七">
+                                        <div class="prohibited-badge" aria-label="错误示例">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6 6L18 18M18 6L6 18" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="prohibited-image-frame">
+                                        <img src="leader-assets/examples/background/bg-wrong example eight.png" alt="禁止变形反例八">
+                                        <div class="prohibited-badge" aria-label="错误示例">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6 6L18 18M18 6L6 18" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="prohibited-image-frame">
+                                        <img src="leader-assets/examples/background/bg-wrong example nine.png" alt="禁止变形反例九">
+                                        <div class="prohibited-badge" aria-label="错误示例">
+                                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6 6L18 18M18 6L6 18" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <footer class="pt-10 pb-16 text-center text-gray-400 text-sm border-t border-gray-200">
+                <p class="font-light" style="font-family: var(--font-family-body);" data-i18n-zh="&copy; 2026 Haier UX Design Lab. Internal Confidential." data-i18n-en="&copy; 2026 Haier UX Design Lab. Internal Confidential.">&copy; 2026 Haier UX Design Lab. Internal Confidential.</p>
+            </footer>
+            </div>
+        </main>
+    </div>
+    <script src="leader-nav.js"></script>
+    <script>
+        // ===== 语言切换（修复版：只替换文本节点，保留 SVG 图标） =====
+        (function() {
+            const langBtn = document.getElementById('lang-toggle');
+            const langLabel = document.getElementById('lang-label');
+            const allElements = document.querySelectorAll('[data-i18n-zh][data-i18n-en]');
+            let currentLang = 'zh';
+            function updateLanguage(lang) {
+                currentLang = lang;
+                allElements.forEach(el => {
+                    const text = el.getAttribute(`data-i18n-${lang}`);
+                    if (text) {
+                        if (el.children.length > 0) {
+                            let replaced = false;
+                            for (const node of el.childNodes) {
+                                if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '') {
+                                    node.textContent = text;
+                                    replaced = true;
+                                    break;
+                                }
+                            }
+                            if (!replaced) {
+                                el.innerHTML = text;
+                            }
+                        } else {
+                            el.textContent = text;
+                        }
+                    }
+                });
+                langLabel.textContent = lang === 'zh' ? 'EN' : '中文';
+                langBtn.setAttribute('data-lang', lang);
+                document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+                const title = document.querySelector('title');
+                if (title) {
+                    const titleText = lang === 'zh' ? 'Leader Design | 背景规范' : 'Leader Design | Background';
+                    title.textContent = titleText;
+                }
+            }
+            langBtn.addEventListener('click', function() {
+                const nextLang = currentLang === 'zh' ? 'en' : 'zh';
+                updateLanguage(nextLang);
+            });
+            updateLanguage('zh');
+        })();
+    </script>
+</body>
+</html>
