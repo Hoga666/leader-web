@@ -16,7 +16,6 @@
             --glass-bg: rgba(255, 255, 255, 0.6);
             --glass-border: rgba(255, 255, 255, 0.4);
         }
-
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: #F5F7FA;
@@ -24,7 +23,6 @@
             overflow: hidden;
             height: 100vh;
         }
-
         .aura-background {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -41,12 +39,10 @@
         .aura-blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #e6e6e6; animation-delay: 0s; }
         .aura-blob-2 { bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: #e6e6e6; animation-delay: -5s; }
         .aura-blob-3 { top: 40%; left: 60%; width: 40vw; height: 40vw; background: #e6e6e6; animation-delay: -10s; }
-
         @keyframes float {
             0% { transform: translate(0, 0) scale(1); }
             100% { transform: translate(10%, 15%) scale(1.1); }
         }
-
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: blur(24px);
@@ -55,7 +51,6 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
             border-radius: 24px;
         }
-
         .sidebar-nav-item {
             transition: all 0.3s ease;
             border-left: 3px solid transparent;
@@ -66,7 +61,6 @@
             border-left-color: var(--brand-primary);
             background: linear-gradient(90deg, var(--brand-light) 0%, transparent 100%);
         }
-
         .token-block {
             background: rgba(255,255,255,0.8);
             border-radius: 8px;
@@ -79,70 +73,55 @@
             scrollbar-width: thin;
             scrollbar-color: rgba(0, 0, 0, 0.10) transparent;
         }
-
         *::-webkit-scrollbar {
             width: 5px;
             height: 5px;
         }
-
         *::-webkit-scrollbar-track {
             background: transparent;
         }
-
         *::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.10);
             border-radius: 10px;
             transition: background 0.2s;
         }
-
         *::-webkit-scrollbar-thumb:hover {
             background: rgba(0, 0, 0, 0.20);
         }
-
         #main-content {
             scrollbar-width: thin;
             scrollbar-color: rgba(0, 0, 0, 0.10) transparent;
         }
-
         #main-content::-webkit-scrollbar {
             width: 5px;
         }
-
         #main-content::-webkit-scrollbar-track {
             background: transparent;
         }
-
         #main-content::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.10);
             border-radius: 10px;
         }
-
         #main-content::-webkit-scrollbar-thumb:hover {
             background: rgba(0, 0, 0, 0.20);
         }
-
         #sidebar {
             scrollbar-width: thin;
             scrollbar-color: rgba(0, 0, 0, 0.08) transparent;
         }
-
         #sidebar::-webkit-scrollbar {
             width: 4px;
         }
-
         #sidebar::-webkit-scrollbar-track {
             background: transparent;
         }
-
         #sidebar::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.08);
             border-radius: 10px;
         }
-
         #sidebar::-webkit-scrollbar-thumb:hover {
             background: rgba(0, 0, 0, 0.16);
         }
-
         .leader-logo-container {
             display: flex;
             align-items: center;
@@ -153,26 +132,24 @@
             font-weight: bold;
             border-radius: 8px;
         }
-
         .brand-value-row {
             display: grid;
             grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.85fr);
             gap: 0;
             align-items: center;
             overflow: hidden;
+            border-radius: 40px;
         }
-
         .brand-value-copy {
             padding: 24px;
         }
-
         .brand-value-image {
             display: block;
             width: 100%;
             aspect-ratio: 570 / 318;
             object-fit: cover;
+            border-radius: 40px 0 0 40px;
         }
-
         .lang-btn {
             transition: all 0.2s ease;
             cursor: pointer;
@@ -180,7 +157,6 @@
         .lang-btn:hover {
             background: rgba(0, 0, 0, 0.05);
         }
-
         @media (max-width: 767px) {
             .brand-value-row {
                 grid-template-columns: 1fr;
@@ -189,7 +165,6 @@
                 padding: 20px;
             }
         }
-
         .design-philosophy {
             width: 100%;
         }
@@ -220,9 +195,117 @@
                 line-height: 1.6;
             }
         }
+
+        /* ============ 品牌四理念（Delight）布局 ============ */
+        .delight-section {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        @media (min-width: 768px) {
+            .delight-section {
+                flex-direction: row;
+                align-items: stretch;
+                gap: 0;
+            }
+            .delight-image-col {
+                flex-shrink: 0;
+                width: 540px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            /* 文字列：四组文字整体上下铺满，与图片上下边缘对齐 */
+            .delight-text-col {
+                flex: 1;
+                min-width: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;   /* 首尾对齐图片上下边缘 */
+                padding-left: 72px;
+                gap: 16px;                        /* 组与组之间的最小间距 */
+                overflow: hidden;
+            }
+        }
+
+        /* 图片容器：相对定位 */
+        .delight-image-frame {
+            position: relative;
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-sizing: border-box;
+            background-color: transparent;
+        }
+        .delight-image-frame img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+        }
+
+        /* 图片上叠加的 "Delight Leader" 文字：严格居中 */
+        .delight-image-overlay-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 64px;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            text-align: center;
+            white-space: nowrap;
+            pointer-events: none;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+            z-index: 2;
+            padding: 0 16px;
+            box-sizing: border-box;
+        }
+
+        /* 四个理念（无背景卡片，仅文字） */
+        .delight-item {
+            max-width: 100%;
+        }
+        .delight-item-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1D1D1F;
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+        }
+        /* 描述文字：允许自动换行，不再用 nowrap + ellipsis */
+        .delight-item-desc {
+            font-size: 0.875rem;
+            line-height: 1.625;
+            color: #4B5563;
+            font-weight: 400;
+            white-space: normal;      /* 允许换行 */
+            word-wrap: break-word;    /* 长单词断开换行 */
+            overflow-wrap: break-word;
+            max-width: 100%;
+        }
+
+        @media (max-width: 767px) {
+            .delight-image-col {
+                width: 100%;
+            }
+            .delight-text-col {
+                padding-left: 0;
+                gap: 20px;
+                justify-content: flex-start;
+            }
+            .delight-image-overlay-text {
+                font-size: 40px;
+            }
+        }
     </style>
 </head>
-
 <body class="antialiased">
     <div class="aura-background">
         <div class="aura-blob aura-blob-1"></div>
@@ -238,7 +321,6 @@
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
     </header>
-
     <div class="flex h-screen pt-16 md:pt-0">
         <aside id="sidebar" class="hidden md:flex flex-col w-72 h-full fixed top-0 left-0 glass-panel rounded-none border-r border-white/50 z-40 overflow-y-auto" aria-label="Leader Design 设计规范导航" aria-hidden="true"></aside>
         <div id="sidebar-backdrop" class="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 hidden md:hidden" aria-hidden="true"></div>
@@ -246,10 +328,10 @@
         <main class="flex-1 md:ml-72 p-6 md:p-10 lg:p-12 overflow-y-auto h-full scroll-smooth" id="main-content">
             <div class="max-w-[1200px] mx-auto pb-24">
                 <div class="hidden md:flex items-center justify-between mb-8">
-                    <a href="leader_os_design_system.html" class="px-4 py-2 bg-white/50 hover:bg-white/90 rounded-xl transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md">
+                    <a href="leader_os_design_system.html" class="px-4 py-2 bg-white/50 hover:bg-white/90 rounded-full transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md">
                         <span class="text-sm font-semibold" data-i18n-zh="返回主页" data-i18n-en="Home">返回主页</span>
                     </a>
-                    <button id="lang-toggle" class="lang-btn px-4 py-2 bg-white/50 hover:bg-white/90 rounded-xl transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md text-sm font-semibold" data-lang="zh">
+                    <button id="lang-toggle" class="lang-btn px-4 py-2 bg-white/50 hover:bg-white/90 rounded-full transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md text-sm font-semibold" data-lang="zh">
                         <span id="lang-label">EN</span>
                     </button>
                 </div>
@@ -258,10 +340,41 @@
                     <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gray-900" data-i18n-zh="品牌" data-i18n-en="Brand">品牌</h1>
                     <p class="text-lg text-text-secondary max-w-4xl leading-relaxed" data-i18n-zh="品牌体验用于统一跨设备、跨品类、跨触点的视觉表达和交互认知。品牌体验的核心目标不是堆叠视觉符号，而是在不同设备、场景和触点之间建立一致、清晰、可信赖的体验秩序。" data-i18n-en="Brand experience unifies visual expression and interaction perception across devices, categories, and touchpoints. Its core goal is not to stack visual symbols, but to establish a consistent, clear, and trustworthy experience order across different devices, scenarios, and touchpoints.">品牌体验用于统一跨设备、跨品类、跨触点的视觉表达和交互认知。品牌体验的核心目标不是堆叠视觉符号，而是在不同设备、场景和触点之间建立一致、清晰、可信赖的体验秩序。</p>
                 </section>
-
                 <hr class="border-t border-black/5 mb-12">
                 
                 <section id="principles-brand" class="mb-16 scroll-mt-10">
+
+                    <!-- ============ 品牌四理念：图片叠加 "Delight Leader" 文字 ============ -->
+                    <div class="delight-section mb-16">
+                        <!-- 左侧图片 + 叠加文字 -->
+                        <div class="delight-image-col">
+                            <div class="delight-image-frame">
+                                <img src="leader-assets/brand/delight leader.png" alt="Delight Leader">
+                                <div class="delight-image-overlay-text">Delight Leader</div>
+                            </div>
+                        </div>
+                        <!-- 右侧文字：四个理念 -->
+                        <div class="delight-text-col">
+                            <div class="delight-item">
+                                <div class="delight-item-title" data-i18n-zh="活力" data-i18n-en="Vitality">活力</div>
+                                <div class="delight-item-desc" data-i18n-zh="具备可感知的响应能力与交互节奏。操作即时反馈，状态清晰可见，体验不沉闷、不机械。" data-i18n-en="Perceivable responsiveness and interaction rhythm. Operations give immediate feedback, states are clearly visible—the experience is never dull or mechanical.">具备可感知的响应能力与交互节奏。操作即时反馈，状态清晰可见，体验不沉闷、不机械。</div>
+                            </div>
+                            <div class="delight-item">
+                                <div class="delight-item-title" data-i18n-zh="亲和" data-i18n-en="Approachability">亲和</div>
+                                <div class="delight-item-desc" data-i18n-zh="降低使用门槛，不依赖说明与教育。凭直觉即可操作，误触可低成本修正，亲近感自然产生。" data-i18n-en="Lower the barrier to use—no instructions or onboarding required. Operate by intuition, mis-taps are cheaply corrected, and closeness emerges naturally.">降低使用门槛，不依赖说明与教育。凭直觉即可操作，误触可低成本修正，亲近感自然产生。</div>
+                            </div>
+                            <div class="delight-item">
+                                <div class="delight-item-title" data-i18n-zh="简约" data-i18n-en="Simplicity">简约</div>
+                                <div class="delight-item-desc" data-i18n-zh="判断精准，表达克制。仅呈现当前所需，不堆砌，不冗余。敢于少，源于判断准。" data-i18n-en="Precise judgment, restrained expression. Present only what is needed now—no piling, no redundancy. The courage to show less comes from judging well.">判断精准，表达克制。仅呈现当前所需，不堆砌，不冗余。敢于少，源于判断准。</div>
+                            </div>
+                            <div class="delight-item">
+                                <div class="delight-item-title" data-i18n-zh="一致" data-i18n-en="Consistency">一致</div>
+                                <div class="delight-item-desc" data-i18n-zh="建立统一的认知语言。含义唯一且确定，一处学会，跨场景通用，无需重复学习。" data-i18n-en="Establish a unified cognitive language. Meanings are unique and definite—learn once, apply across scenarios, no relearning required.">建立统一的认知语言。含义唯一且确定，一处学会，跨场景通用，无需重复学习。</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 设计理念 -->
                     <div class="design-philosophy">
                         <div class="title" data-i18n-zh="设计理念" data-i18n-en="Design Philosophy">设计理念</div>
                         <div class="content" data-i18n-zh="不设限，不说教，不定义。设计既是工具，亦是探索路上的同行者——以轻松的交互，回应真实的生活课题。<br><span class='highlight'>灵动极简</span>，赋予操作以流畅；<span class='highlight'>亲和</span>，赋予交互以温度；<span class='highlight'>惊喜</span>，藏于每一次细微触碰之中；<span class='highlight'>活力</span>，来自直觉驱动的即刻响应。<br>Leader所追求的设计，不替人选择，不定义方向，而是在每一次生活实验中，提供恰如其分的支持与陪伴——守护探索者的勇气，也回应那颗赤诚的心。" data-i18n-en="No limits, no preaching, no defining. Design is both a tool and a companion on the journey of exploration—responding to real-life challenges through effortless interaction.<br><span class='highlight'>Agile Minimalism</span>, giving operations their flow; <span class='highlight'>Approachability</span>, giving interaction its warmth; <span class='highlight'>Surprise</span>, hidden within every subtle touch; <span class='highlight'>Vitality</span>, born from intuitive, instant response.<br>The design Leader pursues does not choose for people or define a direction—instead, it offers just the right support and companionship in every life experiment, safeguarding the explorer's courage while responding to a sincere heart.">
@@ -273,7 +386,6 @@
                             Leader所追求的设计，不替人选择，不定义方向，而是在每一次生活实验中，提供恰如其分的支持与陪伴——守护探索者的勇气，也回应那颗赤诚的心。
                         </div>
                     </div>
-
                     <div class="mb-12 mt-12">
                         <div class="flex items-end justify-between gap-6 mb-6">
                             <div>
@@ -281,21 +393,21 @@
                             </div>
                         </div>
                         <div class="space-y-6">
-                            <div class="brand-value-row bg-white/60 rounded-xl border border-gray-200/60 shadow-sm">
+                            <div class="brand-value-row bg-white/60 border border-gray-200/60 shadow-sm">
                                 <img class="brand-value-image" src="leader-assets/brand/energy.png" alt="橙色跳跃的圆环组成形象">
                                 <div class="brand-value-copy">
                                     <h5 class="text-lg font-bold text-gray-900 mb-2" data-i18n-zh="充满活力的直观性" data-i18n-en="Vibrant Intuitiveness">充满活力的直观性</h5>
                                     <p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="支持功能的图形设计必须符合年轻人智能现代化的需求，强调简约、直观且引人入胜的设计风格。" data-i18n-en="Functional graphic design must meet the intelligent, modern needs of young people, emphasizing a minimalist, intuitive, and engaging design style.">支持功能的图形设计必须符合年轻人智能现代化的需求，强调简约、直观且引人入胜的设计风格。</p>
                                 </div>
                             </div>
-                            <div class="brand-value-row bg-white/60 rounded-xl border border-gray-200/60 shadow-sm">
+                            <div class="brand-value-row bg-white/60 border border-gray-200/60 shadow-sm">
                                 <img class="brand-value-image" src="leader-assets/brand/surprise.png" alt="高透微光质感的跑道圆画面">
                                 <div class="brand-value-copy">
                                     <h5 class="text-lg font-bold text-gray-900 mb-2" data-i18n-zh="惊喜体验" data-i18n-en="Surprise Experience">惊喜体验</h5>
                                     <p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="设计中需有一个能够带来趣味创意的元素，如隐藏的彩色设计、彩色灯光，旨在创造独特的风格，作为个人表达的一部分或灵活适应任何空间的一种方式。" data-i18n-en="The design needs an element that brings playful creativity, such as hidden colorful designs or colored lights, aiming to create a distinctive style—whether as part of personal expression or as a way of adapting flexibly to any space.">设计中需有一个能够带来趣味创意的元素，如隐藏的彩色设计、彩色灯光，旨在创造独特的风格，作为个人表达的一部分或灵活适应任何空间的一种方式。</p>
                                 </div>
                             </div>
-                            <div class="brand-value-row bg-white/60 rounded-xl border border-gray-200/60 shadow-sm">
+                            <div class="brand-value-row bg-white/60 border border-gray-200/60 shadow-sm">
                                 <img class="brand-value-image" src="leader-assets/brand/lively.png" alt="发光球体">
                                 <div class="brand-value-copy">
                                     <h5 class="text-lg font-bold text-gray-900 mb-2" data-i18n-zh="灵动极简主义" data-i18n-en="Agile Minimalism">灵动极简主义</h5>
@@ -305,24 +417,20 @@
                         </div>
                     </div>
                 </section>
-
                 <footer class="pt-10 pb-16 text-center text-gray-400 text-sm border-t border-gray-200">
                     <p class="font-light" data-i18n-zh="&copy; 2026 Haier UX Design Lab. Internal Confidential." data-i18n-en="&copy; 2026 Haier UX Design Lab. Internal Confidential.">&copy; 2026 Haier UX Design Lab. Internal Confidential.</p>
                 </footer>
             </div>
         </main>
     </div>
-
     <script src="leader-nav.js"></script>
     <script>
         // 左侧导航由 leader-nav.js 统一渲染与管理。
-
         (function() {
             const langBtn = document.getElementById('lang-toggle');
             const langLabel = document.getElementById('lang-label');
             const allElements = document.querySelectorAll('[data-i18n-zh][data-i18n-en]');
             let currentLang = 'zh';
-
             function updateLanguage(lang) {
                 currentLang = lang;
                 allElements.forEach(el => {
@@ -332,6 +440,8 @@
                     }
                 });
                 langLabel.textContent = lang === 'zh' ? 'EN' : '中文';
+                localStorage.setItem('leader-guideline-language', lang);
+                document.dispatchEvent(new CustomEvent('leader-language-change', { detail: { lang: lang } }));
                 langBtn.setAttribute('data-lang', lang);
                 document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
                 const title = document.querySelector('title');
@@ -340,12 +450,10 @@
                     title.textContent = titleText;
                 }
             }
-
             langBtn.addEventListener('click', function() {
                 const nextLang = currentLang === 'zh' ? 'en' : 'zh';
                 updateLanguage(nextLang);
             });
-
             updateLanguage('zh');
         })();
     </script>
