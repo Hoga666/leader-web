@@ -15,83 +15,69 @@
         .aura-blob-2 { bottom:-20%; right:-10%; width:60vw; height:60vw; background:#e6e6e6; animation-delay:-5s; }
         .aura-blob-3 { top:40%; left:60%; width:40vw; height:40vw; background:#e6e6e6; animation-delay:-10s; }
         @keyframes float { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(10%,15%) scale(1.1)} }
-        .glass-panel { background:var(--glass-bg); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border:1px solid var(--glass-border); box-shadow:0 8px 32px rgba(0,0,0,.04); border-radius:24px; }
+        .glass-panel { background:var(--glass-bg); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border:1px solid var(--glass-border); box-shadow:0 8px 32px rgba(0,0,0,.04); border-radius:28px; }
+        /* 与色彩页白色卡片圆角同步 */
+        .rounded-cat { border-radius: 40px !important; }
         .sidebar-nav-item { transition:all .3s ease; border-left:3px solid transparent; }
         .sidebar-nav-item.active { color:var(--brand-primary); font-weight:600; border-left-color:var(--brand-primary); background:linear-gradient(90deg,var(--brand-light) 0%,transparent 100%); }
         .leader-logo-container { display:flex; align-items:center; justify-content:center; background-color:#EC6443; color:white; font-family:Arial,Helvetica,sans-serif; font-weight:bold; border-radius:8px; }
         .lang-btn { transition:all .2s ease; cursor:pointer; }
         .lang-btn:hover { background:rgba(0,0,0,.05); }
         .lang-btn.active { color:#EC6443; font-weight:600; }
-
         /* ===== 优化滚动条 ===== */
         * {
             scrollbar-width: thin;
             scrollbar-color: rgba(0, 0, 0, 0.10) transparent;
         }
-
         *::-webkit-scrollbar {
             width: 5px;
             height: 5px;
         }
-
         *::-webkit-scrollbar-track {
             background: transparent;
         }
-
         *::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.10);
             border-radius: 10px;
             transition: background 0.2s;
         }
-
         *::-webkit-scrollbar-thumb:hover {
             background: rgba(0, 0, 0, 0.20);
         }
-
         #main-content {
             scrollbar-width: thin;
             scrollbar-color: rgba(0, 0, 0, 0.10) transparent;
         }
-
         #main-content::-webkit-scrollbar {
             width: 5px;
         }
-
         #main-content::-webkit-scrollbar-track {
             background: transparent;
         }
-
         #main-content::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.10);
             border-radius: 10px;
         }
-
         #main-content::-webkit-scrollbar-thumb:hover {
             background: rgba(0, 0, 0, 0.20);
         }
-
         #sidebar {
             scrollbar-width: thin;
             scrollbar-color: rgba(0, 0, 0, 0.08) transparent;
         }
-
         #sidebar::-webkit-scrollbar {
             width: 4px;
         }
-
         #sidebar::-webkit-scrollbar-track {
             background: transparent;
         }
-
         #sidebar::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.08);
             border-radius: 10px;
         }
-
         #sidebar::-webkit-scrollbar-thumb:hover {
             background: rgba(0, 0, 0, 0.16);
         }
-
         /* ===== Glass Token - Figma 参数映射 ===== */
         .glass-figma-token {
             backdrop-filter: blur(4px);
@@ -101,7 +87,6 @@
             border-radius: 16px;
             box-shadow: 0 20px 40px -8px rgba(0,0,0,0.15), inset 0 0 30px rgba(255,255,255,0.08);
         }
-
         /* Toast 提示 */
         .copy-toast {
             position: fixed;
@@ -124,48 +109,49 @@
             transform: translateX(-50%) translateY(0);
             opacity: 1;
         }
-
         /* ===== Glass-Base 参数卡片 ===== */
         .figma-params-card {
             background: rgba(102, 102, 102, 0.10);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.35);
-            border-radius: 16px;
+            border-radius: 28px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
         }
-
         /* ===== Glass-Panel 参数卡片 - 背景改为 #ffffff 50% ===== */
         .figma-params-card-panel {
             background: rgba(255, 255, 255, 0.50);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.35);
-            border-radius: 16px;
+            border-radius: 28px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
         }
-
         /* ===== CSS Token 映射卡片 ===== */
         .token-mapping-card {
             background: rgba(255, 255, 255, 0.90);
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
             border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 16px;
+            border-radius: 28px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
         }
-
         /* ===== 小字颜色加深 ===== */
         .sub-text-dark {
             color: #4B5563;
+        }
+        /* ===== 新增：Glass-Base 区块上方图片 ===== */
+        .glass-base-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 28px;
         }
     </style>
 </head>
 <body class="antialiased">
     <div class="aura-background"><div class="aura-blob aura-blob-1"></div><div class="aura-blob aura-blob-2"></div><div class="aura-blob aura-blob-3"></div></div>
-
     <div id="copy-toast" class="copy-toast">已复制 Glass Token 到剪贴板</div>
-
     <header class="md:hidden glass-panel rounded-none fixed top-0 w-full z-50 p-4 flex justify-between items-center"><div class="flex items-center"><div class="leader-logo-container w-10 h-10 mr-3 text-[14px]">Leader</div><h1 class="font-bold text-lg">Leader Design</h1></div><button id="mobile-menu-btn" class="p-2 bg-black/5 rounded-lg"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button></header>
     <div class="flex h-screen pt-16 md:pt-0">
         <aside id="sidebar" class="hidden md:flex flex-col w-72 h-full fixed top-0 left-0 glass-panel rounded-none border-r border-white/50 z-40 overflow-y-auto" aria-label="Leader Design 设计规范导航" aria-hidden="true"></aside>
@@ -173,33 +159,32 @@
         <main class="flex-1 md:ml-72 p-6 md:p-10 lg:p-12 overflow-y-auto h-full scroll-smooth" id="main-content">
             <div class="max-w-[1200px] mx-auto pb-24">
                 <div class="hidden md:flex items-center justify-between mb-8">
-                    <a href="leader_os_design_system.html" class="px-4 py-2 bg-white/50 hover:bg-white/90 rounded-xl transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md">
-                        <span class="text-sm font-semibold" data-i18n-zh="返回主页" data-i18n-en="Home">返回主页</span>
+                    <a href="leader_os_design_system.html" class="px-4 py-2 bg-white/50 hover:bg-white/90 rounded-full transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md">
+                        <span class="text-sm font-semibold" data-i18n-zh="返回主页" data-i18n-en="Back to Home">返回主页</span>
                     </a>
-                    <button id="lang-toggle" class="lang-btn px-4 py-2 bg-white/50 hover:bg-white/90 rounded-xl transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md text-sm font-semibold" data-lang="zh">
+                    <button id="lang-toggle" class="lang-btn px-4 py-2 bg-white/50 hover:bg-white/90 rounded-full transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md text-sm font-semibold" data-lang="zh">
                         <span id="lang-label">EN</span>
                     </button>
                 </div>
                 <section class="mb-12">
                     <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gray-900" data-i18n-zh="材质" data-i18n-en="Materials">材质</h1>
-                    <p class="text-lg text-text-secondary max-w-3xl leading-relaxed" data-i18n-zh="材质光影 Token 作为系统视觉基调，确保跨设备渲染一致。" data-i18n-en="Material and lighting tokens serve as the system's visual tone, ensuring consistent rendering across devices.">材质光影 Token 作为系统视觉基调，确保跨设备渲染一致。</p>
+                    <p class="text-lg text-text-secondary max-w-3xl leading-relaxed" data-i18n-zh="材质光影 Token 作为系统视觉基调，确保跨设备渲染一致。" data-i18n-en="Material and lighting tokens serve as the visual foundation of the system, ensuring consistent rendering across devices.">材质光影 Token 作为系统视觉基调，确保跨设备渲染一致。</p>
                 </section>
                 <hr class="border-t border-black/5 mb-8">
-
                 <!-- ====== Glass Token 卡片 - 橙色渐变背景 ====== -->
-                <section class="glass-panel p-6 md:p-10 mb-10 relative overflow-hidden" style="background: linear-gradient(145deg, rgba(236,100,67,0.12), rgba(236,100,67,0.04));">
+                <section class="glass-panel p-6 md:p-10 rounded-cat mb-10 relative overflow-hidden" style="background: linear-gradient(145deg, rgba(236,100,67,0.12), rgba(236,100,67,0.04));">
                     <!-- 光晕装饰 -->
                     <div class="absolute -top-20 -right-20 w-80 h-80 bg-orange-400/20 rounded-full mix-blend-multiply filter blur-3xl"></div>
                     <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-pink-400/15 rounded-full mix-blend-multiply filter blur-3xl"></div>
-
                     <div class="relative z-10">
                         <div class="mb-6">
                             <h2 class="text-2xl font-bold text-gray-900 mb-2" data-i18n-zh="Glass Token" data-i18n-en="Glass Token">Glass Token</h2>
-                            <p class="text-sm text-gray-500" data-i18n-zh="基于 Figma Glass 参数映射的标准 Token，供开发直接使用，设计中Glass效果应用于导航、参数容器及部分辅助按钮样式中。" data-i18n-en="Standard Tokens mapped from Figma Glass parameters for direct development use. In design, the Glass effect is applied to navigation, parameter containers, and some auxiliary button styles.">基于 Figma Glass 参数映射的标准 Token，供开发直接使用，设计中Glass效果应用于导航、参数容器及部分辅助按钮样式中。</p>
+                            <p class="text-sm text-gray-500" data-i18n-zh="基于 Figma Glass 参数映射的标准 Token，供开发直接使用，设计中Glass效果应用于导航、参数容器及部分辅助按钮样式中。" data-i18n-en="Standard tokens mapped from Figma Glass parameters, ready for direct use by developers. In design, the Glass effect is applied to navigation, parameter containers, and some auxiliary button styles.">基于 Figma Glass 参数映射的标准 Token，供开发直接使用，设计中Glass效果应用于导航、参数容器及部分辅助按钮样式中。</p>
                         </div>
-
-                        <!-- ===== Glass-Base 参数 ===== -->
+                        <!-- ===== Glass-Base 区块（上方图片 + 标题 + 卡片内容） ===== -->
                         <div class="mb-8">
+                            <!-- 新增：Glass-Base 上方图片（mb-8 与 Glass-Panel 和上方卡片的间距一致） -->
+                            <img src="leader-assets/examples/material/glass.png" alt="Glass Base" class="glass-base-image mb-8" />
                             <h3 class="text-base font-semibold text-gray-900 mb-3">Glass-Base</h3>
                             <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-6">
                                 <!-- 左侧：Glass-Base 参数 -->
@@ -208,7 +193,7 @@
                                         <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
                                         Figma Glass 参数
                                     </h4>
-                                    <p class="text-xs sub-text-dark mb-4" data-i18n-zh="底层效果，低模糊度高透度，应用于子导航、参数容器和部分辅助按钮样式中。" data-i18n-en="Base effect with low blur and high transparency. Applied to sub-navigation, parameter containers, and some auxiliary button styles.">底层效果，低模糊度高透度，应用于子导航、参数容器和部分辅助按钮样式中。</p>
+                                    <p class="text-xs sub-text-dark mb-4" data-i18n-zh="底层效果，低模糊度高透度，应用于子导航、参数容器和部分辅助按钮样式中。" data-i18n-en="A base-layer effect with low blur and high transparency, applied to sub-navigation, parameter containers, and some auxiliary button styles.">底层效果，低模糊度高透度，应用于子导航、参数容器和部分辅助按钮样式中。</p>
                                     <div class="space-y-3 text-sm">
                                         <div class="flex items-center justify-between border-b border-white/30 pb-2">
                                             <span class="text-gray-600">Color</span>
@@ -240,13 +225,12 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- 右侧：Token 映射 - Glass-Base -->
+                                <!-- 右侧：参数映射 - Glass-Base -->
                                 <div class="token-mapping-card p-5 flex flex-col justify-between">
                                     <div>
                                         <h4 class="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2">
                                             <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-                                            CSS Token 映射
+                                            CSS 参数映射
                                         </h4>
                                         <div id="token-code-base" class="space-y-2 font-mono text-xs">
                                             <div class="flex items-start gap-3 py-1.5 border-b border-gray-200/60">
@@ -275,17 +259,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- 右下角：Glass Token 复制按钮 -->
+                                    <!-- 右下角：Glass CSS 复制按钮 -->
                                     <div class="flex justify-end mt-4 pt-4 border-t border-gray-200/60">
-                                        <button id="copy-glass-token-base-btn" class="shrink-0 px-4 py-2.5 bg-[#EC6443] hover:bg-orange-600 text-white text-sm font-medium rounded-xl transition-all shadow-md shadow-orange-500/30 flex items-center gap-1.5">
+                                        <button id="copy-glass-token-base-btn" class="shrink-0 px-4 py-2.5 bg-[#EC6443] hover:bg-orange-600 text-white text-sm font-medium rounded-full transition-all shadow-md shadow-orange-500/30 flex items-center gap-1.5">
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                                            Glass Token
+                                            Glass CSS
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                         <!-- ===== Glass-Panel 参数 ===== -->
                         <div>
                             <h3 class="text-base font-semibold text-gray-900 mb-3">Glass-Panel</h3>
@@ -296,7 +279,7 @@
                                         <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
                                         Figma Glass 参数
                                     </h4>
-                                    <p class="text-xs sub-text-dark mb-4" data-i18n-zh="玻璃面板悬浮效果，应用于主导航选中样式。" data-i18n-en="Glass panel floating effect. Applied to the primary navigation selected state.">玻璃面板悬浮效果，应用于主导航选中样式。</p>
+                                    <p class="text-xs sub-text-dark mb-4" data-i18n-zh="玻璃面板悬浮效果，应用于主导航选中样式。" data-i18n-en="A glass panel floating effect, applied to the primary navigation selected state.">玻璃面板悬浮效果，应用于主导航选中样式。</p>
                                     <div class="space-y-3 text-sm">
                                         <div class="flex items-center justify-between border-b border-white/30 pb-2">
                                             <span class="text-gray-600">Color</span>
@@ -328,13 +311,12 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- 右侧：Token 映射 - Glass-Panel -->
+                                <!-- 右侧：参数映射 - Glass-Panel -->
                                 <div class="token-mapping-card p-5 flex flex-col justify-between">
                                     <div>
                                         <h4 class="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2">
                                             <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-                                            CSS Token 映射
+                                            CSS 参数映射
                                         </h4>
                                         <div id="token-code-panel" class="space-y-2 font-mono text-xs">
                                             <div class="flex items-start gap-3 py-1.5 border-b border-gray-200/60">
@@ -363,11 +345,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- 右下角：Glass Token 复制按钮 -->
+                                    <!-- 右下角：Glass CSS 复制按钮 -->
                                     <div class="flex justify-end mt-4 pt-4 border-t border-gray-200/60">
-                                        <button id="copy-glass-token-panel-btn" class="shrink-0 px-4 py-2.5 bg-[#EC6443] hover:bg-orange-600 text-white text-sm font-medium rounded-xl transition-all shadow-md shadow-orange-500/30 flex items-center gap-1.5">
+                                        <button id="copy-glass-token-panel-btn" class="shrink-0 px-4 py-2.5 bg-[#EC6443] hover:bg-orange-600 text-white text-sm font-medium rounded-full transition-all shadow-md shadow-orange-500/30 flex items-center gap-1.5">
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                                            Glass Token
+                                            Glass CSS
                                         </button>
                                     </div>
                                 </div>
@@ -375,7 +357,6 @@
                         </div>
                     </div>
                 </section>
-
                 <footer class="pt-10 pb-16 text-center text-gray-400 text-sm border-t border-gray-200">
                     <p class="font-light" data-i18n-zh="&copy; 2026 Haier UX Design Lab. Internal Confidential." data-i18n-en="&copy; 2026 Haier UX Design Lab. Internal Confidential.">&copy; 2026 Haier UX Design Lab. Internal Confidential.</p>
                 </footer>
@@ -390,7 +371,6 @@
             const langLabel = document.getElementById('lang-label');
             const allElements = document.querySelectorAll('[data-i18n-zh][data-i18n-en]');
             let currentLang = 'zh';
-
             function updateLanguage(lang) {
                 currentLang = lang;
                 allElements.forEach(el => {
@@ -404,6 +384,8 @@
                     }
                 });
                 langLabel.textContent = lang === 'zh' ? 'EN' : '中文';
+                localStorage.setItem('leader-guideline-language', lang);
+                document.dispatchEvent(new CustomEvent('leader-language-change', { detail: { lang: lang } }));
                 langBtn.setAttribute('data-lang', lang);
                 document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
                 const title = document.querySelector('title');
@@ -412,15 +394,12 @@
                     title.textContent = titleText;
                 }
             }
-
             langBtn.addEventListener('click', function() {
                 const nextLang = currentLang === 'zh' ? 'en' : 'zh';
                 updateLanguage(nextLang);
             });
-
             updateLanguage('zh');
         })();
-
         // ===== Toast 提示 =====
         function showToast(message) {
             const toast = document.getElementById('copy-toast');
@@ -431,7 +410,6 @@
                 toast.classList.remove('show');
             }, 2200);
         }
-
         // ===== 按钮状态更新 =====
         function updateButtonState(button, success) {
             if (!button) return;
@@ -443,7 +421,6 @@
                 }, 2000);
             }
         }
-
         // ===== Fallback 复制方案（兼容非 HTTPS） =====
         function fallbackCopy(text, button) {
             const textarea = document.createElement('textarea');
@@ -469,30 +446,23 @@
             }
             document.body.removeChild(textarea);
         }
-
         // ===== 复制 Glass Token - Glass-Base =====
         function copyGlassTokenBase(button) {
             const tokenCode = `/* ===== Glass Token (Base) ===== */
 /* 基于 Figma 参数: background #666666 20%, Light -45° 80%, Refraction 80, Depth 20, Dispersion 50, Frost 4, Splay 0 */
-
 .glass-base-token {
     /* Frost 4 → 模糊程度 */
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-
     /* Light -45° 80% + 容器背景 #666666 20% */
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 40%), rgba(102, 102, 102, 0.2);
-
     /* Refraction 80 → 透光感边框 */
     border: 1px solid rgba(255, 255, 255, 0.25);
-
     /* Splay 0 → 边缘锐利 */
     border-radius: 16px;
-
     /* Depth 20 → 立体阴影深度 + Dispersion 50 → 边缘柔光 */
     box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.15), inset 0 0 30px rgba(255, 255, 255, 0.08);
 }
-
 /* ===== Figma 参数 → CSS 映射对照表 ===== */
 /*
 | Figma 参数  | 值             | CSS 属性        | CSS 值                                              |
@@ -505,14 +475,12 @@
 | Frost      | 4             | backdrop-filter | blur(4px)                                           |
 | Splay      | 0             | border-radius   | 16px                                                |
 */
-
 /* ===== 降级方案（如需兼容不支持 backdrop-filter 的浏览器） ===== */
 @supports not (backdrop-filter: blur(4px)) {
     .glass-base-token {
         background: rgba(102, 102, 102, 0.4);
     }
 }`;
-
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(tokenCode).then(() => {
                     showToast('已复制 Glass Token 到剪贴板');
@@ -524,30 +492,23 @@
                 fallbackCopy(tokenCode, button);
             }
         }
-
         // ===== 复制 Glass Token - Glass-Panel =====
         function copyGlassTokenPanel(button) {
             const tokenCode = `/* ===== Glass Token (Panel) ===== */
 /* 基于 Figma 参数: background #ffffff 40%, Light -45° 80%, Refraction 70, Depth 22, Dispersion 100, Frost 0, Splay 0 */
-
 .glass-panel-token {
     /* Frost 0 → 无模糊 */
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
-
     /* Light -45° 80% + 容器背景 #ffffff 40% */
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 40%), rgba(255, 255, 255, 0.4);
-
     /* Refraction 70 → 透光感边框 */
     border: 1px solid rgba(255, 255, 255, 0.30);
-
     /* Splay 0 → 边缘锐利 */
     border-radius: 16px;
-
     /* Depth 22 → 立体阴影深度 + Dispersion 100 → 边缘柔光 */
     box-shadow: 0 22px 44px -8px rgba(0, 0, 0, 0.15), inset 0 0 40px rgba(255, 255, 255, 0.10);
 }
-
 /* ===== Figma 参数 → CSS 映射对照表 ===== */
 /*
 | Figma 参数  | 值             | CSS 属性        | CSS 值                                              |
@@ -560,14 +521,12 @@
 | Frost      | 0             | backdrop-filter | blur(0px)                                           |
 | Splay      | 0             | border-radius   | 16px                                                |
 */
-
 /* ===== 降级方案（如需兼容不支持 backdrop-filter 的浏览器） ===== */
 @supports not (backdrop-filter: blur(0px)) {
     .glass-panel-token {
         background: rgba(255, 255, 255, 0.6);
     }
 }`;
-
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(tokenCode).then(() => {
                     showToast('已复制 Glass Token 到剪贴板');
@@ -579,7 +538,6 @@
                 fallbackCopy(tokenCode, button);
             }
         }
-
         // ===== 绑定按钮事件 =====
         document.getElementById('copy-glass-token-base-btn').addEventListener('click', function() {
             copyGlassTokenBase(this);
