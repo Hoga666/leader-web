@@ -294,55 +294,18 @@
             .color-grid-2col { grid-template-columns: 1fr; }
         }
         /* ============================================================
-           颜色规范布局
+           颜色规范布局（LED背景用逐行网格对齐）
            ============================================================ */
-        .color-layout-row {
-            display: flex;
-            flex-direction: column;
+        .color-spec-grid {
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 24px;
+            align-items: stretch;
         }
         @media (min-width: 1024px) {
-            .color-layout-row {
-                flex-direction: row;
-                align-items: stretch;
+            .color-spec-grid {
+                grid-template-columns: 520px 1fr;
             }
-            .color-left-col {
-                width: 520px;
-                flex-shrink: 0;
-                display: flex;
-                flex-direction: column;
-                gap: 24px;
-            }
-            .color-right-col {
-                flex: 1;
-                min-width: 0;
-                position: relative;
-            }
-        }
-        @media (max-width: 1023px) {
-            .color-right-col {
-                display: none;
-            }
-        }
-        .color-right-col .image-frame {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 28px;
-            border: 16px solid #eeeeee;
-            overflow: hidden;
-            box-sizing: border-box;
-            background-color: #ffffff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-        }
-        .color-right-col .image-frame img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 12px;
         }
         /* ============================================================
            基础形态类型卡片内的图片样式
@@ -399,13 +362,13 @@
             border: 4px solid #F52828;
             overflow: hidden;
             box-sizing: border-box;
-            background-color: #ffffff;
+            background-color: #F52828;
         }
         .granularity-image-frame img {
             display: block;
             width: 100%;
             height: auto;
-            border-radius: 24px;
+            border-radius: 0;
         }
         .granularity-badge {
             position: absolute;
@@ -471,7 +434,7 @@
             border: 4px solid #F52828;
             overflow: hidden;
             box-sizing: border-box;
-            background-color: #ffffff;
+            background-color: #F52828;
         }
         .readability-image-frame img {
             display: block;
@@ -479,7 +442,7 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
-            border-radius: 24px;
+            border-radius: 0;
         }
         .readability-badge {
             position: absolute;
@@ -566,12 +529,12 @@
         .prohibited-image-frame {
             position: relative;
             width: 100%;
-            aspect-ratio: 4 / 3;
+            height: 100%;
             border-radius: 28px;
             border: 4px solid #F52828;
             overflow: hidden;
             box-sizing: border-box;
-            background-color: #ffffff;
+            background-color: #F52828;
         }
         .prohibited-image-frame img {
             display: block;
@@ -579,7 +542,7 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
-            border-radius: 24px;
+            border-radius: 0;
         }
         .prohibited-badge {
             position: absolute;
@@ -618,6 +581,25 @@
             margin: 0;              /* 消除 p 默认 margin，避免影响 flex 居中 */
             line-height: 1.65;
         }
+        /* ===== 屏幕背景视频/图片样式（药丸型圆角、无黑边、无控制条） ===== */
+        .screen-bg-video {
+            display: block;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 9999px;
+            overflow: hidden;
+            border: none;
+            box-shadow: none;
+            background-color: transparent;
+        }
+        /* 视频素材标题（参考“识别性优先”样式） */
+        .screen-bg-label {
+            font-weight: 700;
+            color: #1f2937;
+            text-align: left;
+            margin-bottom: 32px;   /* 与素材、小字间距统一为 32px */
+            font-size: 0.95rem;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -644,7 +626,7 @@
             <div class="max-w-[1200px] mx-auto pb-24">
                 <div class="hidden md:flex items-center justify-between mb-8">
                     <a href="leader_os_design_system.html" class="px-4 py-2 bg-white/50 hover:bg-white/90 rounded-full transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md">
-                        <span class="text-sm font-semibold" data-i18n-zh="返回主页" data-i18n-en="Home">返回主页</span>
+                        <span class="text-sm font-semibold" data-i18n-zh="返回主页" data-i18n-en="Back to Home">返回主页</span>
                     </a>
                     <button id="lang-toggle" class="lang-btn px-4 py-2 bg-white/50 hover:bg-white/90 rounded-full transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md text-sm font-semibold" data-lang="zh">
                         <span id="lang-label">EN</span>
@@ -652,7 +634,7 @@
                 </div>
                 <section class="mb-12">
                     <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gray-900" data-i18n-zh="背景" data-i18n-en="Background">背景</h1>
-                    <p class="text-lg text-text-secondary max-w-3xl leading-relaxed" data-i18n-zh="本规范适用于 LED 载体下 UI 背景的设计与落地。涵盖背景的颜色、形态、变形规则。" data-i18n-en="This specification applies to the design and implementation of UI backgrounds on LED carriers, covering background color, form, and deformation rules.">本规范适用于 LED 载体下 UI 背景的设计与落地。涵盖背景的颜色、形态、变形规则。</p>
+                    <p class="text-lg text-text-secondary max-w-3xl leading-relaxed" data-i18n-zh="本规范适用于 TFT 及 LED 载体下 UI 背景的设计与落地。涵盖背景的颜色、形态、设计规则。" data-i18n-en="This specification applies to the design and implementation of UI backgrounds on TFT and LED carriers, covering background color, form, and design rules.">本规范适用于 TFT 及 LED 载体下 UI 背景的设计与落地。涵盖背景的颜色、形态、设计规则。</p>
                 </section>
                 <hr class="border-t border-black/5 mb-12">
                 <!-- 板块1：设计原则 -->
@@ -678,7 +660,7 @@
                             <div class="principle-card">
                                 <div class="principle-number">04</div>
                                 <h3 class="font-bold text-gray-900 mb-2" data-i18n-zh="预留安全区" data-i18n-en="Reserve Safe Area">预留安全区</h3>
-                                <p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="边缘区域可能因拼接或边框被遮挡。" data-i18n-en="Edge areas may be obscured by splicing or bezels.">边缘区域可能因拼接或边框被遮挡。</p>
+                                <p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="边缘区域可能因拼接或边框被遮挡，此原则适用于LED载体下的设计环境。" data-i18n-en="Edge areas may be obscured by splicing or bezels; this principle applies to the design environment on LED carriers.">边缘区域可能因拼接或边框被遮挡，此原则适用于LED载体下的设计环境。</p>
                             </div>
                             <div class="principle-card">
                                 <div class="principle-number">05</div>
@@ -691,7 +673,121 @@
                 <!-- 板块2：2. TFT背景 -->
                 <section class="mb-16">
                     <h2 class="text-2xl font-bold mb-6 text-gray-900" data-i18n-zh="2. TFT背景" data-i18n-en="2. TFT Background">2. TFT背景</h2>
-                    <div class="glass-panel p-6 sm:p-10"></div>
+                    <div class="glass-panel p-6 sm:p-10">
+
+                        <!-- 颜色规范 标题（移出卡片） -->
+                        <h2 class="text-2xl font-normal mb-6 text-gray-900" data-i18n-zh="颜色规范" data-i18n-en="Color Specification">颜色规范</h2>
+                        <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60">
+                            <p class="text-sm text-gray-600 leading-relaxed flex items-center flex-wrap">
+                                <span data-i18n-zh="具体色值及使用场景参考基础-色彩部分的背景色内容。" data-i18n-en="For specific color values and usage scenarios, refer to the background color content in the Basics - Color section.">具体色值及使用场景参考基础-色彩部分的背景色内容。</span>
+                                <a href="color_details.html" class="text-[#EC6443] hover:underline font-medium ml-1 inline-flex items-center gap-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                                    </svg>
+                                    <span data-i18n-zh="基础-色彩" data-i18n-en="Basics - Color">基础-色彩</span>
+                                </a>
+                            </p>
+                        </div>
+
+                        <!-- 屏幕背景 标题（移出卡片） -->
+                        <h2 class="text-2xl font-normal mt-16 mb-6 text-gray-900" data-i18n-zh="屏幕背景" data-i18n-en="Screen Background">屏幕背景</h2>
+                        <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60">
+                            <!-- 第一行：高端 -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                                <div>
+                                    <p class="screen-bg-label" data-i18n-zh="AI模式背景-高端" data-i18n-en="AI Mode Background - High-end">AI模式背景-高端</p>
+                                    <video src="leader-assets/examples/background/浅色AI等待_结果.mp4" class="screen-bg-video" autoplay loop muted playsinline></video>
+                                    <p class="text-sm text-gray-600 leading-relaxed mt-8" data-i18n-zh="必须使用动态背景。基于 AI 算法实时渲染光影流转变化，来表现品牌性格与氛围。" data-i18n-en="A dynamic background is required. AI algorithms render flowing light and shadow in real time to express brand personality and atmosphere.">必须使用动态背景。基于 AI 算法实时渲染光影流转变化，来表现品牌性格与氛围。</p>
+                                </div>
+                                <div>
+                                    <p class="screen-bg-label" data-i18n-zh="常规模式背景-高端" data-i18n-en="Standard Mode Background - High-end">常规模式背景-高端</p>
+                                    <video src="leader-assets/examples/background/浅色常规首页.mp4" class="screen-bg-video" autoplay loop muted playsinline></video>
+                                    <p class="text-sm text-gray-600 leading-relaxed mt-8" data-i18n-zh="必须使用动态背景。基于移动端的视觉特征，打造活力轻量的简约背景。" data-i18n-en="A dynamic background is required. Based on the visual characteristics of mobile devices, create a vibrant, lightweight, and minimal background.">必须使用动态背景。基于移动端的视觉特征，打造活力轻量的简约背景。</p>
+                                </div>
+                            </div>
+                            <!-- 第二行：中端 -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-12">
+                                <div>
+                                    <p class="screen-bg-label" data-i18n-zh="AI模式背景-中端" data-i18n-en="AI Mode Background - Mid-range">AI模式背景-中端</p>
+                                    <video src="leader-assets/examples/background/浅色AI等待_结果.mp4" class="screen-bg-video" autoplay loop muted playsinline></video>
+                                    <p class="text-sm text-gray-600 leading-relaxed mt-8" data-i18n-zh="必须使用动态背景。基于 AI 算法实时渲染光影流转变化，来表现品牌性格与氛围。" data-i18n-en="A dynamic background is required. AI algorithms render flowing light and shadow in real time to express brand personality and atmosphere.">必须使用动态背景。基于 AI 算法实时渲染光影流转变化，来表现品牌性格与氛围。</p>
+                                </div>
+                                <div>
+                                    <p class="screen-bg-label" data-i18n-zh="常规模式背景-中端" data-i18n-en="Standard Mode Background - Mid-range">常规模式背景-中端</p>
+                                    <img src="leader-assets/examples/background/中端常规首页.png" alt="常规模式背景-中端" class="screen-bg-video">
+                                    <p class="text-sm text-gray-600 leading-relaxed mt-8" data-i18n-zh="必须使用静态背景。纯色背景配合灵动容器排布组成核心视觉背景" data-i18n-en="A static background is required. Solid-color backgrounds combined with dynamic container layouts form the core visual background.">必须使用静态背景。纯色背景配合灵动容器排布组成核心视觉背景</p>
+                                </div>
+                            </div>
+                            <!-- 第三行：低端 -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-12">
+                                <div>
+                                    <p class="screen-bg-label" data-i18n-zh="AI模式背景-低端" data-i18n-en="AI Mode Background - Low-end">AI模式背景-低端</p>
+                                    <img src="leader-assets/examples/background/低端AI等待.png" alt="AI模式背景-低端" class="screen-bg-video">
+                                    <p class="text-sm text-gray-600 leading-relaxed mt-8" data-i18n-zh="必须使用静态背景。提取 AI 模式的核心风格制成静态图，降低芯片算力与硬件成本。" data-i18n-en="A static background is required. Extract the core style of AI Mode into static images to reduce chip computing power and hardware costs.">必须使用静态背景。提取 AI 模式的核心风格制成静态图，降低芯片算力与硬件成本。</p>
+                                </div>
+                                <div>
+                                    <p class="screen-bg-label" data-i18n-zh="常规模式背景-低端" data-i18n-en="Standard Mode Background - Low-end">常规模式背景-低端</p>
+                                    <img src="leader-assets/examples/background/低端常规首页.png" alt="常规模式背景-低端" class="screen-bg-video">
+                                    <p class="text-sm text-gray-600 leading-relaxed mt-8" data-i18n-zh="必须使用静态背景。纯色背景配合平稳容器排布组成核心视觉背景。" data-i18n-en="A static background is required. Solid-color backgrounds combined with stable container layouts form the core visual background.">必须使用静态背景。纯色背景配合平稳容器排布组成核心视觉背景。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TFT 背景设计注意项 标题（移出卡片） -->
+                        <h2 class="text-2xl font-normal mt-16 mb-6 text-gray-900" data-i18n-zh="TFT 背景设计注意项" data-i18n-en="TFT Background Design Considerations">TFT 背景设计注意项</h2>
+                        <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60">
+                            <div class="space-y-6 text-sm text-gray-600 leading-relaxed">
+                                <div>
+                                    <h4 class="text-base font-semibold text-gray-900 mb-4" data-i18n-zh="TFT背景不承载信息" data-i18n-en="TFT Background Does Not Carry Information">TFT背景不承载信息</h4>
+                                    <p data-i18n-zh="背景的首要职责是衬托内容，不参与信息表达。避免在背景中使用高饱和色块、渐变焦点、装饰性纹理或动态元素，防止与前景内容争夺注意力。" data-i18n-en="The primary role of the background is to support the content, not to participate in information expression. Avoid using highly saturated color blocks, gradient focal points, decorative textures, or dynamic elements in the background to prevent competing with foreground content for attention.">背景的首要职责是衬托内容，不参与信息表达。避免在背景中使用高饱和色块、渐变焦点、装饰性纹理或动态元素，防止与前景内容争夺注意力。</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-base font-semibold text-gray-900 mb-4" data-i18n-zh="视觉层次清晰" data-i18n-en="Clear Visual Hierarchy">视觉层次清晰</h4>
+                                    <p data-i18n-zh="背景与卡片、弹窗、浮层之间需具备明确的层级区分。通过明度差或轻微色差建立层次，不依赖阴影或描边堆叠，保持界面干净。" data-i18n-en="Clear hierarchical distinction is required between the background and cards, pop-ups, and floating layers. Establish hierarchy through brightness differences or slight color differences, without relying on stacked shadows or strokes, keeping the interface clean.">背景与卡片、弹窗、浮层之间需具备明确的层级区分。通过明度差或轻微色差建立层次，不依赖阴影或描边堆叠，保持界面干净。</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-base font-semibold text-gray-900 mb-4" data-i18n-zh="对比度控制" data-i18n-en="Contrast Control">对比度控制</h4>
+                                    <p data-i18n-zh="背景与前景内容的对比度需满足可读性底线。深色背景避免使用纯白前景，防止光晕与边缘模糊；浅色背景需提高文字对比度，确保强光下仍可辨识。" data-i18n-en="The contrast between background and foreground content must meet the readability baseline. Avoid pure white foreground on dark backgrounds to prevent halos and blurred edges; light backgrounds require higher text contrast to remain legible under strong light.">背景与前景内容的对比度需满足可读性底线。深色背景避免使用纯白前景，防止光晕与边缘模糊；浅色背景需提高文字对比度，确保强光下仍可辨识。</p>
+                                </div>
+                            </div>
+                            <!-- 4 张错误示例图片 -->
+                            <div class="readability-image-row">
+                                <div class="readability-image-frame">
+                                    <img src="leader-assets/examples/background/TFT错误示例1.png" alt="TFT错误示例1">
+                                    <div class="readability-badge" aria-label="错误示例">
+                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 6L18 18M18 6L6 18" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="readability-image-frame">
+                                    <img src="leader-assets/examples/background/TFT错误示例2.png" alt="TFT错误示例2">
+                                    <div class="readability-badge" aria-label="错误示例">
+                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 6L18 18M18 6L6 18" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="readability-image-frame">
+                                    <img src="leader-assets/examples/background/TFT错误示例3.png" alt="TFT错误示例3">
+                                    <div class="readability-badge" aria-label="错误示例">
+                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 6L18 18M18 6L6 18" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="readability-image-frame">
+                                    <img src="leader-assets/examples/background/TFT错误示例4.png" alt="TFT错误示例4">
+                                    <div class="readability-badge" aria-label="错误示例">
+                                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 6L18 18M18 6L6 18" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </section>
                 <!-- 板块3：3.LED背景 + 颜色规范 + 形态规范 + 变形规则（合并） -->
                 <section class="mb-16">
@@ -699,69 +795,94 @@
                     <div class="glass-panel p-6 sm:p-10">
                         <!-- 标题：颜色规范（常规粗细） -->
                         <h2 class="text-2xl font-normal mb-6 text-gray-900" data-i18n-zh="颜色规范" data-i18n-en="Color Specification">颜色规范</h2>
-                        <div class="color-layout-row">
-                            <div class="color-left-col">
-                                <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60 max-w-[520px]">
-                                    <div class="flex items-center gap-2 mb-3">
-                                        <div class="w-7 h-7 rounded-full bg-[#EC6443] text-white grid place-items-center text-xs font-bold leading-none">A</div>
-                                        <h3 class="text-base font-semibold text-gray-900" data-i18n-zh="基础色板" data-i18n-en="Basic Palette">基础色板</h3>
-                                    </div>
-                                    <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
-                                        <div class="palette-item">
-                                            <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="6" fill="#EC6443"/></svg>
-                                            <p data-i18n-zh="品牌色：用于品牌露出、氛围装饰，需严格控制面积。" data-i18n-en="Brand color: used for brand exposure and ambient decoration, area must be strictly controlled.">品牌色：用于品牌露出、氛围装饰，需严格控制面积。</p>
-                                        </div>
-                                        <div class="palette-item">
-                                            <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="6" fill="#999999"/></svg>
-                                            <p data-i18n-zh="中性色：黑、白、灰阶，作为背景色和低端色主力。" data-i18n-en="Neutral colors: black, white, and grayscale, serving as the mainstay for background and low-end colors.">中性色：黑、白、灰阶，作为背景色和低端色主力。</p>
-                                        </div>
-                                        <div class="palette-item">
-                                            <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="6" fill="#47B2A7"/></svg>
-                                            <p data-i18n-zh="功能色：橙、绿、蓝、紫，用于参数色表达，不作为大面积背景。" data-i18n-en="Functional colors: orange, green, blue, purple, used for parameter color expression, not as large-area backgrounds.">功能色：橙、绿、蓝、紫，用于参数色表达，不作为大面积背景。</p>
-                                        </div>
-                                    </div>
+
+                        <!-- 颜色规范：左右逐行对齐网格 -->
+                        <div class="color-spec-grid">
+                            <!-- 第 1 行：A 卡片 + 图1 -->
+                            <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <div class="w-7 h-7 rounded-full bg-[#EC6443] text-white grid place-items-center text-xs font-bold leading-none">A</div>
+                                    <h3 class="text-base font-semibold text-gray-900" data-i18n-zh="基础色板" data-i18n-en="Basic Palette">基础色板</h3>
                                 </div>
-                                <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60 max-w-[520px]">
-                                    <div class="flex items-center gap-2 mb-3">
-                                        <div class="w-7 h-7 rounded-full bg-[#EC6443] text-white grid place-items-center text-xs font-bold leading-none">B</div>
-                                        <h3 class="text-base font-semibold text-gray-900" data-i18n-zh="色数限制" data-i18n-en="Color Count Limit">色数限制</h3>
+                                <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
+                                    <div class="palette-item">
+                                        <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="6" fill="#EC6443"/></svg>
+                                        <p data-i18n-zh="品牌色：用于品牌露出、氛围装饰，需严格控制面积。" data-i18n-en="Brand color: used for brand exposure and ambient decoration; the area must be strictly controlled.">品牌色：用于品牌露出、氛围装饰，需严格控制面积。</p>
                                     </div>
-                                    <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
-                                        <p data-i18n-zh="单屏背景颜色数量不超过 4 种主色。" data-i18n-en="No more than 4 primary colors per screen background.">单屏背景颜色数量不超过 4 种主色。</p>
-                                        <p data-i18n-zh="渐变背景的色标不超过 4 个。" data-i18n-en="Gradient backgrounds should not exceed 4 color stops.">渐变背景的色标不超过 4 个。</p>
+                                    <div class="palette-item">
+                                        <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="6" fill="#999999"/></svg>
+                                        <p data-i18n-zh="中性色：黑、白、灰阶，作为背景色和低端色主力。" data-i18n-en="Neutral colors: black, white, and grayscale, serving as the mainstay for background and low-end colors.">中性色：黑、白、灰阶，作为背景色和低端色主力。</p>
                                     </div>
-                                </div>
-                                <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60 max-w-[520px]">
-                                    <div class="flex items-center gap-2 mb-3">
-                                        <div class="w-7 h-7 rounded-full bg-[#EC6443] text-white grid place-items-center text-xs font-bold leading-none">C</div>
-                                        <h3 class="text-base font-semibold text-gray-900" data-i18n-zh="禁用色与慎用色" data-i18n-en="Prohibited and Cautionary Colors">禁用色与慎用色</h3>
-                                    </div>
-                                    <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
-                                        <div class="palette-item">
-                                            <svg class="w-5 h-5 text-red-500" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M7 7l6 6M13 7l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                                            <p data-i18n-zh="纯红大面积背景（易与警示混淆）。" data-i18n-en="Pure red large-area background (easily confused with warnings).">纯红大面积背景（易与警示混淆）。</p>
-                                        </div>
-                                        <div class="palette-item">
-                                            <svg class="w-5 h-5 text-red-500" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M7 7l6 6M13 7l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                                            <p data-i18n-zh="纯蓝大面积背景（LED 蓝光衰减快，易偏色）。" data-i18n-en="Pure blue large-area background (LED blue light decays quickly and easily shifts color).">纯蓝大面积背景（LED 蓝光衰减快，易偏色）。</p>
-                                        </div>
-                                        <div class="palette-item">
-                                            <svg class="w-5 h-5 text-yellow-500" viewBox="0 0 20 20" fill="none"><path d="M10 3L2 17h16L10 3z" stroke="currentColor" stroke-width="1.5"/><path d="M10 9v4M10 15h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                                            <p data-i18n-zh="高饱和绿色（部分 LED 屏绿色偏黄）。" data-i18n-en="Highly saturated green (some LED screens render green with a yellow tint).">高饱和绿色（部分 LED 屏绿色偏黄）。</p>
-                                        </div>
-                                        <div class="palette-item">
-                                            <svg class="w-5 h-5 text-yellow-500" viewBox="0 0 20 20" fill="none"><path d="M10 3L2 17h16L10 3z" stroke="currentColor" stroke-width="1.5"/><path d="M10 9v4M10 15h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                                            <p data-i18n-zh="低对比灰色组合（远距离下无法分辨）。" data-i18n-en="Low-contrast gray combinations (indistinguishable at long distances).">低对比灰色组合（远距离下无法分辨）。</p>
-                                        </div>
+                                    <div class="palette-item">
+                                        <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="6" fill="#47B2A7"/></svg>
+                                        <p data-i18n-zh="功能色：橙、绿、蓝、紫，用于参数色表达，不作为大面积背景。" data-i18n-en="Functional colors: orange, green, blue, and purple, used for parameter color expression, not as large-area backgrounds.">功能色：橙、绿、蓝、紫，用于参数色表达，不作为大面积背景。</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="color-right-col">
-                                <div class="image-frame">
-                                    <img src="leader-assets/examples/background/bg-Indication.png" alt="背景示意">
+                            <div class="prohibited-image-frame">
+                                <img src="leader-assets/examples/background/bg-wrong1.png" alt="颜色规范错误示例1">
+                                <div class="prohibited-badge" aria-label="错误示例">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 6L18 18M18 6L6 18" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- 第 2 行：B 卡片 + 图2 -->
+                            <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <div class="w-7 h-7 rounded-full bg-[#EC6443] text-white grid place-items-center text-xs font-bold leading-none">B</div>
+                                    <h3 class="text-base font-semibold text-gray-900" data-i18n-zh="色数限制" data-i18n-en="Color Count Limit">色数限制</h3>
+                                </div>
+                                <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
+                                    <p data-i18n-zh="单屏背景颜色数量不超过 4 种主色。" data-i18n-en="No more than 4 primary colors per screen background.">单屏背景颜色数量不超过 4 种主色。</p>
+                                    <p data-i18n-zh="渐变背景的色标不超过 4 个。" data-i18n-en="Gradient backgrounds should not exceed 4 color stops.">渐变背景的色标不超过 4 个。</p>
+                                </div>
+                            </div>
+                            <div class="prohibited-image-frame">
+                                <img src="leader-assets/examples/background/bg-wrong2.png" alt="颜色规范错误示例2">
+                                <div class="prohibited-badge" aria-label="错误示例">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 6L18 18M18 6L6 18" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- 第 3 行：C 卡片 + 图3 -->
+                            <div class="bg-white/60 p-8 md:p-10 rounded-[28px] border border-gray-200/60">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <div class="w-7 h-7 rounded-full bg-[#EC6443] text-white grid place-items-center text-xs font-bold leading-none">C</div>
+                                    <h3 class="text-base font-semibold text-gray-900" data-i18n-zh="禁用色与慎用色" data-i18n-en="Prohibited and Cautionary Colors">禁用色与慎用色</h3>
+                                </div>
+                                <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
+                                    <div class="palette-item">
+                                        <svg class="w-5 h-5 text-red-500" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M7 7l6 6M13 7l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <p data-i18n-zh="纯红大面积背景（易与警示混淆）。" data-i18n-en="Pure red large-area background (easily confused with warnings).">纯红大面积背景（易与警示混淆）。</p>
+                                    </div>
+                                    <div class="palette-item">
+                                        <svg class="w-5 h-5 text-red-500" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M7 7l6 6M13 7l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <p data-i18n-zh="纯蓝大面积背景（LED 蓝光衰减快，易偏色）。" data-i18n-en="Pure blue large-area background (LED blue light decays quickly and easily shifts color).">纯蓝大面积背景（LED 蓝光衰减快，易偏色）。</p>
+                                    </div>
+                                    <div class="palette-item">
+                                        <svg class="w-5 h-5 text-yellow-500" viewBox="0 0 20 20" fill="none"><path d="M10 3L2 17h16L10 3z" stroke="currentColor" stroke-width="1.5"/><path d="M10 9v4M10 15h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <p data-i18n-zh="高饱和绿色（部分 LED 屏绿色偏黄）。" data-i18n-en="Highly saturated green (some LED screens render green with a yellow tint).">高饱和绿色（部分 LED 屏绿色偏黄）。</p>
+                                    </div>
+                                    <div class="palette-item">
+                                        <svg class="w-5 h-5 text-yellow-500" viewBox="0 0 20 20" fill="none"><path d="M10 3L2 17h16L10 3z" stroke="currentColor" stroke-width="1.5"/><path d="M10 9v4M10 15h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                        <p data-i18n-zh="低对比灰色组合（远距离下无法分辨）。" data-i18n-en="Low-contrast gray combinations (indistinguishable at long distances).">低对比灰色组合（远距离下无法分辨）。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prohibited-image-frame">
+                                <img src="leader-assets/examples/background/bg-wrong3.png" alt="颜色规范错误示例3">
+                                <div class="prohibited-badge" aria-label="错误示例">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 6L18 18M18 6L6 18" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
+
                         <!-- 形态规范 -->
                         <section class="mt-16">
                             <h2 class="text-2xl font-normal mb-6 text-gray-900" data-i18n-zh="形态规范" data-i18n-en="Form Specification">形态规范</h2>
@@ -804,15 +925,15 @@
                                         <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
                                             <p data-i18n-zh="尺寸变化：屏幕分辨率或拼接数量变化。" data-i18n-en="Size change: screen resolution or splicing quantity changes.">尺寸变化：屏幕分辨率或拼接数量变化。</p>
                                             <p data-i18n-zh="观看距离变化：近看与远看的识别需求不同。" data-i18n-en="Viewing distance change: recognition requirements differ between close and long distances.">观看距离变化：近看与远看的识别需求不同。</p>
-                                            <p data-i18n-zh="内容密度变化：信息量大时需简化背景。" data-i18n-en="Content density change: background needs simplification when information volume is high.">内容密度变化：信息量大时需简化背景。</p>
-                                            <p data-i18n-zh="环境光变化：强光或暗光下需调整背景策略。" data-i18n-en="Ambient light change: background strategy needs adjustment under strong or dim light.">环境光变化：强光或暗光下需调整背景策略。</p>
+                                            <p data-i18n-zh="内容密度变化：信息量大时需简化背景。" data-i18n-en="Content density change: the background needs to be simplified when information volume is high.">内容密度变化：信息量大时需简化背景。</p>
+                                            <p data-i18n-zh="环境光变化：强光或暗光下需调整背景策略。" data-i18n-en="Ambient light change: the background strategy needs adjustment under strong or dim light.">环境光变化：强光或暗光下需调整背景策略。</p>
                                         </div>
                                     </div>
                                     <div class="bg-white/60 p-8 md:p-10 rounded-[28px] deform-card-green">
                                         <h3 class="text-base font-semibold text-gray-900 mb-4" data-i18n-zh="缩放规则" data-i18n-en="Scaling Rules">缩放规则</h3>
                                         <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
-                                            <p data-i18n-zh="背景形态优先等比缩放，保持比例不失真。" data-i18n-en="Background forms should be scaled proportionally first to maintain ratio without distortion.">背景形态优先等比缩放，保持比例不失真。</p>
-                                            <p data-i18n-zh="非等比拉伸仅限纯色和均匀渐变，禁止用于点阵、条纹、几何图形。" data-i18n-en="Non-proportional stretching is only allowed for solid colors and uniform gradients, prohibited for dot matrices, stripes, and geometric shapes.">非等比拉伸仅限纯色和均匀渐变，禁止用于点阵、条纹、几何图形。</p>
+                                            <p data-i18n-zh="背景形态优先等比缩放，保持比例不失真。" data-i18n-en="Background forms should be scaled proportionally first, maintaining the ratio without distortion.">背景形态优先等比缩放，保持比例不失真。</p>
+                                            <p data-i18n-zh="非等比拉伸仅限纯色和均匀渐变，禁止用于点阵、条纹、几何图形。" data-i18n-en="Non-proportional stretching is only allowed for solid colors and uniform gradients, and is prohibited for dot matrices, stripes, and geometric shapes.">非等比拉伸仅限纯色和均匀渐变，禁止用于点阵、条纹、几何图形。</p>
                                             <p data-i18n-zh="缩放后需重新确认形态是否仍然可辨识。" data-i18n-en="After scaling, reconfirm whether the form remains recognizable.">缩放后需重新确认形态是否仍然可辨识。</p>
                                         </div>
                                     </div>
@@ -830,15 +951,15 @@
                                             <tbody>
                                                 <tr>
                                                     <td data-i18n-zh="多色渐变" data-i18n-en="Multi-color Gradient">多色渐变</td>
-                                                    <td data-i18n-zh="减为双色渐变或纯色" data-i18n-en="Reduce to two-color gradient or solid color">减为双色渐变或纯色</td>
+                                                    <td data-i18n-zh="减为双色渐变或纯色" data-i18n-en="Reduce to a two-color gradient or solid color">减为双色渐变或纯色</td>
                                                 </tr>
                                                 <tr>
                                                     <td data-i18n-zh="细密点阵" data-i18n-en="Dense Dot Matrix">细密点阵</td>
-                                                    <td data-i18n-zh="加大点间距或改为纯色" data-i18n-en="Increase dot spacing or change to solid color">加大点间距或改为纯色</td>
+                                                    <td data-i18n-zh="加大点间距或改为纯色" data-i18n-en="Increase dot spacing or change to a solid color">加大点间距或改为纯色</td>
                                                 </tr>
                                                 <tr>
                                                     <td data-i18n-zh="细条纹" data-i18n-en="Fine Stripes">细条纹</td>
-                                                    <td data-i18n-zh="加粗间距或取消" data-i18n-en="Widen spacing or remove">加粗间距或取消</td>
+                                                    <td data-i18n-zh="加粗间距或取消" data-i18n-en="Widen the spacing or remove">加粗间距或取消</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -861,7 +982,7 @@
                                         </div>
                                         <div class="readability-check-item">
                                             <span class="question-mark-icon">?</span>
-                                            <p data-i18n-zh="变形后是否仍符合品牌调性。" data-i18n-en="Does it still align with brand tone after deformation?">变形后是否仍符合品牌调性。</p>
+                                            <p data-i18n-zh="变形后是否仍符合品牌调性。" data-i18n-en="Does it still align with the brand tone after deformation?">变形后是否仍符合品牌调性。</p>
                                         </div>
                                     </div>
                                     <div class="readability-image-row">
