@@ -160,7 +160,8 @@
                 </section>
                 <div class="mb-8" aria-hidden="true"></div>
                 <nav class="icon-tabs mb-12" role="tablist" aria-label="图标类型">
-                    <button class="icon-tab active" type="button" role="tab" aria-selected="true" aria-controls="linear-pane" data-icon-tab="linear" data-i18n-zh="线型图标" data-i18n-en="Outline Icons">线型图标</button>
+                    <button class="icon-tab active" type="button" role="tab" aria-selected="true" aria-controls="overview-pane" data-icon-tab="overview" data-i18n-zh="总览" data-i18n-en="Overview">总览</button>
+                    <button class="icon-tab" type="button" role="tab" aria-selected="false" aria-controls="linear-pane" data-icon-tab="linear" data-i18n-zh="线型图标" data-i18n-en="Outline Icons">线型图标</button>
                     <button class="icon-tab" type="button" role="tab" aria-selected="false" aria-controls="linear-frame1-pane" data-icon-tab="linear-frame1" data-i18n-zh="线框图标1" data-i18n-en="Wireframe Icons 1">线框图标1</button>
                     <button class="icon-tab" type="button" role="tab" aria-selected="false" aria-controls="linear-frame2-pane" data-icon-tab="linear-frame2" data-i18n-zh="线框图标2" data-i18n-en="Wireframe Icons 2">线框图标2</button>
                     <button class="icon-tab" type="button" role="tab" aria-selected="false" aria-controls="filled-pane" data-icon-tab="filled" data-i18n-zh="面型图标" data-i18n-en="Solid Icons">面型图标</button>
@@ -169,8 +170,23 @@
                     <button class="icon-tab" type="button" role="tab" aria-selected="false" aria-controls="color-pane" data-icon-tab="color" data-i18n-zh="实物图标" data-i18n-en="Realistic Icons">实物图标</button>
                 </nav>
 
+                <!-- ===================== 总览 ===================== -->
+                <div id="overview-pane" class="icon-pane active" role="tabpanel" data-icon-pane="overview">
+                    <section class="mb-16">
+                        <!-- 占位：保留标题 + 筛选栏的高度，使下方 10×6 黑色格子位置不上移 -->
+                        <div class="invisible" aria-hidden="true">
+                            <h2 class="text-2xl font-bold mb-3">&nbsp;</h2>
+                            <div class="icon-filter-bar">
+                                <div class="icon-category-selector"></div>
+                                <div class="icon-search"></div>
+                            </div>
+                        </div>
+                        <div class="icon-library" data-icon-library="overview" data-count="60"></div>
+                    </section>
+                </div>
+
                 <!-- ===================== 线型图标 ===================== -->
-                <div id="linear-pane" class="icon-pane active" role="tabpanel" data-icon-pane="linear">
+                <div id="linear-pane" class="icon-pane" role="tabpanel" data-icon-pane="linear" hidden>
                     <section class="mb-16">
                         <h2 class="text-2xl font-bold mb-3 text-gray-900" data-i18n-zh="线性图标库" data-i18n-en="Outline Icon Library">线性图标库</h2>
                         <div class="icon-filter-bar" data-icon-filter="linear">
@@ -378,7 +394,7 @@
                                             <div class="double-image-wrap">
                                                 <div class="double-image-grid">
                                                     <img src="leader-assets/examples/iconography/top view.png" alt="俯视透视错误示例">
-                                                    <img src="leader-assets/examples/iconography/bottom view.png" alt="仰视透视错误示例">
+                                                    <img src="leader-assets/examples/background/bottom view.png" alt="仰视透视错误示例">
                                                 </div>
                                             </div>
                                         </div>
@@ -471,6 +487,79 @@
                 { src: 'leader-assets/icons/heat_water-filled.png', label: 'Heat_Water' }
             ]
         };
+
+        // ============================================================
+        // 总览页图标序列（60 个，固定顺序）
+        // ============================================================
+        const OVERVIEW_ICONS = [
+            // 第 1 排（01-10）：线型图标-通用
+            { src: 'leader-assets/icons/reminder.png', label: 'Reminder' },
+            { src: 'leader-assets/icons/time.png', label: 'Time' },
+            { src: 'leader-assets/icons/menu.png', label: 'Menu' },
+            { src: 'leader-assets/icons/stop.png', label: 'Stop' },
+            { src: 'leader-assets/icons/wi-fi.png', label: 'Wi-Fi' },
+            { src: 'leader-assets/icons/smart.png', label: 'Smart' },
+            { src: 'leader-assets/icons/settings.png', label: 'Settings' },
+            { src: 'leader-assets/icons/lock.png', label: 'Lock' },
+            { src: 'leader-assets/icons/lighting.png', label: 'Lighting' },
+            { src: 'leader-assets/icons/power.png', label: 'Power' },
+            // 第 2 排（11-20）
+            { src: 'leader-assets/icons/reminder1.png', label: 'Reminder' },
+            { src: 'leader-assets/icons/time1.png', label: 'Time' },
+            { src: 'leader-assets/icons/menu1.png', label: 'Menu' },
+            { src: 'leader-assets/icons/stop1.png', label: 'Stop' },
+            { src: 'leader-assets/icons/wi-fi1.png', label: 'Wi-Fi' },
+            { src: 'leader-assets/icons/smart1.png', label: 'Smart' },
+            { src: 'leader-assets/icons/settings1.png', label: 'Settings' },
+            { src: 'leader-assets/icons/lock1.png', label: 'Lock' },
+            { src: 'leader-assets/icons/lighting1.png', label: 'Lighting' },
+            { src: 'leader-assets/icons/power1.png', label: 'Power' },
+            // 第 3 排（21-30）
+            { src: 'leader-assets/icons/reminder2.png', label: 'Reminder' },
+            { src: 'leader-assets/icons/time2.png', label: 'Time' },
+            { src: 'leader-assets/icons/menu2.png', label: 'Menu' },
+            { src: 'leader-assets/icons/stop2.png', label: 'Stop' },
+            { src: 'leader-assets/icons/wi-fi2.png', label: 'Wi-Fi' },
+            { src: 'leader-assets/icons/smart2.png', label: 'Smart' },
+            { src: 'leader-assets/icons/settings2.png', label: 'Settings' },
+            { src: 'leader-assets/icons/lock2.png', label: 'Lock' },
+            { src: 'leader-assets/icons/lighting2.png', label: 'Lighting' },
+            { src: 'leader-assets/icons/power2.png', label: 'Power' },
+            // 第 4 排（31-40）：面型图标-通用
+            { src: 'leader-assets/icons/reminder-filled.png', label: 'Reminder' },
+            { src: 'leader-assets/icons/time-filled.png', label: 'Time' },
+            { src: 'leader-assets/icons/menu-filled.png', label: 'Menu' },
+            { src: 'leader-assets/icons/stop-filled.png', label: 'Stop' },
+            { src: 'leader-assets/icons/wi-fi-filled.png', label: 'Wi-Fi' },
+            { src: 'leader-assets/icons/smart-filled.png', label: 'Smart' },
+            { src: 'leader-assets/icons/settings-filled.png', label: 'Settings' },
+            { src: 'leader-assets/icons/lock-filled.png', label: 'Lock' },
+            { src: 'leader-assets/icons/lighting-filled.png', label: 'Lighting' },
+            { src: 'leader-assets/icons/power.png', label: 'Power' },
+            // 第 5 排（41-50）
+            { src: 'leader-assets/icons/reminder-filled1.png', label: 'Reminder' },
+            { src: 'leader-assets/icons/time-filled1.png', label: 'Time' },
+            { src: 'leader-assets/icons/menu-filled1.png', label: 'Menu' },
+            { src: 'leader-assets/icons/stop-filled1.png', label: 'Stop' },
+            { src: 'leader-assets/icons/wi-fi-filled1.png', label: 'Wi-Fi' },
+            { src: 'leader-assets/icons/smart-filled1.png', label: 'Smart' },
+            { src: 'leader-assets/icons/settings-filled1.png', label: 'Settings' },
+            { src: 'leader-assets/icons/lock-filled1.png', label: 'Lock' },
+            { src: 'leader-assets/icons/lighting-filled1.png', label: 'Lighting' },
+            { src: 'leader-assets/icons/power1.png', label: 'Power' },
+            // 第 6 排（51-60）
+            { src: 'leader-assets/icons/reminder-filled2.png', label: 'Reminder' },
+            { src: 'leader-assets/icons/time-filled2.png', label: 'Time' },
+            { src: 'leader-assets/icons/menu-filled2.png', label: 'Menu' },
+            { src: 'leader-assets/icons/stop-filled2.png', label: 'Stop' },
+            { src: 'leader-assets/icons/wi-fi-filled2.png', label: 'Wi-Fi' },
+            { src: 'leader-assets/icons/smart-filled2.png', label: 'Smart' },
+            { src: 'leader-assets/icons/settings-filled2.png', label: 'Settings' },
+            { src: 'leader-assets/icons/lock-filled2.png', label: 'Lock' },
+            { src: 'leader-assets/icons/lighting-filled2.png', label: 'Lighting' },
+            { src: 'leader-assets/icons/power2.png', label: 'Power' }
+        ];
+
         const FILLED_STYLE_LIBRARIES = ['filled', 'linear-frame1', 'linear-frame2', 'filled-fill1', 'filled-fill2'];
 
         // 分类名 → 英文（用于切换后重新渲染时保持分类）
@@ -490,7 +579,8 @@
             'linear-frame1': '通用',
             'linear-frame2': '通用',
             'filled-fill1': '通用',
-            'filled-fill2': '通用'
+            'filled-fill2': '通用',
+            overview: '通用'
         };
 
         function renderIconLibrary(library, category) {
@@ -498,6 +588,26 @@
             const count = Number(library.dataset.count || 0);
             const fragment = document.createDocumentFragment();
             const libraryKey = library.dataset.iconLibrary;
+
+            // ===== 总览：固定 60 个图标序列 =====
+            if (libraryKey === 'overview') {
+                for (let index = 1; index <= count; index += 1) {
+                    const slot = document.createElement('div');
+                    slot.className = 'icon-slot';
+                    slot.dataset.iconName = `Overview ${String(index).padStart(2, '0')}`;
+                    slot.setAttribute('aria-label', `Icon slot ${index}`);
+                    const iconItem = OVERVIEW_ICONS[index - 1];
+                    if (iconItem) {
+                        slot.innerHTML = `<img class="icon-slot-image" src="${iconItem.src}" alt="${iconItem.label}" /><span class="icon-slot-label">${iconItem.label}</span>`;
+                    } else {
+                        slot.innerHTML = `<span class="icon-slot-mark" aria-hidden="true">+</span><span class="icon-slot-label">${String(index).padStart(2, '0')}</span>`;
+                    }
+                    fragment.appendChild(slot);
+                }
+                library.appendChild(fragment);
+                return;
+            }
+
             const useFilledStyle = FILLED_STYLE_LIBRARIES.includes(libraryKey);
             const iconMap = useFilledStyle ? CATEGORY_ICON_MAP_FILLED : CATEGORY_ICON_MAP;
             const iconList = iconMap[category] || [];

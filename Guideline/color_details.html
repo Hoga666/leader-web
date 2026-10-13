@@ -316,6 +316,40 @@
             .usage-grid { grid-template-columns: 1fr; }
             .color-grid-2col { grid-template-columns: 1fr; }
         }
+
+        /* ===== 色彩模式选项卡（RGB / CMYK） ===== */
+        .color-mode-tabs {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .color-mode-tab {
+            min-width: 96px;              /* 两个胶囊等长 */
+            padding: 8px 20px;
+            border-radius: 9999px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #86909C;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid #E5E6EB;
+            cursor: pointer;
+            transition: all .2s ease;
+            font-family: var(--font-family-body);
+            text-align: center;           /* 文字居中 */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .color-mode-tab:hover {
+            color: var(--brand-primary);
+            border-color: var(--brand-primary);
+        }
+        .color-mode-tab.active {
+            color: #ffffff;
+            background: #EC6443;
+            border-color: #EC6443;
+            font-weight: 700;
+        }
     </style>
 </head>
 
@@ -375,6 +409,12 @@
                     </div>
                 </section>
                 <section class="mb-16">
+                    <!-- RGB / CMYK 选项卡 -->
+                    <div class="color-mode-tabs mb-12" role="tablist" aria-label="色彩模式">
+                        <button class="color-mode-tab active" type="button" role="tab" aria-selected="true" data-color-mode="rgb">RGB</button>
+                        <button class="color-mode-tab" type="button" role="tab" aria-selected="false" data-color-mode="cmyk">CMYK</button>
+                    </div>
+
                     <h2 class="text-2xl font-bold mb-6 text-gray-900" data-i18n-zh="1. 主品牌色" data-i18n-en="1. Primary Brand Color">1. 主品牌色</h2>
                     <p class="text-gray-500 mb-6 text-sm" data-i18n-zh="主品牌色定义了 Leader Design 的核心视觉识别，并为重点操作与品牌场景提供统一基准。" data-i18n-en="The primary brand color defines the core visual identity of Leader Design and provides a unified benchmark for key actions and brand scenarios.">主品牌色定义了 Leader Design 的核心视觉识别，并为重点操作与品牌场景提供统一基准。</p>
 
@@ -834,6 +874,18 @@
             langBtn.addEventListener('click', function() {
                 const nextLang = currentLang === 'zh' ? 'en' : 'zh';
                 updateLanguage(nextLang);
+            });
+
+            // ===== RGB / CMYK 选项卡切换 =====
+            document.querySelectorAll('.color-mode-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    document.querySelectorAll('.color-mode-tab').forEach(t => {
+                        t.classList.remove('active');
+                        t.setAttribute('aria-selected', 'false');
+                    });
+                    tab.classList.add('active');
+                    tab.setAttribute('aria-selected', 'true');
+                });
             });
 
             updateLanguage('zh');
