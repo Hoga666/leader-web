@@ -6,7 +6,6 @@
     <title data-i18n-zh="Leader Design | 色彩规范" data-i18n-en="Leader Design | Color">Leader Design | 色彩规范</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <style>
         :root {
             --brand-primary: #EC6443;
@@ -15,7 +14,6 @@
             --text-secondary: #86868B;
             --glass-bg: rgba(255, 255, 255, 0.6);
             --glass-border: rgba(255, 255, 255, 0.4);
-            
             --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             --font-family-mono: monospace;
         }
@@ -54,9 +52,7 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
             border-radius: 28px;
         }
-        /* 统一增大的卡片圆角（与主页规范目录卡片一致） */
         .rounded-cat { border-radius: 40px !important; }
-        /* 专项卡片圆角与描边 */
         .usage-40 { border-radius: 40px !important; }
         .usage-28 { border-radius: 28px !important; border: 1px solid #EC6443 !important; }
         .card-28 { border-radius: 28px !important; }
@@ -68,7 +64,6 @@
             border: 1px solid rgba(0,0,0,0.05);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
-        
         .color-swatch {
             height: 48px;
             display: flex;
@@ -76,7 +71,6 @@
             justify-content: space-between;
             padding: 0 16px;
             font-size: 0.85rem;
-            font-family: var(--font-family-body);
             transition: transform 0.2s;
             cursor: pointer;
         }
@@ -85,18 +79,17 @@
             z-index: 10;
             box-shadow: 0 0 12px rgba(0,0,0,0.15);
         }
-        .swatch-hex { 
-            margin-left: auto; 
-            opacity: 0; 
-            transform: translateX(6px); 
-            font-size: 0.85rem; 
-            font-weight: 400; 
-            font-family: var(--font-family-body);
-            transition: opacity .18s ease, transform .18s ease; 
+        .swatch-hex {
+            margin-left: auto;
+            opacity: 0;
+            transform: translateX(6px);
+            font-size: 0.85rem;
+            font-weight: 400;
+            transition: opacity .18s ease, transform .18s ease;
         }
-        .color-swatch:hover .swatch-hex, .color-swatch:focus-visible .swatch-hex { 
-            opacity: 1; 
-            transform: translateX(0); 
+        .color-swatch:hover .swatch-hex, .color-swatch:focus-visible .swatch-hex {
+            opacity: 1;
+            transform: translateX(0);
         }
         .copy-toast {
             position: fixed;
@@ -116,59 +109,36 @@
             transform: translateX(-50%) translateY(0);
             opacity: 1;
         }
-        /* ===== 优化滚动条 ===== */
         * {
             scrollbar-width: thin;
             scrollbar-color: rgba(0, 0, 0, 0.10) transparent;
         }
-        *::-webkit-scrollbar {
-            width: 5px;
-            height: 5px;
-        }
-        *::-webkit-scrollbar-track {
-            background: transparent;
-        }
+        *::-webkit-scrollbar { width: 5px; height: 5px; }
+        *::-webkit-scrollbar-track { background: transparent; }
         *::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.10);
             border-radius: 10px;
-            transition: background 0.2s;
         }
-        *::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 0, 0, 0.20);
-        }
+        *::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.20); }
         #main-content {
             scrollbar-width: thin;
             scrollbar-color: rgba(0, 0, 0, 0.10) transparent;
         }
-        #main-content::-webkit-scrollbar {
-            width: 5px;
-        }
-        #main-content::-webkit-scrollbar-track {
-            background: transparent;
-        }
+        #main-content::-webkit-scrollbar { width: 5px; }
+        #main-content::-webkit-scrollbar-track { background: transparent; }
         #main-content::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.10);
             border-radius: 10px;
-        }
-        #main-content::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 0, 0, 0.20);
         }
         #sidebar {
             scrollbar-width: thin;
             scrollbar-color: rgba(0, 0, 0, 0.08) transparent;
         }
-        #sidebar::-webkit-scrollbar {
-            width: 4px;
-        }
-        #sidebar::-webkit-scrollbar-track {
-            background: transparent;
-        }
+        #sidebar::-webkit-scrollbar { width: 4px; }
+        #sidebar::-webkit-scrollbar-track { background: transparent; }
         #sidebar::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.08);
             border-radius: 10px;
-        }
-        #sidebar::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 0, 0, 0.16);
         }
         .leader-logo-container {
             display: flex;
@@ -195,7 +165,6 @@
         .usage-card h4 { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; font-size: 14px; font-weight: 700; color: #1f2937; }
         .usage-card p { color: #667085; font-size: 13px; line-height: 1.65; }
         .color-dot { width: 12px; height: 12px; border-radius: 9999px; flex: 0 0 auto; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
-        
         .principle-card {
             background: #ffffff;
             border: 1px solid #EC6443;
@@ -203,7 +172,6 @@
             padding: 20px;
         }
         .principle-number { width: auto; height: 28px; padding: 0 12px; display: inline-grid; place-items: center; border-radius: 9999px; background: #EC6443; color: white; font-size: 12px; font-weight: 700; margin-bottom: 14px; }
-        /* ===== 统一的色块样式 ===== */
         .secondary-color-list {
             display: flex;
             flex-direction: column;
@@ -221,45 +189,25 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             cursor: pointer;
             transition: transform 0.2s;
-            font-family: var(--font-family-body);
             font-size: 0.85rem;
         }
-        /* 色块中的英文标签 */
-        .secondary-color-item .label-en {
-            font-family: var(--font-family-body);
-            font-size: 0.85rem;
-            font-weight: 400;
-        }
-        /* 色块中的中文标签 */
-        .secondary-color-item .label-cn {
-            font-family: var(--font-family-body);
-            font-size: 0.875rem;
-            font-weight: 400;
-        }
-        /* 色块中的色值/数字 - 与英文标签字体大小一致 (Inter 字体，0.85rem) */
+        .secondary-color-item .label-en { font-size: 0.85rem; font-weight: 400; }
+        .secondary-color-item .label-cn { font-size: 0.875rem; font-weight: 400; }
         .secondary-color-item .swatch-hex {
-            font-family: var(--font-family-body);
             font-size: 0.85rem;
             font-weight: 400;
             opacity: 0;
             transform: translateX(6px);
             transition: opacity .18s ease, transform .18s ease;
         }
-        .secondary-color-item:hover .swatch-hex {
-            opacity: 1;
-            transform: translateX(0);
-        }
+        .secondary-color-item:hover .swatch-hex { opacity: 1; transform: translateX(0); }
         .secondary-color-item:hover {
             transform: scale(1.02);
             z-index: 10;
             box-shadow: 0 0 12px rgba(0,0,0,0.15);
         }
-        .secondary-color-item.gradient-swatch {
-            border: none;
-        }
-        .secondary-color-item.border-visible {
-            border: 1px solid #e5e7eb;
-        }
+        .secondary-color-item.gradient-swatch { border: none; }
+        .secondary-color-item.border-visible { border: 1px solid #e5e7eb; }
         .bg-category-title {
             font-size: 0.75rem;
             font-weight: 700;
@@ -269,37 +217,13 @@
             padding: 4px 0 2px 0;
             border-bottom: 1px solid rgba(0,0,0,0.06);
             margin-bottom: 4px;
-            font-family: var(--font-family-body);
         }
-        .color-grid-2col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            width: 100%;
-        }
-        .color-grid-2col .secondary-color-item {
-            width: 100%;
-        }
-        .lang-btn {
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-        .lang-btn:hover {
-            background: rgba(0, 0, 0, 0.05);
-        }
-        @media (max-width: 720px) { 
-            .usage-grid { grid-template-columns: 1fr; }
-            .color-grid-2col { grid-template-columns: 1fr; }
-        }
-
-        /* ===== 色彩模式选项卡（RGB / CMYK） ===== */
-        .color-mode-tabs {
-            display: inline-flex;
-            gap: 8px;
-            align-items: center;
-        }
+        .lang-btn { transition: all 0.2s ease; cursor: pointer; }
+        .lang-btn:hover { background: rgba(0, 0, 0, 0.05); }
+        @media (max-width: 720px) { .usage-grid { grid-template-columns: 1fr; } }
+        .color-mode-tabs { display: inline-flex; gap: 8px; align-items: center; }
         .color-mode-tab {
-            min-width: 96px;              /* 两个胶囊等长 */
+            min-width: 96px;
             padding: 8px 20px;
             border-radius: 9999px;
             font-size: 14px;
@@ -309,22 +233,186 @@
             border: 1px solid #E5E6EB;
             cursor: pointer;
             transition: all .2s ease;
-            font-family: var(--font-family-body);
             text-align: center;
             display: inline-flex;
             align-items: center;
             justify-content: center;
         }
-        .color-mode-tab:hover {
-            color: var(--brand-primary);
-            border-color: var(--brand-primary);
-        }
+        .color-mode-tab:hover { color: var(--brand-primary); border-color: var(--brand-primary); }
         .color-mode-tab.active {
             color: #ffffff;
             background: #EC6443;
             border-color: #EC6443;
             font-weight: 700;
         }
+        .cmyk-pane { display: none; }
+        .cmyk-pane.active { display: block; }
+        .cmyk-intro {
+            background: #ffffff;
+            border: 1px solid #EC6443;
+            border-radius: 40px;
+            padding: 24px 28px;
+        }
+        .cmyk-intro h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1D1D1F;
+            letter-spacing: -0.02em;
+            margin-bottom: 14px;
+        }
+        .cmyk-intro ol {
+            list-style: none;
+            counter-reset: cmyk-rule;
+            display: grid;
+            gap: 10px;
+        }
+        .cmyk-intro li {
+            counter-increment: cmyk-rule;
+            padding-left: 32px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #4B5563;
+        }
+        .cmyk-intro li::before {
+            content: counter(cmyk-rule);
+            position: absolute;
+            left: 0;
+            top: 1px;
+            height: 22px;
+            min-width: 22px;
+            padding: 0 8px;
+            border-radius: 9999px;
+            background: #EC6443;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+        .cmyk-family {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            border-radius: 40px;
+            padding: 24px 28px;
+        }
+        .cmyk-family-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .cmyk-family-swatch {
+            width: 44px;
+            height: 44px;
+            border-radius: 9999px;
+            flex-shrink: 0;
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.06);
+        }
+        .cmyk-family-title { display: flex; flex-direction: column; gap: 2px; }
+        .cmyk-family-title .name { font-size: 1rem; font-weight: 700; color: #1D1D1F; }
+        .cmyk-family-title .meta { font-size: 0.85rem; color: #86909C; font-weight: 400; }
+        .cmyk-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .cmyk-table th {
+            text-align: left;
+            font-size: 12px;
+            font-weight: 700;
+            color: #4B5563;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 10px 12px;
+            background: rgba(255, 144, 75, 0.12);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .cmyk-table th:first-child { border-top-left-radius: 28px; }
+        .cmyk-table th:last-child { border-top-right-radius: 28px; }
+        .cmyk-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            vertical-align: middle;
+            color: #4B5563;
+            font-size: 13px;
+            line-height: 1.65;
+        }
+        .cmyk-table tr:last-child td { border-bottom: none; }
+        .cmyk-table tr:last-child td:first-child { border-bottom-left-radius: 28px; }
+        .cmyk-table tr:last-child td:last-child { border-bottom-right-radius: 28px; }
+        .cmyk-table tr:hover td { background: rgba(255, 255, 255, 0.4); }
+        .cmyk-table td:first-child { color: #1D2129; font-weight: 500; }
+        .cmyk-table .cmyk-value {
+            font-family: var(--font-family-mono);
+            font-weight: 500;
+            color: #1D1D1F;
+            white-space: nowrap;
+            font-size: 13px;
+        }
+        .cmyk-chip {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 9999px;
+            margin-right: 8px;
+            vertical-align: -1px;
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+        .cmyk-note {
+            margin-top: 16px;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid #EC6443;
+            border-radius: 28px;
+            font-size: 13px;
+            color: #667085;
+            line-height: 1.65;
+        }
+        .cmyk-download {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 24px 28px;
+            border-radius: 40px;
+            background: #1D1D1F;
+            color: #fff;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        }
+        .cmyk-download h3 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 6px; }
+        .cmyk-download p { font-size: 13px; line-height: 1.65; color: rgba(255, 255, 255, 0.72); max-width: 640px; }
+        .cmyk-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            background: #EC6443;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+        .cmyk-download-btn:hover {
+            background: #d9542f;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(236, 100, 67, 0.35);
+        }
+        .cmyk-download-btn svg { width: 16px; height: 16px; }
     </style>
 </head>
 <body class="antialiased">
@@ -333,24 +421,21 @@
         <div class="aura-blob aura-blob-2"></div>
         <div class="aura-blob aura-blob-3"></div>
     </div>
-    <div id="copy-toast" class="copy-toast">已复制色值到剪贴板</div>
+    <div id="copy-toast" class="copy-toast" data-i18n-zh="已复制色值到剪贴板" data-i18n-en="Color value copied to clipboard">已复制色值到剪贴板</div>
     <header class="md:hidden glass-panel rounded-none fixed top-0 w-full z-50 p-4 flex justify-between items-center border-b border-white/50">
         <div class="flex items-center">
-            <a href="leader_os_design_system.html" class="mr-3 p-2 bg-black/5 hover:bg-black/10 rounded-lg transition-colors flex items-center text-gray-700">
-            </a>
             <div class="leader-logo-container w-8 h-8 mr-2 text-[12px]">Leader</div>
-            <h1 class="font-bold text-base text-gray-800">色彩规范</h1>
+            <h1 class="font-bold text-base text-gray-800" data-i18n-zh="色彩规范" data-i18n-en="Color">色彩规范</h1>
         </div>
         <button id="mobile-menu-btn" class="p-2 bg-black/5 hover:bg-black/10 rounded-lg">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
     </header>
     <div class="flex h-screen pt-16 md:pt-0">
-<aside id="sidebar" class="hidden md:flex flex-col w-72 h-full fixed top-0 left-0 glass-panel rounded-none border-r border-white/50 z-40 overflow-y-auto" aria-label="Leader Design 设计规范导航" aria-hidden="true"></aside>
-<div id="sidebar-backdrop" class="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 hidden md:hidden" aria-hidden="true"></div>
+        <aside id="sidebar" class="hidden md:flex flex-col w-72 h-full fixed top-0 left-0 glass-panel rounded-none border-r border-white/50 z-40 overflow-y-auto" aria-label="Leader Design 设计规范导航" aria-hidden="true"></aside>
+        <div id="sidebar-backdrop" class="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 hidden md:hidden" aria-hidden="true"></div>
         <main class="flex-1 md:ml-72 p-6 md:p-10 lg:p-12 overflow-y-auto h-full scroll-smooth" id="main-content">
             <div class="max-w-[1200px] mx-auto pb-24">
-                
                 <div class="hidden md:flex items-center justify-between mb-8">
                     <a href="leader_os_design_system.html" class="px-4 py-2 bg-white/50 hover:bg-white/90 rounded-full transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md">
                         <span class="text-sm font-semibold" data-i18n-zh="返回主页" data-i18n-en="Back to Home">返回主页</span>
@@ -365,12 +450,8 @@
                 </section>
                 <hr class="border-t border-black/5 mb-12">
                 <section class="mb-16">
-                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
-                        <div>
-                            <h2 class="text-2xl font-bold mb-2 text-gray-900" data-i18n-zh="色彩使用原则" data-i18n-en="Color Usage Principles">色彩使用原则</h2>
-                            <p class="text-gray-600 max-w-3xl text-sm leading-relaxed" data-i18n-zh="颜色必须先承担明确角色，再进入具体界面。品牌色建立识别，辅助色区分类别，中性色组织层级，功能色传达状态。" data-i18n-en="A color must first take on a clear role before entering a specific interface. Brand colors establish recognition, secondary colors distinguish categories, neutral colors organize hierarchy, and functional colors communicate status.">颜色必须先承担明确角色，再进入具体界面。品牌色建立识别，辅助色区分类别，中性色组织层级，功能色传达状态。</p>
-                        </div>
-                    </div>
+                    <h2 class="text-2xl font-bold mb-2 text-gray-900" data-i18n-zh="色彩使用原则" data-i18n-en="Color Usage Principles">色彩使用原则</h2>
+                    <p class="text-gray-600 max-w-3xl text-sm leading-relaxed mb-6" data-i18n-zh="颜色必须先承担明确角色，再进入具体界面。品牌色建立识别，辅助色区分类别，中性色组织层级，功能色传达状态。" data-i18n-en="A color must first take on a clear role before entering a specific interface. Brand colors establish recognition, secondary colors distinguish categories, neutral colors organize hierarchy, and functional colors communicate status.">颜色必须先承担明确角色，再进入具体界面。品牌色建立识别，辅助色区分类别，中性色组织层级，功能色传达状态。</p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div class="principle-card"><div class="principle-number">01</div><h3 class="font-bold text-gray-900 mb-2" data-i18n-zh="角色唯一" data-i18n-en="Unique Role">角色唯一</h3><p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="同一界面中，相同颜色应表达相同含义。禁止将危险红同时用于装饰或普通分类。" data-i18n-en="Within one interface, the same color must convey the same meaning. Danger red must not be used for decoration or ordinary categorization at the same time.">同一界面中，相同颜色应表达相同含义。禁止将危险红同时用于装饰或普通分类。</p></div>
                         <div class="principle-card"><div class="principle-number">02</div><h3 class="font-bold text-gray-900 mb-2" data-i18n-zh="主次克制" data-i18n-en="Restrained Hierarchy">主次克制</h3><p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="单屏只保留一个主强调色。大面积背景优先使用浅色阶，核心操作使用基准色。" data-i18n-en="Keep only one primary accent color per screen. Use light shades for large background areas, and the base shade for core actions.">单屏只保留一个主强调色。大面积背景优先使用浅色阶，核心操作使用基准色。</p></div>
@@ -379,308 +460,904 @@
                     </div>
                 </section>
                 <section class="mb-16">
-                    <!-- RGB / CMYK 选项卡 -->
                     <div class="color-mode-tabs mb-12" role="tablist" aria-label="色彩模式">
                         <button class="color-mode-tab active" type="button" role="tab" aria-selected="true" data-color-mode="rgb">RGB</button>
                         <button class="color-mode-tab" type="button" role="tab" aria-selected="false" data-color-mode="cmyk">CMYK</button>
                     </div>
+                    <div id="pane-rgb" class="cmyk-pane active">                        <h2 class="text-2xl font-bold mb-6 text-gray-900" data-i18n-zh="1. 主品牌色" data-i18n-en="1. Primary Brand Color">1. 主品牌色</h2>
+                        <p class="text-gray-500 mb-6 text-sm" data-i18n-zh="主品牌色定义了 Leader Design 的核心视觉识别，并为重点操作与品牌场景提供统一基准。" data-i18n-en="The primary brand color defines the core visual identity of Leader Design and provides a unified benchmark for key actions and brand scenarios.">主品牌色定义了 Leader Design 的核心视觉识别，并为重点操作与品牌场景提供统一基准。</p>
+                        <div class="glass-panel p-6 sm:p-10 rounded-cat">
+                            <div class="text-white p-6 sm:p-8 mb-6 shadow-lg shadow-orange-500/20 relative overflow-hidden group cursor-pointer" style="background-color: #EC6443; border-radius:28px;" onclick="copyColor('#EC6443')">
+                                <div class="absolute -right-10 -top-10 w-48 h-48 bg-white rounded-full mix-blend-overlay filter blur-3xl opacity-20"></div>
+                                <div class="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between">
+                                    <div><h3 class="text-3xl font-bold mb-1">Leader Orange</h3><p class="text-orange-100 text-sm" data-i18n-zh="主品牌色" data-i18n-en="Primary Brand Color">主品牌色</p></div>
+                                    <div class="mt-4 sm:mt-0 text-right"><div class="text-2xl font-mono font-bold">#EC6443</div></div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="color-swatch-container">
+                                    <div class="color-swatch text-white font-bold" style="background-color: #FF904B;" onclick="copyColor('#FF904B')">
+                                        <span>Orange 1</span><span class="swatch-hex">#FF904B</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch-container">
+                                    <div class="color-swatch text-gray-900 font-bold" style="background-color: #F8B96F;" onclick="copyColor('#F8B96F')">
+                                        <span>Orange 2</span><span class="swatch-hex">#F8B96F</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="usage-grid mt-6">
+                            <div class="usage-card usage-40"><h4><span class="color-dot bg-[#EC6443]"></span><span data-i18n-zh="主品牌色 · 核心识别" data-i18n-en="Primary Brand · Core Identity">主品牌色 · 核心识别</span></h4><p data-i18n-zh="用于页面唯一主按钮、关键开关开启态、当前导航和品牌标识。避免在同一视窗出现多个同权重橙色焦点。" data-i18n-en="Used for the single primary button on a page, key switch-on states, current navigation, and brand marks. Avoid multiple orange focal points of equal weight within the same viewport.">用于页面唯一主按钮、关键开关开启态、当前导航和品牌标识。避免在同一视窗出现多个同权重橙色焦点。</p></div>
+                            <div class="usage-card usage-40"><h4><span class="color-dot bg-[#FF904B]"></span><span data-i18n-zh="品牌辅助色 · 丰富效果" data-i18n-en="Brand Accent · Rich Effect">品牌辅助色 · 丰富效果</span></h4><p data-i18n-zh="用于辅助品牌主色出现的点缀、氛围营造等视觉元素。" data-i18n-en="Used for visual elements such as accents and atmosphere that complement the primary brand color.">用于辅助品牌主色出现的点缀、氛围营造等视觉元素。</p></div>
+                        </div>
 
-                    <h2 class="text-2xl font-bold mb-6 text-gray-900" data-i18n-zh="1. 主品牌色" data-i18n-en="1. Primary Brand Color">1. 主品牌色</h2>
-                    <p class="text-gray-500 mb-6 text-sm" data-i18n-zh="主品牌色定义了 Leader Design 的核心视觉识别，并为重点操作与品牌场景提供统一基准。" data-i18n-en="The primary brand color defines the core visual identity of Leader Design and provides a unified benchmark for key actions and brand scenarios.">主品牌色定义了 Leader Design 的核心视觉识别，并为重点操作与品牌场景提供统一基准。</p>
-                    <div class="glass-panel p-6 sm:p-10 rounded-cat">
-                        <div class="text-white rounded-full p-6 sm:p-8 mb-6 shadow-lg shadow-orange-500/20 relative overflow-hidden group cursor-pointer" style="background-color: #EC6443; border-radius:28px;" onclick="copyColor('#EC6443')">
-                            <div class="absolute -right-10 -top-10 w-48 h-48 bg-white rounded-full mix-blend-overlay filter blur-3xl opacity-20"></div>
-                            <div class="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between">
-                                <div>
-                                    <h3 class="text-3xl font-bold mb-1">Leader Orange</h3>
-                                    <p class="text-orange-100 text-sm">主品牌色</p>
+                        <h2 class="text-2xl font-bold mb-2 mt-16 text-gray-900" data-i18n-zh="2. 辅助色" data-i18n-en="2. Secondary Colors">2. 辅助色</h2>
+                        <p class="text-gray-600 mb-6 max-w-3xl text-sm leading-relaxed" data-i18n-zh="辅助色用于扩展品牌表达、分类识别和视觉层次构建。仅用于分类标签、图标点缀、背景配色、参数调节等次级元素，不与主品牌色争夺视觉焦点；单屏建议不超过 4–5 种辅助色，并保持同一纯度与明度。点击色块可复制对应色值。" data-i18n-en="Secondary colors extend brand expression, category recognition, and visual hierarchy construction. They are only used for secondary elements such as category labels, icon accents, background colors, and parameter adjustments, without competing with the main brand color for visual focus; it is recommended to use no more than 4–5 secondary colors per screen, maintaining consistent saturation and lightness. Click any swatch to copy its value.">辅助色用于扩展品牌表达、分类识别和视觉层次构建。仅用于分类标签、图标点缀、背景配色、参数调节等次级元素，不与主品牌色争夺视觉焦点；单屏建议不超过 4–5 种辅助色，并保持同一纯度与明度。点击色块可复制对应色值。</p>
+                        <div class="glass-panel p-6 sm:p-10 rounded-cat">
+                            <div class="secondary-color-list">
+                                <div class="secondary-color-item text-white font-bold" style="background-color: #47B2A7;" onclick="copyColor('#47B2A7')"><span class="label-en">Green</span><span class="swatch-hex">#47B2A7</span></div>
+                                <div class="secondary-color-item text-white font-bold" style="background-color: #6AB7FF;" onclick="copyColor('#6AB7FF')"><span class="label-en">Blue</span><span class="swatch-hex">#6AB7FF</span></div>
+                                <div class="secondary-color-item text-white font-bold" style="background-color: #798FFE;" onclick="copyColor('#798FFE')"><span class="label-en">Indigo</span><span class="swatch-hex">#798FFE</span></div>
+                                <div class="secondary-color-item text-white font-bold" style="background-color: #7F5BEE;" onclick="copyColor('#7F5BEE')"><span class="label-en">Violet</span><span class="swatch-hex">#7F5BEE</span></div>
+                                <div class="secondary-color-item text-gray-900 font-bold border-visible" style="background-color: #FFC2E5;" onclick="copyColor('#FFC2E5')"><span class="label-en">Shell Pink</span><span class="swatch-hex">#FFC2E5</span></div>
+                                <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #8A42AE, #EC53AF);" onclick="copyColor('#8A42AE, #EC53AF')"><span class="label-en">Gradient</span><span class="swatch-hex">#8A42AE → #EC53AF</span></div>
+                            </div>
+                        </div>
+
+                        <h2 class="text-2xl font-bold mb-2 mt-16 text-gray-900" data-i18n-zh="3. 按键色" data-i18n-en="3. Button Colors">3. 按键色</h2>
+                        <p class="text-gray-600 mb-6 max-w-3xl text-sm leading-relaxed" data-i18n-zh="按键色用于按钮、交互元素和界面关键操作点。点击色块可复制对应色值。" data-i18n-en="Button colors are used for buttons, interactive elements, and key action points in the interface. Click any swatch to copy its value.">按键色用于按钮、交互元素和界面关键操作点。点击色块可复制对应色值。</p>
+                        <div class="glass-panel p-6 sm:p-10 rounded-cat">
+                            <div class="secondary-color-list">
+                                <div class="bg-category-title" data-i18n-zh="AI模式下的主导航和核心操作按钮色" data-i18n-en="Primary navigation and core action button colors in AI mode">AI模式下的主导航和核心操作按钮色</div>
+                                <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #F8B96F, #FF904B, #EC6443, #D653EC);" onclick="copyColor('#F8B96F, #FF904B, #EC6443, #D653EC')"><span class="label-en">AI Iridescent</span><span class="swatch-hex">#F8B96F → #FF904B → #EC6443 → #D653EC</span></div>
+                                <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="常规模式下的主导航和核心操作按钮色" data-i18n-en="Primary navigation and core action button colors in normal mode">常规模式下的主导航和核心操作按钮色</div>
+                                <div class="secondary-color-item text-white font-bold" style="background-color: #EC6443;" onclick="copyColor('#EC6443')"><span class="label-en">Core</span><span class="swatch-hex">#EC6443</span></div>
+                                <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="其他按钮或非界面关键操作点按键色" data-i18n-en="Other buttons and non-critical action point colors">其他按钮或非界面关键操作点按键色</div>
+                                <div class="secondary-color-item text-white font-bold" style="background-color: #0A0A0A;" onclick="copyColor('#0A0A0A')"><span class="label-en">Base Black</span><span class="swatch-hex">#0A0A0A</span></div>
+                                <div class="secondary-color-item text-gray-900 font-bold border-visible" style="background-color: #FFFFFF;" onclick="copyColor('#FFFFFF')"><span class="label-en">Base White</span><span class="swatch-hex">#FFFFFF</span></div>
+                                <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="禁用时的按键色" data-i18n-en="Button color when disabled">禁用时的按键色</div>
+                                <div class="secondary-color-item text-white font-bold" style="background-color: #999999;" onclick="copyColor('#999999')"><span class="label-en">Gray</span><span class="swatch-hex">#999999</span></div>
+                            </div>
+                        </div>
+
+                        <h2 class="text-2xl font-bold mb-2 mt-16 text-gray-900" data-i18n-zh="4. 背景色" data-i18n-en="4. Background Colors">4. 背景色</h2>
+                        <p class="text-gray-600 mb-6 max-w-3xl text-sm leading-relaxed" data-i18n-zh="用于TFT页面、卡片、容器和渐变背景。点击色块可复制对应色值。" data-i18n-en="Used for TFT pages, cards, containers, and gradient backgrounds. Click any swatch to copy its value.">用于TFT页面、卡片、容器和渐变背景。点击色块可复制对应色值。</p>
+                        <div class="glass-panel p-6 sm:p-10 rounded-cat">
+                            <div class="secondary-color-list">
+                                <div class="bg-category-title" data-i18n-zh="浅色AI背景色" data-i18n-en="Light AI Background">浅色AI背景色</div>
+                                <div class="secondary-color-item text-gray-900 font-bold gradient-swatch" style="background: linear-gradient(135deg, #F6F6F6, #FFA771);" onclick="copyColor('#F6F6F6, #FFA771')"><span class="label-en">AI Light Gradient</span><span class="swatch-hex">#F6F6F6 → #FFA771</span></div>
+                                <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="深色AI背景色" data-i18n-en="Dark AI Background">深色AI背景色</div>
+                                <div class="secondary-color-item text-white font-bold" style="background-color: #000000;" onclick="copyColor('#000000')"><span class="label-en">AI Dark</span><span class="swatch-hex">#000000</span></div>
+                                <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="浅色常规模式背景色，可根据具体程序匹配颜色组合，需协调美观。" data-i18n-en="Light normal mode background colors; combinations can be matched to specific applications and must be harmonious and aesthetically pleasing.">浅色常规模式背景色，可根据具体程序匹配颜色组合，需协调美观。</div>
+                                <div class="secondary-color-item text-gray-900 font-bold border-visible" style="background-color: #F4F4F4;" onclick="copyColor('#F4F4F4')"><span class="label-en">Light Base</span><span class="swatch-hex">#F4F4F4</span></div>
+                                <div class="secondary-color-item text-gray-900 font-bold border-visible" style="background-color: #FFECDB;" onclick="copyColor('#FFECDB')"><span class="label-en">Light Warm</span><span class="swatch-hex">#FFECDB</span></div>
+                                <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #ACDAF5, #229BD1);" onclick="copyColor('#ACDAF5, #229BD1')"><span class="label-en">Light Blue Gradient</span><span class="swatch-hex">#ACDAF5 → #229BD1</span></div>
+                                <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #BCE1E3, #47B2A7);" onclick="copyColor('#BCE1E3, #47B2A7')"><span class="label-en">Light Teal Gradient</span><span class="swatch-hex">#BCE1E3 → #47B2A7</span></div>
+                                <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #E2CCE3, #856AAD);" onclick="copyColor('#E2CCE3, #856AAD')"><span class="label-en">Light Purple Gradient</span><span class="swatch-hex">#E2CCE3 → #856AAD</span></div>
+                                <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #DEDDF7, #5B5EC6);" onclick="copyColor('#DEDDF7, #5B5EC6')"><span class="label-en">Light Indigo Gradient</span><span class="swatch-hex">#DEDDF7 → #5B5EC6</span></div>
+                                <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #FFD1EB, #A963B1);" onclick="copyColor('#FFD1EB, #A963B1')"><span class="label-en">Light Pink Gradient</span><span class="swatch-hex">#FFD1EB → #A963B1</span></div>
+                                <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #FAD2B6, #ED9349);" onclick="copyColor('#FAD2B6, #ED9349')"><span class="label-en">Light Orange Gradient</span><span class="swatch-hex">#FAD2B6 → #ED9349</span></div>
+                                <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="深色常规模式背景色，可根据具体程序匹配颜色组合，其中在使用dark base背景时可根据情况增加辅助色丰富页面，需协调美观。" data-i18n-en="Dark normal mode background colors; combinations can be matched to specific applications. When using a dark base background, accent colors may be added as needed to enrich the page, but must remain harmonious and aesthetically pleasing.">深色常规模式背景色，可根据具体程序匹配颜色组合，其中在使用dark base背景时可根据情况增加辅助色丰富页面，需协调美观。</div>
+                                <div class="secondary-color-item text-white font-bold" style="background-color: #000000;" onclick="copyColor('#000000')"><span class="label-en">Dark Base</span><span class="swatch-hex">#000000</span></div>
+                                <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, rgba(61,131,205,0), #225A97, #063260, #000000);" onclick="copyColor('#3D83CD, #225A97, #063260, #000000')"><span class="label-cn">Blue</span><span class="swatch-hex">#3D83CD → #225A97 → #063260 → #000000</span></div>
+                                <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, rgba(71,178,167,0), #288078, #0A4D49, #000000);" onclick="copyColor('#47B2A7, #288078, #0A4D49, #000000')"><span class="label-cn">Teal</span><span class="swatch-hex">#47B2A7 → #288078 → #0A4D49 → #000000</span></div>
+                                <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, rgba(133,106,173,0), #5E3E81, #371255, #000000);" onclick="copyColor('#856AAD, #5E3E81, #371255, #000000')"><span class="label-cn">Purple</span><span class="swatch-hex">#856AAD → #5E3E81 → #371255 → #000000</span></div>
+                                <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, rgba(91,94,198,0), #282A7B, #101141, #000000);" onclick="copyColor('#5B5EC6, #282A7B, #101141, #000000')"><span class="label-cn">Indigo</span><span class="swatch-hex">#5B5EC6 → #282A7B → #101141 → #000000</span></div>
+                                <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, rgba(169,99,177,0), #4B1352, #2F0C33, #000000);" onclick="copyColor('#A963B1, #4B1352, #2F0C33, #000000')"><span class="label-cn">Pink</span><span class="swatch-hex">#A963B1 → #4B1352 → #2F0C33 → #000000</span></div>
+                                <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, rgba(237,147,73,0), #955A2A, #3E220B, #000000);" onclick="copyColor('#ED9349, #955A2A, #3E220B, #000000')"><span class="label-cn">Orange</span><span class="swatch-hex">#ED9349 → #955A2A → #3E220B → #000000</span></div>
+                            </div>
+                        </div>
+
+                        <h2 class="text-2xl font-bold mb-2 mt-16 text-gray-900" data-i18n-zh="5. 中性色" data-i18n-en="5. Neutral Colors">5. 中性色</h2>
+                        <p class="text-gray-600 mb-8 max-w-3xl text-sm leading-relaxed" data-i18n-zh="通过控制明度，建立清晰的信息层级与空间纵深感。下面展示了标准的 11 阶灰度连续色带，采用竖向排列并补充了各阶色值的核心应用场景。" data-i18n-en="By controlling lightness, clear information hierarchy and spatial depth are established. Below is the standard 11-step grayscale continuous ramp, arranged vertically, with core use cases added for each step.">通过控制明度，建立清晰的信息层级与空间纵深感。下面展示了标准的 11 阶灰度连续色带，采用竖向排列并补充了各阶色值的核心应用场景。</p>
+                        <div class="bg-white p-6 sm:p-8 rounded-cat flex flex-col md:flex-row gap-8 shadow-sm border border-gray-100">
+                            <div class="w-full md:w-1/3 max-w-[280px]">
+                                <div class="color-swatch-container shadow-sm border border-gray-200" style="border-radius:32px;">
+                                    <div class="py-3 text-center bg-gray-50 border-b border-gray-200"><span class="font-bold text-gray-800 block text-sm" data-i18n-zh="Neutral / 中性色" data-i18n-en="Neutral">Neutral / 中性色</span></div>
+                                    <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #FFFFFF; color: #1D1D1F;" onclick="copyColor('#FFFFFF')"><span class="font-mono">100%</span><span class="font-mono text-xs">#FFFFFF</span></div>
+                                    <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #EEEEEE; color: #1D1D1F;" onclick="copyColor('#EEEEEE')"><span class="font-mono">93%</span><span class="font-mono text-xs">#EEEEEE</span></div>
+                                    <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #CCCCCC; color: #1D1D1F;" onclick="copyColor('#CCCCCC')"><span class="font-mono">80%</span><span class="font-mono text-xs">#CCCCCC</span></div>
+                                    <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #999999; color: #1D1D1F;" onclick="copyColor('#999999')"><span class="font-mono">60%</span><span class="font-mono text-xs">#999999</span></div>
+                                    <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #666666; color: #ffffff;" onclick="copyColor('#666666')"><span class="font-mono">39%</span><span class="font-mono text-xs">#666666</span></div>
+                                    <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #444444; color: #ffffff;" onclick="copyColor('#444444')"><span class="font-mono">26%</span><span class="font-mono text-xs">#444444</span></div>
+                                    <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #333333; color: #ffffff;" onclick="copyColor('#333333')"><span class="font-mono">20%</span><span class="font-mono text-xs">#333333</span></div>
+                                    <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #222222; color: #ffffff;" onclick="copyColor('#222222')"><span class="font-mono">13%</span><span class="font-mono text-xs">#222222</span></div>
+                                    <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #111111; color: #ffffff;" onclick="copyColor('#111111')"><span class="font-mono">7%</span><span class="font-mono text-xs">#111111</span></div>
+                                    <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #0A0A0A; color: #ffffff;" onclick="copyColor('#0A0A0A')"><span class="font-mono">4%</span><span class="font-mono text-xs">#0A0A0A</span></div>
+                                    <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #000000; color: #ffffff;" onclick="copyColor('#000000')"><span class="font-mono">0%</span><span class="font-mono text-xs">#000000</span></div>
                                 </div>
-                                <div class="mt-4 sm:mt-0 text-right">
-                                    <div class="text-2xl font-mono font-bold">#EC6443</div>
+                            </div>
+                            <div class="w-full md:w-2/3 self-stretch flex flex-col">
+                                <div class="pt-4"><h4 class="text-xl font-bold text-gray-900" data-i18n-zh="中性色应用规范" data-i18n-en="Neutral Color Usage Guidelines">中性色应用规范</h4></div>
+                                <div class="mt-4 bg-gray-50 p-4 rounded-xl card-28 border border-gray-100 hover:shadow-md transition duration-300">
+                                    <h5 class="font-bold text-gray-800 mb-2 flex items-center"><div class="w-4 h-4 rounded-full bg-[#EEEEEE] border border-gray-300 mr-2"></div><span data-i18n-zh="背景与容器 (Backgrounds)" data-i18n-en="Backgrounds and Containers">背景与容器 (Backgrounds)</span></h5>
+                                    <p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="以浅灰及白色作为页面部分背景与容器底色，39%（#666666）的色阶保证玻璃质感稳定且不过度抢占注意力。" data-i18n-en="Use light gray and white as partial page backgrounds and container base colors; the 39% (#666666) shade ensures stable glass texture without overly competing for attention.">以浅灰及白色作为页面部分背景与容器底色，39%（#666666）的色阶保证玻璃质感稳定且不过度抢占注意力。</p>
+                                </div>
+                                <div class="flex-1 flex flex-col">
+                                    <div class="flex-1 min-h-0"></div>
+                                    <div class="bg-gray-50 p-4 rounded-xl card-28 border border-gray-100 hover:shadow-md transition duration-300">
+                                        <h5 class="font-bold text-gray-800 mb-2 flex items-center"><div class="w-4 h-4 rounded-full bg-[#999999] mr-2"></div><span data-i18n-zh="边框与分割 (Dividers)" data-i18n-en="Borders and Dividers">边框与分割 (Dividers)</span></h5>
+                                        <p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="以 80% 至 60% 的灰度作为轻量级分割线，对视觉打扰降到最低；对于强调用途的控件描边，可选用 39% (#666666) 的色阶。" data-i18n-en="Use 80% to 60% gray as lightweight dividers to minimize visual disturbance; for emphasized control strokes, use the 39% (#666666) shade.">以 80% 至 60% 的灰度作为轻量级分割线，对视觉打扰降到最低；对于强调用途的控件描边，可选用 39% (#666666) 的色阶。</p>
+                                    </div>
+                                    <div class="flex-1 min-h-0"></div>
+                                    <div class="bg-gray-50 p-4 rounded-xl card-28 border border-gray-100 hover:shadow-md transition duration-300">
+                                        <h5 class="font-bold text-gray-800 mb-2 flex items-center"><div class="w-4 h-4 rounded-full bg-[#222222] mr-2"></div><span data-i18n-zh="排版与文本" data-i18n-en="Typography and Text">排版与文本</span></h5>
+                                        <p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="使用4%至7%作为主要的文字色，少部分Led载体上使用0%色阶的文字" data-i18n-en="Use 4% to 7% as the main text color; on a small number of LED carriers, use 0% shade for text.">使用4%至7%作为主要的文字色，少部分Led载体上使用0%色阶的文字</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div class="color-swatch-container">
-                                <div class="color-swatch text-white font-bold" style="background-color: #FF904B;" onclick="copyColor('#FF904B')">
-                                    <span data-i18n-zh="Orange 1" data-i18n-en="Orange 1">Orange 1</span>
-                                    <span class="swatch-hex">#FF904B</span>
-                                </div>
-                            </div>
-                            <div class="color-swatch-container">
-                                <div class="color-swatch text-gray-900 font-bold" style="background-color: #F8B96F;" onclick="copyColor('#F8B96F')">
-                                    <span data-i18n-zh="Orange 2" data-i18n-en="Orange 2">Orange 2</span>
-                                    <span class="swatch-hex">#F8B96F</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="usage-grid mt-6">
-                        <div class="usage-card usage-40"><h4><span class="color-dot bg-[#EC6443]"></span><span data-i18n-zh="主品牌色 · 核心识别" data-i18n-en="Primary Brand · Core Identity">主品牌色 · 核心识别</span></h4><p data-i18n-zh="用于页面唯一主按钮、关键开关开启态、当前导航和品牌标识。避免在同一视窗出现多个同权重橙色焦点。" data-i18n-en="Used for the single primary button on a page, key switch-on states, current navigation, and brand marks. Avoid multiple orange focal points of equal weight within the same viewport.">用于页面唯一主按钮、关键开关开启态、当前导航和品牌标识。避免在同一视窗出现多个同权重橙色焦点。</p></div>
-                        <div class="usage-card usage-40"><h4><span class="color-dot bg-[#FF904B]"></span><span data-i18n-zh="品牌辅助色 · 丰富效果" data-i18n-en="Brand Accent · Rich Effect">品牌辅助色 · 丰富效果</span></h4><p data-i18n-zh="用于辅助品牌主色出现的点缀、氛围营造等视觉元素。" data-i18n-en="Used for visual elements such as accents and atmosphere that complement the primary brand color.">用于辅助品牌主色出现的点缀、氛围营造等视觉元素。</p></div>
-                    </div>
-                </section>
-                <section class="mb-16">
-                    <h2 class="text-2xl font-bold mb-2 text-gray-900" data-i18n-zh="2. 辅助色" data-i18n-en="2. Secondary Colors">2. 辅助色</h2>
-                    <p class="text-gray-600 mb-6 max-w-3xl text-sm leading-relaxed" data-i18n-zh="辅助色用于扩展品牌表达、分类识别和视觉层次构建。仅用于分类标签、图标点缀、背景配色、参数调节等次级元素，不与主品牌色争夺视觉焦点；单屏建议不超过 4–5 种辅助色，并保持同一纯度与明度。点击色块可复制对应色值。" data-i18n-en="Secondary colors are used to extend brand expression, category recognition, and visual hierarchy construction. They are only used for secondary elements such as category labels, icon accents, background colors, and parameter adjustments, without competing with the main brand color for visual focus; it is recommended to use no more than 4–5 secondary colors per screen, maintaining consistent saturation and lightness. Click any swatch to copy its value.">辅助色用于扩展品牌表达、分类识别和视觉层次构建。仅用于分类标签、图标点缀、背景配色、参数调节等次级元素，不与主品牌色争夺视觉焦点；单屏建议不超过 4–5 种辅助色，并保持同一纯度与明度。点击色块可复制对应色值。</p>
-                    <div class="glass-panel p-6 sm:p-10 rounded-cat">
-                        <div class="secondary-color-list">
-                            <div class="secondary-color-item text-white font-bold" style="background-color: #47B2A7;" onclick="copyColor('#47B2A7')">
-                                <span class="label-en">Green</span>
-                                <span class="swatch-hex">#47B2A7</span>
-                            </div>
-                            <div class="secondary-color-item text-white font-bold" style="background-color: #6AB7FF;" onclick="copyColor('#6AB7FF')">
-                                <span class="label-en">Blue</span>
-                                <span class="swatch-hex">#6AB7FF</span>
-                            </div>
-                            <div class="secondary-color-item text-white font-bold" style="background-color: #798FFE;" onclick="copyColor('#798FFE')">
-                                <span class="label-en">Indigo</span>
-                                <span class="swatch-hex">#798FFE</span>
-                            </div>
-                            <div class="secondary-color-item text-white font-bold" style="background-color: #7F5BEE;" onclick="copyColor('#7F5BEE')">
-                                <span class="label-en">Violet</span>
-                                <span class="swatch-hex">#7F5BEE</span>
-                            </div>
-                            <div class="secondary-color-item text-gray-900 font-bold border-visible" style="background-color: #FFC2E5;" onclick="copyColor('#FFC2E5')">
-                                <span class="label-en">Shell Pink</span>
-                                <span class="swatch-hex">#FFC2E5</span>
-                            </div>
-                            <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #8A42AE, #EC53AF);" onclick="copyColor('#8A42AE, #EC53AF')">
-                                <span class="label-en">Gradient</span>
-                                <span class="swatch-hex">#8A42AE → #EC53AF</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- ====== 按键色 ====== -->
-                <section class="mb-16">
-                    <h2 class="text-2xl font-bold mb-2 text-gray-900" data-i18n-zh="3. 按键色" data-i18n-en="3. Button Colors">3. 按键色</h2>
-                    <p class="text-gray-600 mb-6 max-w-3xl text-sm leading-relaxed" data-i18n-zh="按键色用于按钮、交互元素和界面关键操作点。点击色块可复制对应色值。" data-i18n-en="Button colors are used for buttons, interactive elements, and key action points in the interface. Click any swatch to copy its value.">按键色用于按钮、交互元素和界面关键操作点。点击色块可复制对应色值。</p>
-                    <div class="glass-panel p-6 sm:p-10 rounded-cat">
-                        <div class="secondary-color-list">
-                            <div class="bg-category-title" data-i18n-zh="AI模式下的主导航和核心操作按钮色" data-i18n-en="Primary navigation and core action button color in AI mode">AI模式下的主导航和核心操作按钮色</div>
-                            <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #F8B96F, #FF904B, #EC6443, #D653EC);" onclick="copyColor('#F8B96F, #FF904B, #EC6443, #D653EC')">
-                                <span class="label-en">AI Iridescent</span>
-                                <span class="swatch-hex">#F8B96F → #FF904B → #EC6443 → #D653EC</span>
-                            </div>
-                            <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="常规模式下的主导航和核心操作按钮色" data-i18n-en="Primary navigation and core action button color in normal mode">常规模式下的主导航和核心操作按钮色</div>
-                            <div class="secondary-color-item text-white font-bold" style="background-color: #EC6443;" onclick="copyColor('#EC6443')">
-                                <span class="label-en">Core</span>
-                                <span class="swatch-hex">#EC6443</span>
-                            </div>
-                            <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="其他按钮或非界面关键操作点按键色" data-i18n-en="Other buttons or non-critical interface action point button colors">其他按钮或非界面关键操作点按键色</div>
-                            <div class="secondary-color-item text-white font-bold" style="background-color: #0A0A0A;" onclick="copyColor('#0A0A0A')">
-                                <span class="label-en">Base Black</span>
-                                <span class="swatch-hex">#0A0A0A</span>
-                            </div>
-                            <div class="secondary-color-item text-gray-900 font-bold border-visible" style="background-color: #FFFFFF;" onclick="copyColor('#FFFFFF')">
-                                <span class="label-en">Base White</span>
-                                <span class="swatch-hex">#FFFFFF</span>
-                            </div>
-                            <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="禁用时的按键色" data-i18n-en="Button color when disabled">禁用时的按键色</div>
-                            <div class="secondary-color-item text-white font-bold" style="background-color: #999999;" onclick="copyColor('#999999')">
-                                <span class="label-en">Gray</span>
-                                <span class="swatch-hex">#999999</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- ====== 背景色 ====== -->
-                <section class="mb-16">
-                    <h2 class="text-2xl font-bold mb-2 text-gray-900" data-i18n-zh="4. 背景色" data-i18n-en="4. Background Colors">4. 背景色</h2>
-                    <p class="text-gray-600 mb-6 max-w-3xl text-sm leading-relaxed" data-i18n-zh="用于TFT页面、卡片、容器和渐变背景。点击色块可复制对应色值。" data-i18n-en="Used for TFT pages, cards, containers, and gradient backgrounds. Click any swatch to copy its value.">用于TFT页面、卡片、容器和渐变背景。点击色块可复制对应色值。</p>
-                    <div class="glass-panel p-6 sm:p-10 rounded-cat">
-                        <div class="secondary-color-list">
-                            <!-- AI Background Color-Light -->
-                            <div class="bg-category-title" data-i18n-zh="浅色AI背景色" data-i18n-en="Light AI Background">浅色AI背景色</div>
-                            <div class="secondary-color-item text-gray-900 font-bold gradient-swatch" style="background: linear-gradient(135deg, #F6F6F6, #FFA771);" onclick="copyColor('#F6F6F6, #FFA771')">
-                                <span class="label-en">AI Light Gradient</span>
-                                <span class="swatch-hex">#F6F6F6 → #FFA771</span>
-                            </div>
-                            <!-- AI Background Color-Dark -->
-                            <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="深色AI背景色" data-i18n-en="Dark AI Background">深色AI背景色</div>
-                            <div class="secondary-color-item text-white font-bold" style="background-color: #000000;" onclick="copyColor('#000000')">
-                                <span class="label-en">AI Dark</span>
-                                <span class="swatch-hex">#000000</span>
-                            </div>
-                            <!-- Normal Background Color - Light -->
-                            <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="浅色常规模式背景色，可根据具体程序匹配颜色组合，需协调美观。" data-i18n-en="Light Normal Mode Background. Color combinations can be matched to specific applications and must be harmonious and aesthetically pleasing.">浅色常规模式背景色，可根据具体程序匹配颜色组合，需协调美观。</div>
-                            <div class="secondary-color-item text-gray-900 font-bold border-visible" style="background-color: #F4F4F4;" onclick="copyColor('#F4F4F4')">
-                                <span class="label-en">Light Base</span>
-                                <span class="swatch-hex">#F4F4F4</span>
-                            </div>
-                            <div class="secondary-color-item text-gray-900 font-bold border-visible" style="background-color: #FFECDB;" onclick="copyColor('#FFECDB')">
-                                <span class="label-en">Light Warm</span>
-                                <span class="swatch-hex">#FFECDB</span>
-                            </div>
-                            <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #ACDAF5, #229BD1);" onclick="copyColor('#ACDAF5, #229BD1')">
-                                <span class="label-en">Light Blue Gradient</span>
-                                <span class="swatch-hex">#ACDAF5 → #229BD1</span>
-                            </div>
-                            <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #BCE1E3, #47B2A7);" onclick="copyColor('#BCE1E3, #47B2A7')">
-                                <span class="label-en">Light Teal Gradient</span>
-                                <span class="swatch-hex">#BCE1E3 → #47B2A7</span>
-                            </div>
-                            <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #E2CCE3, #856AAD);" onclick="copyColor('#E2CCE3, #856AAD')">
-                                <span class="label-en">Light Purple Gradient</span>
-                                <span class="swatch-hex">#E2CCE3 → #856AAD</span>
-                            </div>
-                            <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #DEDDF7, #5B5EC6);" onclick="copyColor('#DEDDF7, #5B5EC6')">
-                                <span class="label-en">Light Indigo Gradient</span>
-                                <span class="swatch-hex">#DEDDF7 → #5B5EC6</span>
-                            </div>
-                            <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #FFD1EB, #A963B1);" onclick="copyColor('#FFD1EB, #A963B1')">
-                                <span class="label-en">Light Pink Gradient</span>
-                                <span class="swatch-hex">#FFD1EB → #A963B1</span>
-                            </div>
-                            <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #FAD2B6, #ED9349);" onclick="copyColor('#FAD2B6, #ED9349')">
-                                <span class="label-en">Light Orange Gradient</span>
-                                <span class="swatch-hex">#FAD2B6 → #ED9349</span>
-                            </div>
-                            <!-- Normal Background Color - Dark -->
-                            <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="深色常规模式背景色，可根据具体程序匹配颜色组合，其中在使用dark base背景时可根据情况增加辅助色丰富页面，需协调美观。" data-i18n-en="Dark Normal Mode Background. Color combinations can be matched to specific applications. When using a dark base background, accent colors may be added as needed to enrich the page, but must remain harmonious and aesthetically pleasing.">深色常规模式背景色，可根据具体程序匹配颜色组合，其中在使用dark base背景时可根据情况增加辅助色丰富页面，需协调美观。</div>
-                            <div class="secondary-color-item text-white font-bold" style="background-color: #000000;" onclick="copyColor('#000000')">
-                                <span class="label-en">Dark Base</span>
-                                <span class="swatch-hex">#000000</span>
-                            </div>
-                            <!-- 透明度渐变 -->
-                            <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, rgba(61,131,205,0), #225A97, #063260, #000000);" onclick="copyColor('#3D83CD, #225A97, #063260, #000000')">
-                                <span class="label-cn">Blue</span>
-                                <span class="swatch-hex">#3D83CD → #225A97 → #063260 → #000000</span>
-                            </div>
-                            <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, rgba(71,178,167,0), #288078, #0A4D49, #000000);" onclick="copyColor('#47B2A7, #288078, #0A4D49, #000000')">
-                                <span class="label-cn">Teal</span>
-                                <span class="swatch-hex">#47B2A7 → #288078 → #0A4D49 → #000000</span>
-                            </div>
-                            <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, rgba(133,106,173,0), #5E3E81, #371255, #000000);" onclick="copyColor('#856AAD, #5E3E81, #371255, #000000')">
-                                <span class="label-cn">Purple</span>
-                                <span class="swatch-hex">#856AAD → #5E3E81 → #371255 → #000000</span>
-                            </div>
-                            <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, rgba(91,94,198,0), #282A7B, #101141, #000000);" onclick="copyColor('#5B5EC6, #282A7B, #101141, #000000')">
-                                <span class="label-cn">Indigo</span>
-                                <span class="swatch-hex">#5B5EC6 → #282A7B → #101141 → #000000</span>
-                            </div>
-                            <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, rgba(169,99,177,0), #4B1352, #2F0C33, #000000);" onclick="copyColor('#A963B1, #4B1352, #2F0C33, #000000')">
-                                <span class="label-cn">Pink</span>
-                                <span class="swatch-hex">#A963B1 → #4B1352 → #2F0C33 → #000000</span>
-                            </div>
-                            <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, rgba(237,147,73,0), #955A2A, #3E220B, #000000);" onclick="copyColor('#ED9349, #955A2A, #3E220B, #000000')">
-                                <span class="label-cn">Orange</span>
-                                <span class="swatch-hex">#ED9349 → #955A2A → #3E220B → #000000</span>
+
+                        <h2 class="text-2xl font-bold mb-2 mt-16 text-gray-900" data-i18n-zh="6. 跨屏幕与硬件" data-i18n-en="6. Cross-screen and Hardware">6. 跨屏幕与硬件</h2>
+                        <p class="text-gray-500 mb-6 text-sm" data-i18n-zh="同一颜色角色在 TFT、LED 与实体灯上必须保持一致，并依据硬件能力进行可识别的降级。" data-i18n-en="The same color role must remain consistent across TFT, LED, and physical lights, with recognizable degradation based on hardware capability.">同一颜色角色在 TFT、LED 与实体灯上必须保持一致，并依据硬件能力进行可识别的降级。</p>
+                        <div class="glass-panel p-6 sm:p-8 rounded-cat">
+                            <h3 class="text-xl font-bold text-gray-900 mb-5" data-i18n-zh="跨屏幕与硬件使用原则" data-i18n-en="Cross-screen and Hardware Usage Principles">跨屏幕与硬件使用原则</h3>
+                            <div class="usage-grid">
+                                <div class="usage-card usage-28"><h4 data-i18n-zh="TFT · 保持语义 Token" data-i18n-en="TFT · Preserve Semantic Tokens">TFT · 保持语义 Token</h4><p data-i18n-zh="不同主题与屏幕尺寸优先选择色彩库中颜色，其中品牌色、按键色须严格遵守标准，特殊情况下部分背景色可进行同色相的轻微调整，并保证前景与背景组合可读性。" data-i18n-en="Different themes and screen sizes should prioritize colors from the color library; brand colors and button colors must strictly follow standards, and in special cases some background colors may be slightly adjusted within the same hue, ensuring foreground and background readability.">不同主题与屏幕尺寸优先选择色彩库中颜色，其中品牌色、按键色须严格遵守标准，特殊情况下部分背景色可进行同色相的轻微调整，并保证前景与背景组合可读性。</p></div>
+                                <div class="usage-card usage-28"><h4 data-i18n-zh="LED · 颜色只做增强" data-i18n-en="LED · Color as Enhancement Only">LED · 颜色只做增强</h4><p data-i18n-zh="低色彩 LED 不承担完整语义。固定标签、图标、亮灭和闪烁节奏必须先传达状态，颜色仅作为第二识别通道。" data-i18n-en="Low-color LED does not carry complete semantics. Fixed labels, icons, on/off states, and blink rhythm must first convey status; color serves only as a secondary recognition channel.">低色彩 LED 不承担完整语义。固定标签、图标、亮灭和闪烁节奏必须先传达状态，颜色仅作为第二识别通道。</p></div>
+                                <div class="usage-card usage-28"><h4 data-i18n-zh="实体灯 · 控制亮度与干扰" data-i18n-en="Physical Light · Control Brightness and Distraction">实体灯 · 控制亮度与干扰</h4><p data-i18n-zh="夜间、卧室和近距离场景应降低亮度，持续警示不得使用高频闪烁；危险状态需同时提供声音或文字反馈。" data-i18n-en="Brightness should be reduced at night, in bedrooms, and in close-range scenarios. Persistent warnings must not use high-frequency flashing; danger states require simultaneous sound or text feedback.">夜间、卧室和近距离场景应降低亮度，持续警示不得使用高频闪烁；危险状态需同时提供声音或文字反馈。</p></div>
+                                <div class="usage-card usage-28"><h4 data-i18n-zh="验收 · 使用真实环境" data-i18n-en="Validation · Use Real Environments">验收 · 使用真实环境</h4><p data-i18n-zh="至少在明亮、正常、暗光三种环境及主要观看角度下验证辨识度，避免只依据设计稿或显示器色值验收。" data-i18n-en="Validate recognizability in at least three environments—bright, normal, and dim—and at primary viewing angles. Avoid acceptance based solely on design mockups or monitor color values.">至少在明亮、正常、暗光三种环境及主要观看角度下验证辨识度，避免只依据设计稿或显示器色值验收。</p></div>
                             </div>
                         </div>
                     </div>
-                </section>
-                <section class="mb-16">
-                    <h2 class="text-2xl font-bold mb-2 text-gray-900" data-i18n-zh="5. 中性色" data-i18n-en="5. Neutral Colors">5. 中性色</h2>
-                    <p class="text-gray-600 mb-8 max-w-3xl text-sm leading-relaxed" data-i18n-zh="通过控制明度，建立清晰的信息层级与空间纵深感。下面展示了标准的 11 阶灰度连续色带，采用竖向排列并补充了各阶色值的核心应用场景。" data-i18n-en="By controlling lightness, clear information hierarchy and spatial depth are established. Below is the standard 11-step grayscale continuous ramp, arranged vertically, with core use cases added for each step.">通过控制明度，建立清晰的信息层级与空间纵深感。下面展示了标准的 11 阶灰度连续色带，采用竖向排列并补充了各阶色值的核心应用场景。</p>
-                    <div class="bg-white p-6 sm:p-8 rounded-cat flex flex-col md:flex-row gap-8 shadow-sm border border-gray-100">
-                        <div class="w-full md:w-1/3 max-w-[280px]">
-                            <div class="color-swatch-container shadow-sm border border-gray-200" style="border-radius:32px;">
-                                <div class="py-3 text-center bg-gray-50 border-b border-gray-200">
-                                    <span class="font-bold text-gray-800 block text-sm" style="font-family: var(--font-family-body);">Neutral / 中性色</span>
+                    <div id="pane-cmyk" class="cmyk-pane">                        <div class="cmyk-intro mb-10">
+                            <h3 data-i18n-zh="丝印 / 菲林用色规则" data-i18n-en="Silk-screen / Film Color Rules">丝印 / 菲林用色规则</h3>
+                            <ol>
+                                <li data-i18n-zh="本表 CMYK 为参考配方，正式印刷前必须先试印确认，不能直接照数值开印。" data-i18n-en="CMYK values in this table are reference formulations. Before formal printing, a proof must be made to confirm; do not print directly from these values.">本表 CMYK 为参考配方，正式印刷前必须先试印确认，不能直接照数值开印。</li>
+                                <li data-i18n-zh="品牌色必须走专色（Pantone 1655 C 或实色样），四色只是备案，不能替代。" data-i18n-en="Brand colors must use spot colors (Pantone 1655 C or approved physical sample). Four-color is only a fallback and cannot replace it.">品牌色必须走专色（Pantone 1655 C 或实色样），四色只是备案，不能替代。</li>
+                                <li data-i18n-zh="小字、细线、正文的黑色必须用单黑（K100），不能用四色黑。" data-i18n-en="Black for small text, thin lines, and body copy must use single-color black (K100); four-color black is prohibited.">小字、细线、正文的黑色必须用单黑（K100），不能用四色黑。</li>
+                                <li data-i18n-zh="丝印大面积深色背景时，油墨不能太厚，防止蹭脏和干得慢。" data-i18n-en="For large dark backgrounds in silk-screen, the ink layer must not be too thick, to prevent smudging and slow drying.">丝印大面积深色背景时，油墨不能太厚，防止蹭脏和干得慢。</li>
+                                <li data-i18n-zh="浅色（接近白的浅灰、浅粉）丝印必须用白墨调稀，不能靠小网点印。" data-i18n-en="Light colors (near-white light gray or light pink) must be diluted with white ink for silk-screen; do not rely on fine halftone dots.">浅色（接近白的浅灰、浅粉）丝印必须用白墨调稀，不能靠小网点印。</li>
+                                <li data-i18n-zh="渐变色必须拆专色印，中间过渡要留足空间，正式印前必须先试印。" data-i18n-en="Gradients must be printed with separated spot colors, with ample transition space; a proof must be made before formal printing.">渐变色必须拆专色印，中间过渡要留足空间，正式印前必须先试印。</li>
+                            </ol>
+                        </div>
+
+                        <h2 class="text-2xl font-bold mb-6 text-gray-900" data-i18n-zh="1. 主品牌色 · CMYK" data-i18n-en="1. Primary Brand Color · CMYK">1. 主品牌色 · CMYK</h2>
+                        <div class="space-y-6 mb-16">
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background:#EC6443;"></div>
+                                    <div class="cmyk-family-title"><span class="name">Leader Orange</span><span class="meta">HEX #EC6443 ｜ RGB 236, 100, 67 ｜ Pantone 1655 C</span></div>
                                 </div>
-                                <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #FFFFFF; color: #1D1D1F;" onclick="copyColor('#FFFFFF')">
-                                    <span class="font-mono" style="font-family: var(--font-family-mono);">100%</span>
-                                    <span class="font-mono text-xs" style="font-family: var(--font-family-mono);">#FFFFFF</span>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="用途" data-i18n-en="Usage">用途</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-i18n-zh="专色（首选）" data-i18n-en="Spot color (preferred)">专色（首选）</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#EC6443;"></span>Pantone 1655 C</td>
+                                            <td data-i18n-zh="品牌色必须走专色，禁止用四色叠印替代。" data-i18n-en="Brand color must use spot color; four-color overprint substitution is prohibited.">品牌色必须走专色，禁止用四色叠印替代。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 大面积" data-i18n-en="Four-color · Large area">四色 · 大面积</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#EC6443;"></span>C0 M72 Y78 K0</td>
+                                            <td data-i18n-zh="仅在专色不可用时使用；单色面积不超过整页 30%。" data-i18n-en="Use only when spot color is unavailable; single-color area must not exceed 30% of the page.">仅在专色不可用时使用；单色面积不超过整页 30%。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 小字 / 细线" data-i18n-en="Four-color · Small text / thin lines">四色 · 小字 / 细线</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#EC6443;"></span>C0 M74 Y80 K5</td>
+                                            <td data-i18n-zh="必须带 5% K，否则字边缘会糊。" data-i18n-en="Must include 5% K; otherwise text edges will bleed.">必须带 5% K，否则字边缘会糊。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 浅色点缀" data-i18n-en="Four-color · Light accents">四色 · 浅色点缀</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#FF904B;"></span>C0 M55 Y60 K0</td>
+                                            <td data-i18n-zh="仅限小面积点缀；禁止用于大面积背景。" data-i18n-en="For small accents only; prohibited for large-area backgrounds.">仅限小面积点缀；禁止用于大面积背景。</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="cmyk-note" data-i18n-zh="品牌色不建议为了印刷方便而改色相。宁可走专色，也不要为了 CMYK 好印把橙色调成偏红或偏黄。" data-i18n-en="Do not shift the brand hue for printing convenience. Prefer spot color over altering the orange toward red or yellow for easier CMYK reproduction.">品牌色不建议为了印刷方便而改色相。宁可走专色，也不要为了 CMYK 好印把橙色调成偏红或偏黄。</div>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background:#FF904B;"></div>
+                                    <div class="cmyk-family-title"><span class="name">Orange 1</span><span class="meta">HEX #FF904B ｜ RGB 255, 144, 75 ｜ Pantone 1575 C approx.</span></div>
                                 </div>
-                                <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #EEEEEE; color: #1D1D1F;" onclick="copyColor('#EEEEEE')">
-                                    <span class="font-mono" style="font-family: var(--font-family-mono);">93%</span>
-                                    <span class="font-mono text-xs" style="font-family: var(--font-family-mono);">#EEEEEE</span>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="用途" data-i18n-en="Usage">用途</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-i18n-zh="专色（首选）" data-i18n-en="Spot color (preferred)">专色（首选）</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#FF904B;"></span>Pantone 1575 C approx.</td>
+                                            <td data-i18n-zh="小面积点缀必须走专色。" data-i18n-en="Small accents must use spot color.">小面积点缀必须走专色。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 大面积" data-i18n-en="Four-color · Large area">四色 · 大面积</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#FF904B;"></span>C0 M55 Y76 K0</td>
+                                            <td data-i18n-zh="大面积使用前必须打样确认。" data-i18n-en="Large-area use requires a proof before approval.">大面积使用前必须打样确认。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 小面积" data-i18n-en="Four-color · Small area">四色 · 小面积</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#FF904B;"></span>C0 M50 Y70 K0</td>
+                                            <td data-i18n-zh="仅限小图标、小色块；不得用于文字。" data-i18n-en="For small icons and swatches only; not for text.">仅限小图标、小色块；不得用于文字。</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background:#F8B96F;"></div>
+                                    <div class="cmyk-family-title"><span class="name">Orange 2</span><span class="meta">HEX #F8B96F ｜ RGB 248, 185, 111 ｜ Pantone 156 C approx.</span></div>
                                 </div>
-                                <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #CCCCCC; color: #1D1D1F;" onclick="copyColor('#CCCCCC')">
-                                    <span class="font-mono" style="font-family: var(--font-family-mono);">80%</span>
-                                    <span class="font-mono text-xs" style="font-family: var(--font-family-mono);">#CCCCCC</span>
-                                </div>
-                                <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #999999; color: #1D1D1F;" onclick="copyColor('#999999')">
-                                    <span class="font-mono" style="font-family: var(--font-family-mono);">60%</span>
-                                    <span class="font-mono text-xs" style="font-family: var(--font-family-mono);">#999999</span>
-                                </div>
-                                <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #666666; color: #ffffff;" onclick="copyColor('#666666')">
-                                    <span class="font-mono" style="font-family: var(--font-family-mono);">39%</span>
-                                    <span class="font-mono text-xs" style="font-family: var(--font-family-mono);">#666666</span>
-                                </div>
-                                <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #444444; color: #ffffff;" onclick="copyColor('#444444')">
-                                    <span class="font-mono" style="font-family: var(--font-family-mono);">26%</span>
-                                    <span class="font-mono text-xs" style="font-family: var(--font-family-mono);">#444444</span>
-                                </div>
-                                <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #333333; color: #ffffff;" onclick="copyColor('#333333')">
-                                    <span class="font-mono" style="font-family: var(--font-family-mono);">20%</span>
-                                    <span class="font-mono text-xs" style="font-family: var(--font-family-mono);">#333333</span>
-                                </div>
-                                <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #222222; color: #ffffff;" onclick="copyColor('#222222')">
-                                    <span class="font-mono" style="font-family: var(--font-family-mono);">13%</span>
-                                    <span class="font-mono text-xs" style="font-family: var(--font-family-mono);">#222222</span>
-                                </div>
-                                <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #111111; color: #ffffff;" onclick="copyColor('#111111')">
-                                    <span class="font-mono" style="font-family: var(--font-family-mono);">7%</span>
-                                    <span class="font-mono text-xs" style="font-family: var(--font-family-mono);">#111111</span>
-                                </div>
-                                <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #0A0A0A; color: #ffffff;" onclick="copyColor('#0A0A0A')">
-                                    <span class="font-mono" style="font-family: var(--font-family-mono);">4%</span>
-                                    <span class="font-mono text-xs" style="font-family: var(--font-family-mono);">#0A0A0A</span>
-                                </div>
-                                <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #000000; color: #ffffff;" onclick="copyColor('#000000')">
-                                    <span class="font-mono" style="font-family: var(--font-family-mono);">0%</span>
-                                    <span class="font-mono text-xs" style="font-family: var(--font-family-mono);">#000000</span>
-                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="用途" data-i18n-en="Usage">用途</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-i18n-zh="专色（首选）" data-i18n-en="Spot color (preferred)">专色（首选）</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#F8B96F;"></span>Pantone 156 C approx.</td>
+                                            <td data-i18n-zh="浅橙必须走专色，四色印不准。" data-i18n-en="Light orange must use spot color; four-color cannot reproduce it accurately.">浅橙必须走专色，四色印不准。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 大面积" data-i18n-en="Four-color · Large area">四色 · 大面积</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#F8B96F;"></span>C0 M32 Y62 K0</td>
+                                            <td data-i18n-zh="大面积使用前必须打样。" data-i18n-en="Requires proof before large-area use.">大面积使用前必须打样。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 小面积" data-i18n-en="Four-color · Small area">四色 · 小面积</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#F8B96F;"></span>C0 M28 Y55 K0</td>
+                                            <td data-i18n-zh="仅限图标、小色块；不得用于正文。" data-i18n-en="For icons and small swatches only; not for body text.">仅限图标、小色块；不得用于正文。</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                        <div class="w-full md:w-2/3 self-stretch flex flex-col">
-                            <!-- 标题：位置保持不变 -->
-                            <div class="pt-4">
-                                <h4 class="text-xl font-bold text-gray-900" style="font-family: var(--font-family-body);" data-i18n-zh="中性色应用规范" data-i18n-en="Neutral Color Usage Guidelines">中性色应用规范</h4>
-                            </div>
-                            <!-- 卡片1：位置保持不变 -->
-                            <div class="mt-4 bg-gray-50 p-4 rounded-xl card-28 border border-gray-100 hover:shadow-md transition duration-300">
-                                <h5 class="font-bold text-gray-800 mb-2 flex items-center" style="font-family: var(--font-family-body);">
-                                    <div class="w-4 h-4 rounded-full bg-[#EEEEEE] border border-gray-300 mr-2"></div>
-                                    <span data-i18n-zh="背景与容器 (Backgrounds)" data-i18n-en="Backgrounds and Containers">背景与容器 (Backgrounds)</span>
-                                </h5>
-                                <p class="text-sm text-gray-600 leading-relaxed" style="font-family: var(--font-family-body);" data-i18n-zh="以浅灰及白色作为页面部分背景与容器底色，39%（#666666）的色阶保证玻璃质感稳定且不过度抢占注意力。" data-i18n-en="Use light gray and white as partial page backgrounds and container base colors; the 39% (#666666) shade ensures stable glass texture without overly competing for attention.">以浅灰及白色作为页面部分背景与容器底色，39%（#666666）的色阶保证玻璃质感稳定且不过度抢占注意力。</p>
-                            </div>
-                            <!-- 弹性区域：卡片2与卡片3之间的间距相等，卡片3贴底 -->
-                            <div class="flex-1 flex flex-col">
-                                <div class="flex-1 min-h-0"></div>
-                                <div class="bg-gray-50 p-4 rounded-xl card-28 border border-gray-100 hover:shadow-md transition duration-300">
-                                    <h5 class="font-bold text-gray-800 mb-2 flex items-center" style="font-family: var(--font-family-body);">
-                                        <div class="w-4 h-4 rounded-full bg-[#999999] mr-2"></div>
-                                        <span data-i18n-zh="边框与分割 (Dividers)" data-i18n-en="Borders and Dividers">边框与分割 (Dividers)</span>
-                                    </h5>
-                                    <p class="text-sm text-gray-600 leading-relaxed" style="font-family: var(--font-family-body);" data-i18n-zh="以 80% 至 60% 的灰度作为轻量级分割线，对视觉打扰降到最低；对于强调用途的控件描边，可选用 39% (#666666) 的色阶。" data-i18n-en="Use 80% to 60% gray as lightweight dividers to minimize visual disturbance; for emphasized control strokes, use the 39% (#666666) shade.">以 80% 至 60% 的灰度作为轻量级分割线，对视觉打扰降到最低；对于强调用途的控件描边，可选用 39% (#666666) 的色阶。</p>
+
+                        <h2 class="text-2xl font-bold mb-6 text-gray-900" data-i18n-zh="2. 辅助色 · CMYK" data-i18n-en="2. Secondary Colors · CMYK">2. 辅助色 · CMYK</h2>
+                        <div class="space-y-6 mb-16">
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background:#47B2A7;"></div>
+                                    <div class="cmyk-family-title"><span class="name">Green / Teal</span><span class="meta">HEX #47B2A7 ｜ Pantone 326 C approx.</span></div>
                                 </div>
-                                <div class="flex-1 min-h-0"></div>
-                                <div class="bg-gray-50 p-4 rounded-xl card-28 border border-gray-100 hover:shadow-md transition duration-300">
-                                    <h5 class="font-bold text-gray-800 mb-2 flex items-center" style="font-family: var(--font-family-body);">
-                                        <div class="w-4 h-4 rounded-full bg-[#222222] mr-2"></div>
-                                        <span data-i18n-zh="排版与文本" data-i18n-en="Typography and Text" style="font-family: var(--font-family-body);">排版与文本</span>
-                                    </h5>
-                                    <p class="text-sm text-gray-600 leading-relaxed" style="font-family: var(--font-family-body);" data-i18n-zh="使用4%至7%作为主要的文字色，少部分Led载体上使用0%色阶的文字" data-i18n-en="Use 4% to 7% as the main text color; on a small number of LED carriers, use 0% shade for text.">使用4%至7%作为主要的文字色，少部分Led载体上使用0%色阶的文字</p>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="用途" data-i18n-en="Usage">用途</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-i18n-zh="专色（首选）" data-i18n-en="Spot color (preferred)">专色（首选）</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#47B2A7;"></span>Pantone 326 C approx.</td>
+                                            <td data-i18n-zh="必须走专色；四色印会偏灰。" data-i18n-en="Must use spot color; four-color prints grayish.">必须走专色；四色印会偏灰。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 大面积" data-i18n-en="Four-color · Large area">四色 · 大面积</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#47B2A7;"></span>C70 M0 Y40 K9</td>
+                                            <td data-i18n-zh="大面积使用前必须打样；干燥后会变深，印厂需预判。" data-i18n-en="Requires proof; color darkens after drying, so the printer must compensate.">大面积使用前必须打样；干燥后会变深，印厂需预判。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 小面积" data-i18n-en="Four-color · Small area">四色 · 小面积</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#47B2A7;"></span>C65 M0 Y38 K8</td>
+                                            <td data-i18n-zh="仅限小图标、小色块。" data-i18n-en="For small icons and swatches only.">仅限小图标、小色块。</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background:#6AB7FF;"></div>
+                                    <div class="cmyk-family-title"><span class="name">Blue</span><span class="meta">HEX #6AB7FF ｜ Pantone 291 C approx.</span></div>
                                 </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="用途" data-i18n-en="Usage">用途</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-i18n-zh="专色（首选）" data-i18n-en="Spot color (preferred)">专色（首选）</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#6AB7FF;"></span>Pantone 291 C approx.</td>
+                                            <td data-i18n-zh="必须走专色；四色印会偏紫。" data-i18n-en="Must use spot color; four-color prints purplish.">必须走专色；四色印会偏紫。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 大面积" data-i18n-en="Four-color · Large area">四色 · 大面积</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#6AB7FF;"></span>C55 M18 Y0 K0</td>
+                                            <td data-i18n-zh="使用前必须确认承印物底色，避免色偏。" data-i18n-en="Confirm substrate tint before use to avoid color shift.">使用前必须确认承印物底色，避免色偏。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 小面积" data-i18n-en="Four-color · Small area">四色 · 小面积</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#6AB7FF;"></span>C50 M15 Y0 K0</td>
+                                            <td data-i18n-zh="仅限小面积使用；不得用于文字。" data-i18n-en="For small areas only; not for text.">仅限小面积使用；不得用于文字。</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background:#798FFE;"></div>
+                                    <div class="cmyk-family-title"><span class="name">Indigo</span><span class="meta">HEX #798FFE ｜ Pantone 2718 C approx.</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="用途" data-i18n-en="Usage">用途</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-i18n-zh="专色（首选）" data-i18n-en="Spot color (preferred)">专色（首选）</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#798FFE;"></span>Pantone 2718 C approx.</td>
+                                            <td data-i18n-zh="必须走专色；四色印不准。" data-i18n-en="Must use spot color; four-color cannot reproduce accurately.">必须走专色；四色印不准。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 大面积" data-i18n-en="Four-color · Large area">四色 · 大面积</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#798FFE;"></span>C55 M42 Y0 K0</td>
+                                            <td data-i18n-zh="大面积禁止用四色；仅可用小面积。" data-i18n-en="Four-color is prohibited for large areas; only small areas allowed.">大面积禁止用四色；仅可用小面积。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 小面积" data-i18n-en="Four-color · Small area">四色 · 小面积</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#798FFE;"></span>C50 M38 Y0 K0</td>
+                                            <td data-i18n-zh="仅限图标、小色块。" data-i18n-en="For icons and small swatches only.">仅限图标、小色块。</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background:#7F5BEE;"></div>
+                                    <div class="cmyk-family-title"><span class="name">Violet</span><span class="meta">HEX #7F5BEE ｜ Pantone 2665 C approx.</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="用途" data-i18n-en="Usage">用途</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-i18n-zh="专色（首选）" data-i18n-en="Spot color (preferred)">专色（首选）</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#7F5BEE;"></span>Pantone 2665 C approx.</td>
+                                            <td data-i18n-zh="必须走专色；四色印会偏红。" data-i18n-en="Must use spot color; four-color prints reddish.">必须走专色；四色印会偏红。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 大面积" data-i18n-en="Four-color · Large area">四色 · 大面积</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#7F5BEE;"></span>C65 M70 Y0 K0</td>
+                                            <td data-i18n-zh="大面积禁止用四色。" data-i18n-en="Four-color is prohibited for large areas.">大面积禁止用四色。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 小面积" data-i18n-en="Four-color · Small area">四色 · 小面积</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#7F5BEE;"></span>C60 M65 Y0 K0</td>
+                                            <td data-i18n-zh="仅限小面积使用。" data-i18n-en="For small areas only.">仅限小面积使用。</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background:#FFC2E5;"></div>
+                                    <div class="cmyk-family-title"><span class="name">Shell Pink</span><span class="meta">HEX #FFC2E5 ｜ Pantone 230 C approx.</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="用途" data-i18n-en="Usage">用途</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-i18n-zh="专色（首选）" data-i18n-en="Spot color (preferred)">专色（首选）</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#FFC2E5;"></span>Pantone 230 C approx.</td>
+                                            <td data-i18n-zh="必须走专色；四色小网点印不出来。" data-i18n-en="Must use spot color; fine four-color halftones will drop out.">必须走专色；四色小网点印不出来。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 大面积" data-i18n-en="Four-color · Large area">四色 · 大面积</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#FFC2E5;"></span>C0 M32 Y0 K0</td>
+                                            <td data-i18n-zh="大面积使用前必须打样。" data-i18n-en="Requires proof before large-area use.">大面积使用前必须打样。</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-i18n-zh="四色 · 小面积" data-i18n-en="Four-color · Small area">四色 · 小面积</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#FFC2E5;"></span>C0 M28 Y0 K0</td>
+                                            <td data-i18n-zh="仅限图标、小色块。" data-i18n-en="For icons and small swatches only.">仅限图标、小色块。</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background: linear-gradient(135deg, #8A42AE, #EC53AF);"></div>
+                                    <div class="cmyk-family-title"><span class="name">Gradient A · Purple-Pink</span><span class="meta">Start #8A42AE ｜ End #EC53AF</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="色标" data-i18n-en="Color stop">色标</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Start #8A42AE</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#8A42AE;"></span>C62 M88 Y0 K0</td>
+                                            <td data-i18n-zh="必须拆双专色，禁止四色叠印。" data-i18n-en="Must be split into two spot colors; four-color overprint is prohibited.">必须拆双专色，禁止四色叠印。</td>
+                                        </tr>
+                                        <tr>
+                                            <td>End #EC53AF</td>
+                                            <td class="cmyk-value"><span class="cmyk-chip" style="background:#EC53AF;"></span>C10 M80 Y0 K0</td>
+                                            <td data-i18n-zh="必须走网点菲林；色标之间必须留大跨度。" data-i18n-en="Must use halftone film; color stops must be widely spaced.">必须走网点菲林；色标之间必须留大跨度。</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="cmyk-note" data-i18n-zh="渐变必须完成「专色打样 + 叠印打样」，未通过不得量产。具体参数见下载的 Excel。" data-i18n-en="Gradients require both spot-color proof and overprint proof; mass production is prohibited until passed. See the downloadable Excel for detailed parameters.">渐变必须完成「专色打样 + 叠印打样」，未通过不得量产。具体参数见下载的 Excel。</div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <section class="mb-16">
-                    <h2 class="text-2xl font-bold mb-2 text-gray-900" data-i18n-zh="6. 跨屏幕与硬件" data-i18n-en="6. Cross-screen and Hardware">6. 跨屏幕与硬件</h2>
-                    <p class="text-gray-500 mb-6 text-sm" data-i18n-zh="同一颜色角色在 TFT、LED 与实体灯上必须保持一致，并依据硬件能力进行可识别的降级。" data-i18n-en="The same color role must remain consistent across TFT, LED, and physical lights, with recognizable degradation based on hardware capability.">同一颜色角色在 TFT、LED 与实体灯上必须保持一致，并依据硬件能力进行可识别的降级。</p>
-                    <div class="glass-panel p-6 sm:p-8 rounded-cat">
-                        <h3 class="text-xl font-bold text-gray-900 mb-5" data-i18n-zh="跨屏幕与硬件使用原则" data-i18n-en="Cross-screen and Hardware Usage Principles" style="font-family: var(--font-family-body);">跨屏幕与硬件使用原则</h3>
-                        <div class="usage-grid">
-                            <div class="usage-card usage-28"><h4 data-i18n-zh="TFT · 保持语义 Token" data-i18n-en="TFT · Preserve Semantic Tokens" style="font-family: var(--font-family-body);">TFT · 保持语义 Token</h4><p data-i18n-zh="不同主题与屏幕尺寸优先选择色彩库中颜色，其中品牌色、按键色须严格遵守标准，特殊情况下部分背景色可进行同色相的轻微调整，并保证前景与背景组合可读性。" data-i18n-en="Different themes and screen sizes should prioritize colors from the color library; brand colors and button colors must strictly follow standards, and in special cases some background colors may be slightly adjusted within the same hue, ensuring foreground and background readability." style="font-family: var(--font-family-body);">不同主题与屏幕尺寸优先选择色彩库中颜色，其中品牌色、按键色须严格遵守标准，特殊情况下部分背景色可进行同色相的轻微调整，并保证前景与背景组合可读性。</p></div>
-                            <div class="usage-card usage-28"><h4 data-i18n-zh="LED · 颜色只做增强" data-i18n-en="LED · Color as Enhancement Only" style="font-family: var(--font-family-body);">LED · 颜色只做增强</h4><p data-i18n-zh="低色彩 LED 不承担完整语义。固定标签、图标、亮灭和闪烁节奏必须先传达状态，颜色仅作为第二识别通道。" data-i18n-en="Low-color LED does not carry complete semantics. Fixed labels, icons, on/off states, and blink rhythm must first convey status; color serves only as a secondary recognition channel." style="font-family: var(--font-family-body);">低色彩 LED 不承担完整语义。固定标签、图标、亮灭和闪烁节奏必须先传达状态，颜色仅作为第二识别通道。</p></div>
-                            <div class="usage-card usage-28"><h4 data-i18n-zh="实体灯 · 控制亮度与干扰" data-i18n-en="Physical Light · Control Brightness and Distraction" style="font-family: var(--font-family-body);">实体灯 · 控制亮度与干扰</h4><p data-i18n-zh="夜间、卧室和近距离场景应降低亮度，持续警示不得使用高频闪烁；危险状态需同时提供声音或文字反馈。" data-i18n-en="Brightness should be reduced at night, in bedrooms, and in close-range scenarios. Persistent warnings must not use high-frequency flashing; danger states require simultaneous sound or text feedback." style="font-family: var(--font-family-body);">夜间、卧室和近距离场景应降低亮度，持续警示不得使用高频闪烁；危险状态需同时提供声音或文字反馈。</p></div>
-                            <div class="usage-card usage-28"><h4 data-i18n-zh="验收 · 使用真实环境" data-i18n-en="Validation · Use Real Environments" style="font-family: var(--font-family-body);">验收 · 使用真实环境</h4><p data-i18n-zh="至少在明亮、正常、暗光三种环境及主要观看角度下验证辨识度，避免只依据设计稿或显示器色值验收。" data-i18n-en="Validate recognizability in at least three environments—bright, normal, and dim—and at primary viewing angles. Avoid acceptance based solely on design mockups or monitor color values." style="font-family: var(--font-family-body);">至少在明亮、正常、暗光三种环境及主要观看角度下验证辨识度，避免只依据设计稿或显示器色值验收。</p></div>
+
+                        <h2 class="text-2xl font-bold mb-6 text-gray-900" data-i18n-zh="3. 按键色 · CMYK" data-i18n-en="3. Button Colors · CMYK">3. 按键色 · CMYK</h2>
+                        <div class="space-y-6 mb-16">
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background: linear-gradient(135deg, #F8B96F, #FF904B, #EC6443, #D653EC);"></div>
+                                    <div class="cmyk-family-title"><span class="name">AI Iridescent</span><span class="meta">4 stops: #F8B96F → #FF904B → #EC6443 → #D653EC</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="色标" data-i18n-en="Color stop">色标</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td>Stop 1 #F8B96F</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#F8B96F;"></span>C0 M32 Y62 K0</td><td data-i18n-zh="4 色标渐变必须拆专色或走网点菲林。" data-i18n-en="4-stop gradients must use separated spot colors or halftone film.">4 色标渐变必须拆专色或走网点菲林。</td></tr>
+                                        <tr><td>Stop 2 #FF904B</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#FF904B;"></span>C0 M55 Y76 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>Stop 3 #EC6443</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#EC6443;"></span>C0 M72 Y78 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>Stop 4 #D653EC</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#D653EC;"></span>C30 M80 Y0 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                    </tbody>
+                                </table>
+                                <div class="cmyk-note" data-i18n-zh="渐变必须完成专色打样，未通过不得量产。具体参数见下载的 Excel。" data-i18n-en="Gradients require a spot-color proof before mass production. See the downloadable Excel for detailed parameters.">渐变必须完成专色打样，未通过不得量产。具体参数见下载的 Excel。</div>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background:#EC6443;"></div>
+                                    <div class="cmyk-family-title"><span class="name">Core</span><span class="meta">HEX #EC6443 ｜ Same as brand color</span></div>
+                                </div>
+                                <div class="cmyk-note" style="margin-top:0;" data-i18n-zh="与主品牌色 Leader Orange 完全相同，交付时只列一次；专色 Pantone 1655 C，四色配方见「1. 主品牌色」。" data-i18n-en="Identical to the primary brand color Leader Orange; listed only once in delivery. Spot color Pantone 1655 C; for four-color formula see section 1.">与主品牌色 Leader Orange 完全相同，交付时只列一次；专色 Pantone 1655 C，四色配方见「1. 主品牌色」。</div>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background:#0A0A0A;"></div>
+                                    <div class="cmyk-family-title"><span class="name">Base Black</span><span class="meta">HEX #0A0A0A ｜ RGB 10, 10, 10</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="用途" data-i18n-en="Usage">用途</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td data-i18n-zh="小字 / 细线" data-i18n-en="Small text / thin lines">小字 / 细线</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#0A0A0A;"></span>C0 M0 Y0 K100</td><td data-i18n-zh="小字绝不用四色黑，必须用单色黑。" data-i18n-en="Small text must never use four-color black; use single-color black.">小字绝不用四色黑，必须用单色黑。</td></tr>
+                                        <tr><td data-i18n-zh="正文（小面积）" data-i18n-en="Body copy (small area)">正文（小面积）</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#0A0A0A;"></span>C0 M0 Y0 K100</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td data-i18n-zh="大标题（中面积）" data-i18n-en="Headline (medium area)">大标题（中面积）</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#0A0A0A;"></span>C40 M30 Y30 K100</td><td data-i18n-zh="仅用于中面积标题；小字禁用。" data-i18n-en="For medium-area headlines only; prohibited for small text.">仅用于中面积标题；小字禁用。</td></tr>
+                                        <tr><td data-i18n-zh="丝印大面积背景" data-i18n-en="Silk-screen large background">丝印大面积背景</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#0A0A0A;"></span>C60 M50 Y50 K100</td><td data-i18n-zh="总墨量必须 ≤ 260%，防止蹭脏。" data-i18n-en="Total ink coverage must be ≤ 260% to prevent smudging.">总墨量必须 ≤ 260%，防止蹭脏。</td></tr>
+                                        <tr><td data-i18n-zh="菲林大面积背景" data-i18n-en="Film large background">菲林大面积背景</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#0A0A0A;"></span>C70 M65 Y62 K95</td><td data-i18n-zh="总墨量必须 ≤ 292%；超过会导致干燥困难。" data-i18n-en="Total ink coverage must be ≤ 292%; exceeding it causes drying issues.">总墨量必须 ≤ 292%；超过会导致干燥困难。</td></tr>
+                                    </tbody>
+                                </table>
+                                <div class="cmyk-note" data-i18n-zh="小字绝不用四色黑；丝印大面积要控总墨量，防蹭脏与干燥困难。" data-i18n-en="Small text must never use four-color black; control total ink coverage for large silk-screen areas to prevent smudging and drying issues.">小字绝不用四色黑；丝印大面积要控总墨量，防蹭脏与干燥困难。</div>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background:#FFFFFF; box-shadow: inset 0 0 0 1px rgba(0,0,0,.1);"></div>
+                                    <div class="cmyk-family-title"><span class="name">Base White</span><span class="meta">HEX #FFFFFF ｜ RGB 255, 255, 255</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="用途" data-i18n-en="Usage">用途</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td data-i18n-zh="按键底色 / 反白文字" data-i18n-en="Button base / reversed text">按键底色 / 反白文字</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#FFFFFF;"></span>C0 M0 Y0 K0</td><td data-i18n-zh="丝印必须用承印物白或印白墨，不能用四色白。" data-i18n-en="Silk-screen must use substrate white or printed white ink; four-color white is prohibited.">丝印必须用承印物白或印白墨，不能用四色白。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background:#999999;"></div>
+                                    <div class="cmyk-family-title"><span class="name">Gray</span><span class="meta">HEX #999999 ｜ RGB 153, 153, 153</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="用途" data-i18n-en="Usage">用途</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td data-i18n-zh="按键辅助色 / 分割线" data-i18n-en="Button accent / divider">按键辅助色 / 分割线</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#999999;"></span>C0 M0 Y0 K45</td><td data-i18n-zh="必须用单色黑 K45；不得用四色叠印。" data-i18n-en="Must use single-color black K45; four-color overprint is prohibited.">必须用单色黑 K45；不得用四色叠印。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <h2 class="text-2xl font-bold mb-6 text-gray-900" data-i18n-zh="4. 背景色 · CMYK" data-i18n-en="4. Background Colors · CMYK">4. 背景色 · CMYK</h2>
+                        <div class="space-y-6 mb-16">
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background: linear-gradient(135deg, #F6F6F6, #FFA771);"></div>
+                                    <div class="cmyk-family-title"><span class="name">AI Light Gradient</span><span class="meta">Start #F6F6F6 ｜ End #FFA771</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="色标" data-i18n-en="Color stop">色标</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td>Start #F6F6F6</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#F6F6F6;"></span>C0 M0 Y0 K4</td><td data-i18n-zh="丝印必须用白墨或承印物本色；不得用 4% K 网点。" data-i18n-en="Silk-screen must use white ink or substrate natural color; 4% K halftone is prohibited.">丝印必须用白墨或承印物本色；不得用 4% K 网点。</td></tr>
+                                        <tr><td>End #FFA771</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#FFA771;"></span>C0 M43 Y60 K0</td><td data-i18n-zh="丝印必须用白墨 + 微量 M/Y 调专色；不得用四色小网点。" data-i18n-en="Silk-screen must use white ink + trace M/Y as spot color; fine four-color halftone is prohibited.">丝印必须用白墨 + 微量 M/Y 调专色；不得用四色小网点。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background:#000000;"></div>
+                                    <div class="cmyk-family-title"><span class="name">AI Dark</span><span class="meta">HEX #000000 ｜ RGB 0, 0, 0</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="用途" data-i18n-en="Usage">用途</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td data-i18n-zh="深色背景" data-i18n-en="Dark background">深色背景</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#000000;"></span>C0 M0 Y0 K100</td><td data-i18n-zh="大面积时必须按 Base Black 分层配方执行。" data-i18n-en="For large areas, must follow the Base Black layered formulas.">大面积时必须按 Base Black 分层配方执行。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background:#F4F4F4;"></div>
+                                    <div class="cmyk-family-title"><span class="name">Light Base</span><span class="meta">HEX #F4F4F4 ｜ RGB 244, 244, 244</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="用途" data-i18n-en="Usage">用途</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td data-i18n-zh="丝印" data-i18n-en="Silk-screen">丝印</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#F4F4F4;"></span>White ink or substrate natural</td><td data-i18n-zh="不得在菲林里写 CMYK，必须写「承印物本色」。" data-i18n-en="Do not write CMYK on film; must write &quot;substrate natural&quot; instead.">不得在菲林里写 CMYK，必须写「承印物本色」。</td></tr>
+                                        <tr><td data-i18n-zh="菲林" data-i18n-en="Film">菲林</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#F4F4F4;"></span>C0 M0 Y0 K5</td><td data-i18n-zh="大面积使用前必须打样确认。" data-i18n-en="Requires proof before large-area use.">大面积使用前必须打样确认。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background:#FFECDB;"></div>
+                                    <div class="cmyk-family-title"><span class="name">Light Warm</span><span class="meta">HEX #FFECDB ｜ RGB 255, 236, 219</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="用途" data-i18n-en="Usage">用途</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td data-i18n-zh="丝印" data-i18n-en="Silk-screen">丝印</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#FFECDB;"></span>White ink + trace Y</td><td data-i18n-zh="必须调专色；不得用四色小网点。" data-i18n-en="Must use spot color; fine four-color halftone is prohibited.">必须调专色；不得用四色小网点。</td></tr>
+                                        <tr><td data-i18n-zh="菲林" data-i18n-en="Film">菲林</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#FFECDB;"></span>C0 M8 Y12 K0</td><td data-i18n-zh="大面积使用前必须打样。" data-i18n-en="Requires proof before large-area use.">大面积使用前必须打样。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background: linear-gradient(135deg, #ACDAF5, #229BD1);"></div>
+                                    <div class="cmyk-family-title"><span class="name">Light Blue Gradient</span><span class="meta">Start #ACDAF5 ｜ End #229BD1</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="色标" data-i18n-en="Color stop">色标</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td>Start #ACDAF5</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#ACDAF5;"></span>C35 M5 Y0 K0</td><td data-i18n-zh="渐变必须走网点菲林；色标间必须留大跨度。" data-i18n-en="Gradients must use halftone film; color stops must be widely spaced.">渐变必须走网点菲林；色标间必须留大跨度。</td></tr>
+                                        <tr><td>End #229BD1</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#229BD1;"></span>C75 M22 Y0 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background: linear-gradient(135deg, #BCE1E3, #47B2A7);"></div>
+                                    <div class="cmyk-family-title"><span class="name">Light Teal Gradient</span><span class="meta">Start #BCE1E3 ｜ End #47B2A7</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="色标" data-i18n-en="Color stop">色标</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td>Start #BCE1E3</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#BCE1E3;"></span>C28 M0 Y10 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>End #47B2A7</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#47B2A7;"></span>C70 M0 Y40 K9</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background: linear-gradient(135deg, #E2CCE3, #856AAD);"></div>
+                                    <div class="cmyk-family-title"><span class="name">Light Purple Gradient</span><span class="meta">Start #E2CCE3 ｜ End #856AAD</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="色标" data-i18n-en="Color stop">色标</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td>Start #E2CCE3</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#E2CCE3;"></span>C10 M20 Y0 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>End #856AAD</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#856AAD;"></span>C55 M62 Y0 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background: linear-gradient(135deg, #DEDDF7, #5B5EC6);"></div>
+                                    <div class="cmyk-family-title"><span class="name">Light Indigo Gradient</span><span class="meta">Start #DEDDF7 ｜ End #5B5EC6</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="色标" data-i18n-en="Color stop">色标</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td>Start #DEDDF7</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#DEDDF7;"></span>C15 M12 Y0 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>End #5B5EC6</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#5B5EC6;"></span>C80 M78 Y0 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background: linear-gradient(135deg, #FFD1EB, #A963B1);"></div>
+                                    <div class="cmyk-family-title"><span class="name">Light Pink Gradient</span><span class="meta">Start #FFD1EB ｜ End #A963B1</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="色标" data-i18n-en="Color stop">色标</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td>Start #FFD1EB</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#FFD1EB;"></span>C0 M25 Y0 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>End #A963B1</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#A963B1;"></span>C45 M75 Y0 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background: linear-gradient(135deg, #FAD2B6, #ED9349);"></div>
+                                    <div class="cmyk-family-title"><span class="name">Light Orange Gradient</span><span class="meta">Start #FAD2B6 ｜ End #ED9349</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="色标" data-i18n-en="Color stop">色标</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td>Start #FAD2B6</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#FAD2B6;"></span>C0 M22 Y32 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>End #ED9349</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#ED9349;"></span>C0 M50 Y75 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background:#000000;"></div>
+                                    <div class="cmyk-family-title"><span class="name">Dark Base</span><span class="meta">HEX #000000 ｜ RGB 0, 0, 0</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:30%;" data-i18n-zh="用途" data-i18n-en="Usage">用途</th>
+                                        <th style="width:40%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td data-i18n-zh="深色背景" data-i18n-en="Dark background">深色背景</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#000000;"></span>C0 M0 Y0 K100</td><td data-i18n-zh="大面积时必须按 Base Black 分层配方执行。" data-i18n-en="For large areas, must follow the Base Black layered formulas.">大面积时必须按 Base Black 分层配方执行。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background: linear-gradient(135deg, #3D83CD, #063260, #000000);"></div>
+                                    <div class="cmyk-family-title"><span class="name">Blue · Transparency Gradient</span><span class="meta">4 stops: 0% opacity start → end #000000</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:35%;" data-i18n-zh="色标" data-i18n-en="Color stop">色标</th>
+                                        <th style="width:35%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td>#3D83CD (0% opacity)</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#3D83CD;"></span>C85 M50 Y0 K0</td><td data-i18n-zh="丝印难以稳定实现，必须优先改用四色网点菲林。" data-i18n-en="Difficult to achieve reliably in silk-screen; must prioritize four-color halftone film.">丝印难以稳定实现，必须优先改用四色网点菲林。</td></tr>
+                                        <tr><td>#225A97</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#225A97;"></span>C95 M70 Y25 K10</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#063260</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#063260;"></span>C100 M85 Y45 K45</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#000000</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#000000;"></span>C0 M0 Y0 K100</td><td data-i18n-zh="末位色标必须用单色黑 K100，禁止四色黑。" data-i18n-en="Final stop must use single-color black K100; four-color black is prohibited.">末位色标必须用单色黑 K100，禁止四色黑。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background: linear-gradient(135deg, #47B2A7, #0A4D49, #000000);"></div>
+                                    <div class="cmyk-family-title"><span class="name">Teal · Transparency Gradient</span><span class="meta">4 stops: 0% opacity start → end #000000</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:35%;" data-i18n-zh="色标" data-i18n-en="Color stop">色标</th>
+                                        <th style="width:35%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td>#47B2A7 (0% opacity)</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#47B2A7;"></span>C70 M0 Y40 K9</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#288078</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#288078;"></span>C85 M30 Y55 K10</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#0A4D49</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#0A4D49;"></span>C95 M55 Y65 K40</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#000000</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#000000;"></span>C0 M0 Y0 K100</td><td data-i18n-zh="末位色标必须用单色黑 K100。" data-i18n-en="Final stop must use single-color black K100.">末位色标必须用单色黑 K100。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background: linear-gradient(135deg, #856AAD, #371255, #000000);"></div>
+                                    <div class="cmyk-family-title"><span class="name">Purple · Transparency Gradient</span><span class="meta">4 stops: 0% opacity start → end #000000</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:35%;" data-i18n-zh="色标" data-i18n-en="Color stop">色标</th>
+                                        <th style="width:35%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td>#856AAD (0% opacity)</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#856AAD;"></span>C55 M62 Y0 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#5E3E81</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#5E3E81;"></span>C75 M82 Y20 K5</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#371255</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#371255;"></span>C90 M100 Y40 K35</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#000000</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#000000;"></span>C0 M0 Y0 K100</td><td data-i18n-zh="末位色标必须用单色黑 K100。" data-i18n-en="Final stop must use single-color black K100.">末位色标必须用单色黑 K100。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background: linear-gradient(135deg, #5B5EC6, #101141, #000000);"></div>
+                                    <div class="cmyk-family-title"><span class="name">Indigo · Transparency Gradient</span><span class="meta">4 stops: 0% opacity start → end #000000</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:35%;" data-i18n-zh="色标" data-i18n-en="Color stop">色标</th>
+                                        <th style="width:35%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td>#5B5EC6 (0% opacity)</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#5B5EC6;"></span>C80 M78 Y0 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#282A7B</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#282A7B;"></span>C100 M95 Y15 K5</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#101141</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#101141;"></span>C100 M100 Y45 K55</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#000000</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#000000;"></span>C0 M0 Y0 K100</td><td data-i18n-zh="末位色标必须用单色黑 K100。" data-i18n-en="Final stop must use single-color black K100.">末位色标必须用单色黑 K100。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background: linear-gradient(135deg, #A963B1, #2F0C33, #000000);"></div>
+                                    <div class="cmyk-family-title"><span class="name">Pink · Transparency Gradient</span><span class="meta">4 stops: 0% opacity start → end #000000</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:35%;" data-i18n-zh="色标" data-i18n-en="Color stop">色标</th>
+                                        <th style="width:35%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td>#A963B1 (0% opacity)</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#A963B1;"></span>C45 M75 Y0 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#4B1352</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#4B1352;"></span>C75 M100 Y30 K30</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#2F0C33</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#2F0C33;"></span>C80 M100 Y40 K55</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#000000</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#000000;"></span>C0 M0 Y0 K100</td><td data-i18n-zh="末位色标必须用单色黑 K100。" data-i18n-en="Final stop must use single-color black K100.">末位色标必须用单色黑 K100。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cmyk-family">
+                                <div class="cmyk-family-head">
+                                    <div class="cmyk-family-swatch" style="background: linear-gradient(135deg, #ED9349, #3E220B, #000000);"></div>
+                                    <div class="cmyk-family-title"><span class="name">Orange · Transparency Gradient</span><span class="meta">4 stops: 0% opacity start → end #000000</span></div>
+                                </div>
+                                <table class="cmyk-table">
+                                    <thead><tr>
+                                        <th style="width:35%;" data-i18n-zh="色标" data-i18n-en="Color stop">色标</th>
+                                        <th style="width:35%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                        <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr><td>#ED9349 (0% opacity)</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#ED9349;"></span>C0 M50 Y75 K0</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#955A2A</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#955A2A;"></span>C30 M65 Y100 K15</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#3E220B</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#3E220B;"></span>C55 M70 Y100 K60</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                        <tr><td>#000000</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#000000;"></span>C0 M0 Y0 K100</td><td data-i18n-zh="末位色标必须用单色黑 K100。" data-i18n-en="Final stop must use single-color black K100.">末位色标必须用单色黑 K100。</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <h2 class="text-2xl font-bold mb-6 text-gray-900" data-i18n-zh="5. 中性色 · CMYK" data-i18n-en="5. Neutral Colors · CMYK">5. 中性色 · CMYK</h2>
+                        <div class="cmyk-family mb-16">
+                            <div class="cmyk-family-head">
+                                <div class="cmyk-family-swatch" style="background: linear-gradient(135deg, #FFFFFF, #999999, #222222, #000000);"></div>
+                                <div class="cmyk-family-title"><span class="name" data-i18n-zh="中性色 11 阶" data-i18n-en="11-step Grayscale">中性色 11 阶</span><span class="meta">100% → 0%</span></div>
+                            </div>
+                            <table class="cmyk-table">
+                                <thead><tr>
+                                    <th style="width:12%;" data-i18n-zh="明度" data-i18n-en="Lightness">明度</th>
+                                    <th style="width:16%;">HEX</th>
+                                    <th style="width:32%;" data-i18n-zh="CMYK 配方" data-i18n-en="CMYK Formula">CMYK 配方</th>
+                                    <th data-i18n-zh="必须遵守" data-i18n-en="Mandatory">必须遵守</th>
+                                </tr></thead>
+                                <tbody>
+                                    <tr><td>100%</td><td class="cmyk-value">#FFFFFF</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#FFFFFF;"></span>C0 M0 Y0 K0</td><td data-i18n-zh="丝印必须用承印物白；菲林不写 CMYK。" data-i18n-en="Silk-screen must use substrate white; do not write CMYK on film.">丝印必须用承印物白；菲林不写 CMYK。</td></tr>
+                                    <tr><td>93%</td><td class="cmyk-value">#EEEEEE</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#EEEEEE;"></span>C0 M0 Y0 K7</td><td data-i18n-zh="丝印建议承印物本色；菲林大面积使用前必须打样。" data-i18n-en="Silk-screen prefers substrate natural; film requires proof before large-area use.">丝印建议承印物本色；菲林大面积使用前必须打样。</td></tr>
+                                    <tr><td>80%</td><td class="cmyk-value">#CCCCCC</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#CCCCCC;"></span>C0 M0 Y0 K20</td><td data-i18n-zh="必须用单色黑；不得四色叠印。" data-i18n-en="Must use single-color black; four-color overprint prohibited.">必须用单色黑；不得四色叠印。</td></tr>
+                                    <tr><td>60%</td><td class="cmyk-value">#999999</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#999999;"></span>C0 M0 Y0 K45</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                    <tr><td>39%</td><td class="cmyk-value">#666666</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#666666;"></span>C0 M0 Y0 K68</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                    <tr><td>26%</td><td class="cmyk-value">#444444</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#444444;"></span>C0 M0 Y0 K82</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                    <tr><td>20%</td><td class="cmyk-value">#333333</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#333333;"></span>C0 M0 Y0 K89</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                    <tr><td>13%</td><td class="cmyk-value">#222222</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#222222;"></span>C0 M0 Y0 K94</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                    <tr><td>7%</td><td class="cmyk-value">#111111</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#111111;"></span>C0 M0 Y0 K97</td><td data-i18n-zh="同上。" data-i18n-en="Same as above.">同上。</td></tr>
+                                    <tr><td>4%</td><td class="cmyk-value">#0A0A0A</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#0A0A0A;"></span>See Base Black layered formula</td><td data-i18n-zh="小字必须用单色黑 K100；大面积必须按 Base Black 分层执行。" data-i18n-en="Small text must use single-color black K100; large areas must follow Base Black layered formulas.">小字必须用单色黑 K100；大面积必须按 Base Black 分层执行。</td></tr>
+                                    <tr><td>0%</td><td class="cmyk-value">#000000</td><td class="cmyk-value"><span class="cmyk-chip" style="background:#000000;"></span>C0 M0 Y0 K100</td><td data-i18n-zh="单色黑；大面积时按 Base Black 分层执行。" data-i18n-en="Single-color black; for large areas follow Base Black layered formulas.">单色黑；大面积时按 Base Black 分层执行。</td></tr>
+                                </tbody>
+                            </table>
+                            <div class="cmyk-note" data-i18n-zh="小字绝不用四色黑；丝印大面积深色背景时总墨量控制在 280% 以内。" data-i18n-en="Small text must never use four-color black; for large dark silk-screen backgrounds keep total ink coverage under 280%.">小字绝不用四色黑；丝印大面积深色背景时总墨量控制在 280% 以内。</div>
+                        </div>
+
+                        <div class="cmyk-download">
+                            <div>
+                                <h3 data-i18n-zh="下载印刷参照表（Excel）" data-i18n-en="Download Print Reference (Excel)">下载印刷参照表（Excel）</h3>
+                                <p data-i18n-zh="单个 Sheet 包含全部内容：① 量产前强制流程与验收要求；② 全部色号对照；③ 渐变工艺对照。可直接转发给丝印厂、印刷厂或菲林输出方。" data-i18n-en="Single sheet includes: ① Mandatory pre-production workflow and acceptance requirements; ② Full color reference; ③ Gradient process reference. Ready to forward to silk-screen, offset printing, or film output vendors.">单个 Sheet 包含全部内容：① 量产前强制流程与验收要求；② 全部色号对照；③ 渐变工艺对照。可直接转发给丝印厂、印刷厂或菲林输出方。</p>
+                            </div>
+                            <button id="cmyk-download-btn" class="cmyk-download-btn" type="button">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                <span data-i18n-zh="下载 Excel" data-i18n-en="Download Excel">下载 Excel</span>
+                            </button>
                         </div>
                     </div>
                 </section>
             </div>
-                <footer class="pt-10 pb-16 text-center text-gray-400 text-sm border-t border-gray-200">
-                <p class="font-light" style="font-family: var(--font-family-body);" data-i18n-zh="&copy; 2026 Haier UX Design Lab. Internal Confidential." data-i18n-en="&copy; 2026 Haier UX Design Lab. Internal Confidential.">&copy; 2026 Haier UX Design Lab. Internal Confidential.</p>
+            <footer class="pt-10 pb-16 text-center text-gray-400 text-sm border-t border-gray-200">
+                <p class="font-light" data-i18n-zh="&copy; 2026 Haier UX Design Lab. Internal Confidential." data-i18n-en="&copy; 2026 Haier UX Design Lab. Internal Confidential.">&copy; 2026 Haier UX Design Lab. Internal Confidential.</p>
             </footer>
-            </main>
+        </main>
     </div>
     <script src="leader-nav.js"></script>
     <script>
@@ -689,21 +1366,17 @@
                 const colors = colorValue.split(',').map(c => c.trim());
                 const validColors = colors.filter(c => c.startsWith('#'));
                 if (validColors.length > 0) {
-                    const combined = validColors.join(', ');
-                    await copyToClipboard(combined, element);
+                    await copyToClipboard(validColors.join(', '), element);
                     return;
                 }
             }
-            
             if (colorValue && colorValue.includes('→')) {
                 const hexMatches = colorValue.match(/#[0-9A-Fa-f]{6}/g);
                 if (hexMatches && hexMatches.length > 0) {
-                    const combined = hexMatches.join(', ');
-                    await copyToClipboard(combined, element);
+                    await copyToClipboard(hexMatches.join(', '), element);
                     return;
                 }
             }
-            
             const hexValue = parseColorToHex(colorValue);
             if (hexValue) {
                 await copyToClipboard(hexValue, element);
@@ -713,34 +1386,23 @@
         }
         async function copyToClipboard(text, element) {
             let ok = false;
-            // 1) 优先 Clipboard API（HTTPS / 安全上下文）
             if (navigator.clipboard && window.isSecureContext) {
-                try {
-                    await navigator.clipboard.writeText(text);
-                    ok = true;
-                } catch (e) {
-                    ok = false; // iframe 内常因未聚焦被拒绝，走兜底
-                }
+                try { await navigator.clipboard.writeText(text); ok = true; } catch (e) { ok = false; }
             }
-            // 2) 兜底：隐藏 textarea + execCommand('copy')
             if (!ok) {
-                const textArea = document.createElement('textarea');
-                textArea.value = text;
-                textArea.setAttribute('readonly', '');
-                textArea.style.position = 'fixed';
-                textArea.style.top = '0';
-                textArea.style.left = '0';
-                textArea.style.opacity = '0';
-                document.body.appendChild(textArea);
-                textArea.focus();
-                textArea.select();
-                textArea.setSelectionRange(0, textArea.value.length);
-                try {
-                    ok = document.execCommand('copy');
-                } catch (e) {
-                    ok = false;
-                }
-                textArea.remove();
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'fixed';
+                ta.style.top = '0';
+                ta.style.left = '0';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.focus();
+                ta.select();
+                ta.setSelectionRange(0, ta.value.length);
+                try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+                ta.remove();
             }
             if (ok) {
                 showToast(`已复制: ${text}`);
@@ -749,7 +1411,6 @@
                     setTimeout(() => { element.style.transform = ''; }, 150);
                 }
             } else {
-                console.error('复制失败');
                 showToast('复制失败，请手动复制');
             }
         }
@@ -766,70 +1427,48 @@
                 return Math.round(isSrgb ? number * 255 : number);
             };
             const [red, green, blue] = channels.slice(0, 3).map(toByte);
-            return `#${[red, green, blue].map((channel) =>
-                Math.max(0, Math.min(255, channel)).toString(16).padStart(2, '0')
-            ).join('').toUpperCase()}`;
+            return `#${[red, green, blue].map((c) => Math.max(0, Math.min(255, c)).toString(16).padStart(2, '0')).join('').toUpperCase()}`;
         }
-        function initSwatchHexLabels() {
-            document.querySelectorAll('.color-swatch-container[style*="--base-color"] .color-swatch').forEach((swatch) => {
-                if (swatch.querySelector('.swatch-hex')) return;
-                const hex = parseColorToHex(getComputedStyle(swatch).backgroundColor);
-                const label = document.createElement('span');
-                label.className = 'swatch-hex';
-                label.textContent = hex;
-                label.setAttribute('aria-hidden', 'true');
-                swatch.appendChild(label);
-                swatch.tabIndex = 0;
-                swatch.setAttribute('aria-label', `${swatch.querySelector('span')?.textContent || ''} ${hex}`.trim());
-            });
-        }
-        requestAnimationFrame(initSwatchHexLabels);
         function showToast(message) {
             const toast = document.getElementById('copy-toast');
+            const isEn = document.documentElement.lang === 'en';
             toast.textContent = message;
             toast.classList.add('show');
-            
-            if (window.toastTimeout) {
-                clearTimeout(window.toastTimeout);
-            }
-            window.toastTimeout = setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2000);
+            if (window.toastTimeout) clearTimeout(window.toastTimeout);
+            window.toastTimeout = setTimeout(() => { toast.classList.remove('show'); }, 2000);
         }
-        // ===== 语言切换 =====
+
         (function() {
             const langBtn = document.getElementById('lang-toggle');
             const langLabel = document.getElementById('lang-label');
             const allElements = document.querySelectorAll('[data-i18n-zh][data-i18n-en]');
             let currentLang = 'zh';
+
             function updateLanguage(lang) {
                 currentLang = lang;
                 allElements.forEach(el => {
                     const text = el.getAttribute(`data-i18n-${lang}`);
                     if (text) {
-                        if (el.querySelector('span, br, strong, em, i, b')) {
+                        if (el.querySelector('span, br, strong, em, i, b, div, p')) {
                             el.innerHTML = text;
                         } else {
                             el.textContent = text;
                         }
                     }
                 });
-                langLabel.textContent = lang === 'zh' ? 'EN' : '中文';
-                localStorage.setItem('leader-guideline-language', lang);
-                document.dispatchEvent(new CustomEvent('leader-language-change', { detail: { lang: lang } }));
-                langBtn.setAttribute('data-lang', lang);
+                if (langLabel) langLabel.textContent = lang === 'zh' ? 'EN' : '中文';
+                if (langBtn) langBtn.setAttribute('data-lang', lang);
                 document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
                 const title = document.querySelector('title');
-                if (title) {
-                    const titleText = lang === 'zh' ? 'Leader Design | 色彩规范' : 'Leader Design | Color';
-                    title.textContent = titleText;
-                }
+                if (title) title.textContent = lang === 'zh' ? 'Leader Design | 色彩规范' : 'Leader Design | Color';
             }
-            langBtn.addEventListener('click', function() {
-                const nextLang = currentLang === 'zh' ? 'en' : 'zh';
-                updateLanguage(nextLang);
-            });
-            // ===== RGB / CMYK 选项卡切换 =====
+
+            if (langBtn) {
+                langBtn.addEventListener('click', function() {
+                    updateLanguage(currentLang === 'zh' ? 'en' : 'zh');
+                });
+            }
+
             document.querySelectorAll('.color-mode-tab').forEach(tab => {
                 tab.addEventListener('click', function() {
                     document.querySelectorAll('.color-mode-tab').forEach(t => {
@@ -838,9 +1477,245 @@
                     });
                     tab.classList.add('active');
                     tab.setAttribute('aria-selected', 'true');
+                    const mode = tab.getAttribute('data-color-mode');
+                    document.querySelectorAll('.cmyk-pane').forEach(p => p.classList.remove('active'));
+                    const target = document.getElementById(mode === 'rgb' ? 'pane-rgb' : 'pane-cmyk');
+                    if (target) target.classList.add('active');
                 });
             });
             updateLanguage('zh');
+        })();
+
+        function leaderDownloadCMYKExcel() {
+            try {
+                const sheet1Rows = [
+                    ['Leader Design 色彩交付 · 量产前必读'],
+                    ['本清单为量产前强制流程，未完成不得开机。'],
+                    [''],
+                    ['一、通用强制要求'],
+                    ['1', '所有色值必须按承印物、油墨、干燥条件、印厂 ICC 特性文件重新打样。'],
+                    ['2', '打样件必须与设计稿比对，ΔE ≤ 3 方可量产。'],
+                    ['3', '使用与量产完全相同的承印物、油墨、干燥条件打样。'],
+                    [''],
+                    ['二、专色强制要求'],
+                    ['4', '品牌色必须使用 Pantone 1655 C（或印厂提供的实色样），禁止四色叠印替代。'],
+                    ['5', '鲜艳色（绿 / 蓝 / 靛 / 紫 / 粉）必须优先走专色，四色仅作大面积备案。'],
+                    [''],
+                    ['三、黑色强制要求'],
+                    ['6', '小字、细线、正文必须用单色黑 K100，禁止四色黑。'],
+                    ['7', '丝印大面积深色背景总墨量 ≤ 280%；Base Black 丝印配方 ≤ 260%。'],
+                    ['8', '菲林大面积深色背景总墨量 ≤ 292%。'],
+                    [''],
+                    ['四、渐变强制要求（前置条件）'],
+                    ['9', '所有渐变必须拆成 2 个专色印刷，禁止四色实地叠印。'],
+                    ['10', '两个专色必须为透明油墨，可叠印；若油墨不透明，必须改为「两段式」并单独打样。'],
+                    ['11', '网点角度必须错开 30°（一色 45°，一色 75°）。'],
+                    ['12', '色标之间的网点跨度 ≥ 30%。'],
+                    ['13', '过渡带长度：丝印 ≥ 8mm，菲林 ≥ 3mm。'],
+                    ['14', '中间叠印色必须与设计稿比对，ΔE ≤ 3 方可量产。'],
+                    ['15', '渐变打样必须提供「起 / 中 / 末」三段样件。'],
+                    [''],
+                    ['五、透明度渐变强制要求'],
+                    ['16', 'Blue / Teal / Purple / Indigo / Pink / Orange 六条透明度渐变，丝印中难以稳定实现，必须优先改用四色网点菲林。'],
+                    ['17', '若坚持丝印，必须拆 4 个专色，相邻色标过渡带 ≥ 8mm，网点角度错开 30°，末位色标用单色黑 K100。'],
+                    ['18', '必须提供每段渐变的完整打样报告并逐条验收。'],
+                    [''],
+                    ['六、验收与签核'],
+                    ['19', '打样件必须由设计与印厂双方签字确认。'],
+                    ['20', '打样合格后方可进入批量生产。'],
+                    ['21', '正式生产时，承印物、油墨、干燥条件必须与打样完全一致。']
+                ];
+                const sheet2Header = ['颜色名', 'HEX', 'RGB', 'CMYK', '专色参考', '用途', '工艺要求'];
+                const sheet2Rows = [
+                    ['Leader Orange', '#EC6443', '236,100,67', 'C0 M72 Y78 K0', 'Pantone 1655 C', '大面积', '必须走专色；四色仅备案'],
+                    ['Leader Orange', '#EC6443', '236,100,67', 'C0 M74 Y80 K5', 'Pantone 1655 C', '小字/细线', '带 5% K 强制；防糊边'],
+                    ['Leader Orange', '#EC6443', '236,100,67', 'C0 M55 Y60 K0', 'Pantone 1655 C', '浅色点缀', '仅限小面积；禁止大面积'],
+                    ['Orange 1', '#FF904B', '255,144,75', 'C0 M55 Y76 K0', 'Pantone 1575 C 附近', '大面积', '打样确认'],
+                    ['Orange 1', '#FF904B', '255,144,75', 'C0 M50 Y70 K0', 'Pantone 1575 C 附近', '小面积', '仅限图标/小色块；不得用于文字'],
+                    ['Orange 2', '#F8B96F', '248,185,111', 'C0 M32 Y62 K0', 'Pantone 156 C 附近', '大面积', '必须走专色；四色印不准'],
+                    ['Orange 2', '#F8B96F', '248,185,111', 'C0 M28 Y55 K0', 'Pantone 156 C 附近', '小面积', '仅限图标/小色块'],
+                    ['Green / Teal', '#47B2A7', '71,178,167', 'C70 M0 Y40 K9', 'Pantone 326 C 附近', '大面积', '必须走专色；四色印偏灰'],
+                    ['Green / Teal', '#47B2A7', '71,178,167', 'C65 M0 Y38 K8', 'Pantone 326 C 附近', '小面积', '仅限小图标/小色块'],
+                    ['Blue', '#6AB7FF', '106,183,255', 'C55 M18 Y0 K0', 'Pantone 291 C 附近', '大面积', '必须走专色；四色印偏紫'],
+                    ['Blue', '#6AB7FF', '106,183,255', 'C50 M15 Y0 K0', 'Pantone 291 C 附近', '小面积', '仅限小面积；不得用于文字'],
+                    ['Indigo', '#798FFE', '121,143,254', 'C55 M42 Y0 K0', 'Pantone 2718 C 附近', '大面积', '必须走专色；四色印不准'],
+                    ['Indigo', '#798FFE', '121,143,254', 'C50 M38 Y0 K0', 'Pantone 2718 C 附近', '小面积', '仅限图标/小色块'],
+                    ['Violet', '#7F5BEE', '127,91,238', 'C65 M70 Y0 K0', 'Pantone 2665 C 附近', '大面积', '必须走专色；四色印偏红'],
+                    ['Violet', '#7F5BEE', '127,91,238', 'C60 M65 Y0 K0', 'Pantone 2665 C 附近', '小面积', '仅限小面积使用'],
+                    ['Shell Pink', '#FFC2E5', '255,194,229', 'C0 M32 Y0 K0', 'Pantone 230 C 附近', '大面积', '必须走专色；四色小网点印不出来'],
+                    ['Shell Pink', '#FFC2E5', '255,194,229', 'C0 M28 Y0 K0', 'Pantone 230 C 附近', '小面积', '仅限图标/小色块'],
+                    ['Core', '#EC6443', '236,100,67', 'C0 M72 Y78 K0', 'Pantone 1655 C', '按键色', '同 Leader Orange；只列一次'],
+                    ['Base Black', '#0A0A0A', '10,10,10', 'C0 M0 Y0 K100', '—', '小字/细线', '单色黑；禁止四色黑'],
+                    ['Base Black', '#0A0A0A', '10,10,10', 'C40 M30 Y30 K100', '—', '大标题', '仅用于中面积；小字禁用'],
+                    ['Base Black', '#0A0A0A', '10,10,10', 'C60 M50 Y50 K100', '—', '丝印大面积', '总墨量 ≤ 260%'],
+                    ['Base Black', '#0A0A0A', '10,10,10', 'C70 M65 Y62 K95', '—', '菲林大面积', '总墨量 ≤ 292%'],
+                    ['Base White', '#FFFFFF', '255,255,255', 'C0 M0 Y0 K0', '—', '按键底色', '丝印用承印物白'],
+                    ['Gray', '#999999', '153,153,153', 'C0 M0 Y0 K45', '—', '分割线/禁用', '必须单色黑 K45'],
+                    ['AI Dark', '#000000', '0,0,0', 'C0 M0 Y0 K100', '—', '深色背景', '按 Base Black 分层'],
+                    ['Dark Base', '#000000', '0,0,0', 'C0 M0 Y0 K100', '—', '深色背景', '按 Base Black 分层'],
+                    ['Neutral 100%', '#FFFFFF', '255,255,255', 'C0 M0 Y0 K0', '—', '纯白', '丝印用承印物白'],
+                    ['Neutral 93%', '#EEEEEE', '238,238,238', 'C0 M0 Y0 K7', '—', '浅背景', '丝印用承印物本色'],
+                    ['Neutral 80%', '#CCCCCC', '204,204,204', 'C0 M0 Y0 K20', '—', '浅分割', '单色黑'],
+                    ['Neutral 60%', '#999999', '153,153,153', 'C0 M0 Y0 K45', '—', '分割/禁用', '单色黑'],
+                    ['Neutral 39%', '#666666', '102,102,102', 'C0 M0 Y0 K68', '—', '辅助文字', '单色黑'],
+                    ['Neutral 26%', '#444444', '68,68,68', 'C0 M0 Y0 K82', '—', '正文', '单色黑'],
+                    ['Neutral 20%', '#333333', '51,51,51', 'C0 M0 Y0 K89', '—', '正文/主文字', '单色黑'],
+                    ['Neutral 13%', '#222222', '34,34,34', 'C0 M0 Y0 K94', '—', '大标题', '单色黑'],
+                    ['Neutral 7%', '#111111', '17,17,17', 'C0 M0 Y0 K97', '—', '一级大标题', '单色黑'],
+                    ['Neutral 4%', '#0A0A0A', '10,10,10', '见 Base Black 分层', '—', '一级大标题', '小字 K100'],
+                    ['Neutral 0%', '#000000', '0,0,0', 'C0 M0 Y0 K100', '—', '纯黑', '单色黑']
+                ];
+                const sheet3Header = ['渐变名', '色标', 'HEX', 'CMYK', '专色参考', '网点角度', '过渡带长度', 'ΔE 上限', '工艺要求'];
+                const sheet3Rows = [
+                    ['Gradient A', '起点', '#8A42AE', 'C62 M88 Y0 K0', '建议专色', '45°', '≥8mm（丝印）/ ≥3mm（菲林）', '≤3', '必须拆双专色；透明油墨可叠印'],
+                    ['Gradient A', '终点', '#EC53AF', 'C10 M80 Y0 K0', '建议专色', '75°', '≥8mm（丝印）/ ≥3mm（菲林）', '≤3', '必须拆双专色；透明油墨可叠印'],
+                    ['AI Iridescent', '色标 1', '#F8B96F', 'C0 M32 Y62 K0', '建议专色', '45°', '≥8mm', '≤3', '拆 4 专色或走网点菲林'],
+                    ['AI Iridescent', '色标 2', '#FF904B', 'C0 M55 Y76 K0', '建议专色', '75°', '≥8mm', '≤3', '拆 4 专色或走网点菲林'],
+                    ['AI Iridescent', '色标 3', '#EC6443', 'C0 M72 Y78 K0', '建议专色', '105°', '≥8mm', '≤3', '拆 4 专色或走网点菲林'],
+                    ['AI Iridescent', '色标 4', '#D653EC', 'C30 M80 Y0 K0', '建议专色', '135°', '≥8mm', '≤3', '拆 4 专色或走网点菲林'],
+                    ['AI Light', '起点', '#F6F6F6', 'C0 M0 Y0 K4', '建议专色', '45°', '≥3mm（菲林）', '≤3', '丝印用白墨或承印物本色'],
+                    ['AI Light', '终点', '#FFA771', 'C0 M43 Y60 K0', '建议专色', '75°', '≥3mm（菲林）', '≤3', '丝印用白墨 + 微量 M/Y 调专色'],
+                    ['Light Blue', '起点', '#ACDAF5', 'C35 M5 Y0 K0', '建议专色', '45°', '≥3mm（菲林）', '≤3', '必须走网点菲林；色标间留大跨度'],
+                    ['Light Blue', '终点', '#229BD1', 'C75 M22 Y0 K0', '建议专色', '75°', '≥3mm（菲林）', '≤3', '必须走网点菲林'],
+                    ['Light Teal', '起点', '#BCE1E3', 'C28 M0 Y10 K0', '建议专色', '45°', '≥3mm（菲林）', '≤3', '必须走网点菲林'],
+                    ['Light Teal', '终点', '#47B2A7', 'C70 M0 Y40 K9', '建议专色', '75°', '≥3mm（菲林）', '≤3', '必须走网点菲林'],
+                    ['Light Purple', '起点', '#E2CCE3', 'C10 M20 Y0 K0', '建议专色', '45°', '≥3mm（菲林）', '≤3', '必须走网点菲林'],
+                    ['Light Purple', '终点', '#856AAD', 'C55 M62 Y0 K0', '建议专色', '75°', '≥3mm（菲林）', '≤3', '必须走网点菲林'],
+                    ['Light Indigo', '起点', '#DEDDF7', 'C15 M12 Y0 K0', '建议专色', '45°', '≥3mm（菲林）', '≤3', '必须走网点菲林'],
+                    ['Light Indigo', '终点', '#5B5EC6', 'C80 M78 Y0 K0', '建议专色', '75°', '≥3mm（菲林）', '≤3', '必须走网点菲林'],
+                    ['Light Pink', '起点', '#FFD1EB', 'C0 M25 Y0 K0', '建议专色', '45°', '≥3mm（菲林）', '≤3', '必须走网点菲林'],
+                    ['Light Pink', '终点', '#A963B1', 'C45 M75 Y0 K0', '建议专色', '75°', '≥3mm（菲林）', '≤3', '必须走网点菲林'],
+                    ['Light Orange', '起点', '#FAD2B6', 'C0 M22 Y32 K0', '建议专色', '45°', '≥3mm（菲林）', '≤3', '必须走网点菲林'],
+                    ['Light Orange', '终点', '#ED9349', 'C0 M50 Y75 K0', '建议专色', '75°', '≥3mm（菲林）', '≤3', '必须走网点菲林'],
+                    ['Blue 透明渐变', '色标 1', '#3D83CD', 'C85 M50 Y0 K0', '建议专色', '45°', '≥8mm（丝印）', '≤3', '优先四色菲林；丝印拆 4 专色'],
+                    ['Blue 透明渐变', '色标 2', '#225A97', 'C95 M70 Y25 K10', '建议专色', '75°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Blue 透明渐变', '色标 3', '#063260', 'C100 M85 Y45 K45', '建议专色', '105°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Blue 透明渐变', '色标 4', '#000000', 'C0 M0 Y0 K100', '—', '135°', '≥8mm（丝印）', '≤3', '末位必须单色黑 K100'],
+                    ['Teal 透明渐变', '色标 1', '#47B2A7', 'C70 M0 Y40 K9', '建议专色', '45°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Teal 透明渐变', '色标 2', '#288078', 'C85 M30 Y55 K10', '建议专色', '75°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Teal 透明渐变', '色标 3', '#0A4D49', 'C95 M55 Y65 K40', '建议专色', '105°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Teal 透明渐变', '色标 4', '#000000', 'C0 M0 Y0 K100', '—', '135°', '≥8mm（丝印）', '≤3', '末位必须单色黑 K100'],
+                    ['Purple 透明渐变', '色标 1', '#856AAD', 'C55 M62 Y0 K0', '建议专色', '45°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Purple 透明渐变', '色标 2', '#5E3E81', 'C75 M82 Y20 K5', '建议专色', '75°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Purple 透明渐变', '色标 3', '#371255', 'C90 M100 Y40 K35', '建议专色', '105°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Purple 透明渐变', '色标 4', '#000000', 'C0 M0 Y0 K100', '—', '135°', '≥8mm（丝印）', '≤3', '末位必须单色黑 K100'],
+                    ['Indigo 透明渐变', '色标 1', '#5B5EC6', 'C80 M78 Y0 K0', '建议专色', '45°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Indigo 透明渐变', '色标 2', '#282A7B', 'C100 M95 Y15 K5', '建议专色', '75°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Indigo 透明渐变', '色标 3', '#101141', 'C100 M100 Y45 K55', '建议专色', '105°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Indigo 透明渐变', '色标 4', '#000000', 'C0 M0 Y0 K100', '—', '135°', '≥8mm（丝印）', '≤3', '末位必须单色黑 K100'],
+                    ['Pink 透明渐变', '色标 1', '#A963B1', 'C45 M75 Y0 K0', '建议专色', '45°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Pink 透明渐变', '色标 2', '#4B1352', 'C75 M100 Y30 K30', '建议专色', '75°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Pink 透明渐变', '色标 3', '#2F0C33', 'C80 M100 Y40 K55', '建议专色', '105°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Pink 透明渐变', '色标 4', '#000000', 'C0 M0 Y0 K100', '—', '135°', '≥8mm（丝印）', '≤3', '末位必须单色黑 K100'],
+                    ['Orange 透明渐变', '色标 1', '#ED9349', 'C0 M50 Y75 K0', '建议专色', '45°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Orange 透明渐变', '色标 2', '#955A2A', 'C30 M65 Y100 K15', '建议专色', '75°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Orange 透明渐变', '色标 3', '#3E220B', 'C55 M70 Y100 K60', '建议专色', '105°', '≥8mm（丝印）', '≤3', '同上'],
+                    ['Orange 透明渐变', '色标 4', '#000000', 'C0 M0 Y0 K100', '—', '135°', '≥8mm（丝印）', '≤3', '末位必须单色黑 K100']
+                ];
+                const esc = (s) => String(s)
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/°/g, '&deg;')
+                    .replace(/≥/g, '&ge;')
+                    .replace(/≤/g, '&le;')
+                    .replace(/Δ/g, '&Delta;')
+                    .replace(/—/g, '-');
+                const buildHeaderRow = (headerRow) => {
+                    if (!headerRow) return '';
+                    return '<tr>' + headerRow.map(h => `<th style="background:#FCD1C2;border:1px solid #ccc;padding:10px 12px;text-align:left;font-weight:700;font-size:12px;">${esc(h)}</th>`).join('') + '</tr>';
+                };
+                const buildDataRows = (dataRows) => {
+                    return dataRows.map(row =>
+                        '<tr>' + row.map(cell => `<td style="border:1px solid #ddd;padding:10px 12px;vertical-align:top;font-size:12px;white-space:normal;word-wrap:break-word;line-height:1.7;">${esc(cell)}</td>`).join('') + '</tr>'
+                    ).join('');
+                };
+                let html1 = `<tr><td colspan="2" style="background:#EC6443;color:#fff;font-weight:700;font-size:14px;padding:14px 20px;">Leader Design 色彩交付 · 印刷参照</td></tr>`;
+                sheet1Rows.forEach(row => {
+                    if (row.length === 1) {
+                        if (row[0].indexOf('Leader Design') === 0) return;
+                        if (row[0] === '') {
+                            html1 += `<tr><td colspan="2" style="border:none;padding:4px;font-size:6px;">&nbsp;</td></tr>`;
+                        } else {
+                            html1 += `<tr><td colspan="2" style="border:1px solid #ddd;padding:12px 20px;font-weight:700;background:#FFF7F3;font-size:12px;">${esc(row[0])}</td></tr>`;
+                        }
+                    } else {
+                        html1 += `<tr><td style="border:1px solid #ddd;padding:10px;width:50px;text-align:center;font-weight:700;font-size:12px;vertical-align:top;">${esc(row[0])}</td><td style="border:1px solid #ddd;padding:10px 16px;font-size:12px;vertical-align:top;white-space:normal;word-wrap:break-word;line-height:1.7;">${esc(row[1] || '')}</td></tr>`;
+                    }
+                });
+                let html2 = `<tr><td colspan="${sheet2Header.length}" style="background:#EC6443;color:#fff;font-weight:700;font-size:14px;padding:14px 20px;">二、色号对照表</td></tr>`;
+                html2 += buildHeaderRow(sheet2Header);
+                html2 += buildDataRows(sheet2Rows);
+                let html3 = `<tr><td colspan="${sheet3Header.length}" style="background:#EC6443;color:#fff;font-weight:700;font-size:14px;padding:14px 20px;">三、渐变工艺对照表</td></tr>`;
+                html3 += buildHeaderRow(sheet3Header);
+                html3 += buildDataRows(sheet3Rows);
+                const excelHtml = `
+                    <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+                    <head>
+                        <meta charset="UTF-8">
+                        <!--[if gte mso 9]>
+                        <xml>
+                            <x:ExcelWorkbook>
+                                <x:ExcelWorksheets>
+                                    <x:ExcelWorksheet>
+                                        <x:Name>印刷参照</x:Name>
+                                        <x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions>
+                                    </x:ExcelWorksheet>
+                                </x:ExcelWorksheets>
+                            </x:ExcelWorkbook>
+                        </xml>
+                        <![endif]-->
+                        <style>
+                            table { border-collapse: collapse; font-family: "Microsoft YaHei", Arial, sans-serif; font-size: 12px; }
+                            td, th {
+                                font-size: 12px;
+                                line-height: 1.7;
+                                mso-number-format:"\\@";
+                                white-space: normal;
+                                word-wrap: break-word;
+                                vertical-align: top;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <table style="width:100%;">${html1}</table>
+                        <br>
+                        <table style="width:100%;">${html2}</table>
+                        <br>
+                        <table style="width:100%;">${html3}</table>
+                    </body>
+                    </html>
+                `;
+                const blob = new Blob(['\ufeff', excelHtml], { type: 'application/vnd.ms-excel;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'Leader-Design-色彩印刷参照.xls';
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                a.click();
+                setTimeout(() => {
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }, 1500);
+                showToast('已开始下载 Excel 文件');
+                console.log('[Leader] Excel 下载已触发');
+            } catch (err) {
+                console.error('[Leader] Excel 下载失败：', err);
+                showToast('下载失败，请查看控制台');
+            }
+        }
+        (function bindDownload() {
+            const btn = document.getElementById('cmyk-download-btn');
+            if (btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    leaderDownloadCMYKExcel();
+                });
+                console.log('[Leader] 下载按钮已绑定');
+            } else {
+                console.warn('[Leader] 未找到下载按钮 #cmyk-download-btn');
+            }
         })();
     </script>
 </body>
