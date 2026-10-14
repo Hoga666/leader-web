@@ -19,7 +19,6 @@
             --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             --font-family-mono: monospace;
         }
-
         body {
             font-family: var(--font-family-body);
             background-color: #F5F7FA;
@@ -27,7 +26,6 @@
             overflow: hidden;
             height: 100vh;
         }
-
         .aura-background {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -44,25 +42,28 @@
         .aura-blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #e6e6e6; animation-delay: 0s; }
         .aura-blob-2 { bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: #e6e6e6; animation-delay: -5s; }
         .aura-blob-3 { top: 40%; left: 60%; width: 40vw; height: 40vw; background: #e6e6e6; animation-delay: -10s; }
-
         @keyframes float {
             0% { transform: translate(0, 0) scale(1); }
             100% { transform: translate(10%, 15%) scale(1.1); }
         }
-
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid var(--glass-border);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
-            border-radius: 24px;
+            border-radius: 28px;
         }
-
+        /* 统一增大的卡片圆角（与主页规范目录卡片一致） */
+        .rounded-cat { border-radius: 40px !important; }
+        /* 专项卡片圆角与描边 */
+        .usage-40 { border-radius: 40px !important; }
+        .usage-28 { border-radius: 28px !important; border: 1px solid #EC6443 !important; }
+        .card-28 { border-radius: 28px !important; }
         .color-swatch-container {
             display: flex;
             flex-direction: column;
-            border-radius: 12px;
+            border-radius: 9999px;
             overflow: hidden;
             border: 1px solid rgba(0,0,0,0.05);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
@@ -79,7 +80,6 @@
             transition: transform 0.2s;
             cursor: pointer;
         }
-
         .color-swatch:hover {
             transform: scale(1.02);
             z-index: 10;
@@ -98,7 +98,6 @@
             opacity: 1; 
             transform: translateX(0); 
         }
-
         .copy-toast {
             position: fixed;
             bottom: 20px;
@@ -117,76 +116,60 @@
             transform: translateX(-50%) translateY(0);
             opacity: 1;
         }
-
         /* ===== 优化滚动条 ===== */
         * {
             scrollbar-width: thin;
             scrollbar-color: rgba(0, 0, 0, 0.10) transparent;
         }
-
         *::-webkit-scrollbar {
             width: 5px;
             height: 5px;
         }
-
         *::-webkit-scrollbar-track {
             background: transparent;
         }
-
         *::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.10);
             border-radius: 10px;
             transition: background 0.2s;
         }
-
         *::-webkit-scrollbar-thumb:hover {
             background: rgba(0, 0, 0, 0.20);
         }
-
         #main-content {
             scrollbar-width: thin;
             scrollbar-color: rgba(0, 0, 0, 0.10) transparent;
         }
-
         #main-content::-webkit-scrollbar {
             width: 5px;
         }
-
         #main-content::-webkit-scrollbar-track {
             background: transparent;
         }
-
         #main-content::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.10);
             border-radius: 10px;
         }
-
         #main-content::-webkit-scrollbar-thumb:hover {
             background: rgba(0, 0, 0, 0.20);
         }
-
         #sidebar {
             scrollbar-width: thin;
             scrollbar-color: rgba(0, 0, 0, 0.08) transparent;
         }
-
         #sidebar::-webkit-scrollbar {
             width: 4px;
         }
-
         #sidebar::-webkit-scrollbar-track {
             background: transparent;
         }
-
         #sidebar::-webkit-scrollbar-thumb {
             background: rgba(0, 0, 0, 0.08);
             border-radius: 10px;
         }
-
         #sidebar::-webkit-scrollbar-thumb:hover {
             background: rgba(0, 0, 0, 0.16);
         }
-
         .leader-logo-container {
             display: flex;
             align-items: center;
@@ -197,7 +180,6 @@
             font-weight: bold;
             border-radius: 8px;
         }
-
         .sidebar-nav-item {
             transition: all 0.3s ease;
             border-left: 3px solid transparent;
@@ -208,21 +190,19 @@
             border-left-color: var(--brand-primary);
             background: linear-gradient(90deg, var(--brand-light) 0%, transparent 100%);
         }
-
         .usage-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
         .usage-card { background: rgba(255,255,255,.72); border: 1px solid rgba(203,213,225,.72); border-radius: 16px; padding: 18px; }
         .usage-card h4 { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; font-size: 14px; font-weight: 700; color: #1f2937; }
         .usage-card p { color: #667085; font-size: 13px; line-height: 1.65; }
-        .color-dot { width: 12px; height: 12px; border-radius: 4px; flex: 0 0 auto; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+        .color-dot { width: 12px; height: 12px; border-radius: 9999px; flex: 0 0 auto; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
         
-        .principle-card { 
-            background: #ffffff; 
-            border: 1px solid #FCD1C2; 
-            border-radius: 18px; 
-            padding: 20px; 
+        .principle-card {
+            background: #ffffff;
+            border: 1px solid #EC6443;
+            border-radius: 40px;
+            padding: 20px;
         }
-        .principle-number { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 9px; background: #EC6443; color: white; font-size: 12px; font-weight: 700; margin-bottom: 14px; }
-
+        .principle-number { width: auto; height: 28px; padding: 0 12px; display: inline-grid; place-items: center; border-radius: 9999px; background: #EC6443; color: white; font-size: 12px; font-weight: 700; margin-bottom: 14px; }
         /* ===== 统一的色块样式 ===== */
         .secondary-color-list {
             display: flex;
@@ -236,7 +216,7 @@
             justify-content: space-between;
             height: 48px;
             padding: 0 16px;
-            border-radius: 12px;
+            border-radius: 9999px;
             border: 1px solid rgba(0,0,0,0.05);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             cursor: pointer;
@@ -274,14 +254,12 @@
             z-index: 10;
             box-shadow: 0 0 12px rgba(0,0,0,0.15);
         }
-
         .secondary-color-item.gradient-swatch {
             border: none;
         }
         .secondary-color-item.border-visible {
             border: 1px solid #e5e7eb;
         }
-
         .bg-category-title {
             font-size: 0.75rem;
             font-weight: 700;
@@ -293,7 +271,6 @@
             margin-bottom: 4px;
             font-family: var(--font-family-body);
         }
-
         .color-grid-2col {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -303,7 +280,6 @@
         .color-grid-2col .secondary-color-item {
             width: 100%;
         }
-
         .lang-btn {
             transition: all 0.2s ease;
             cursor: pointer;
@@ -311,7 +287,6 @@
         .lang-btn:hover {
             background: rgba(0, 0, 0, 0.05);
         }
-
         @media (max-width: 720px) { 
             .usage-grid { grid-template-columns: 1fr; }
             .color-grid-2col { grid-template-columns: 1fr; }
@@ -335,7 +310,7 @@
             cursor: pointer;
             transition: all .2s ease;
             font-family: var(--font-family-body);
-            text-align: center;           /* 文字居中 */
+            text-align: center;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -352,7 +327,6 @@
         }
     </style>
 </head>
-
 <body class="antialiased">
     <div class="aura-background">
         <div class="aura-blob aura-blob-1"></div>
@@ -371,28 +345,24 @@
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
     </header>
-
     <div class="flex h-screen pt-16 md:pt-0">
 <aside id="sidebar" class="hidden md:flex flex-col w-72 h-full fixed top-0 left-0 glass-panel rounded-none border-r border-white/50 z-40 overflow-y-auto" aria-label="Leader Design 设计规范导航" aria-hidden="true"></aside>
 <div id="sidebar-backdrop" class="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 hidden md:hidden" aria-hidden="true"></div>
-
         <main class="flex-1 md:ml-72 p-6 md:p-10 lg:p-12 overflow-y-auto h-full scroll-smooth" id="main-content">
             <div class="max-w-[1200px] mx-auto pb-24">
                 
                 <div class="hidden md:flex items-center justify-between mb-8">
-                    <a href="leader_os_design_system.html" class="px-4 py-2 bg-white/50 hover:bg-white/90 rounded-xl transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md">
-                        <span class="text-sm font-semibold" data-i18n-zh="返回主页" data-i18n-en="Home">返回主页</span>
+                    <a href="leader_os_design_system.html" class="px-4 py-2 bg-white/50 hover:bg-white/90 rounded-full transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md">
+                        <span class="text-sm font-semibold" data-i18n-zh="返回主页" data-i18n-en="Back to Home">返回主页</span>
                     </a>
-                    <button id="lang-toggle" class="lang-btn px-4 py-2 bg-white/50 hover:bg-white/90 rounded-xl transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md text-sm font-semibold" data-lang="zh">
+                    <button id="lang-toggle" class="lang-btn px-4 py-2 bg-white/50 hover:bg-white/90 rounded-full transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md text-sm font-semibold" data-lang="zh">
                         <span id="lang-label">EN</span>
                     </button>
                 </div>
-
                 <section class="mb-12">
                     <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gray-900" data-i18n-zh="色彩" data-i18n-en="Color">色彩</h1>
                     <p class="text-lg text-text-secondary max-w-3xl leading-relaxed" data-i18n-zh="系统色彩用于统一品牌识别、状态反馈和跨设备视觉层级，点击色块可复制对应色值。" data-i18n-en="System colors unify brand recognition, status feedback, and cross-device visual hierarchy. Click any swatch to copy its value.">系统色彩用于统一品牌识别、状态反馈和跨设备视觉层级，点击色块可复制对应色值。</p>
                 </section>
-
                 <hr class="border-t border-black/5 mb-12">
                 <section class="mb-16">
                     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
@@ -417,9 +387,8 @@
 
                     <h2 class="text-2xl font-bold mb-6 text-gray-900" data-i18n-zh="1. 主品牌色" data-i18n-en="1. Primary Brand Color">1. 主品牌色</h2>
                     <p class="text-gray-500 mb-6 text-sm" data-i18n-zh="主品牌色定义了 Leader Design 的核心视觉识别，并为重点操作与品牌场景提供统一基准。" data-i18n-en="The primary brand color defines the core visual identity of Leader Design and provides a unified benchmark for key actions and brand scenarios.">主品牌色定义了 Leader Design 的核心视觉识别，并为重点操作与品牌场景提供统一基准。</p>
-
-                    <div class="glass-panel p-6 sm:p-10">
-                        <div class="text-white rounded-2xl p-6 sm:p-8 mb-6 shadow-lg shadow-orange-500/20 relative overflow-hidden group cursor-pointer" style="background-color: #EC6443;" onclick="copyColor('#EC6443')">
+                    <div class="glass-panel p-6 sm:p-10 rounded-cat">
+                        <div class="text-white rounded-full p-6 sm:p-8 mb-6 shadow-lg shadow-orange-500/20 relative overflow-hidden group cursor-pointer" style="background-color: #EC6443; border-radius:28px;" onclick="copyColor('#EC6443')">
                             <div class="absolute -right-10 -top-10 w-48 h-48 bg-white rounded-full mix-blend-overlay filter blur-3xl opacity-20"></div>
                             <div class="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between">
                                 <div>
@@ -449,15 +418,14 @@
                     </div>
                     
                     <div class="usage-grid mt-6">
-                        <div class="usage-card"><h4><span class="color-dot bg-[#EC6443]"></span><span data-i18n-zh="主品牌色 · 核心识别" data-i18n-en="Primary Brand · Core Identity">主品牌色 · 核心识别</span></h4><p data-i18n-zh="用于页面唯一主按钮、关键开关开启态、当前导航和品牌标识。避免在同一视窗出现多个同权重橙色焦点。" data-i18n-en="Used for the single primary button on a page, key switch-on states, current navigation, and brand marks. Avoid multiple orange focal points of equal weight within the same viewport.">用于页面唯一主按钮、关键开关开启态、当前导航和品牌标识。避免在同一视窗出现多个同权重橙色焦点。</p></div>
-                        <div class="usage-card"><h4><span class="color-dot bg-[#FF904B]"></span><span data-i18n-zh="品牌辅助色 · 丰富效果" data-i18n-en="Brand Accent · Rich Effect">品牌辅助色 · 丰富效果</span></h4><p data-i18n-zh="用于辅助品牌主色出现的点缀、氛围营造等视觉元素。" data-i18n-en="Used for visual elements such as accents and atmosphere that complement the primary brand color.">用于辅助品牌主色出现的点缀、氛围营造等视觉元素。</p></div>
+                        <div class="usage-card usage-40"><h4><span class="color-dot bg-[#EC6443]"></span><span data-i18n-zh="主品牌色 · 核心识别" data-i18n-en="Primary Brand · Core Identity">主品牌色 · 核心识别</span></h4><p data-i18n-zh="用于页面唯一主按钮、关键开关开启态、当前导航和品牌标识。避免在同一视窗出现多个同权重橙色焦点。" data-i18n-en="Used for the single primary button on a page, key switch-on states, current navigation, and brand marks. Avoid multiple orange focal points of equal weight within the same viewport.">用于页面唯一主按钮、关键开关开启态、当前导航和品牌标识。避免在同一视窗出现多个同权重橙色焦点。</p></div>
+                        <div class="usage-card usage-40"><h4><span class="color-dot bg-[#FF904B]"></span><span data-i18n-zh="品牌辅助色 · 丰富效果" data-i18n-en="Brand Accent · Rich Effect">品牌辅助色 · 丰富效果</span></h4><p data-i18n-zh="用于辅助品牌主色出现的点缀、氛围营造等视觉元素。" data-i18n-en="Used for visual elements such as accents and atmosphere that complement the primary brand color.">用于辅助品牌主色出现的点缀、氛围营造等视觉元素。</p></div>
                     </div>
                 </section>
                 <section class="mb-16">
                     <h2 class="text-2xl font-bold mb-2 text-gray-900" data-i18n-zh="2. 辅助色" data-i18n-en="2. Secondary Colors">2. 辅助色</h2>
-                    <p class="text-gray-600 mb-6 max-w-3xl text-sm leading-relaxed" data-i18n-zh="辅助色用于扩展品牌表达、分类识别和视觉层次构建。点击色块可复制对应色值。" data-i18n-en="Secondary colors are used to extend brand expression, category recognition, and visual hierarchy construction. Click any swatch to copy its value.">辅助色用于扩展品牌表达、分类识别和视觉层次构建。点击色块可复制对应色值。</p>
-
-                    <div class="glass-panel p-6 sm:p-10">
+                    <p class="text-gray-600 mb-6 max-w-3xl text-sm leading-relaxed" data-i18n-zh="辅助色用于扩展品牌表达、分类识别和视觉层次构建。仅用于分类标签、图标点缀、背景配色、参数调节等次级元素，不与主品牌色争夺视觉焦点；单屏建议不超过 4–5 种辅助色，并保持同一纯度与明度。点击色块可复制对应色值。" data-i18n-en="Secondary colors are used to extend brand expression, category recognition, and visual hierarchy construction. They are only used for secondary elements such as category labels, icon accents, background colors, and parameter adjustments, without competing with the main brand color for visual focus; it is recommended to use no more than 4–5 secondary colors per screen, maintaining consistent saturation and lightness. Click any swatch to copy its value.">辅助色用于扩展品牌表达、分类识别和视觉层次构建。仅用于分类标签、图标点缀、背景配色、参数调节等次级元素，不与主品牌色争夺视觉焦点；单屏建议不超过 4–5 种辅助色，并保持同一纯度与明度。点击色块可复制对应色值。</p>
+                    <div class="glass-panel p-6 sm:p-10 rounded-cat">
                         <div class="secondary-color-list">
                             <div class="secondary-color-item text-white font-bold" style="background-color: #47B2A7;" onclick="copyColor('#47B2A7')">
                                 <span class="label-en">Green</span>
@@ -486,22 +454,23 @@
                         </div>
                     </div>
                 </section>
-
                 <!-- ====== 按键色 ====== -->
                 <section class="mb-16">
                     <h2 class="text-2xl font-bold mb-2 text-gray-900" data-i18n-zh="3. 按键色" data-i18n-en="3. Button Colors">3. 按键色</h2>
                     <p class="text-gray-600 mb-6 max-w-3xl text-sm leading-relaxed" data-i18n-zh="按键色用于按钮、交互元素和界面关键操作点。点击色块可复制对应色值。" data-i18n-en="Button colors are used for buttons, interactive elements, and key action points in the interface. Click any swatch to copy its value.">按键色用于按钮、交互元素和界面关键操作点。点击色块可复制对应色值。</p>
-
-                    <div class="glass-panel p-6 sm:p-10">
+                    <div class="glass-panel p-6 sm:p-10 rounded-cat">
                         <div class="secondary-color-list">
+                            <div class="bg-category-title" data-i18n-zh="AI模式下的主导航和核心操作按钮色" data-i18n-en="Primary navigation and core action button color in AI mode">AI模式下的主导航和核心操作按钮色</div>
                             <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, #F8B96F, #FF904B, #EC6443, #D653EC);" onclick="copyColor('#F8B96F, #FF904B, #EC6443, #D653EC')">
                                 <span class="label-en">AI Iridescent</span>
                                 <span class="swatch-hex">#F8B96F → #FF904B → #EC6443 → #D653EC</span>
                             </div>
+                            <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="常规模式下的主导航和核心操作按钮色" data-i18n-en="Primary navigation and core action button color in normal mode">常规模式下的主导航和核心操作按钮色</div>
                             <div class="secondary-color-item text-white font-bold" style="background-color: #EC6443;" onclick="copyColor('#EC6443')">
                                 <span class="label-en">Core</span>
                                 <span class="swatch-hex">#EC6443</span>
                             </div>
+                            <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="其他按钮或非界面关键操作点按键色" data-i18n-en="Other buttons or non-critical interface action point button colors">其他按钮或非界面关键操作点按键色</div>
                             <div class="secondary-color-item text-white font-bold" style="background-color: #0A0A0A;" onclick="copyColor('#0A0A0A')">
                                 <span class="label-en">Base Black</span>
                                 <span class="swatch-hex">#0A0A0A</span>
@@ -510,6 +479,7 @@
                                 <span class="label-en">Base White</span>
                                 <span class="swatch-hex">#FFFFFF</span>
                             </div>
+                            <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="禁用时的按键色" data-i18n-en="Button color when disabled">禁用时的按键色</div>
                             <div class="secondary-color-item text-white font-bold" style="background-color: #999999;" onclick="copyColor('#999999')">
                                 <span class="label-en">Gray</span>
                                 <span class="swatch-hex">#999999</span>
@@ -517,31 +487,26 @@
                         </div>
                     </div>
                 </section>
-
                 <!-- ====== 背景色 ====== -->
                 <section class="mb-16">
                     <h2 class="text-2xl font-bold mb-2 text-gray-900" data-i18n-zh="4. 背景色" data-i18n-en="4. Background Colors">4. 背景色</h2>
-                    <p class="text-gray-600 mb-6 max-w-3xl text-sm leading-relaxed" data-i18n-zh="背景色用于页面、卡片、容器和渐变背景。点击色块可复制对应色值。" data-i18n-en="Background colors are used for pages, cards, containers, and gradient backgrounds. Click any swatch to copy its value.">背景色用于页面、卡片、容器和渐变背景。点击色块可复制对应色值。</p>
-
-                    <div class="glass-panel p-6 sm:p-10">
+                    <p class="text-gray-600 mb-6 max-w-3xl text-sm leading-relaxed" data-i18n-zh="用于TFT页面、卡片、容器和渐变背景。点击色块可复制对应色值。" data-i18n-en="Used for TFT pages, cards, containers, and gradient backgrounds. Click any swatch to copy its value.">用于TFT页面、卡片、容器和渐变背景。点击色块可复制对应色值。</p>
+                    <div class="glass-panel p-6 sm:p-10 rounded-cat">
                         <div class="secondary-color-list">
-
                             <!-- AI Background Color-Light -->
-                            <div class="bg-category-title">AI Background Color - Light</div>
+                            <div class="bg-category-title" data-i18n-zh="浅色AI背景色" data-i18n-en="Light AI Background">浅色AI背景色</div>
                             <div class="secondary-color-item text-gray-900 font-bold gradient-swatch" style="background: linear-gradient(135deg, #F6F6F6, #FFA771);" onclick="copyColor('#F6F6F6, #FFA771')">
                                 <span class="label-en">AI Light Gradient</span>
                                 <span class="swatch-hex">#F6F6F6 → #FFA771</span>
                             </div>
-
                             <!-- AI Background Color-Dark -->
-                            <div class="bg-category-title" style="margin-top:8px;">AI Background Color - Dark</div>
+                            <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="深色AI背景色" data-i18n-en="Dark AI Background">深色AI背景色</div>
                             <div class="secondary-color-item text-white font-bold" style="background-color: #000000;" onclick="copyColor('#000000')">
                                 <span class="label-en">AI Dark</span>
                                 <span class="swatch-hex">#000000</span>
                             </div>
-
                             <!-- Normal Background Color - Light -->
-                            <div class="bg-category-title" style="margin-top:8px;">Normal Background Color - Light</div>
+                            <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="浅色常规模式背景色，可根据具体程序匹配颜色组合，需协调美观。" data-i18n-en="Light Normal Mode Background. Color combinations can be matched to specific applications and must be harmonious and aesthetically pleasing.">浅色常规模式背景色，可根据具体程序匹配颜色组合，需协调美观。</div>
                             <div class="secondary-color-item text-gray-900 font-bold border-visible" style="background-color: #F4F4F4;" onclick="copyColor('#F4F4F4')">
                                 <span class="label-en">Light Base</span>
                                 <span class="swatch-hex">#F4F4F4</span>
@@ -574,38 +539,13 @@
                                 <span class="label-en">Light Orange Gradient</span>
                                 <span class="swatch-hex">#FAD2B6 → #ED9349</span>
                             </div>
-
                             <!-- Normal Background Color - Dark -->
-                            <div class="bg-category-title" style="margin-top:8px;">Normal Background Color - Dark</div>
+                            <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="深色常规模式背景色，可根据具体程序匹配颜色组合，其中在使用dark base背景时可根据情况增加辅助色丰富页面，需协调美观。" data-i18n-en="Dark Normal Mode Background. Color combinations can be matched to specific applications. When using a dark base background, accent colors may be added as needed to enrich the page, but must remain harmonious and aesthetically pleasing.">深色常规模式背景色，可根据具体程序匹配颜色组合，其中在使用dark base背景时可根据情况增加辅助色丰富页面，需协调美观。</div>
                             <div class="secondary-color-item text-white font-bold" style="background-color: #000000;" onclick="copyColor('#000000')">
                                 <span class="label-en">Dark Base</span>
                                 <span class="swatch-hex">#000000</span>
                             </div>
-
-                            <!-- 辅助色 - 两列网格布局 -->
-                            <!-- 添加 data-i18n 属性 -->
-                            <div class="bg-category-title" style="margin-top:8px;" data-i18n-zh="辅助色（仅用于黑色背景上的色彩丰富）" data-i18n-en="Accent Colors (only for color richness on black backgrounds)">辅助色（仅用于黑色背景上的色彩丰富）</div>
-                            <div class="color-grid-2col">
-                                <div class="secondary-color-item text-white font-bold" style="background-color: #EC6443;" onclick="copyColor('#EC6443')">
-                                    <span class="label-en">Primary Orange</span>
-                                    <span class="swatch-hex">#EC6443</span>
-                                </div>
-                                <div class="secondary-color-item text-white font-bold" style="background-color: #47B2A7;" onclick="copyColor('#47B2A7')">
-                                    <span class="label-en">Teal</span>
-                                    <span class="swatch-hex">#47B2A7</span>
-                                </div>
-                                <div class="secondary-color-item text-white font-bold" style="background-color: #7F5BEE;" onclick="copyColor('#7F5BEE')">
-                                    <span class="label-en">Violet</span>
-                                    <span class="swatch-hex">#7F5BEE</span>
-                                </div>
-                                <div class="secondary-color-item text-white font-bold" style="background-color: #6AB7FF;" onclick="copyColor('#6AB7FF')">
-                                    <span class="label-en">Blue</span>
-                                    <span class="swatch-hex">#6AB7FF</span>
-                                </div>
-                            </div>
-
                             <!-- 透明度渐变 -->
-                            <div class="bg-category-title" style="margin-top:8px;"></div>
                             <div class="secondary-color-item text-white font-bold gradient-swatch" style="background: linear-gradient(135deg, rgba(61,131,205,0), #225A97, #063260, #000000);" onclick="copyColor('#3D83CD, #225A97, #063260, #000000')">
                                 <span class="label-cn">Blue</span>
                                 <span class="swatch-hex">#3D83CD → #225A97 → #063260 → #000000</span>
@@ -630,20 +570,21 @@
                                 <span class="label-cn">Orange</span>
                                 <span class="swatch-hex">#ED9349 → #955A2A → #3E220B → #000000</span>
                             </div>
-
                         </div>
                     </div>
                 </section>
-
                 <section class="mb-16">
                     <h2 class="text-2xl font-bold mb-2 text-gray-900" data-i18n-zh="5. 中性色" data-i18n-en="5. Neutral Colors">5. 中性色</h2>
-                    <p class="text-gray-600 mb-8 max-w-3xl text-sm leading-relaxed" data-i18n-zh="通过控制明度，建立清晰的信息层级与空间纵深感。下面展示了标准的 9 阶灰度连续色带，采用竖向排列并补充了各阶色值的核心应用场景。" data-i18n-en="By controlling lightness, clear information hierarchy and spatial depth are established. Below is the standard 9-step grayscale continuous ramp, arranged vertically, with core use cases added for each step.">通过控制明度，建立清晰的信息层级与空间纵深感。下面展示了标准的 9 阶灰度连续色带，采用竖向排列并补充了各阶色值的核心应用场景。</p>
-
-                    <div class="bg-white p-6 sm:p-8 rounded-2xl flex flex-col md:flex-row gap-8 shadow-sm border border-gray-100">
+                    <p class="text-gray-600 mb-8 max-w-3xl text-sm leading-relaxed" data-i18n-zh="通过控制明度，建立清晰的信息层级与空间纵深感。下面展示了标准的 11 阶灰度连续色带，采用竖向排列并补充了各阶色值的核心应用场景。" data-i18n-en="By controlling lightness, clear information hierarchy and spatial depth are established. Below is the standard 11-step grayscale continuous ramp, arranged vertically, with core use cases added for each step.">通过控制明度，建立清晰的信息层级与空间纵深感。下面展示了标准的 11 阶灰度连续色带，采用竖向排列并补充了各阶色值的核心应用场景。</p>
+                    <div class="bg-white p-6 sm:p-8 rounded-cat flex flex-col md:flex-row gap-8 shadow-sm border border-gray-100">
                         <div class="w-full md:w-1/3 max-w-[280px]">
-                            <div class="color-swatch-container shadow-sm border border-gray-200">
+                            <div class="color-swatch-container shadow-sm border border-gray-200" style="border-radius:32px;">
                                 <div class="py-3 text-center bg-gray-50 border-b border-gray-200">
-                                    <span class="font-bold text-gray-800 block text-sm" style="font-family: var(--font-family-body);">Neutral / 中性灰</span>
+                                    <span class="font-bold text-gray-800 block text-sm" style="font-family: var(--font-family-body);">Neutral / 中性色</span>
+                                </div>
+                                <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #FFFFFF; color: #1D1D1F;" onclick="copyColor('#FFFFFF')">
+                                    <span class="font-mono" style="font-family: var(--font-family-mono);">100%</span>
+                                    <span class="font-mono text-xs" style="font-family: var(--font-family-mono);">#FFFFFF</span>
                                 </div>
                                 <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #EEEEEE; color: #1D1D1F;" onclick="copyColor('#EEEEEE')">
                                     <span class="font-mono" style="font-family: var(--font-family-mono);">93%</span>
@@ -681,38 +622,42 @@
                                     <span class="font-mono" style="font-family: var(--font-family-mono);">4%</span>
                                     <span class="font-mono text-xs" style="font-family: var(--font-family-mono);">#0A0A0A</span>
                                 </div>
+                                <div class="color-swatch hover:scale-[1.03] transition-transform" style="background-color: #000000; color: #ffffff;" onclick="copyColor('#000000')">
+                                    <span class="font-mono" style="font-family: var(--font-family-mono);">0%</span>
+                                    <span class="font-mono text-xs" style="font-family: var(--font-family-mono);">#000000</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="w-full md:w-2/3 flex flex-col justify-center">
-                            <!-- 添加 data-i18n 属性 -->
-                            <h4 class="text-xl font-bold text-gray-900 mb-5" style="font-family: var(--font-family-body);" data-i18n-zh="中性色应用规范" data-i18n-en="Neutral Color Usage Guidelines">中性色应用规范</h4>
-                            <div class="space-y-4">
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition duration-300">
+                        <div class="w-full md:w-2/3 self-stretch flex flex-col">
+                            <!-- 标题：位置保持不变 -->
+                            <div class="pt-4">
+                                <h4 class="text-xl font-bold text-gray-900" style="font-family: var(--font-family-body);" data-i18n-zh="中性色应用规范" data-i18n-en="Neutral Color Usage Guidelines">中性色应用规范</h4>
+                            </div>
+                            <!-- 卡片1：位置保持不变 -->
+                            <div class="mt-4 bg-gray-50 p-4 rounded-xl card-28 border border-gray-100 hover:shadow-md transition duration-300">
+                                <h5 class="font-bold text-gray-800 mb-2 flex items-center" style="font-family: var(--font-family-body);">
+                                    <div class="w-4 h-4 rounded-full bg-[#EEEEEE] border border-gray-300 mr-2"></div>
+                                    <span data-i18n-zh="背景与容器 (Backgrounds)" data-i18n-en="Backgrounds and Containers">背景与容器 (Backgrounds)</span>
+                                </h5>
+                                <p class="text-sm text-gray-600 leading-relaxed" style="font-family: var(--font-family-body);" data-i18n-zh="以浅灰及白色作为页面部分背景与容器底色，39%（#666666）的色阶保证玻璃质感稳定且不过度抢占注意力。" data-i18n-en="Use light gray and white as partial page backgrounds and container base colors; the 39% (#666666) shade ensures stable glass texture without overly competing for attention.">以浅灰及白色作为页面部分背景与容器底色，39%（#666666）的色阶保证玻璃质感稳定且不过度抢占注意力。</p>
+                            </div>
+                            <!-- 弹性区域：卡片2与卡片3之间的间距相等，卡片3贴底 -->
+                            <div class="flex-1 flex flex-col">
+                                <div class="flex-1 min-h-0"></div>
+                                <div class="bg-gray-50 p-4 rounded-xl card-28 border border-gray-100 hover:shadow-md transition duration-300">
                                     <h5 class="font-bold text-gray-800 mb-2 flex items-center" style="font-family: var(--font-family-body);">
-                                        <div class="w-4 h-4 rounded bg-[#EEEEEE] border border-gray-300 mr-2"></div>
-                                        <!-- 添加 data-i18n 属性 -->
-                                        <span data-i18n-zh="背景与容器 (Backgrounds)" data-i18n-en="Backgrounds and Containers">背景与容器 (Backgrounds)</span>
-                                    </h5>
-                                    <!-- 添加 data-i18n 属性 -->
-                                    <p class="text-sm text-gray-600 leading-relaxed" style="font-family: var(--font-family-body);" data-i18n-zh="以浅灰作为页面背景与容器底色，保证磨玻璃层次稳定且不过度抢占注意力。" data-i18n-en="Use light gray as the page background and container base color, ensuring stable glass-morphism layers without overly competing for attention.">以浅灰作为页面背景与容器底色，保证磨玻璃层次稳定且不过度抢占注意力。</p>
-                                </div>
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition duration-300">
-                                    <h5 class="font-bold text-gray-800 mb-2 flex items-center" style="font-family: var(--font-family-body);">
-                                        <div class="w-4 h-4 rounded bg-[#999999] mr-2"></div>
-                                        <!-- 添加 data-i18n 属性 -->
+                                        <div class="w-4 h-4 rounded-full bg-[#999999] mr-2"></div>
                                         <span data-i18n-zh="边框与分割 (Dividers)" data-i18n-en="Borders and Dividers">边框与分割 (Dividers)</span>
                                     </h5>
-                                    <!-- 添加 data-i18n 属性 -->
                                     <p class="text-sm text-gray-600 leading-relaxed" style="font-family: var(--font-family-body);" data-i18n-zh="以 80% 至 60% 的灰度作为轻量级分割线，对视觉打扰降到最低；对于强调用途的控件描边，可选用 39% (#666666) 的色阶。" data-i18n-en="Use 80% to 60% gray as lightweight dividers to minimize visual disturbance; for emphasized control strokes, use the 39% (#666666) shade.">以 80% 至 60% 的灰度作为轻量级分割线，对视觉打扰降到最低；对于强调用途的控件描边，可选用 39% (#666666) 的色阶。</p>
                                 </div>
-                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 hover:shadow-md transition duration-300">
+                                <div class="flex-1 min-h-0"></div>
+                                <div class="bg-gray-50 p-4 rounded-xl card-28 border border-gray-100 hover:shadow-md transition duration-300">
                                     <h5 class="font-bold text-gray-800 mb-2 flex items-center" style="font-family: var(--font-family-body);">
-                                        <div class="w-4 h-4 rounded bg-[#222222] mr-2"></div>
-                                        <!-- 添加 data-i18n 属性 -->
+                                        <div class="w-4 h-4 rounded-full bg-[#222222] mr-2"></div>
                                         <span data-i18n-zh="排版与文本" data-i18n-en="Typography and Text" style="font-family: var(--font-family-body);">排版与文本</span>
                                     </h5>
-                                    <!-- 添加 data-i18n 属性 -->
-                                    <p class="text-sm text-gray-600 leading-relaxed" style="font-family: var(--font-family-body);" data-i18n-zh="使用 4% 或 7% 作为一级大标题文字色；20% 至 26% 适用于大量正文阅读，缓解视疲劳；39% 用于辅助或次要信息说明。" data-i18n-en="Use 4% or 7% as the text color for top-level headings; 20% to 26% for large amounts of body text to relieve eye strain; 39% for auxiliary or secondary information.">使用 4% 或 7% 作为一级大标题文字色；20% 至 26% 适用于大量正文阅读，缓解视疲劳；39% 用于辅助或次要信息说明。</p>
+                                    <p class="text-sm text-gray-600 leading-relaxed" style="font-family: var(--font-family-body);" data-i18n-zh="使用4%至7%作为主要的文字色，少部分Led载体上使用0%色阶的文字" data-i18n-en="Use 4% to 7% as the main text color; on a small number of LED carriers, use 0% shade for text.">使用4%至7%作为主要的文字色，少部分Led载体上使用0%色阶的文字</p>
                                 </div>
                             </div>
                         </div>
@@ -721,24 +666,22 @@
                 <section class="mb-16">
                     <h2 class="text-2xl font-bold mb-2 text-gray-900" data-i18n-zh="6. 跨屏幕与硬件" data-i18n-en="6. Cross-screen and Hardware">6. 跨屏幕与硬件</h2>
                     <p class="text-gray-500 mb-6 text-sm" data-i18n-zh="同一颜色角色在 TFT、LED 与实体灯上必须保持一致，并依据硬件能力进行可识别的降级。" data-i18n-en="The same color role must remain consistent across TFT, LED, and physical lights, with recognizable degradation based on hardware capability.">同一颜色角色在 TFT、LED 与实体灯上必须保持一致，并依据硬件能力进行可识别的降级。</p>
-                    <div class="glass-panel p-6 sm:p-8">
+                    <div class="glass-panel p-6 sm:p-8 rounded-cat">
                         <h3 class="text-xl font-bold text-gray-900 mb-5" data-i18n-zh="跨屏幕与硬件使用原则" data-i18n-en="Cross-screen and Hardware Usage Principles" style="font-family: var(--font-family-body);">跨屏幕与硬件使用原则</h3>
                         <div class="usage-grid">
-                            <div class="usage-card"><h4 data-i18n-zh="TFT · 保持语义 Token" data-i18n-en="TFT · Preserve Semantic Tokens" style="font-family: var(--font-family-body);">TFT · 保持语义 Token</h4><p data-i18n-zh="不同主题与屏幕尺寸可以调整明度，但品牌、成功、警告、危险的角色不可互换；前景与背景组合需满足可读性。" data-i18n-en="Different themes and screen sizes may adjust lightness, but the roles of brand, success, warning, and danger must not be interchanged; foreground and background combinations must meet readability requirements." style="font-family: var(--font-family-body);">不同主题与屏幕尺寸可以调整明度，但品牌、成功、警告、危险的角色不可互换；前景与背景组合需满足可读性。</p></div>
-                            <div class="usage-card"><h4 data-i18n-zh="LED · 颜色只做增强" data-i18n-en="LED · Color as Enhancement Only" style="font-family: var(--font-family-body);">LED · 颜色只做增强</h4><p data-i18n-zh="低色彩 LED 不承担完整语义。固定标签、图标、亮灭和闪烁节奏必须先传达状态，颜色仅作为第二识别通道。" data-i18n-en="Low-color LED does not carry complete semantics. Fixed labels, icons, on/off states, and blink rhythm must first convey status; color serves only as a secondary recognition channel." style="font-family: var(--font-family-body);">低色彩 LED 不承担完整语义。固定标签、图标、亮灭和闪烁节奏必须先传达状态，颜色仅作为第二识别通道。</p></div>
-                            <div class="usage-card"><h4 data-i18n-zh="实体灯 · 控制亮度与干扰" data-i18n-en="Physical Light · Control Brightness and Distraction" style="font-family: var(--font-family-body);">实体灯 · 控制亮度与干扰</h4><p data-i18n-zh="夜间、卧室和近距离场景应降低亮度，持续警示不得使用高频闪烁；危险状态需同时提供声音或文字反馈。" data-i18n-en="Brightness should be reduced at night, in bedrooms, and in close-range scenarios. Persistent warnings must not use high-frequency flashing; danger states require simultaneous sound or text feedback." style="font-family: var(--font-family-body);">夜间、卧室和近距离场景应降低亮度，持续警示不得使用高频闪烁；危险状态需同时提供声音或文字反馈。</p></div>
-                            <div class="usage-card"><h4 data-i18n-zh="验收 · 使用真实环境" data-i18n-en="Validation · Use Real Environments" style="font-family: var(--font-family-body);">验收 · 使用真实环境</h4><p data-i18n-zh="至少在明亮、正常、暗光三种环境及主要观看角度下验证辨识度，避免只依据设计稿或显示器色值验收。" data-i18n-en="Validate recognizability in at least three environments—bright, normal, and dim—and at primary viewing angles. Avoid acceptance based solely on design mockups or monitor color values." style="font-family: var(--font-family-body);">至少在明亮、正常、暗光三种环境及主要观看角度下验证辨识度，避免只依据设计稿或显示器色值验收。</p></div>
+                            <div class="usage-card usage-28"><h4 data-i18n-zh="TFT · 保持语义 Token" data-i18n-en="TFT · Preserve Semantic Tokens" style="font-family: var(--font-family-body);">TFT · 保持语义 Token</h4><p data-i18n-zh="不同主题与屏幕尺寸优先选择色彩库中颜色，其中品牌色、按键色须严格遵守标准，特殊情况下部分背景色可进行同色相的轻微调整，并保证前景与背景组合可读性。" data-i18n-en="Different themes and screen sizes should prioritize colors from the color library; brand colors and button colors must strictly follow standards, and in special cases some background colors may be slightly adjusted within the same hue, ensuring foreground and background readability." style="font-family: var(--font-family-body);">不同主题与屏幕尺寸优先选择色彩库中颜色，其中品牌色、按键色须严格遵守标准，特殊情况下部分背景色可进行同色相的轻微调整，并保证前景与背景组合可读性。</p></div>
+                            <div class="usage-card usage-28"><h4 data-i18n-zh="LED · 颜色只做增强" data-i18n-en="LED · Color as Enhancement Only" style="font-family: var(--font-family-body);">LED · 颜色只做增强</h4><p data-i18n-zh="低色彩 LED 不承担完整语义。固定标签、图标、亮灭和闪烁节奏必须先传达状态，颜色仅作为第二识别通道。" data-i18n-en="Low-color LED does not carry complete semantics. Fixed labels, icons, on/off states, and blink rhythm must first convey status; color serves only as a secondary recognition channel." style="font-family: var(--font-family-body);">低色彩 LED 不承担完整语义。固定标签、图标、亮灭和闪烁节奏必须先传达状态，颜色仅作为第二识别通道。</p></div>
+                            <div class="usage-card usage-28"><h4 data-i18n-zh="实体灯 · 控制亮度与干扰" data-i18n-en="Physical Light · Control Brightness and Distraction" style="font-family: var(--font-family-body);">实体灯 · 控制亮度与干扰</h4><p data-i18n-zh="夜间、卧室和近距离场景应降低亮度，持续警示不得使用高频闪烁；危险状态需同时提供声音或文字反馈。" data-i18n-en="Brightness should be reduced at night, in bedrooms, and in close-range scenarios. Persistent warnings must not use high-frequency flashing; danger states require simultaneous sound or text feedback." style="font-family: var(--font-family-body);">夜间、卧室和近距离场景应降低亮度，持续警示不得使用高频闪烁；危险状态需同时提供声音或文字反馈。</p></div>
+                            <div class="usage-card usage-28"><h4 data-i18n-zh="验收 · 使用真实环境" data-i18n-en="Validation · Use Real Environments" style="font-family: var(--font-family-body);">验收 · 使用真实环境</h4><p data-i18n-zh="至少在明亮、正常、暗光三种环境及主要观看角度下验证辨识度，避免只依据设计稿或显示器色值验收。" data-i18n-en="Validate recognizability in at least three environments—bright, normal, and dim—and at primary viewing angles. Avoid acceptance based solely on design mockups or monitor color values." style="font-family: var(--font-family-body);">至少在明亮、正常、暗光三种环境及主要观看角度下验证辨识度，避免只依据设计稿或显示器色值验收。</p></div>
                         </div>
                     </div>
                 </section>
-
             </div>
                 <footer class="pt-10 pb-16 text-center text-gray-400 text-sm border-t border-gray-200">
                 <p class="font-light" style="font-family: var(--font-family-body);" data-i18n-zh="&copy; 2026 Haier UX Design Lab. Internal Confidential." data-i18n-en="&copy; 2026 Haier UX Design Lab. Internal Confidential.">&copy; 2026 Haier UX Design Lab. Internal Confidential.</p>
             </footer>
             </main>
     </div>
-
     <script src="leader-nav.js"></script>
     <script>
         async function copyColor(colorValue, element) {
@@ -768,37 +711,52 @@
                 showToast('复制失败，请手动复制');
             }
         }
-
         async function copyToClipboard(text, element) {
-            try {
-                if (navigator.clipboard && window.isSecureContext) {
+            let ok = false;
+            // 1) 优先 Clipboard API（HTTPS / 安全上下文）
+            if (navigator.clipboard && window.isSecureContext) {
+                try {
                     await navigator.clipboard.writeText(text);
-                } else {
-                    const textArea = document.createElement('textarea');
-                    textArea.value = text;
-                    textArea.style.position = 'fixed';
-                    textArea.style.opacity = '0';
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    document.execCommand('copy');
-                    textArea.remove();
+                    ok = true;
+                } catch (e) {
+                    ok = false; // iframe 内常因未聚焦被拒绝，走兜底
                 }
+            }
+            // 2) 兜底：隐藏 textarea + execCommand('copy')
+            if (!ok) {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                textArea.setAttribute('readonly', '');
+                textArea.style.position = 'fixed';
+                textArea.style.top = '0';
+                textArea.style.left = '0';
+                textArea.style.opacity = '0';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                textArea.setSelectionRange(0, textArea.value.length);
+                try {
+                    ok = document.execCommand('copy');
+                } catch (e) {
+                    ok = false;
+                }
+                textArea.remove();
+            }
+            if (ok) {
                 showToast(`已复制: ${text}`);
                 if (element) {
                     element.style.transform = 'scale(0.98)';
                     setTimeout(() => { element.style.transform = ''; }, 150);
                 }
-            } catch (error) {
-                console.error('复制失败', error);
+            } else {
+                console.error('复制失败');
                 showToast('复制失败，请手动复制');
             }
         }
-
         function parseColorToHex(colorValue) {
             if (!colorValue) return '';
             const value = String(colorValue).trim();
             if (value.startsWith('#')) return value.toUpperCase();
-
             const channels = value.match(/[\d.]+%?/g);
             if (!channels || channels.length < 3) return '';
             const isSrgb = value.includes('color(srgb');
@@ -812,7 +770,6 @@
                 Math.max(0, Math.min(255, channel)).toString(16).padStart(2, '0')
             ).join('').toUpperCase()}`;
         }
-
         function initSwatchHexLabels() {
             document.querySelectorAll('.color-swatch-container[style*="--base-color"] .color-swatch').forEach((swatch) => {
                 if (swatch.querySelector('.swatch-hex')) return;
@@ -826,9 +783,7 @@
                 swatch.setAttribute('aria-label', `${swatch.querySelector('span')?.textContent || ''} ${hex}`.trim());
             });
         }
-
         requestAnimationFrame(initSwatchHexLabels);
-
         function showToast(message) {
             const toast = document.getElementById('copy-toast');
             toast.textContent = message;
@@ -841,14 +796,12 @@
                 toast.classList.remove('show');
             }, 2000);
         }
-
         // ===== 语言切换 =====
         (function() {
             const langBtn = document.getElementById('lang-toggle');
             const langLabel = document.getElementById('lang-label');
             const allElements = document.querySelectorAll('[data-i18n-zh][data-i18n-en]');
             let currentLang = 'zh';
-
             function updateLanguage(lang) {
                 currentLang = lang;
                 allElements.forEach(el => {
@@ -862,6 +815,8 @@
                     }
                 });
                 langLabel.textContent = lang === 'zh' ? 'EN' : '中文';
+                localStorage.setItem('leader-guideline-language', lang);
+                document.dispatchEvent(new CustomEvent('leader-language-change', { detail: { lang: lang } }));
                 langBtn.setAttribute('data-lang', lang);
                 document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
                 const title = document.querySelector('title');
@@ -870,12 +825,10 @@
                     title.textContent = titleText;
                 }
             }
-
             langBtn.addEventListener('click', function() {
                 const nextLang = currentLang === 'zh' ? 'en' : 'zh';
                 updateLanguage(nextLang);
             });
-
             // ===== RGB / CMYK 选项卡切换 =====
             document.querySelectorAll('.color-mode-tab').forEach(tab => {
                 tab.addEventListener('click', function() {
@@ -887,7 +840,6 @@
                     tab.setAttribute('aria-selected', 'true');
                 });
             });
-
             updateLanguage('zh');
         })();
     </script>

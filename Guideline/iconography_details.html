@@ -32,6 +32,15 @@
         .aura-blob-3 { top:40%; left:60%; width:40vw; height:40vw; background:#e6e6e6; animation-delay:-10s; }
         @keyframes float { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(10%,15%) scale(1.1)} }
         .glass-panel { background:var(--glass-bg); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border:1px solid var(--glass-border); box-shadow:0 8px 32px rgba(0,0,0,.04); border-radius:28px; }
+        .rounded-cat { border-radius: 40px !important; }
+        /* ===== 实物图标 · 图片圆角（光影与体积 / 构图与透视） ===== */
+        #color-pane img.icon-section-img {
+            display: block;
+            width: 100% !important;
+            height: auto !important;
+            border-radius: 28px !important;
+            overflow: hidden;
+        }
         .leader-logo-container { display:flex; align-items:center; justify-content:center; background:#EC6443; color:#fff; font-family:Arial,Helvetica,sans-serif; font-weight:bold; border-radius:8px; }
         .sidebar-nav-item { transition:none; border-left:3px solid transparent; cursor:pointer; }
         .sidebar-nav-item:hover:not(.active) { transition:background .15s ease; }
@@ -100,7 +109,6 @@
         .icon-zoom-label { font-size: 16px; font-weight: 600; color: #FFFFFF; letter-spacing: 0.02em; }
         .icon-zoom-close { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, 0.12); color: #FFFFFF; font-size: 20px; line-height: 1; cursor: pointer; display: grid; place-items: center; transition: background 0.2s ease, transform 0.2s ease; }
         .icon-zoom-close:hover { background: rgba(236, 100, 67, 0.35); color: #FFFFFF; transform: rotate(90deg); }
-
         /* ===== 并列两图：整体在白色背景卡片内居中 ===== */
         .double-image-wrap {
             width: 100%;
@@ -156,7 +164,7 @@
                 </div>
                 <section class="mb-12">
                     <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gray-900" data-i18n-zh="图标" data-i18n-en="Icons">图标</h1>
-                    <p class="text-lg text-text-secondary max-w-3xl leading-relaxed" data-i18n-zh="系统图标用于统一功能表达、状态反馈和跨设备识别，确保不同尺寸与表现形式下保持清晰一致。" data-i18n-en="System icons unify functional expression, status feedback, and cross-device recognition, ensuring clarity and consistency across different sizes and visual styles.">系统图标用于统一功能表达、状态反馈和跨设备识别，确保不同尺寸与表现形式下保持清晰一致。</p>
+                    <p class="text-lg text-text-secondary leading-relaxed" data-i18n-zh="系统图标用于统一功能表达、状态反馈和跨设备识别，确保不同尺寸与表现形式下保持清晰一致。" data-i18n-en="System icons unify functional expression, status feedback, and cross-device recognition, ensuring clarity and consistency across different sizes and visual styles.">系统图标用于统一功能表达、状态反馈和跨设备识别，确保不同尺寸与表现形式下保持清晰一致。</p>
                 </section>
                 <div class="mb-8" aria-hidden="true"></div>
                 <nav class="icon-tabs mb-12" role="tablist" aria-label="图标类型">
@@ -256,7 +264,7 @@
                             <div class="icon-category-selector" role="group" aria-label="面性图标分类">
                                 <button class="icon-category-button active" type="button" data-icon-category="通用" data-i18n-zh="通用" data-i18n-en="General">通用</button><button class="icon-category-button" type="button" data-icon-category="冰箱" data-i18n-zh="冰箱" data-i18n-en="Refrigerator">冰箱</button><button class="icon-category-button" type="button" data-icon-category="洗衣机" data-i18n-zh="洗衣机" data-i18n-en="Washing Machine">洗衣机</button><button class="icon-category-button" type="button" data-icon-category="厨电" data-i18n-zh="厨电" data-i18n-en="Kitchen Appliances">厨电</button><button class="icon-category-button" type="button" data-icon-category="空调" data-i18n-zh="空调" data-i18n-en="Air Conditioner">空调</button><button class="icon-category-button" type="button" data-icon-category="热水器" data-i18n-zh="热水器" data-i18n-en="Water Heater">热水器</button><button class="icon-category-button" type="button" data-icon-category="小家电" data-i18n-zh="小家电" data-i18n-en="Small Appliances">小家电</button>
                             </div>
-                            <label class="icon-search"><span class="sr-only">搜索面性图标</span><input type="search" placeholder="搜索图标，点击可复制图标用法" data-icon-search data-i18n-placeholder-zh="搜索图标，点击可复制图标用法" data-i18n-placeholder-en="Search icons. Click to copy usage."><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke-width="2"></circle><path d="m20 20-4-4" stroke-width="2" stroke-linecap="round"></path></svg></label>
+                            <label class="icon-search"><span class="sr-only">搜索面性图标</span><input type="search" placeholder="搜索图标，点击可复制图标用法" data-icon-search data-i18n-placeholder-zh="搜索图标，点击可复制图标用法" data-i18n-placeholder-en="Search icons, click to copy usage"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke-width="2"></circle><path d="m20 20-4-4" stroke-width="2" stroke-linecap="round"></path></svg></label>
                         </div>
                         <div class="icon-library" data-icon-library="filled" data-count="60"></div>
                     </section>
@@ -320,7 +328,7 @@
 
                 <!-- ===================== 实物图标 ===================== -->
                 <div id="color-pane" class="icon-pane" role="tabpanel" data-icon-pane="color" hidden>
-                    <section class="glass-panel p-6 sm:p-10 mb-10">
+                    <section class="glass-panel p-6 sm:p-10 mb-10 rounded-cat">
                         <h2 class="color-section-title mb-3" data-i18n-zh="设计原则" data-i18n-en="Design Principles">设计原则</h2>
                         <p class="text-gray-500 mb-6 text-sm leading-relaxed" data-i18n-zh="彩色图标以真实物体为基础，通过统一光影、克制色彩和品牌化造型建立清晰且一致的视觉语言。" data-i18n-en="Color icons are based on real objects, establishing a clear and coherent visual language through unified lighting, restrained color, and branded forms.">彩色图标以真实物体为基础，通过统一光影、克制色彩和品牌化造型建立清晰且一致的视觉语言。</p>
                         <div>
@@ -330,39 +338,39 @@
                             <article class="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-3 md:gap-10 py-6"><h3 class="text-sm font-semibold text-gray-900" data-i18n-zh="Leader品牌定位" data-i18n-en="Leader Brand Positioning">Leader品牌定位</h3><p class="text-sm text-gray-500 leading-relaxed" data-i18n-zh="以活力与简约为核心：光影过渡柔和、造型圆润、色彩明快，传递亲和而有活力的体验。" data-i18n-en="Centered on vitality and simplicity: soft light transitions, rounded forms, and bright colors convey an approachable and vibrant experience.">以活力与简约为核心：光影过渡柔和、造型圆润、色彩明快，传递亲和而有活力的体验。</p></article>
                         </div>
                     </section>
-                    <section class="glass-panel p-6 sm:p-10 mb-10">
+                    <section class="glass-panel p-6 sm:p-10 mb-10 rounded-cat">
                         <h2 class="color-section-title mb-3" data-i18n-zh="视觉风格基准" data-i18n-en="Visual Style Baseline">视觉风格基准</h2>
                         <p class="text-gray-500 mb-8 text-sm leading-relaxed" data-i18n-zh="核心彩色图标以 256 × 256pt 为基准尺寸，并在同一品类中保持统一朝向、角标位置和光影条件。" data-i18n-en="Core color icons use 256 × 256 pt as the baseline size and maintain consistent orientation, badge placement, and lighting conditions within the same category.">核心彩色图标以 256 × 256pt 为基准尺寸，并在同一品类中保持统一朝向、角标位置和光影条件。</p>
                         <div class="overflow-x-auto border border-gray-200" style="border-radius:28px"><table class="baseline-table min-w-[720px]"><thead><tr><th data-i18n-zh="规范维度" data-i18n-en="Dimension">规范维度</th><th data-i18n-zh="基准值" data-i18n-en="Baseline">基准值</th><th data-i18n-zh="应用说明" data-i18n-en="Application Notes">应用说明</th></tr></thead><tbody><tr><td data-i18n-zh="画布与尺寸" data-i18n-en="Canvas and Size">画布与尺寸</td><td>256 × 256pt</td><td data-i18n-zh="主体居中并保留稳定安全区" data-i18n-en="Center the subject and preserve a stable safe area">主体居中并保留稳定安全区</td></tr><tr><td data-i18n-zh="图形视角" data-i18n-en="Object Viewing Angle">图形视角</td><td data-i18n-zh="四分之三向右视角" data-i18n-en="Three-quarter right view">四分之三向右视角</td><td data-i18n-zh="同一品类使用一致视角，避免其他角度透视效果" data-i18n-en="Use a consistent view within the same category, avoiding perspective effects from other angles">同一品类使用一致视角，避免其他角度透视效果</td></tr><tr><td data-i18n-zh="光线与色温" data-i18n-en="Light and Color Temperature">光线与色温</td><td data-i18n-zh="右侧柔光 / 中性光" data-i18n-en="Right-side soft / neutral light">右侧柔光 / 中性光</td><td data-i18n-zh="高光柔和、明暗自然过渡，避免死黑" data-i18n-en="Soft highlights, natural transitions between light and shadow, avoiding dead black">高光柔和、明暗自然过渡，避免死黑</td></tr><tr><td data-i18n-zh="阴影与倒影" data-i18n-en="Shadow and Reflection">阴影与倒影</td><td data-i18n-zh="低强度 / 无倒影" data-i18n-en="Low intensity / no reflection">低强度 / 无倒影</td><td data-i18n-zh="阴影仅用于建立体积，不制造悬浮感" data-i18n-en="Shadows are used only to establish volume, not to create a floating effect">阴影仅用于建立体积，不制造悬浮感</td></tr><tr><td data-i18n-zh="辅助角标" data-i18n-en="Secondary Badge">辅助角标</td><td data-i18n-zh="右下角" data-i18n-en="Bottom-right corner">右下角</td><td data-i18n-zh="位置与比例统一，不遮挡主体识别特征" data-i18n-en="Unified position and proportion, without obscuring the identifying features of the subject">位置与比例统一，不遮挡主体识别特征</td></tr></tbody></table></div>
                     </section>
-                    <section class="glass-panel p-6 sm:p-10 mb-10 text-left">
+                    <section class="glass-panel p-6 sm:p-10 mb-10 text-left rounded-cat">
                         <h2 class="color-section-title mb-3" data-i18n-zh="光影与体积" data-i18n-en="Light, Shadow, and Volume">光影与体积</h2>
                         <p class="text-gray-500 mb-6 text-sm leading-relaxed" data-i18n-zh="统一采用右侧定向柔光，通过柔和过渡控制不同设计人员或 AI 输出的体积感保持一致。" data-i18n-en="Uniformly apply directional soft light from the right, using gentle transitions to keep volume perception consistent across different designers or AI outputs.">统一采用右侧定向柔光，通过柔和过渡控制不同设计人员或 AI 输出的体积感保持一致。</p>
-                        <div class="grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-8 items-center"><img src="leader-assets/examples/iconography/lighting volume.png" alt="彩色图标正面定向柔光参考" style="display:block;width:100%;clip-path:inset(0 round 28px)"><div class="space-y-5 text-sm text-gray-500"><div><h3 class="font-medium text-gray-900 mb-1" data-i18n-zh="柔和高光" data-i18n-en="Soft Highlights">柔和高光</h3><p data-i18n-zh="高光位于物体右侧中上半部分，形态柔和；中间调保持物体固有色。" data-i18n-en="Highlights are located on the upper-middle portion of the right side of the object, with soft forms; midtones preserve the inherent color of the object.">高光位于物体右侧中上半部分，形态柔和；中间调保持物体固有色。</p></div><div><h3 class="font-medium text-gray-900 mb-1" data-i18n-zh="自然过渡" data-i18n-en="Natural Transitions">自然过渡</h3><p data-i18n-zh="明暗交界线应自然过渡，反射光可弱化或忽略。" data-i18n-en="The light-dark boundary should transition naturally; reflected light can be minimized or ignored.">明暗交界线应自然过渡，反射光可弱化或忽略。</p></div><div><h3 class="font-medium text-gray-900 mb-1" data-i18n-zh="克制对比" data-i18n-en="Restrained Contrast">克制对比</h3><p data-i18n-zh="Leader彩色图标的光影对比度约为 30%，阴影以柔光为主，避免死黑。" data-i18n-en="Leader color icons use approximately 30% light-shadow contrast, with soft shadows and no dead black.">Leader彩色图标的光影对比度约为 30%，阴影以柔光为主，避免死黑。</p></div></div></div>
+                        <div class="grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-8 items-center"><img src="leader-assets/examples/iconography/lighting volume.png" alt="彩色图标正面定向柔光参考" class="icon-section-img"><div class="space-y-5 text-sm text-gray-500"><div><h3 class="font-medium text-gray-900 mb-1" data-i18n-zh="柔和高光" data-i18n-en="Soft Highlights">柔和高光</h3><p data-i18n-zh="高光位于物体右侧中上半部分，形态柔和；中间调保持物体固有色。" data-i18n-en="Highlights are located on the upper-middle portion of the right side of the object, with soft forms; midtones preserve the inherent color of the object.">高光位于物体右侧中上半部分，形态柔和；中间调保持物体固有色。</p></div><div><h3 class="font-medium text-gray-900 mb-1" data-i18n-zh="自然过渡" data-i18n-en="Natural Transitions">自然过渡</h3><p data-i18n-zh="明暗交界线应自然过渡，反射光可弱化或忽略。" data-i18n-en="The light-dark boundary should transition naturally; reflected light can be minimized or ignored.">明暗交界线应自然过渡，反射光可弱化或忽略。</p></div><div><h3 class="font-medium text-gray-900 mb-1" data-i18n-zh="克制对比" data-i18n-en="Restrained Contrast">克制对比</h3><p data-i18n-zh="Leader彩色图标的光影对比度约为 30%，阴影以柔光为主，避免死黑。" data-i18n-en="Leader color icons use approximately 30% light-shadow contrast, with soft shadows and no dead black.">Leader彩色图标的光影对比度约为 30%，阴影以柔光为主，避免死黑。</p></div></div></div>
                     </section>
-                    <section class="glass-panel p-6 sm:p-10 mb-10 text-left">
+                    <section class="glass-panel p-6 sm:p-10 mb-10 text-left rounded-cat">
                         <h2 class="color-section-title mb-3" data-i18n-zh="构图与透视" data-i18n-en="Composition and Perspective">构图与透视</h2>
                         <p class="text-gray-500 mb-6 text-sm leading-relaxed" data-i18n-zh="Leader使用具有透视角度镜头传达清晰、活力的感受，同一品类应保持相同角度的合理透视。" data-i18n-en="Leader uses a camera with perspective to convey a clear and vibrant feeling. The same category should maintain reasonable perspective from a consistent angle.">Leader使用具有透视角度镜头传达清晰、活力的感受，同一品类应保持相同角度的合理透视。</p>
-                        <div class="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 items-center"><div class="flex justify-center lg:justify-start"><img src="leader-assets/examples/iconography/Composition Perspective.png" alt="构图与透视正确示例" style="display:block;clip-path:inset(0 round 28px)"></div><div class="space-y-5 text-sm text-gray-500 text-left"><div><h3 class="font-medium text-gray-900 mb-1" data-i18n-zh="四分之三右侧视角" data-i18n-en="Three-quarter Right View">四分之三右侧视角</h3><p data-i18n-zh="核心视角为四分之三右侧或四分之三俯视视角：主体与空间关系合理，避免明显透视错误。" data-i18n-en="The core view is a three-quarter right or three-quarter top-down view: the relationship between subject and space is reasonable, avoiding obvious perspective errors.">核心视角为四分之三右侧或四分之三俯视视角：主体与空间关系合理，避免明显透视错误。</p></div><div><h3 class="font-medium text-gray-900 mb-1" data-i18n-zh="光影塑造体积" data-i18n-en="Shaping Volume with Light and Shadow">光影塑造体积</h3><p data-i18n-zh="光影结合透视；同一品类必须采用一致视角。" data-i18n-en="Light and shadow combine with perspective; the same category must use a consistent view.">光影结合透视；同一品类必须采用一致视角。</p></div></div></div>
+                        <div class="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 items-center"><div class="flex justify-center lg:justify-start"><img src="leader-assets/examples/iconography/Composition Perspective.png" alt="构图与透视正确示例" class="icon-section-img"></div><div class="space-y-5 text-sm text-gray-500 text-left"><div><h3 class="font-medium text-gray-900 mb-1" data-i18n-zh="四分之三右侧视角" data-i18n-en="Three-quarter Right View">四分之三右侧视角</h3><p data-i18n-zh="核心视角为四分之三右侧或四分之三俯视视角：主体与空间关系合理，避免明显透视错误。" data-i18n-en="The core view is a three-quarter right or three-quarter top-down view: the relationship between subject and space is reasonable, avoiding obvious perspective errors.">核心视角为四分之三右侧或四分之三俯视视角：主体与空间关系合理，避免明显透视错误。</p></div><div><h3 class="font-medium text-gray-900 mb-1" data-i18n-zh="光影塑造体积" data-i18n-en="Shaping Volume with Light and Shadow">光影塑造体积</h3><p data-i18n-zh="光影结合透视；同一品类必须采用一致视角。" data-i18n-en="Light and shadow combine with perspective; the same category must use a consistent view.">光影结合透视；同一品类必须采用一致视角。</p></div></div></div>
                     </section>
-                    <section class="glass-panel p-6 sm:p-10 mb-10">
-                        <h2 class="color-section-title mb-3" data-i18n-zh="图标剖析与正误示例" data-i18n-en="Icon Analysis: Do's and Don'ts">图标剖析与正误示例</h2>
+                    <section class="glass-panel p-6 sm:p-10 mb-10 rounded-cat">
+                        <h2 class="color-section-title mb-3" data-i18n-zh="图标剖析与正误示例" data-i18n-en="Icon Analysis: Correct and Incorrect Examples">图标剖析与正误示例</h2>
                         <p class="text-gray-500 mb-8 text-sm leading-relaxed" data-i18n-zh="以成对示例说明推荐做法与禁止做法；对比光影、造型、色彩和透视，快速判断彩色图标是否符合品牌标准。" data-i18n-en="Paired examples illustrate recommended and prohibited treatments, comparing light, form, color, and perspective to quickly assess whether a color icon meets the brand standard.">以成对示例说明推荐做法与禁止做法；对比光影、造型、色彩和透视，快速判断彩色图标是否符合品牌标准。</p>
                         <div class="space-y-8">
-                            <div><h3 class="text-base font-medium text-gray-900 mb-4" data-i18n-zh="光影对比" data-i18n-en="Lighting Contrast">光影对比</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><article class="example-card"><div class="example-label do">Do</div><div class="aspect-[4/3] p-5 flex items-center justify-center"><img src="leader-assets/examples/iconography/Composition Perspective.png" alt="柔和光影正确示例" class="max-h-full max-w-full object-contain rounded-lg"></div><p class="px-5 pb-5 text-sm text-gray-500" data-i18n-zh="使用右侧柔和中性光，阴影保持通透。" data-i18n-en="Use soft neutral light from the right, keeping shadows translucent.">使用右侧柔和中性光，阴影保持通透。</p></article><article class="example-card"><div class="example-label dont">Don't</div><div class="aspect-[4/3] p-5 flex items-center justify-center"><img src="leader-assets/examples/iconography/dead black.png" alt="高对比度错误示例" class="max-h-full max-w-full object-contain"></div><p class="px-5 pb-5 text-sm text-gray-500" data-i18n-zh="不要使用过强对比或死黑阴影。" data-i18n-en="Do not use excessive contrast or dead black shadows.">不要使用过强对比或死黑阴影。</p></article></div></div>
+                            <div><h3 class="text-base font-medium text-gray-900 mb-4" data-i18n-zh="光影对比" data-i18n-en="Lighting Contrast">光影对比</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><article class="example-card"><div class="example-label do" data-i18n-zh="正确" data-i18n-en="Do">正确</div><div class="aspect-[4/3] p-5 flex items-center justify-center"><img src="leader-assets/examples/iconography/Composition Perspective.png" alt="柔和光影正确示例" class="max-h-full max-w-full object-contain rounded-lg"></div><p class="px-5 pb-5 text-sm text-gray-500" data-i18n-zh="使用右侧柔和中性光，阴影保持通透。" data-i18n-en="Use soft neutral light from the right, keeping shadows translucent.">使用右侧柔和中性光，阴影保持通透。</p></article><article class="example-card"><div class="example-label dont" data-i18n-zh="错误" data-i18n-en="Don't">错误</div><div class="aspect-[4/3] p-5 flex items-center justify-center"><img src="leader-assets/examples/iconography/dead black.png" alt="高对比度错误示例" class="max-h-full max-w-full object-contain"></div><p class="px-5 pb-5 text-sm text-gray-500" data-i18n-zh="不要使用过强对比或死黑阴影。" data-i18n-en="Do not use excessive contrast or dead black shadows.">不要使用过强对比或死黑阴影。</p></article></div></div>
 
                             <div>
                                 <h3 class="text-base font-medium text-gray-900 mb-4" data-i18n-zh="造型与材质" data-i18n-en="Form and Material">造型与材质</h3>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <article class="example-card">
-                                        <div class="example-label do">Do</div>
+                                        <div class="example-label do" data-i18n-zh="正确" data-i18n-en="Do">正确</div>
                                         <div class="aspect-[4/3] p-5 flex items-center justify-center">
                                             <img src="leader-assets/examples/iconography/Composition Perspective.png" alt="统一造型与材质正确示例" class="max-h-full max-w-full object-contain rounded-lg">
                                         </div>
                                         <p class="px-5 pb-5 text-sm text-gray-500" data-i18n-zh="保持圆润造型、明快的色彩与统一材质语言。" data-i18n-en="Keep rounded forms, bright colors, and a unified material language.">保持圆润造型、明快的色彩与统一材质语言。</p>
                                     </article>
                                     <article class="example-card">
-                                        <div class="example-label dont">Don't</div>
+                                        <div class="example-label dont" data-i18n-zh="错误" data-i18n-en="Don't">错误</div>
                                         <div class="aspect-[4/3] p-5 flex items-center justify-center">
                                             <div class="double-image-wrap">
                                                 <div class="double-image-grid">
@@ -376,25 +384,25 @@
                                 </div>
                             </div>
 
-                            <div><h3 class="text-base font-medium text-gray-900 mb-4" data-i18n-zh="色彩表达" data-i18n-en="Color Expression">色彩表达</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><article class="example-card"><div class="example-label do">Do</div><div class="aspect-[4/3] p-5 flex items-center justify-center"><img src="leader-assets/examples/iconography/Composition Perspective.png" alt="克制色彩正确示例"></div><p class="px-5 pb-5 text-sm text-gray-500" data-i18n-zh="使用明快活力的色彩为主色，可有小面积点缀色辅助。" data-i18n-en="Use bright, vibrant colors as the primary color, with small accent colors as support.">使用明快活力的色彩为主色，可有小面积点缀色辅助。</p></article><article class="example-card"><div class="example-label dont">Don't</div><div class="aspect-[4/3] p-5 flex items-center justify-center"><img src="leader-assets/examples/iconography/high saturation.png" alt="色彩饱和度错误示例"></div><p class="px-5 pb-5 text-sm text-gray-500" data-i18n-zh="不要使用过高饱和度或互相争抢的颜色。" data-i18n-en="Do not use excessively saturated colors or colors that compete with each other.">不要使用过高饱和度或互相争抢的颜色。</p></article></div></div>
+                            <div><h3 class="text-base font-medium text-gray-900 mb-4" data-i18n-zh="色彩表达" data-i18n-en="Color Expression">色彩表达</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><article class="example-card"><div class="example-label do" data-i18n-zh="正确" data-i18n-en="Do">正确</div><div class="aspect-[4/3] p-5 flex items-center justify-center"><img src="leader-assets/examples/iconography/Composition Perspective.png" alt="克制色彩正确示例"></div><p class="px-5 pb-5 text-sm text-gray-500" data-i18n-zh="使用明快活力的色彩为主色，可有小面积点缀色辅助。" data-i18n-en="Use bright, vibrant colors as the primary color, with small accent colors as support.">使用明快活力的色彩为主色，可有小面积点缀色辅助。</p></article><article class="example-card"><div class="example-label dont" data-i18n-zh="错误" data-i18n-en="Don't">错误</div><div class="aspect-[4/3] p-5 flex items-center justify-center"><img src="leader-assets/examples/iconography/high saturation.png" alt="色彩饱和度错误示例"></div><p class="px-5 pb-5 text-sm text-gray-500" data-i18n-zh="不要使用过高饱和度或互相争抢的颜色。" data-i18n-en="Do not use excessively saturated colors or colors that compete with each other.">不要使用过高饱和度或互相争抢的颜色。</p></article></div></div>
 
                             <div>
                                 <h3 class="text-base font-medium text-gray-900 mb-4" data-i18n-zh="构图与透视" data-i18n-en="Composition and Perspective">构图与透视</h3>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <article class="example-card">
-                                        <div class="example-label do">Do</div>
+                                        <div class="example-label do" data-i18n-zh="正确" data-i18n-en="Do">正确</div>
                                         <div class="aspect-[4/3] p-5 flex items-center justify-center">
                                             <img src="leader-assets/examples/iconography/Composition Perspective.png" alt="稳定透视正确示例" class="max-h-full max-w-full object-contain rounded-lg">
                                         </div>
                                         <p class="px-5 pb-5 text-sm text-gray-500" data-i18n-zh="四分之三右侧视角，同一品类采用一致视角。" data-i18n-en="Three-quarter right view; use a consistent view within the same category.">四分之三右侧视角，同一品类采用一致视角。</p>
                                     </article>
                                     <article class="example-card">
-                                        <div class="example-label dont">Don't</div>
+                                        <div class="example-label dont" data-i18n-zh="错误" data-i18n-en="Don't">错误</div>
                                         <div class="aspect-[4/3] p-5 flex items-center justify-center">
                                             <div class="double-image-wrap">
                                                 <div class="double-image-grid">
                                                     <img src="leader-assets/examples/iconography/top view.png" alt="俯视透视错误示例">
-                                                    <img src="leader-assets/examples/background/bottom view.png" alt="仰视透视错误示例">
+                                                    <img src="leader-assets/examples/iconography/bottom view.png" alt="仰视透视错误示例">
                                                 </div>
                                             </div>
                                         </div>
