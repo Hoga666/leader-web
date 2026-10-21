@@ -240,7 +240,7 @@
 
         .result-box { padding: 18px 20px; border-radius: 28px; background: rgba(236, 100, 67, 0.08); border: 1px solid rgba(236, 100, 67, 0.18); margin-top: 22px; }
         .result-box-title { font-size: 13px; margin-bottom: 12px; display: block; font-weight: 700; color: #EC6443; }
-        .result-items { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+        .result-items { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
         @media (max-width: 767px) { .result-items { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         .result-item { padding: 14px 16px; background: #fff; border-radius: 20px; border: 1px solid rgba(0,0,0,.06); }
         .result-item-label { font-size: 12px; color: #86868B; display: block; margin-bottom: 6px; }
@@ -418,14 +418,14 @@
                                         <svg class="calc-select-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                                     </div>
                                 </label>
-                                <label class="calc-label"><span data-i18n-zh="横向物理像素" data-i18n-en="Horizontal Physical Pixels">横向物理像素</span>
+                                <label class="calc-label"><span data-i18n-zh="横向物理像素（px）" data-i18n-en="Horizontal Physical Pixels (px)">横向物理像素（px）</span>
                                     <input id="physical-width" class="calc-input mt-2" type="number" value="1920" min="1">
                                 </label>
                                 <label id="dpr-field" class="calc-label"><span data-i18n-zh="设备像素比 DPR（Android）" data-i18n-en="Device Pixel Ratio (Android)">设备像素比 DPR（Android）</span>
                                     <input id="dpr" class="calc-input mt-2" type="number" value="2" min="0.5" step="0.5">
                                     <span class="field-hint" data-i18n-zh="常见值：1、1.5、2、3。不确定时保留 2。" data-i18n-en="Common values: 1, 1.5, 2, 3. Keep 2 if unsure.">常见值：1、1.5、2、3。不确定时保留 2。</span>
                                 </label>
-                                <label class="calc-label"><span data-i18n-zh="固定区域宽度（导航+按键+间距）" data-i18n-en="Fixed Area Width (nav + buttons + spacing)">固定区域宽度（导航+按键+间距）</span>
+                                <label class="calc-label"><span data-i18n-zh="固定区域宽度（px）" data-i18n-en="Fixed Area Width (px)">固定区域宽度（px）</span>
                                     <input id="reserved" class="calc-input mt-2" type="number" value="352" min="0">
                                 </label>
                             </div>
@@ -433,11 +433,10 @@
                             <div class="result-box">
                                 <span class="result-box-title" data-i18n-zh="计算结果" data-i18n-en="Result">计算结果</span>
                                 <div class="result-items">
-                                    <div class="result-item"><span class="result-item-label" data-i18n-zh="可用大小" data-i18n-en="Available size">可用大小</span><span class="result-item-value" id="result-available">—</span></div>
+                                    <div class="result-item"><span class="result-item-label" data-i18n-zh="可用大小（px）" data-i18n-en="Available size (px)">可用大小（px）</span><span class="result-item-value" id="result-available">—</span></div>
                                     <div class="result-item"><span class="result-item-label" data-i18n-zh="列数" data-i18n-en="Columns">列数</span><span class="result-item-value" id="result-cols">—</span></div>
-                                    <div class="result-item"><span class="result-item-label" data-i18n-zh="边距" data-i18n-en="Margin">边距</span><span class="result-item-value" id="result-margin">—</span></div>
-                                    <div class="result-item"><span class="result-item-label" data-i18n-zh="沟槽" data-i18n-en="Gutter">沟槽</span><span class="result-item-value" id="result-gutter">—</span></div>
-                                    <div class="result-item"><span class="result-item-label" data-i18n-zh="沟槽物理像素" data-i18n-en="Gutter Physical Pixels">沟槽物理像素</span><span class="result-item-value" id="result-gutter-px">—</span></div>
+                                    <div class="result-item"><span class="result-item-label" data-i18n-zh="边距（px）" data-i18n-en="Margin (px)">边距（px）</span><span class="result-item-value" id="result-margin">—</span></div>
+                                    <div class="result-item"><span class="result-item-label" data-i18n-zh="沟槽（px）" data-i18n-en="Gutter (px)">沟槽（px）</span><span class="result-item-value" id="result-gutter">—</span></div>
                                 </div>
                             </div>
 
@@ -605,7 +604,7 @@
             updateLanguage(currentLang);
         })();
 
-        // ===== 档位换算器 =====
+        // ===== 档位换算器（全 px 逻辑，固定区域与物理宽度同维度） =====
         (() => {
             const system = document.getElementById('system');
             const physicalInput = document.getElementById('physical-width');
@@ -617,7 +616,6 @@
             const resultCols = document.getElementById('result-cols');
             const resultMargin = document.getElementById('result-margin');
             const resultGutter = document.getElementById('result-gutter');
-            const resultGutterPx = document.getElementById('result-gutter-px');
 
             const layoutTitle = document.getElementById('result-layout-title');
             const layoutSubtitle = document.getElementById('result-layout-subtitle');
@@ -636,13 +634,13 @@
             let androidDPR = Number(dprInput.value) || 2;
             const isZh = () => (localStorage.getItem('leader-guideline-language') || 'zh') === 'zh';
 
-            const renderLayout = (preset) => {
+            const renderLayout = (preset, gutterPx) => {
                 const lang = isZh() ? 'zh' : 'en';
                 const tierName = preset[lang];
                 layoutTitle.textContent = lang === 'zh' ? `${tierName}布局示意` : `${tierName} Layout Preview`;
                 layoutSubtitle.textContent = lang === 'zh'
-                    ? `${preset.cols} 列 · 沟槽 ${preset.gutter}dp`
-                    : `${preset.cols} columns · ${preset.gutter}dp gutter`;
+                    ? `${preset.cols} 列 · 沟槽 ${gutterPx}px`
+                    : `${preset.cols} columns · ${gutterPx}px gutter`;
 
                 marginLeft.textContent = preset.margin;
                 marginRight.textContent = preset.margin;
@@ -663,25 +661,21 @@
                 const dpr = isAndroid ? Math.max(0.5, Number(dprInput.value) || 1) : 1;
                 const reserved = Math.max(0, Number(reservedInput.value) || 0);
 
-                const logicalWidth = physical / dpr;
-                const available = Math.max(0, logicalWidth - reserved);
+                // 固定区域与物理宽度同维度（物理像素）：
+                // 逻辑可用宽度 =（物理宽度 − 固定区域宽度）÷ DPR
+                const available = Math.max(0, (physical - reserved) / dpr);
                 const p = presets.find(item => available >= item.min);
-                const unit = isAndroid ? 'dp' : 'px';
                 const lang = isZh() ? 'zh' : 'en';
 
-                resultAvailable.textContent = `${Math.round(available)} ${unit}`;
+                resultAvailable.textContent = `${Math.round(available)} px`;
                 resultCols.textContent = lang === 'zh' ? `${p.cols} 列` : `${p.cols}`;
                 resultMargin.textContent = `${p.margin} px`;
 
-                // 沟槽逻辑值（dp）
-                resultGutter.textContent = `${p.gutter} dp`;
+                // 沟槽（px）随输入动态计算：逻辑沟槽 16px × DPR
+                const gutterPx = Math.round(p.gutter * dpr);
+                resultGutter.textContent = `${gutterPx} px`;
 
-                // 沟槽物理像素：Linux DPR=1，Android 按输入 DPR
-                const gutterDpr = isAndroid ? dpr : 1;
-                const gutterPx = Math.round(p.gutter * gutterDpr);
-                resultGutterPx.textContent = `${gutterPx} px`;
-
-                renderLayout(p);
+                renderLayout(p, gutterPx);
             };
 
             const updateSystem = () => {
@@ -715,4 +709,5 @@
         })();
     </script>
 </body>
+
 </html>
