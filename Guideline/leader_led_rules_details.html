@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n-zh="Leader Design | LED布局" data-i18n-en="Leader Design | LED Layout">Leader Design | LED布局</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body.leader-led-document {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: #F5F7FA;
+    }
+
+    .leader-led-page {
+      --brand: #EC6443;
+      --brand-light: #FFE5E0;
+      --ink: #1D1D1F;
+      --text-main: #1D1D1F;
+      --muted: #86868B;
+      --text-secondary: #86868B;
+      --glass: rgba(255, 255, 255, .6);
+      --glass-bg: rgba(255, 255, 255, .6);
+      --glass-border: rgba(255, 255, 255, .4);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: var(--ink);
+      background: transparent;
+      min-height: 100vh;
+      isolation: isolate;
+    }
+
+    .leader-led-page .aura-background {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: #F4F4F4;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .leader-led-page .aura-blob {
+      position: absolute;
+      filter: blur(120px);
+      opacity: .6;
+      animation: leader-led-float 20s infinite ease-in-out alternate;
+      background: #E6E6E6;
+    }
+
+    .leader-led-page .aura-blob-1 {
+      top: -10%;
+      left: -10%;
+      width: 50vw;
+      height: 50vw;
+    }
+
+    .leader-led-page .aura-blob-2 {
+      bottom: -20%;
+      right: -10%;
+      width: 60vw;
+      height: 60vw;
+      animation-delay: -5s;
+    }
+
+    .leader-led-page .aura-blob-3 {
+      top: 40%;
+      left: 60%;
+      width: 40vw;
+      height: 40vw;
+      animation-delay: -10s;
+    }
+
+    @keyframes leader-led-float {
+      from {
+        transform: translate(0, 0) scale(1)
+      }
+
+      to {
+        transform: translate(10%, 15%) scale(1.1)
+      }
+    }
+
+    .leader-led-page .glass-panel {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 40px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .04);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    .leader-led-page #sidebar,
+    .leader-led-page>header {
+      border-radius: 0;
+    }
+
+    .leader-led-page #main-content {
+      min-width: 0;
+      color: var(--ink);
+    }
+
+    .leader-led-page main h1,
+    .leader-led-page main h2,
+    .leader-led-page main h3,
+    .leader-led-page main h4,
+    .leader-led-page header h1 {
+      color: var(--ink) !important;
+    }
+
+    .leader-led-page .leader-logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #EC6443;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+
+    .leader-led-page .sidebar-nav-item.active {
+      color: var(--brand);
+      border-left-color: var(--brand);
+      background: linear-gradient(90deg, var(--brand-light), transparent);
+    }
+
+    /* 模块与标题层级 */
+    .leader-led-page #main-content .leader-led-module {
+      margin: 0 0 64px;
+      padding: 0;
+      min-width: 0;
+    }
+
+    .leader-led-page #main-content .leader-led-module-header {
+      margin: 0 0 24px;
+      padding: 0;
+    }
+
+    .leader-led-page #main-content .leader-led-section-title {
+      margin: 0;
+      font-size: 24px !important;
+      font-weight: 700 !important;
+      line-height: 32px !important;
+      letter-spacing: normal;
+      color: #111827 !important;
+    }
+
+    .leader-led-page #main-content .leader-led-module-header p {
+      margin: 12px 0 0 !important;
+    }
+
+    .leader-led-page #main-content .leader-led-module-card {
+      padding: 24px;
+      border-radius: 40px;
+      min-width: 0;
+    }
+
+    .leader-led-page #main-content .leader-led-body-copy {
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 1.625 !important;
+      letter-spacing: normal;
+      color: #4B5563 !important;
+    }
+
+    .leader-led-page #main-content .leader-led-subsection-title {
+      font-size: 24px !important;
+      font-weight: 400 !important;
+      line-height: 32px !important;
+      letter-spacing: normal;
+      color: #111827 !important;
+    }
+
+    .leader-led-page #main-content .leader-led-card-title {
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      line-height: 24px !important;
+      letter-spacing: normal;
+      color: #111827 !important;
+      margin-bottom: 8px !important;
+    }
+
+    .leader-led-page #main-content .leader-led-small-title {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      line-height: 24px !important;
+      letter-spacing: normal;
+      color: #111827 !important;
+      margin-bottom: 16px !important;
+    }
+
+    .leader-led-page #main-content .leader-led-page-heading h1 {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 40px;
+      letter-spacing: -.025em;
+      color: #111827 !important;
+      margin-bottom: 16px;
+    }
+
+    .leader-led-page #main-content .leader-led-page-heading p {
+      width: 100%;
+      max-width: none;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.625;
+      color: #111827 !important;
+      margin-bottom: 16px;
+    }
+
+    @media(min-width:640px) {
+      .leader-led-page #main-content .leader-led-module-card {
+        padding: 40px;
+      }
+    }
+
+    @media(min-width:768px) {
+      .leader-led-page #main-content .leader-led-page-heading h1 {
+        font-size: 48px;
+        line-height: 48px;
+      }
+    }
+
+    /* 信息分类卡片 */
+    .leader-led-page #information-category article {
+      background: #FFFFFF !important;
+      border: 1px solid #EC6443 !important;
+      border-radius: 28px !important;
+      color: var(--ink) !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .04) !important;
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 14px !important;
+      min-width: 0;
+      min-height: 150px;
+      padding: 22px !important;
+    }
+
+    .leader-led-page #information-category article>div:first-child {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 28px !important;
+      height: 28px !important;
+      min-width: 28px !important;
+      min-height: 28px !important;
+      padding: 0 !important;
+      border: 0 !important;
+      border-radius: 50% !important;
+      background: #EC6443 !important;
+      color: #FFFFFF !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      line-height: 1 !important;
+      box-shadow: none !important;
+      flex: 0 0 auto;
+    }
+
+    .leader-led-page #information-category article h3 {
+      margin: 0 0 6px !important;
+      color: var(--ink) !important;
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      line-height: 1.5 !important;
+    }
+
+    .leader-led-page #information-category article p {
+      margin: 0 !important;
+      color: var(--muted) !important;
+      font-size: 13px !important;
+      line-height: 1.7 !important;
+    }
+
+    @media (max-width:1023px) {
+      .leader-led-page #information-category>.grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important
+      }
+    }
+
+    @media (max-width:640px) {
+      .leader-led-page #information-category>.grid {
+        grid-template-columns: 1fr !important
+      }
+    }
+
+    /* 场景标题 */
+    .leader-led-page #main-content .scene-heading-plain-number {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      column-gap: 12px;
+      align-items: start;
+    }
+
+    .leader-led-page #main-content .scene-heading-plain-number .scene-heading-copy {
+      display: block;
+    }
+
+    .leader-led-page #main-content .scene-heading-plain-number .module-num {
+      align-self: start;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32px;
+      letter-spacing: normal;
+      color: var(--brand);
+    }
+
+    .leader-led-page [data-led-pane="scene"] .scene-heading-plain-number .module-num {
+      display: none !important;
+    }
+
+    /* 场景分类标题 */
+    .leader-led-page .scene-category-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 8px 0 18px;
+      padding: 2px 0;
+    }
+
+    .leader-led-page .scene-category-header::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+      background: #EC6443;
+      border-radius: 6px;
+    }
+
+    .leader-led-page .scene-category-header h3 {
+      margin: 0;
+      color: #111827;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 24px;
+    }
+
+    .leader-led-page .scene-category-divider {
+      height: 1px;
+      margin: 36px 0;
+      background: #E5E6EB;
+    }
+
+    .leader-led-page .dot-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .leader-led-page .dot-title::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+      background: #EC6443;
+      border-radius: 50%;
+    }
+
+    .leader-led-page .title-blue-line::before {
+      display: none;
+    }
+
+    /* 对称布局 */
+    .leader-led-page #symmetry-layout .symmetry-vertical-example {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 48px;
+      align-items: start;
+    }
+
+    .leader-led-page #symmetry-layout .vertical-layout-figure {
+      margin: 0;
+    }
+
+    .leader-led-page #symmetry-layout .vertical-layout-figure img {
+      display: block;
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      border-radius: 28px;
+    }
+
+    .leader-led-page #symmetry-layout .vertical-layout-guidance {
+      min-width: 0;
+    }
+
+    .leader-led-page #symmetry-layout .vertical-layout-intro {
+      margin: 0;
+      padding: 0 0 12px;
+      border-bottom: 1px solid #E5E6EB;
+      color: #111827;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+    }
+
+    .leader-led-page #symmetry-layout .vertical-layout-rules {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: vertical-rule;
+    }
+
+    .leader-led-page #symmetry-layout .vertical-layout-rules li {
+      display: grid;
+      grid-template-columns: 26px minmax(0, 1fr);
+      column-gap: 16px;
+      align-items: start;
+      padding: 20px 0;
+      border-bottom: 1px solid #E5E6EB;
+      color: #4B5563;
+      font-size: 14px;
+      line-height: 1.625;
+    }
+
+    .leader-led-page #symmetry-layout .vertical-layout-rules li::before {
+      counter-increment: vertical-rule;
+      content: counter(vertical-rule, decimal-leading-zero);
+      color: #86868B;
+    }
+
+    .leader-led-page #symmetry-layout .vertical-layout-rules li:last-child {
+      border-bottom: 0;
+    }
+
+    .leader-led-page #symmetry-layout .vertical-layout-rules li p {
+      margin: 8px 0 0;
+      color: #86868B;
+    }
+
+    @media (max-width:767px) {
+      .leader-led-page #symmetry-layout .symmetry-vertical-example {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .leader-led-page #symmetry-layout .vertical-layout-figure img {
+        max-width: 100%;
+      }
+    }
+
+    /* 按键形态 */
+    .leader-led-page #button-forms .button-form-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .leader-led-page #button-forms .button-form-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      min-width: 0;
+      padding: 22px;
+      border: 1px solid #EC6443;
+      border-radius: 28px;
+      background: #FFFFFF;
+      color: var(--ink);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .04);
+    }
+
+    .leader-led-page #button-forms .button-form-number {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex: 0 0 auto;
+      width: 28px !important;
+      height: 28px !important;
+      min-width: 28px !important;
+      min-height: 28px !important;
+      border-radius: 50% !important;
+      background: #EC6443 !important;
+      color: #FFFFFF !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      line-height: 1 !important;
+    }
+
+    .leader-led-page #button-forms .button-form-card h3 {
+      margin: 0 0 6px;
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .leader-led-page #button-forms .button-form-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    @media (max-width:760px) {
+      .leader-led-page #button-forms .button-form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .leader-led-page .button-type-title::before,
+    .leader-led-page .title-blue-line::before {
+      background: var(--brand);
+      border-radius: 6px;
+    }
+
+    .leader-led-page .rule-row {
+      border-color: #E5E6EB;
+    }
+
+    .leader-led-page .rule-row>div:first-child {
+      color: var(--ink);
+    }
+
+    .leader-led-page .button-guidance-title-row [class*="bg-[#DDB989]"] {
+      background: var(--brand-light);
+      border-color: rgba(236, 100, 67, .35);
+      color: var(--brand);
+      border-radius: 12px;
+    }
+
+    .leader-led-page #button-interaction-types .button-guidance-title-row+.grid>div {
+      border-radius: 28px !important;
+    }
+
+    .leader-led-page footer {
+      color: var(--muted) !important;
+    }
+
+    .leader-led-page .leader-led-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .leader-led-page .leader-led-home-link {
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, .5);
+      border: 1px solid rgba(229, 231, 235, .5);
+      border-radius: 9999px;
+      color: #374151;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+      backdrop-filter: blur(12px);
+      cursor: pointer;
+    }
+
+    .leader-led-page .leader-led-home-link:hover {
+      background: rgba(255, 255, 255, .9);
+    }
+
+    .leader-led-page #lang-toggle {
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, .5);
+      border: 1px solid rgba(229, 231, 235, .5);
+      border-radius: 9999px;
+      color: #374151;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+      backdrop-filter: blur(12px);
+      cursor: pointer;
+    }
+
+    .leader-led-page #lang-toggle:hover {
+      background: rgba(255, 255, 255, .9);
+    }
+
+    .leader-led-page button:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 4px;
+    }
+
+    .leader-led-page *,
+    .leader-led-page #main-content {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 0, 0, .1) transparent;
+    }
+
+    .leader-led-page ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    .leader-led-page ::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, .1);
+      border-radius: 10px;
+    }
+
+    .leader-led-page img {
+      max-width: 100%;
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .leader-led-page .aura-blob {
+        animation: none;
+      }
+    }
+
+    /* ===== 交互示例 ===== */
+    .leader-led-page [data-led-pane="scene"] .scene-rule {
+      display: block !important;
+      padding: 32px !important;
+      margin-bottom: 12px !important;
+      border: 0 !important;
+      border-radius: 28px !important;
+      background: #FFFFFF !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .04) !important;
+      width: max-content !important;
+      max-width: 100% !important;
+      min-width: 0;
+    }
+
+    .leader-led-page [data-led-pane="scene"] .scene-rule+.scene-rule {
+      margin-top: 16px;
+    }
+
+    .leader-led-page [data-led-pane="scene"] .scene-rule-copy {
+      padding: 0 !important;
+      min-width: 0;
+    }
+
+    .leader-led-page [data-led-pane="scene"] .scene-rule-copy h3 {
+      margin: 0 0 8px !important;
+      color: #1D1D1F !important;
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      line-height: 1.6 !important;
+    }
+
+    .leader-led-page [data-led-pane="scene"] .scene-rule-copy .meta {
+      margin: 0 !important;
+      color: #86868B !important;
+      font-size: 13px !important;
+      line-height: 1.7 !important;
+    }
+
+    .leader-led-page [data-led-pane="scene"] .scene-rule figure {
+      margin: 24px 0 !important;
+      padding: 0 !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      min-width: 0;
+    }
+
+    .leader-led-page [data-led-pane="scene"] .scene-rule figure img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain;
+    }
+
+    .leader-led-page [data-led-pane="scene"] #scene-type-05 .scene-vertical-card {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-height: 300px;
+      padding: 24px !important;
+      border: 0 !important;
+      border-radius: 28px !important;
+      background: #FFFFFF !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .04) !important;
+      min-width: 0;
+    }
+
+    .leader-led-page [data-led-pane="scene"] #scene-type-05 .scene-vertical-card figure {
+      margin: 0 !important;
+      padding: 0 !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .leader-led-page [data-led-pane="scene"] #scene-type-05 .scene-vertical-card figure img {
+      display: block !important;
+      width: 200px !important;
+      max-width: 100% !important;
+      height: auto !important;
+      margin: 0 auto !important;
+    }
+
+    @media (max-width: 900px) {
+      .leader-led-page [data-led-pane="scene"] .scene-rule {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+    }
+
+    /* LED 页签 */
+    .leader-led-page .led-tabs {
+      display: inline-flex;
+      align-items: center;
+      gap: 32px;
+      max-width: 100%;
+      overflow-x: auto;
+      border: 0;
+      border-bottom: 1px solid #E5E6EB;
+      padding: 0;
+      scrollbar-width: none;
+    }
+
+    .leader-led-page .led-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .leader-led-page .led-tab {
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      min-width: 0;
+      margin: 0;
+      padding: 8px 20px;
+      border: 0 solid transparent;
+      border-bottom: 2px solid transparent;
+      border-radius: 9999px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: #86909C;
+      background: transparent;
+      text-align: center;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .leader-led-page .led-tab:hover {
+      color: #EC6443;
+    }
+
+    .leader-led-page .led-tab.active {
+      color: #FFF;
+      background: #EC6443;
+      border-bottom-color: transparent;
+      font-weight: 700;
+    }
+
+    .leader-led-page .led-pane {
+      display: none;
+    }
+
+    .leader-led-page .led-pane.active {
+      display: block;
+      animation: leader-led-pane-in .24s ease-out;
+    }
+
+    @keyframes leader-led-pane-in {
+      from {
+        opacity: 0;
+        transform: translateY(4px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .leader-led-page [data-led-pane="scene"] .scene-category {
+      margin-top: 40px;
+    }
+
+    .leader-led-page [data-led-pane="scene"] .scene-category:first-child {
+      margin-top: 0;
+    }
+
+    /* ===== 白色背景卡片 ===== */
+    .leader-led-page .img-card {
+      margin: 0;
+      padding: 20px;
+      background: #FFFFFF;
+      border-radius: 28px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .04);
+    }
+
+    .leader-led-page .img-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .leader-led-page .img-card img+img {
+      margin-top: 16px;
+    }
+
+    /* ===== 布局逻辑卡片 ===== */
+    .leader-led-page #symmetry-layout .logic-card {
+      background: #FFFFFF;
+      border-radius: 28px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .04);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .leader-led-page #symmetry-layout .logic-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .leader-led-page #symmetry-layout .logic-card figure {
+      margin: 0;
+    }
+
+    .leader-led-page #symmetry-layout .logic-card figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+    }
+
+    @media (max-width: 767px) {
+      .leader-led-page #symmetry-layout .logic-card {
+        padding: 20px;
+      }
+    }
+
+    /* === B/C 类说明文字距上方图片 60px === */
+    .leader-led-page .button-type-examples figcaption.button-example-caption {
+      margin-top: 60px !important;
+    }
+
+    /* === A 类说明文字距上方主标题 30px，距下方图片保持默认 16px === */
+    .leader-led-page .button-type-examples figcaption.caption-gap-top {
+      margin-top: 30px !important;
+    }
+
+    /* 去掉主标题自带的 mb-6，避免与 A 的 30px 叠加 */
+    .leader-led-page .button-type-header.caption-gap-header {
+      margin-bottom: 0 !important;
+    }
+
+    /* === 布局与识别要求：黄色三角感叹号 + 文字 === */
+    .leader-led-page .button-guidance-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 24px 0 16px;
+    }
+
+    .leader-led-page .button-guidance-title-row .warn-triangle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 20px;
+      flex: 0 0 auto;
+      color: #111827;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1;
+      background: #FDBB2F;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      padding-top: 6px;
+      box-sizing: border-box;
+    }
+
+    .leader-led-page .button-guidance-title-row h3.leader-led-subsection-title {
+      margin: 0 !important;
+    }
+
+    /* 确保 A 的 figcaption 底部不被多余规则影响 */
+    .leader-led-page .button-type-examples figcaption.caption-gap-top {
+      margin-bottom: 16px !important;
+    }
+  </style>
+</head>
+
+<body class="antialiased leader-led-document">
+  <div class="leader-led-page">
+    <div class="aura-background">
+      <div class="aura-blob aura-blob-1"></div>
+      <div class="aura-blob aura-blob-2"></div>
+      <div class="aura-blob aura-blob-3"></div>
+    </div>
+
+    <header
+      class="md:hidden glass-panel rounded-none fixed top-0 w-full z-50 p-4 flex justify-between items-center border-b border-white/50">
+      <div class="flex items-center">
+        <div class="leader-logo-container w-8 h-8 mr-2 text-[12px]">Leader</div>
+        <h1 class="font-bold text-base text-gray-800" data-i18n-zh="LED布局" data-i18n-en="LED Layout">LED布局</h1>
+      </div>
+      <button id="mobile-menu-btn" class="p-2 bg-black/5 hover:bg-black/10 rounded-lg" aria-label="打开导航"
+        data-i18n-aria-label-zh="打开导航" data-i18n-aria-label-en="Open navigation">
+        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span><span
+          class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span><span class="block w-6 h-0.5 bg-gray-700"></span>
+      </button>
+    </header>
+
+    <div class="flex h-screen pt-16 md:pt-0">
+      <aside id="sidebar"
+        class="hidden md:flex flex-col w-72 h-full fixed top-0 left-0 glass-panel rounded-none border-r border-white/50 z-40 overflow-y-auto"
+        aria-label="Leader Design 设计规范导航" data-i18n-aria-label-zh="Leader Design 设计规范导航"
+        data-i18n-aria-label-en="Leader Design guideline navigation" aria-hidden="true"></aside>
+      <div id="sidebar-backdrop" class="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 hidden md:hidden"
+        aria-hidden="true"></div>
+
+      <main class="flex-1 md:ml-72 p-6 md:p-10 lg:p-12 overflow-y-auto h-full scroll-smooth" id="main-content">
+        <div class="max-w-[1200px] mx-auto pb-24">
+          <div class="leader-led-toolbar hidden md:flex">
+            <a href="leader_os_design_system.html" class="leader-led-home-link">
+              <span data-i18n-zh="返回主页" data-i18n-en="Back to Home">返回主页</span>
+            </a>
+            <button id="lang-toggle" type="button" data-lang="zh" aria-label="切换到英文"><span
+                id="lang-label">EN</span></button>
+          </div>
+
+          <section class="mb-12 leader-led-page-heading">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4" data-i18n-zh="LED布局"
+              data-i18n-en="LED Layout">LED布局</h1>
+            <p class="text-lg leading-relaxed mb-5" data-i18n-zh="统一 LED 载体下的信息分类、场景布局与按键交互规则，建立跨品类清晰、一致且易理解的界面与操作体验。"
+              data-i18n-en="Standardize information categories, scenario layouts, and button interactions on LED interfaces to create a clear, consistent, and easy-to-understand experience across product categories.">
+              统一 LED 载体下的信息分类、场景布局与按键交互规则，建立跨品类清晰、一致且易理解的界面与操作体验。
+            </p>
+          </section>
+
+          <nav class="led-tabs mb-12" role="tablist" aria-label="LED 规则分类" data-i18n-aria-label-zh="LED 规则分类"
+            data-i18n-aria-label-en="LED guideline categories">
+            <button class="led-tab active" type="button" role="tab" aria-selected="true" data-led-tab="classification"
+              data-i18n-zh="信息组织" data-i18n-en="Information Organization">信息组织</button>
+            <button class="led-tab" type="button" role="tab" aria-selected="false" data-led-tab="scene"
+              data-i18n-zh="交互示例" data-i18n-en="Interaction Examples">交互示例</button>
+            <button class="led-tab" type="button" role="tab" aria-selected="false" data-led-tab="button"
+              data-i18n-zh="交互按键" data-i18n-en="Interaction Buttons">交互按键</button>
+          </nav>
+
+          <!-- 页签 1：信息组织 -->
+          <div class="led-pane active" data-led-pane="classification">
+
+            <section id="information-category" class="leader-led-module scroll-mt-8">
+              <div class="leader-led-module-header">
+                <h2 class="leader-led-section-title" data-i18n-zh="信息分类" data-i18n-en="Information Categories">信息分类</h2>
+                <p class="leader-led-body-copy" data-i18n-zh="统筹各品类界面信息和功能，所有信息可分为下面七类："
+                  data-i18n-en="Interface information and functions across product categories fall into the following seven categories:">
+                  统筹各品类界面信息和功能，所有信息可分为下面七类：</p>
+              </div>
+
+              <div class="glass-panel leader-led-module-card">
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+                  <article>
+                    <div>01</div>
+                    <div>
+                      <h3 data-i18n-zh="电源启动类" data-i18n-en="Power and Startup">电源启动类</h3>
+                      <p data-i18n-zh="承载设备开机、关机、启动、暂停与停止等核心控制。"
+                        data-i18n-en="Core controls for power on, power off, start, pause, and stop.">
+                        承载设备开机、关机、启动、暂停与停止等核心控制。</p>
+                    </div>
+                  </article>
+                  <article>
+                    <div>02</div>
+                    <div>
+                      <h3 data-i18n-zh="模式选择类" data-i18n-en="Mode Selection">模式选择类</h3>
+                      <p data-i18n-zh="用于切换设备的工作模式、使用场景或任务类型。"
+                        data-i18n-en="Switch between operating modes, usage scenarios, or task types.">
+                        用于切换设备的工作模式、使用场景或任务类型。</p>
+                    </div>
+                  </article>
+                  <article>
+                    <div>03</div>
+                    <div>
+                      <h3 data-i18n-zh="功能程序类" data-i18n-en="Programs and Functions">功能程序类</h3>
+                      <p data-i18n-zh="承载用户主要任务，是程序选择和功能操作的核心区域。"
+                        data-i18n-en="The core area for program selection and primary task operations.">
+                        承载用户主要任务，是程序选择和功能操作的核心区域。</p>
+                    </div>
+                  </article>
+                  <article>
+                    <div>04</div>
+                    <div>
+                      <h3 data-i18n-zh="附加功能类" data-i18n-en="Additional Functions">附加功能类</h3>
+                      <p data-i18n-zh="为主程序提供增强、辅助或个性化能力，可按需选择。"
+                        data-i18n-en="Optional enhancements, supporting functions, or personalization for the main program.">
+                        为主程序提供增强、辅助或个性化能力，可按需选择。</p>
+                    </div>
+                  </article>
+                  <article>
+                    <div>05</div>
+                    <div>
+                      <h3 data-i18n-zh="参数调节项类" data-i18n-en="Adjustable Parameters">参数调节项类</h3>
+                      <p data-i18n-zh="用于调节温度、时间、档位、转速等参数。"
+                        data-i18n-en="Adjust parameters such as temperature, time, level, and spin speed.">
+                        用于调节温度、时间、档位、转速等参数。</p>
+                    </div>
+                  </article>
+                  <article>
+                    <div>06</div>
+                    <div>
+                      <h3 data-i18n-zh="状态提示类" data-i18n-en="Status Indicators">状态提示类</h3>
+                      <p data-i18n-zh="显示运行状态、任务阶段、异常提醒及操作反馈等。"
+                        data-i18n-en="Show operating status, task stages, alerts, and interaction feedback.">
+                        显示运行状态、任务阶段、异常提醒及操作反馈等。</p>
+                    </div>
+                  </article>
+                  <article>
+                    <div>07</div>
+                    <div>
+                      <h3 data-i18n-zh="双八数值类" data-i18n-en="Dual Seven-segment Values">双八数值类</h3>
+                      <p data-i18n-zh="集中显示时间、温度、档位以及其他可变数值。"
+                        data-i18n-en="Show time, temperature, levels, and other changing values in one place.">
+                        集中显示时间、温度、档位以及其他可变数值。</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section id="information-organization" class="leader-led-module scroll-mt-8">
+              <div class="leader-led-module-header">
+                <h2 class="leader-led-section-title" data-i18n-zh="布局示例" data-i18n-en="Layout Examples">布局示例</h2>
+                <p class="leader-led-body-copy" data-i18n-zh="同类信息在界面中需位于相同区域，并依据重要度、用户使用习惯和交互易用性进行成组化布局。"
+                  data-i18n-en="Place related information in the same interface area, grouped by importance, usage habits, and ease of interaction.">
+                  同类信息在界面中需位于相同区域，并依据重要度、用户使用习惯和交互易用性进行成组化布局。</p>
+              </div>
+
+              <div class="glass-panel leader-led-module-card">
+                <div>
+                  <h3 class="leader-led-subsection-title mb-5 dot-title" data-i18n-zh="横向布局"
+                    data-i18n-en="Horizontal Layout">横向布局
+                  </h3>
+                  <figure class="img-card">
+                    <img src="./leader-assets/examples/led_information_classification/frame_1.png" alt="核心元素与机身简对齐型界面示例"
+                      data-i18n-alt-zh="核心元素与机身简对齐型界面示例"
+                      data-i18n-alt-en="Core element aligned with the drum: interface example">
+                    <img src="./leader-assets/examples/led_information_classification/frame_2.png"
+                      alt="核心元素与机身简对齐型信息区域示例" data-i18n-alt-zh="核心元素与机身简对齐型信息区域示例"
+                      data-i18n-alt-en="Core element aligned with the drum: information regions">
+                  </figure>
+                </div>
+
+                <div class="h-8" aria-hidden="true"></div>
+
+                <div>
+                  <h3 class="leader-led-subsection-title mb-5 dot-title" data-i18n-zh="对称布局"
+                    data-i18n-en="Symmetric Layout">对称布局
+                  </h3>
+                  <figure class="img-card">
+                    <img src="./leader-assets/examples/led_information_classification/frame_3.png" alt="信息组织示例二第一张配图"
+                      data-i18n-alt-zh="信息组织示例二第一张配图"
+                      data-i18n-alt-en="Information organization example two: first illustration">
+                    <img src="./leader-assets/examples/led_information_classification/frame_4.png" alt="信息组织示例二第二张配图"
+                      data-i18n-alt-zh="信息组织示例二第二张配图"
+                      data-i18n-alt-en="Information organization example two: second illustration">
+                  </figure>
+                </div>
+              </div>
+            </section>
+
+            <section id="symmetry-layout" class="leader-led-module scroll-mt-8">
+              <div class="leader-led-module-header">
+                <h2 class="leader-led-section-title" data-i18n-zh="布局逻辑" data-i18n-en="Layout Logic">布局逻辑</h2>
+                <p class="leader-led-body-copy" data-i18n-zh="统筹各品类 UI 界面与产品机身的位置关系，显示界面的界面布局逻辑分为三类。"
+                  data-i18n-en="Coordinate UI placement with the appliance body across product categories. Display layout logic falls into three types.">
+                  统筹各品类 UI 界面与产品机身的位置关系，显示界面的界面布局逻辑分为三类。</p>
+              </div>
+
+              <div class="glass-panel leader-led-module-card">
+                <div>
+                  <div class="flex justify-start">
+                    <h3 class="leader-led-subsection-title mb-8 dot-title" data-i18n-zh="中心对称"
+                      data-i18n-en="Central Symmetry">中心对称</h3>
+                  </div>
+
+                  <div class="logic-card">
+                    <h4 class="leader-led-small-title" data-i18n-zh="1. 右侧电源/启停键"
+                      data-i18n-en="1. Power and Start/Pause Controls on the Right">1. 右侧电源/启停键</h4>
+                    <p class="leader-led-body-copy mb-6"
+                      data-i18n-zh="中心向两侧对称展开，中心区域是模式选择、参数与调节；外侧是主功能程序选择项，再外侧是附加辅助功能开关；电源和启停键独立置于最右侧。"
+                      data-i18n-en="Expand symmetrically from the center. Place mode selection and parameter controls in the center, primary programs farther out, and additional function switches at the outer edges. Place power and start/pause controls separately at the far right.">
+                      中心向两侧对称展开，中心区域是模式选择、参数与调节；外侧是主功能程序选择项，再外侧是附加辅助功能开关；电源和启停键独立置于最右侧。</p>
+                    <figure>
+                      <img src="./leader-assets/examples/led_information_classification/frame_5.png"
+                        alt="电源与启停键置于右侧的中心对称布局示例" data-i18n-alt-zh="电源与启停键置于右侧的中心对称布局示例"
+                        data-i18n-alt-en="Centered layout with power and start/pause controls at the right">
+                    </figure>
+                  </div>
+
+                  <div class="logic-card">
+                    <h4 class="leader-led-small-title" data-i18n-zh="2. 居中电源/启停键"
+                      data-i18n-en="2. Centered Power and Start/Pause Controls">2. 居中电源/启停键</h4>
+                    <p class="leader-led-body-copy mb-6"
+                      data-i18n-zh="中心向两侧对称展开，中心区域是模式选择、参数与调节。为了聚合用户交互中心，电源和启停键也可以放置在中心下侧；外侧是主功能程序选择项，再外侧是附加辅助功能开关。"
+                      data-i18n-en="Expand symmetrically from the center. Place mode selection and parameter controls in the center. Power and start/pause controls may sit below the center to concentrate interaction. Place primary programs farther out and additional function switches at the outer edges.">
+                      中心向两侧对称展开，中心区域是模式选择、参数与调节。为了聚合用户交互中心，电源和启停键也可以放置在中心下侧；外侧是主功能程序选择项，再外侧是附加辅助功能开关。</p>
+                    <figure>
+                      <img src="./leader-assets/examples/led_information_classification/frame_6.png"
+                        alt="电源与启停键置于中心下侧的中心对称布局示例" data-i18n-alt-zh="电源与启停键置于中心下侧的中心对称布局示例"
+                        data-i18n-alt-en="Centered layout with power and start/pause controls below the center">
+                    </figure>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-start">
+                    <h3 class="leader-led-subsection-title mb-5 mt-8 dot-title" data-i18n-zh="核心元素居中"
+                      data-i18n-en="Centered Core Element">核心元素居中</h3>
+                  </div>
+
+                  <div class="logic-card">
+                    <h4 class="leader-led-small-title" data-i18n-zh="1. 右侧电源/启停键"
+                      data-i18n-en="1. Power and Start/Pause Controls on the Right">1. 右侧电源/启停键</h4>
+                    <p class="leader-led-body-copy mb-6"
+                      data-i18n-zh="界面中的核心元素与滚筒洗衣机机身筒的中心位置保持对齐，模式、时间及主要状态信息集中在视觉中心，其余功能围绕核心区域有序展开。"
+                      data-i18n-en="Align the core interface element with the drum center of the washing machine. Concentrate modes, time, and primary status at this visual center, with other functions arranged around it.">
+                      界面中的核心元素与滚筒洗衣机机身筒的中心位置保持对齐，模式、时间及主要状态信息集中在视觉中心，其余功能围绕核心区域有序展开。</p>
+                    <figure>
+                      <img src="./leader-assets/examples/led_information_classification/frame_7.png"
+                        alt="核心元素与机身筒中心对齐布局示例" data-i18n-alt-zh="核心元素与机身筒中心对齐布局示例"
+                        data-i18n-alt-en="Core element aligned with the drum center: first example">
+                    </figure>
+                    <figure class="mt-4">
+                      <img src="./leader-assets/examples/led_information_classification/frame_8.png"
+                        alt="核心元素与机身筒中心对齐布局示例二" data-i18n-alt-zh="核心元素与机身筒中心对齐布局示例二"
+                        data-i18n-alt-en="Core element aligned with the drum center: second example">
+                    </figure>
+                  </div>
+
+                  <div class="logic-card">
+                    <h4 class="leader-led-small-title" data-i18n-zh="2. 居中电源/启停键"
+                      data-i18n-en="2. Centered Power and Start/Pause Controls">2. 居中电源/启停键</h4>
+                    <p class="leader-led-body-copy mb-6"
+                      data-i18n-zh="以机身筒中心作为界面视觉锚点，核心状态保持在中心区域，程序、参数、附加功能以及启停操作按照任务关系向两侧或周边展开。"
+                      data-i18n-en="Use the drum center as the visual anchor. Keep core status in the center and arrange programs, parameters, additional functions, and start/pause controls around it according to task relationships.">
+                      以机身筒中心作为界面视觉锚点，核心状态保持在中心区域，程序、参数、附加功能以及启停操作按照任务关系向两侧或周边展开。</p>
+                    <figure>
+                      <img src="./leader-assets/examples/led_information_classification/frame_9.png"
+                        alt="核心操作区围绕机身筒中心展开布局示例" data-i18n-alt-zh="核心操作区围绕机身筒中心展开布局示例"
+                        data-i18n-alt-en="Core controls arranged around the drum center">
+                    </figure>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-start">
+                    <h3 class="leader-led-subsection-title mb-5 mt-8 dot-title" data-i18n-zh="竖向显示"
+                      data-i18n-en="Vertical Display">竖向显示</h3>
+                  </div>
+
+                  <div class="logic-card">
+                    <div class="symmetry-vertical-example">
+                      <figure class="vertical-layout-figure m-0">
+                        <img src="./leader-assets/examples/led_information_classification/frame_10.png" alt="竖向显示品类布局示例"
+                          data-i18n-alt-zh="竖向显示品类布局示例" data-i18n-alt-en="Vertical display layout example"
+                          class="block w-full max-w-[120px] h-auto">
+                      </figure>
+                      <div class="vertical-layout-guidance">
+                        <p class="vertical-layout-intro" data-i18n-zh="从上至下依次为：" data-i18n-en="From top to bottom:">
+                          从上至下依次为：</p>
+                        <ol class="vertical-layout-rules">
+                          <li><span data-i18n-zh="模式选择" data-i18n-en="Mode Selection">模式选择</span></li>
+                          <li><span data-i18n-zh="参数调节" data-i18n-en="Parameter Adjustment">参数调节</span></li>
+                          <li><span data-i18n-zh="主功能程序选择" data-i18n-en="Primary Program Selection">主功能程序选择</span></li>
+                          <li><span data-i18n-zh="附加辅助功能开关" data-i18n-en="Additional Function Switches">附加辅助功能开关</span>
+                          </li>
+                          <li>
+                            <div>
+                              <span data-i18n-zh="电源启停键" data-i18n-en="Power and Start/Pause Controls">电源启停键</span>
+                              <p data-i18n-zh="独立置于最下侧。" data-i18n-en="Place separately at the bottom."
+                                class="leader-led-body-copy">独立置于最下侧。</p>
+                            </div>
+                          </li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="interaction-layout-consistency" class="leader-led-module scroll-mt-8">
+              <div class="leader-led-module-header">
+                <h2 class="leader-led-section-title" data-i18n-zh="核心体验规则" data-i18n-en="Core Experience Rules">核心体验规则
+                </h2>
+                <p class="leader-led-body-copy" data-i18n-zh="信息分组要以统一方向维度分割，保障用户交互流是一个线性大方向，不要出现“Z”型、“N”型交叉折返。"
+                  data-i18n-en="Group information along one consistent axis so the user's interaction flow stays linear. Avoid Z-shaped or N-shaped crossing and backtracking.">
+                  信息分组要以统一方向维度分割，保障用户交互流是一个线性大方向，不要出现“Z”型、“N”型交叉折返。</p>
+              </div>
+
+              <div class="glass-panel leader-led-module-card">
+                <figure class="m-0 mb-8">
+                  <img src="./leader-assets/examples/led_information_classification/frame_11.png"
+                    alt="统一方向的信息分组与线性交互流示意图" data-i18n-alt-zh="统一方向的信息分组与线性交互流示意图"
+                    data-i18n-alt-en="Information grouped along a single axis for a linear interaction flow"
+                    class="block w-full h-auto">
+                </figure>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <figure class="m-0">
+                    <img src="./leader-assets/examples/led_information_classification/frame_12.png" alt="交互路径一致性示例二"
+                      data-i18n-alt-zh="交互路径一致性示例二" data-i18n-alt-en="Interaction path consistency: example two"
+                      class="block w-full h-auto">
+                  </figure>
+                  <figure class="m-0">
+                    <img src="./leader-assets/examples/led_information_classification/frame_13.png" alt="交互路径一致性示例三"
+                      data-i18n-alt-zh="交互路径一致性示例三" data-i18n-alt-en="Interaction path consistency: example three"
+                      class="block w-full h-auto">
+                  </figure>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- 页签 2：交互示例 -->
+          <div class="led-pane" data-led-pane="scene">
+            <section id="scene-type-01" class="leader-led-module scroll-mt-8">
+              <div class="leader-led-module-header scene-heading-plain-number">
+                <span class="module-num">1.</span>
+                <div class="scene-heading-copy">
+                  <h2 class="leader-led-section-title" data-i18n-zh="横向显示" data-i18n-en="Horizontal Display">横向显示</h2>
+                  <p class="leader-led-body-copy" data-i18n-zh="以核心状态为视觉锚点，向两侧组织程序、参数及附加功能，并适配不同显示区域高度。"
+                    data-i18n-en="Use core status as the visual anchor, organize programs, parameters, and additional functions on both sides, and adapt to the available display height.">
+                    以核心状态为视觉锚点，向两侧组织程序、参数及附加功能，并适配不同显示区域高度。</p>
+                </div>
+              </div>
+
+              <div class="glass-panel leader-led-module-card">
+                <div class="scene-rule-list">
+                  <article class="scene-rule">
+                    <div class="scene-rule-copy">
+                      <h3 class="leader-led-card-title" data-i18n-zh="最多信息呈现"
+                        data-i18n-en="Maximum Information Display">最多信息呈现</h3>
+                      <p class="meta leader-led-body-copy" data-i18n-zh="14个程序 · 5个参数项 · 6个附加功能"
+                        data-i18n-en="14 programs · 5 parameters · 6 additional functions">14个程序 · 5个参数项 · 6个附加功能</p>
+                    </div>
+                    <figure class="m-0"><img src="./leader-assets/examples/led_scene/scene_1.png" alt="类型一最多信息呈现示例"
+                        data-i18n-alt-zh="类型一最多信息呈现示例" data-i18n-alt-en="Type one: maximum information display example">
+                    </figure>
+                  </article>
+                  <article class="scene-rule">
+                    <div class="scene-rule-copy">
+                      <h3 class="leader-led-card-title" data-i18n-zh="最少信息呈现"
+                        data-i18n-en="Minimum Information Display">最少信息呈现</h3>
+                      <p class="meta leader-led-body-copy" data-i18n-zh="8个程序 · 3个参数项 · 4个附加功能"
+                        data-i18n-en="8 programs · 3 parameters · 4 additional functions">8个程序 · 3个参数项 · 4个附加功能</p>
+                    </div>
+                    <figure class="m-0"><img src="./leader-assets/examples/led_scene/scene_2.png" alt="类型一最少信息呈现示例"
+                        data-i18n-alt-zh="类型一最少信息呈现示例" data-i18n-alt-en="Type one: minimum information display example">
+                    </figure>
+                  </article>
+                  <article class="scene-rule">
+                    <div class="scene-rule-copy">
+                      <h3 class="leader-led-card-title" data-i18n-zh="电源与启停键位于下方"
+                        data-i18n-en="Power and Start/Pause Controls Below">电源与启停键位于下方</h3>
+                      <p class="meta leader-led-body-copy" data-i18n-zh="聚合在产品中心线，同时聚合用户的交互中心。"
+                        data-i18n-en="Align controls with the product centerline and concentrate the user's interaction area.">
+                        聚合在产品中心线，同时聚合用户的交互中心。</p>
+                    </div>
+                    <figure class="m-0"><img src="./leader-assets/examples/led_scene/scene_3.png" alt="电源与启停键位于下方示例"
+                        data-i18n-alt-zh="电源与启停键位于下方示例"
+                        data-i18n-alt-en="Power and start/pause controls below the display"></figure>
+                  </article>
+                  <article class="scene-rule">
+                    <div class="scene-rule-copy">
+                      <h3 class="leader-led-card-title" data-i18n-zh="搭配旋钮" data-i18n-en="With a Knob">搭配旋钮</h3>
+                      <p class="meta leader-led-body-copy" data-i18n-zh="保留横向信息骨架，将物理选择控件纳入整体布局。"
+                        data-i18n-en="Retain the horizontal information structure and integrate the physical selection control into the layout.">
+                        保留横向信息骨架，将物理选择控件纳入整体布局。</p>
+                    </div>
+                    <figure class="m-0"><img src="./leader-assets/examples/led_scene/scene_4.png" alt="搭配旋钮"
+                        data-i18n-alt-zh="搭配旋钮" data-i18n-alt-en="Horizontal LED layout with a knob"></figure>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section id="scene-type-02" class="leader-led-module scroll-mt-8">
+              <div class="leader-led-module-header scene-heading-plain-number">
+                <span class="module-num">2.</span>
+                <div class="scene-heading-copy">
+                  <h2 class="leader-led-section-title" data-i18n-zh="对称显示" data-i18n-en="Symmetric Display">对称显示</h2>
+                </div>
+              </div>
+
+              <div class="glass-panel leader-led-module-card">
+                <div class="scene-category">
+                  <div class="scene-category-header">
+                    <h3 class="leader-led-subsection-title" data-i18n-zh="较高显示区 · 多行分组"
+                      data-i18n-en="Taller Display Area · Multiple Rows">较高显示区 · 多行分组</h3>
+                  </div>
+                  <div class="scene-rule-list">
+                    <article class="scene-rule">
+                      <div class="scene-rule-copy">
+                        <h3 class="leader-led-card-title" data-i18n-zh="最多信息呈现"
+                          data-i18n-en="Maximum Information Display">最多信息呈现</h3>
+                        <p class="meta leader-led-body-copy" data-i18n-zh="16个程序 · 6个参数项 · 8个附加功能"
+                          data-i18n-en="16 programs · 6 parameters · 8 additional functions">16个程序 · 6个参数项 · 8个附加功能</p>
+                      </div>
+                      <figure class="m-0"><img src="./leader-assets/examples/led_scene/scene_5.png" alt="高机头最多信息呈现示例"
+                          data-i18n-alt-zh="高机头最多信息呈现示例" data-i18n-alt-en="Taller display area with maximum information"
+                          class="block w-full h-auto"></figure>
+                    </article>
+                    <article class="scene-rule">
+                      <div class="scene-rule-copy">
+                        <h3 class="leader-led-card-title" data-i18n-zh="最少信息呈现"
+                          data-i18n-en="Minimum Information Display">最少信息呈现</h3>
+                        <p class="meta leader-led-body-copy" data-i18n-zh="8个程序 · 4个参数项 · 4个附加功能"
+                          data-i18n-en="8 programs · 4 parameters · 4 additional functions">8个程序 · 4个参数项 · 4个附加功能</p>
+                      </div>
+                      <figure class="m-0"><img src="./leader-assets/examples/led_scene/scene_6.png" alt="高机头最少信息呈现示例"
+                          data-i18n-alt-zh="高机头最少信息呈现示例" data-i18n-alt-en="Taller display area with minimum information"
+                          class="block w-full h-auto"></figure>
+                    </article>
+                    <article class="scene-rule">
+                      <div class="scene-rule-copy">
+                        <h3 class="leader-led-card-title" data-i18n-zh="程序项较多时进行分组分类"
+                          data-i18n-en="Group Programs When There Are Many Options">程序项较多时进行分组分类</h3>
+                        <p class="meta leader-led-body-copy" data-i18n-zh="适用于蒸、烤、炸、辅助等程序分类。"
+                          data-i18n-en="Suitable for categories such as steam, bake, air fry, and supporting programs.">
+                          适用于蒸、烤、炸、辅助等程序分类。</p>
+                      </div>
+                      <figure class="m-0"><img src="./leader-assets/examples/led_scene/scene_7.png" alt="高机头程序分组分类示例"
+                          data-i18n-alt-zh="高机头程序分组分类示例" data-i18n-alt-en="Program grouping in a taller display area"
+                          class="block w-full h-auto"></figure>
+                    </article>
+                    <article class="scene-rule">
+                      <div class="scene-rule-copy">
+                        <h3 class="leader-led-card-title" data-i18n-zh="电源启停键位于下方"
+                          data-i18n-en="Power and Start/Pause Controls Below">电源启停键位于下方</h3>
+                        <p class="meta leader-led-body-copy" data-i18n-zh="核心操作与产品中心线对齐。"
+                          data-i18n-en="Align primary controls with the product centerline.">核心操作与产品中心线对齐。</p>
+                      </div>
+                      <figure class="m-0"><img src="./leader-assets/examples/led_scene/scene_8.png" alt="高机头电源启停键布局示例"
+                          data-i18n-alt-zh="高机头电源启停键布局示例"
+                          data-i18n-alt-en="Power and start/pause controls in a taller display area"
+                          class="block w-full h-auto"></figure>
+                    </article>
+                    <article class="scene-rule">
+                      <div class="scene-rule-copy">
+                        <h3 class="leader-led-card-title" data-i18n-zh="单点选择整合多选项"
+                          data-i18n-en="Use One Selection Control for Multiple Options">单点选择整合多选项</h3>
+                        <p class="meta leader-led-body-copy" data-i18n-zh="用分类与单点选择承载更多选项。"
+                          data-i18n-en="Use categories and a single selection control to accommodate more options.">
+                          用分类与单点选择承载更多选项。</p>
+                      </div>
+                      <figure class="m-0"><img src="./leader-assets/examples/led_scene/scene_9.png" alt="高机头单点选择示例"
+                          data-i18n-alt-zh="高机头单点选择示例"
+                          data-i18n-alt-en="Single selection control in a taller display area"
+                          class="block w-full h-auto"></figure>
+                    </article>
+                  </div>
+                </div>
+
+                <div class="scene-category">
+                  <div class="scene-category-header">
+                    <h3 class="leader-led-subsection-title" data-i18n-zh="中等高度显示区 · 主操作下置"
+                      data-i18n-en="Medium-height Display Area · Primary Controls Below">中等高度显示区 · 主操作下置</h3>
+                  </div>
+                  <div class="scene-rule-list">
+                    <article class="scene-rule">
+                      <div class="scene-rule-copy">
+                        <h3 class="leader-led-card-title" data-i18n-zh="电源、启停键位于下方"
+                          data-i18n-en="Power and Start/Pause Controls Below">电源、启停键位于下方</h3>
+                        <p class="meta leader-led-body-copy" data-i18n-zh="聚合核心操作与用户交互路径。"
+                          data-i18n-en="Concentrate primary controls and simplify the interaction path.">聚合核心操作与用户交互路径。
+                        </p>
+                      </div>
+                      <figure class="m-0"><img src="./leader-assets/examples/led_scene/scene_10.png" alt="中机头电源启停键布局示例"
+                          data-i18n-alt-zh="中机头电源启停键布局示例"
+                          data-i18n-alt-en="Power and start/pause controls in a medium-height display area"
+                          class="block w-full h-auto"></figure>
+                    </article>
+                  </div>
+                </div>
+
+                <div class="scene-category">
+                  <div class="scene-category-header">
+                    <h3 class="leader-led-subsection-title" data-i18n-zh="较低显示区 · 单行排列"
+                      data-i18n-en="Shorter Display Area · Single Row">较低显示区 · 单行排列</h3>
+                  </div>
+                  <div class="scene-rule-list">
+                    <article class="scene-rule">
+                      <div class="scene-rule-copy">
+                        <h3 class="leader-led-card-title" data-i18n-zh="信息单排呈现"
+                          data-i18n-en="Single-row Information Layout">信息单排呈现</h3>
+                        <p class="meta leader-led-body-copy" data-i18n-zh="10个程序 · 4个参数项 · 4个附加功能"
+                          data-i18n-en="10 programs · 4 parameters · 4 additional functions">10个程序 · 4个参数项 · 4个附加功能</p>
+                      </div>
+                      <figure class="m-0"><img src="./leader-assets/examples/led_scene/scene_11.png" alt="窄机头信息单排呈现示例"
+                          data-i18n-alt-zh="窄机头信息单排呈现示例"
+                          data-i18n-alt-en="Single-row information in a shorter display area"
+                          class="block w-full h-auto"></figure>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="scene-type-03" class="leader-led-module scroll-mt-8">
+              <div class="leader-led-module-header scene-heading-plain-number">
+                <span class="module-num">3.</span>
+                <div class="scene-heading-copy">
+                  <h2 class="leader-led-section-title" data-i18n-zh="横向偏侧布局" data-i18n-en="Offset Horizontal Layout">
+                    横向偏侧布局</h2>
+                  <p class="leader-led-body-copy" data-i18n-zh="洗碗机等产品的显示区域位于门体上沿侧面时，界面可向操作侧集中布局，以操作可达性优先。"
+                    data-i18n-en="When a dishwasher or similar product has its display on the side of the door's top edge, concentrate the interface toward the operating side and prioritize reachability.">
+                    洗碗机等产品的显示区域位于门体上沿侧面时，界面可向操作侧集中布局，以操作可达性优先。</p>
+                </div>
+              </div>
+              <div class="glass-panel leader-led-module-card">
+                <figure class="m-0">
+                  <img src="./leader-assets/examples/led_scene/scene_12.png" alt="类型三交互与布局示例"
+                    data-i18n-alt-zh="类型三交互与布局示例" data-i18n-alt-en="Type three: interaction and layout example"
+                    class="block w-full h-auto">
+                </figure>
+              </div>
+            </section>
+
+            <section id="scene-type-04" class="leader-led-module scroll-mt-8">
+              <div class="leader-led-module-header scene-heading-plain-number">
+                <span class="module-num">4.</span>
+                <div class="scene-heading-copy">
+                  <h2 class="leader-led-section-title" data-i18n-zh="极简布局" data-i18n-en="Minimal Layout">极简布局</h2>
+                  <p class="leader-led-body-copy" data-i18n-zh="以烟机为代表，界面不依赖中心数值显示时，按任务关系组织功能与状态，保持操作路径清晰。"
+                    data-i18n-en="For appliances such as range hoods without a central numeric display, organize functions and status by task relationships to keep interaction paths clear.">
+                    以烟机为代表，界面不依赖中心数值显示时，按任务关系组织功能与状态，保持操作路径清晰。</p>
+                </div>
+              </div>
+              <div class="glass-panel leader-led-module-card">
+                <figure class="m-0">
+                  <img src="./leader-assets/examples/led_scene/scene_13.png" alt="类型四交互与布局示例"
+                    data-i18n-alt-zh="类型四交互与布局示例" data-i18n-alt-en="Type four: interaction and layout example"
+                    class="block w-full h-auto">
+                </figure>
+              </div>
+            </section>
+
+            <section id="scene-type-05" class="leader-led-module scroll-mt-8">
+              <div class="leader-led-module-header scene-heading-plain-number">
+                <span class="module-num">5.</span>
+                <div class="scene-heading-copy">
+                  <h2 class="leader-led-section-title" data-i18n-zh="竖向布局" data-i18n-en="Vertical Layout">竖向布局</h2>
+                  <p class="leader-led-body-copy" data-i18n-zh="适用于冰冷与空调等竖向显示区域，依据载体宽度选择宽界面或窄界面结构。"
+                    data-i18n-en="For refrigeration and air-conditioning products with vertical displays, choose a wider or narrower layout according to the available width.">
+                    适用于冰冷与空调等竖向显示区域，依据载体宽度选择宽界面或窄界面结构。</p>
+                </div>
+              </div>
+              <div class="glass-panel leader-led-module-card">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <article class="scene-vertical-card min-w-0">
+                    <figure><img src="./leader-assets/examples/led_scene/scene_14.png" alt="类型五第一条规则示例"
+                        data-i18n-alt-zh="类型五第一条规则示例" data-i18n-alt-en="Type five: first layout rule example"
+                        class="block w-[200px] max-w-[200px] h-auto mx-auto"></figure>
+                  </article>
+                  <article class="scene-vertical-card min-w-0">
+                    <figure><img src="./leader-assets/examples/led_scene/scene_15.png" alt="类型五第二条规则示例"
+                        data-i18n-alt-zh="类型五第二条规则示例" data-i18n-alt-en="Type five: second layout rule example"
+                        class="block w-[150px] max-w-[180px] h-auto mx-auto"></figure>
+                  </article>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- 页签 3：交互按键 -->
+          <div class="led-pane" data-led-pane="button">
+            <section id="button-forms" class="leader-led-module scroll-mt-8">
+              <div class="leader-led-module-header">
+                <h2 class="leader-led-section-title" data-i18n-zh="按键形态" data-i18n-en="Button Types">按键形态</h2>
+                <p class="leader-led-body-copy" data-i18n-zh="LED设计方案根据成本和成像原理，按键交互形式可分为以下类型。"
+                  data-i18n-en="LED button types vary according to cost and display technology.">
+                  LED设计方案根据成本和成像原理，按键交互形式可分为以下类型。</p>
+              </div>
+              <div class="glass-panel leader-led-module-card">
+                <div class="button-form-grid">
+                  <article class="button-form-card">
+                    <span class="button-form-number" aria-hidden="true">01</span>
+                    <div>
+                      <h3 data-i18n-zh="触摸按键" data-i18n-en="Touch Buttons">触摸按键</h3>
+                      <p data-i18n-zh="按键与显示一体，整个显示区域同时也是触发区域。"
+                        data-i18n-en="The display area also serves as the touch target.">按键与显示一体，整个显示区域同时也是触发区域。</p>
+                    </div>
+                  </article>
+                  <article class="button-form-card">
+                    <span class="button-form-number" aria-hidden="true">02</span>
+                    <div>
+                      <h3 data-i18n-zh="亮灯按键" data-i18n-en="Illuminated Buttons">亮灯按键</h3>
+                      <p data-i18n-zh="按键采用亮灯形式，触控区与状态显示区分离。"
+                        data-i18n-en="Buttons are illuminated, with touch targets separated from status indicators.">
+                        按键采用亮灯形式，触控区与状态显示区分离。</p>
+                    </div>
+                  </article>
+                  <article class="button-form-card">
+                    <span class="button-form-number" aria-hidden="true">03</span>
+                    <div>
+                      <h3 data-i18n-zh="印刷按键" data-i18n-en="Printed Buttons">印刷按键</h3>
+                      <p data-i18n-zh="按键触控区采用印刷形式，图标或者灯点承担状态显示功能。"
+                        data-i18n-en="Touch targets use printed markings, while icons or indicator dots show status.">
+                        按键触控区采用印刷形式，图标或者灯点承担状态显示功能。</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section id="button-interaction-types" class="leader-led-module scroll-mt-8">
+              <div class="leader-led-module-header">
+                <h2 class="leader-led-section-title" data-i18n-zh="按键交互示例" data-i18n-en="Button Interaction Examples">
+                  按键交互示例</h2>
+                <p class="leader-led-body-copy" data-i18n-zh="按键与显示信息之间应建立清晰、稳定的位置对应关系。"
+                  data-i18n-en="Maintain a clear, stable spatial relationship between buttons and displayed information.">
+                  按键与显示信息之间应建立清晰、稳定的位置对应关系。</p>
+              </div>
+
+              <div class="glass-panel leader-led-module-card">
+                <div class="button-type-group">
+                  <div class="button-type-header mb-4">
+                    <h3 class="button-type-title leader-led-subsection-title" data-i18n-zh="按键与显示一体：触摸按键"
+                      data-i18n-en="Integrated Button and Display: Touch Buttons">按键与显示一体：触摸按键</h3>
+                  </div>
+                  <div class="button-type-examples mb-12">
+                    <figure class="button-type-example">
+                      <img src="./leader-assets/examples/led_button/button_1.png"
+                        data-i18n-src-zh="./leader-assets/examples/led_button/button_1.png"
+                        data-i18n-src-en="./leader-assets/examples/led_button/button_1_en.png" alt="按显一体按键交互示例"
+                        data-i18n-alt-zh="按显一体按键交互示例" data-i18n-alt-en="Integrated touch button and display"
+                        class="block w-full max-w-[700px] h-auto ml-auto">
+                    </figure>
+                  </div>
+                </div>
+
+                <div class="button-type-group mb-12">
+                  <div class="button-type-header caption-gap-header">
+                    <h3 class="button-type-title leader-led-subsection-title" data-i18n-zh="按键与显示分离：亮灯按键"
+                      data-i18n-en="Separate Button and Display: Illuminated Buttons">按键与显示分离：亮灯按键</h3>
+                  </div>
+                  <div class="button-type-examples">
+                    <figure class="button-type-example">
+                      <figcaption class="button-example-caption caption-gap-top">
+                        <p class="leader-led-body-copy" data-i18n-zh="A. 图标承担状态显示功能"
+                          data-i18n-en="A. Icons indicate status">A. 图标承担状态显示功能</p>
+                      </figcaption>
+                      <img src="./leader-assets/examples/led_button/button_2.png"
+                        data-i18n-src-zh="./leader-assets/examples/led_button/button_2.png"
+                        data-i18n-src-en="./leader-assets/examples/led_button/button_2_en.png" alt="按显分离A图标承担状态显示功能"
+                        data-i18n-alt-zh="按显分离A图标承担状态显示功能"
+                        data-i18n-alt-en="Illuminated buttons with icons indicating status"
+                        class="block w-full max-w-[700px] h-auto ml-auto">
+                    </figure>
+                    <figure class="button-type-example mb-8">
+                      <figcaption class="button-example-caption mb-4">
+                        <p class="leader-led-body-copy" data-i18n-zh="B. 灯点承担状态显示功能"
+                          data-i18n-en="B. Indicator dots show status">B. 灯点承担状态显示功能</p>
+                      </figcaption>
+                      <img src="./leader-assets/examples/led_button/button_3.png"
+                        data-i18n-src-zh="./leader-assets/examples/led_button/button_3.png"
+                        data-i18n-src-en="./leader-assets/examples/led_button/button_3_en.png" alt="按显分离A灯点承担状态显示功能"
+                        data-i18n-alt-zh="按显分离A灯点承担状态显示功能"
+                        data-i18n-alt-en="Illuminated buttons with indicator dots showing status"
+                        class="block w-full max-w-[700px] h-auto ml-auto">
+                    </figure>
+                  </div>
+                </div>
+
+                <div class="button-type-group mb-10">
+                  <div class="button-type-header caption-gap-header">
+                    <h3 class="button-type-title leader-led-subsection-title" data-i18n-zh="按键与显示分离：印刷按键"
+                      data-i18n-en="Separate Button and Display: Printed Buttons">按键与显示分离：印刷按键</h3>
+                  </div>
+                  <div class="button-type-examples">
+                    <figure class="button-type-example">
+                      <figcaption class="button-example-caption caption-gap-top">
+                        <p class="leader-led-body-copy" data-i18n-zh="A. 图标承担状态显示功能-名称按键印刷"
+                          data-i18n-en="A. Icons indicate status — printed button names">A. 图标承担状态显示功能-名称按键印刷</p>
+                      </figcaption>
+                      <img src="./leader-assets/examples/led_button/button_4.png"
+                        data-i18n-src-zh="./leader-assets/examples/led_button/button_4.png"
+                        data-i18n-src-en="./leader-assets/examples/led_button/button_4_en.png" alt="按显分离B按键承担触控功能"
+                        data-i18n-alt-zh="按显分离B按键承担触控功能"
+                        data-i18n-alt-en="Separate buttons and display, type B: buttons provide touch input"
+                        class="block w-full max-w-[700px] h-auto ml-auto">
+                    </figure>
+                    <figure class="button-type-example">
+                      <figcaption class="button-example-caption mb-4">
+                        <p class="leader-led-body-copy" data-i18n-zh="B. 灯点承担状态显示功能-图标&amp;名称按键印刷"
+                          data-i18n-en="B. Indicator dots show status — printed icons and names">B.
+                          灯点承担状态显示功能-图标&amp;名称按键印刷</p>
+                      </figcaption>
+                      <img src="./leader-assets/examples/led_button/button_5.png"
+                        data-i18n-src-zh="./leader-assets/examples/led_button/button_5.png"
+                        data-i18n-src-en="./leader-assets/examples/led_button/button_5_en.png" alt="按显分离B图标承担状态显示功能"
+                        data-i18n-alt-zh="按显分离B图标承担状态显示功能"
+                        data-i18n-alt-en="Separate buttons and display, type B: icons indicate status"
+                        class="block w-full max-w-[700px] h-auto ml-auto">
+                    </figure>
+                    <figure class="button-type-example">
+                      <figcaption class="button-example-caption mb-4">
+                        <p class="leader-led-body-copy" data-i18n-zh="C. 灯点承担状态显示功能-名称按键印刷"
+                          data-i18n-en="C. Indicator dots show status — printed button names">C. 灯点承担状态显示功能-名称按键印刷</p>
+                      </figcaption>
+                      <img src="./leader-assets/examples/led_button/button_6.png"
+                        data-i18n-src-zh="./leader-assets/examples/led_button/button_6.png"
+                        data-i18n-src-en="./leader-assets/examples/led_button/button_6_en.png" alt="按显分离B灯点承担状态显示功能"
+                        data-i18n-alt-zh="按显分离B灯点承担状态显示功能"
+                        data-i18n-alt-en="Separate buttons and display, type B: indicator dots show status"
+                        class="block w-full max-w-[700px] h-auto ml-auto">
+                    </figure>
+                  </div>
+                </div>
+
+                <div class="button-guidance-title-row">
+                  <span class="warn-triangle" aria-hidden="true">!</span>
+                  <h3 class="leader-led-subsection-title" data-i18n-zh="布局与识别要求"
+                    data-i18n-en="Layout and Recognition Requirements">布局与识别要求</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div class="bg-white/65 p-5 rounded-[28px]">
+                    <h4 class="leader-led-small-title" data-i18n-zh="操作方向" data-i18n-en="Control Direction">操作方向</h4>
+                    <p class="leader-led-body-copy" data-i18n-zh="按键交互需遵循右控左显或下控上显的设计规则，保障操作时不遮挡显示信息，并符合用户的交互习惯。"
+                      data-i18n-en="Place controls to the right of displays or below them so interaction does not obscure information and follows user expectations.">
+                      按键交互需遵循右控左显或下控上显的设计规则，保障操作时不遮挡显示信息，并符合用户的交互习惯。</p>
+                  </div>
+                  <div class="bg-white/65 p-5 rounded-[28px]">
+                    <h4 class="leader-led-small-title" data-i18n-zh="视觉区分" data-i18n-en="Visual Distinction">视觉区分</h4>
+                    <p class="leader-led-body-copy"
+                      data-i18n-zh="按显分离或者文字作为独立按键时，需具有清晰的按键形态，明确区分操作按键与显示信息，并建立清楚的位置和视觉匹配关系。"
+                      data-i18n-en="When buttons and displays are separate, or text serves as an independent button, use a recognizable button shape. Clearly distinguish controls from displayed information and maintain a clear spatial and visual relationship.">
+                      按显分离或者文字作为独立按键时，需具有清晰的按键形态，明确区分操作按键与显示信息，并建立清楚的位置和视觉匹配关系。</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="compound-button-rules" class="leader-led-module scroll-mt-8">
+              <div class="leader-led-module-header">
+                <h2 class="leader-led-section-title" data-i18n-zh="复合按键与长按规则"
+                  data-i18n-en="Compound Buttons and Long-press Rules">复合按键与长按规则</h2>
+                <p class="leader-led-body-copy" data-i18n-zh="复合按键与防误触长按键应明确传达操作方式、触发时长和操作结果，避免用户因触发条件不明确而产生误操作或等待焦虑。"
+                  data-i18n-en="Make the action, hold duration, and outcome explicit for compound buttons and long presses that prevent accidental activation. Avoid errors or uncertainty caused by unclear triggering conditions.">
+                  复合按键与防误触长按键应明确传达操作方式、触发时长和操作结果，避免用户因触发条件不明确而产生误操作或等待焦虑。</p>
+              </div>
+
+              <div class="glass-panel leader-led-module-card">
+                <div class="grid grid-cols-1 lg:grid-cols-[300px_minmax(0,1fr)] gap-8 lg:gap-12 items-center">
+                  <div>
+                    <h4 class="leader-led-small-title" data-i18n-zh="01. 长按操作需明确标注"
+                      data-i18n-en="01. Label long-press actions clearly">01. 长按操作需明确标注</h4>
+                    <p class="leader-led-body-copy"
+                      data-i18n-zh="需要长按的操作必须清晰标注。同一按键不可集成长按3秒和长按5秒，分别控制不同功能；禁止采用长按5秒的交互形式。"
+                      data-i18n-en="Clearly label actions that require a long press. Do not assign different functions to 3-second and 5-second holds on the same button. Do not use 5-second long-press interactions.">
+                      需要长按的操作必须清晰标注。同一按键不可集成长按3秒和长按5秒，分别控制不同功能；禁止采用长按5秒的交互形式。</p>
+                  </div>
+                  <figure class="m-0">
+                    <img src="./leader-assets/examples/led_button/button_7.png" alt="长按三秒防误触交互示例"
+                      data-i18n-alt-zh="长按三秒防误触交互示例"
+                      data-i18n-alt-en="Three-second press-and-hold interaction to prevent accidental activation"
+                      class="block w-full h-auto">
+                  </figure>
+                </div>
+
+                <div class="h-8" aria-hidden="true"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-[300px_minmax(0,1fr)] gap-8 lg:gap-12 items-center">
+                  <div>
+                    <h4 class="leader-led-small-title" data-i18n-zh="02. 禁止双指复合操作"
+                      data-i18n-en="02. Do not require two-finger compound actions">02. 禁止双指复合操作</h4>
+                    <p class="leader-led-body-copy" data-i18n-zh="禁止使用需要用户通过双指同时操作的复合按键形式，避免操作负担、触发失败和交互方式理解不一致。"
+                      data-i18n-en="Do not use compound buttons that require two fingers simultaneously. Avoid unnecessary effort, failed activation, and inconsistent understanding of the interaction.">
+                      禁止使用需要用户通过双指同时操作的复合按键形式，避免操作负担、触发失败和交互方式理解不一致。</p>
+                  </div>
+                  <figure class="m-0">
+                    <img src="./leader-assets/examples/led_button/button_8.png" alt="禁止双指复合按键交互示例"
+                      data-i18n-alt-zh="禁止双指复合按键交互示例"
+                      data-i18n-alt-en="Prohibited two-finger compound-button interaction" class="block w-full h-auto">
+                  </figure>
+                </div>
+
+                <div class="h-8" aria-hidden="true"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-[300px_minmax(0,1fr)] gap-8 lg:gap-12 items-center">
+                  <div>
+                    <h4 class="leader-led-small-title" data-i18n-zh="03. 长按过程需呈现进度反馈"
+                      data-i18n-en="03. Show progress during a long press">03. 长按过程需呈现进度反馈</h4>
+                    <p class="leader-led-body-copy" data-i18n-zh="长按3秒时，建议呈现操作进度，减少用户等待焦虑。触发成功后，应提供明确的声音反馈和显示反馈。"
+                      data-i18n-en="For a 3-second hold, show progress to reduce uncertainty while waiting. Provide clear sound and visual feedback after successful activation.">
+                      长按3秒时，建议呈现操作进度，减少用户等待焦虑。触发成功后，应提供明确的声音反馈和显示反馈。</p>
+                  </div>
+                  <figure class="m-0">
+                    <img src="./leader-assets/examples/led_button/button_9.png" alt="长按过程进度反馈示例"
+                      data-i18n-alt-zh="长按过程进度反馈示例" data-i18n-alt-en="Progress feedback during a long press"
+                      class="block w-full h-auto">
+                  </figure>
+                </div>
+
+                <div class="h-8" aria-hidden="true"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-[300px_minmax(0,1fr)] gap-8 lg:gap-12 items-center">
+                  <div>
+                    <h4 class="leader-led-small-title" data-i18n-zh="04. 相同功能使用一致名称"
+                      data-i18n-en="04. Use consistent names for the same function">04. 相同功能使用一致名称</h4>
+                    <p class="leader-led-body-copy" data-i18n-zh="功能逻辑一致的按键应使用统一名称，避免同一功能在不同产品或不同页面中出现多种命名。"
+                      data-i18n-en="Use the same name for buttons with the same function. Avoid multiple names for the same function across products or pages.">
+                      功能逻辑一致的按键应使用统一名称，避免同一功能在不同产品或不同页面中出现多种命名。</p>
+                  </div>
+                  <figure class="m-0">
+                    <img src="./leader-assets/examples/led_button/button_10.png" alt="复合按键名称一致性示例"
+                      data-i18n-alt-zh="复合按键名称一致性示例" data-i18n-alt-en="Consistent naming for compound buttons"
+                      class="block w-full h-auto">
+                  </figure>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <footer class="pt-10 pb-16 text-center text-sm border-t border-gray-200">
+            <p class="font-light" data-i18n-zh="© 2026 Haier UX Design Lab. Internal Confidential."
+              data-i18n-en="© 2026 Haier UX Design Lab. Internal Confidential.">© 2026 Haier UX Design Lab. Internal
+              Confidential.</p>
+          </footer>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="leader-nav.js"></script>
+  <script>
+    (() => {
+      const root = document.querySelector('.leader-led-page');
+      const tabs = root.querySelectorAll('[data-led-tab]');
+      const panes = root.querySelectorAll('[data-led-pane]');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const target = tab.dataset.ledTab;
+          tabs.forEach(item => {
+            const selected = item === tab;
+            item.classList.toggle('active', selected);
+            item.setAttribute('aria-selected', String(selected));
+          });
+          panes.forEach(pane => {
+            pane.classList.toggle('active', pane.dataset.ledPane === target);
+          });
+          document.getElementById('main-content').scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+    })();
+
+    (() => {
+      const root = document.querySelector('.leader-led-page');
+      const button = root.querySelector('#lang-toggle');
+      const label = button.querySelector('#lang-label');
+      const originals = new Map();
+      root.querySelectorAll('[data-i18n-zh][data-i18n-en]').forEach(el => originals.set(el, el.innerHTML));
+      let lang = 'zh';
+
+      function apply(next) {
+        lang = next;
+        document.querySelectorAll('title[data-i18n-zh], .leader-led-page [data-i18n-zh][data-i18n-en]').forEach(el => {
+          const text = el.getAttribute('data-i18n-' + lang);
+          if (text === null) return;
+          if (lang === 'zh' && originals.has(el)) { el.innerHTML = originals.get(el); return; }
+          el.textContent = text;
+        });
+        ['src', 'alt', 'title', 'aria-label', 'placeholder'].forEach(attr => {
+          root.querySelectorAll('[data-i18n-' + attr + '-' + lang + ']').forEach(el => {
+            el.setAttribute(attr, el.getAttribute('data-i18n-' + attr + '-' + lang));
+          });
+        });
+        label.textContent = lang === 'zh' ? 'EN' : '中文';
+        button.dataset.lang = lang;
+        button.setAttribute('aria-label', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        try { localStorage.setItem('leader-guideline-language', lang); } catch (_) { }
+        document.dispatchEvent(new CustomEvent('leader-language-change', { detail: { lang } }));
+      }
+
+      button.addEventListener('click', e => { e.stopImmediatePropagation(); apply(lang === 'zh' ? 'en' : 'zh'); }, true);
+      label.textContent = 'EN';
+
+      function savedLanguage() {
+        try { return localStorage.getItem('leader-guideline-language') === 'en' ? 'en' : 'zh'; } catch (_) { return 'zh'; }
+      }
+      if (savedLanguage() === 'en') apply('en');
+      window.addEventListener('storage', e => { if (e.key === 'leader-guideline-language') apply(savedLanguage()); });
+
+      const menu = root.querySelector('#mobile-menu-btn');
+      const sidebar = root.querySelector('#sidebar');
+      const backdrop = root.querySelector('#sidebar-backdrop');
+      function close() {
+        sidebar.classList.add('hidden'); sidebar.classList.remove('flex');
+        sidebar.setAttribute('aria-hidden', 'true');
+        backdrop.classList.add('hidden');
+        menu.setAttribute('aria-expanded', 'false');
+      }
+      menu.addEventListener('click', e => {
+        e.stopImmediatePropagation();
+        const open = sidebar.classList.contains('hidden');
+        sidebar.classList.toggle('hidden', !open);
+        sidebar.classList.toggle('flex', open);
+        sidebar.setAttribute('aria-hidden', String(!open));
+        backdrop.classList.toggle('hidden', !open);
+        menu.setAttribute('aria-expanded', String(open));
+      }, true);
+      backdrop.addEventListener('click', close);
+      root.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+      menu.setAttribute('aria-controls', 'sidebar');
+      menu.setAttribute('aria-expanded', 'false');
+    })();
+  </script>
+</body>
+
+</html>

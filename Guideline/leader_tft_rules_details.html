@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n-zh="Leader Design | TFT布局" data-i18n-en="Leader Design | TFT Layout">Leader Design | TFT布局</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { important: "#leader-tft-rules", corePlugins: { preflight: false } };</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body.leader-tft-document {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: #F5F7FA;
+    }
+
+    #leader-tft-rules {
+      --brand: #EC6443;
+      --brand-primary: #EC6443;
+      --brand-light: #FFE5E0;
+      --ink: #1D1D1F;
+      --text-main: #1D1D1F;
+      --muted: #86868B;
+      --text-secondary: #86868B;
+      --glass: rgba(255, 255, 255, .6);
+      --glass-bg: rgba(255, 255, 255, .6);
+      --glass-border: rgba(255, 255, 255, .4);
+      position: relative;
+      isolation: isolate;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: transparent;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    #leader-tft-rules .aura-background {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: #F4F4F4;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    #leader-tft-rules .aura-blob {
+      position: absolute;
+      filter: blur(120px);
+      opacity: .6;
+      animation: leader-tft-float 20s infinite ease-in-out alternate;
+      background: #E6E6E6;
+    }
+
+    #leader-tft-rules .aura-blob-1 {
+      top: -10%;
+      left: -10%;
+      width: 50vw;
+      height: 50vw;
+    }
+
+    #leader-tft-rules .aura-blob-2 {
+      bottom: -20%;
+      right: -10%;
+      width: 60vw;
+      height: 60vw;
+      animation-delay: -5s;
+    }
+
+    #leader-tft-rules .aura-blob-3 {
+      top: 40%;
+      left: 60%;
+      width: 40vw;
+      height: 40vw;
+      animation-delay: -10s;
+    }
+
+    @keyframes leader-tft-float {
+      from {
+        transform: translate(0, 0) scale(1)
+      }
+
+      to {
+        transform: translate(10%, 15%) scale(1.1)
+      }
+    }
+
+    #leader-tft-rules .glass-panel,
+    #leader-tft-rules #main-content section.glass-panel {
+      background: var(--glass-bg) !important;
+      border: 1px solid var(--glass-border) !important;
+      border-radius: 40px !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .04) !important;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    #leader-tft-rules header.glass-panel,
+    #leader-tft-rules #sidebar {
+      border-radius: 0 !important;
+    }
+
+    #leader-tft-rules .leader-logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #EC6443;
+      color: #FFF;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+
+    #leader-tft-rules #main-content {
+      min-width: 0;
+      color: var(--ink);
+    }
+
+    #leader-tft-rules main h1,
+    #leader-tft-rules main h2,
+    #leader-tft-rules main h3,
+    #leader-tft-rules main h4,
+    #leader-tft-rules header h1 {
+      color: var(--ink) !important;
+    }
+
+    #leader-tft-rules #main-content>div>section.mb-12 h1 {
+      font-size: 2.25rem !important;
+      line-height: 1.2 !important;
+      font-weight: 700 !important;
+      letter-spacing: -.025em !important;
+      color: #111827 !important;
+    }
+
+    #leader-tft-rules #main-content>div>section.mb-12>p {
+      width: 100%;
+      max-width: none;
+      font-size: 1.125rem !important;
+      line-height: 1.625 !important;
+      color: #1D1D1F !important;
+    }
+
+    @media(min-width:768px) {
+      #leader-tft-rules #main-content>div>section.mb-12 h1 {
+        font-size: 3rem !important;
+      }
+    }
+
+    #leader-tft-rules #main-content section.leader-tft-module {
+      margin: 0 0 64px !important;
+      padding: 0 !important;
+      min-width: 0;
+    }
+
+    #leader-tft-rules #main-content .leader-tft-module-header {
+      margin: 0 0 24px;
+      padding: 0;
+    }
+
+    #leader-tft-rules #main-content .leader-tft-module .leader-tft-section-title {
+      margin: 0 !important;
+      font-size: 24px !important;
+      font-weight: 700 !important;
+      line-height: 32px !important;
+      letter-spacing: normal !important;
+      color: #111827 !important;
+    }
+
+    #leader-tft-rules #main-content .leader-tft-module-header p {
+      margin: 12px 0 0 !important;
+    }
+
+    #leader-tft-rules #main-content .leader-tft-module-card {
+      padding: 24px;
+      min-width: 0;
+      border-radius: 40px !important;
+    }
+
+    #leader-tft-rules #main-content .leader-tft-module .leader-tft-body-copy {
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 1.625 !important;
+      letter-spacing: normal !important;
+      color: #4B5563 !important;
+    }
+
+    #leader-tft-rules #main-content .leader-tft-module .leader-tft-card-title {
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      line-height: 24px !important;
+      letter-spacing: normal !important;
+      color: #111827 !important;
+      margin-bottom: 8px !important;
+    }
+
+    #leader-tft-rules #main-content .leader-tft-module .leader-tft-subsection-title {
+      font-size: 24px !important;
+      font-weight: 400 !important;
+      line-height: 32px !important;
+      letter-spacing: normal !important;
+      color: #111827 !important;
+      margin-bottom: 24px !important;
+    }
+
+    #leader-tft-rules #main-content .leader-tft-module .leader-tft-label {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      line-height: 24px !important;
+      color: #111827 !important;
+      letter-spacing: normal !important;
+    }
+
+    @media(min-width:640px) {
+      #leader-tft-rules #main-content .leader-tft-module-card {
+        padding: 40px;
+      }
+    }
+
+    #leader-tft-rules #information-category>.leader-tft-module-card>.grid {
+      counter-reset: category-number;
+      display: grid !important;
+      gap: 16px !important;
+    }
+
+    @media (min-width:1280px) {
+      #leader-tft-rules #information-category>.leader-tft-module-card>.grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (min-width:641px) and (max-width:1279px) {
+      #leader-tft-rules #information-category>.leader-tft-module-card>.grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width:640px) {
+      #leader-tft-rules #information-category>.leader-tft-module-card>.grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    #leader-tft-rules #information-category>.leader-tft-module-card>.grid>article {
+      display: block !important;
+      counter-increment: category-number;
+      min-height: 100px !important;
+      padding: 24px !important;
+      background: #FFFFFF !important;
+      border: 1px solid #EC6443 !important;
+      border-radius: 28px !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .04) !important;
+      color: var(--ink) !important;
+    }
+
+    #leader-tft-rules #information-category>.leader-tft-module-card>.grid>article>div:first-child {
+      display: none !important;
+    }
+
+    #leader-tft-rules #information-category>.leader-tft-module-card>.grid>article h3 {
+      margin: 0 0 12px !important;
+      color: var(--ink) !important;
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      line-height: 1.5 !important;
+    }
+
+    #leader-tft-rules #information-category>.leader-tft-module-card>.grid>article h3::before {
+      content: counter(category-number, decimal-leading-zero);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      margin-right: 10px;
+      border-radius: 9999px;
+      background: #EC6443;
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.1;
+      vertical-align: middle;
+    }
+
+    #leader-tft-rules #information-category>.leader-tft-module-card>.grid>article p {
+      padding-left: 38px !important;
+      color: var(--muted) !important;
+      font-size: 14px !important;
+      line-height: 1.7 !important;
+    }
+
+    #leader-tft-rules .tft-rule-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    #leader-tft-rules .tft-rule-card {
+      min-height: 0;
+      overflow: hidden;
+      background: #FFFFFF !important;
+      border: 1px solid #EC6443 !important;
+      border-radius: 28px !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .04) !important;
+    }
+
+    #leader-tft-rules .tft-rule-demo {
+      min-height: 188px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #FFFFFF !important;
+      border-bottom: 1px solid #E5E6EB !important;
+    }
+
+    #leader-tft-rules .tft-rule-copy {
+      padding: 20px 20px 24px;
+    }
+
+    #leader-tft-rules .tft-rule-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      height: 28px;
+      padding: 0 12px;
+      border-radius: 9999px;
+      background: #EC6443 !important;
+      color: #FFFFFF !important;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    #leader-tft-rules .tft-rule-index::after {
+      content: none !important;
+      display: none !important;
+    }
+
+    #leader-tft-rules .tft-rule-card h3 {
+      margin: 15px 0 8px;
+      color: var(--ink) !important;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.55;
+    }
+
+    #leader-tft-rules .tft-rule-card p {
+      margin: 0;
+      color: var(--muted) !important;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    #leader-tft-rules .tft-rule-image {
+      display: block;
+      width: 100%;
+      height: 188px;
+      object-fit: contain;
+    }
+
+    @media (max-width:900px) {
+      #leader-tft-rules .tft-rule-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width:640px) {
+      #leader-tft-rules .tft-rule-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    #leader-tft-rules #tft-main-interaction .leader-tft-body-copy {
+      font-size: 14px !important;
+      line-height: 1.625 !important;
+      color: #4B5563 !important;
+    }
+
+    #leader-tft-rules .xyz-stage {
+      position: relative;
+      width: 150%;
+      height: 600px;
+      min-height: 0;
+      overflow: hidden;
+      background: transparent !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #leader-tft-rules .xyz-rule-image {
+      display: block;
+      width: 40%;
+      height: auto;
+      max-height: 90%;
+      object-fit: contain;
+      flex-shrink: 0;
+      border-radius: 28px !important;
+      background: #FFFFFF;
+    }
+
+    @media (max-width:767px) {
+      #leader-tft-rules .xyz-stage {
+        height: 340px;
+      }
+    }
+
+    #leader-tft-rules #tft-flow-logic .leader-tft-module-card {
+      padding-top: 40px !important;
+      padding-bottom: 40px !important;
+      box-sizing: border-box !important;
+    }
+
+    #leader-tft-rules #tft-flow-logic .tft-step-flow {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 36px !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+      list-style: none !important;
+      align-items: stretch !important;
+    }
+
+    #leader-tft-rules #tft-flow-logic .tft-step-card {
+      position: relative;
+      display: grid !important;
+      grid-template-columns: 28px minmax(0, 1fr) !important;
+      align-items: start !important;
+      gap: 16px !important;
+      min-width: 0;
+      height: 100%;
+      padding: 38px !important;
+      box-sizing: border-box !important;
+      color: var(--ink) !important;
+      background: #FFFFFF !important;
+      border: 1px solid #EC6443 !important;
+      border-radius: 28px !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .04) !important;
+    }
+
+    #leader-tft-rules #tft-flow-logic .tft-step-number {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 28px !important;
+      height: 28px !important;
+      padding: 0 !important;
+      border-radius: 9999px !important;
+      background: #EC6443 !important;
+      color: #FFFFFF !important;
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      line-height: 1 !important;
+      text-align: center !important;
+      border: none !important;
+    }
+
+    #leader-tft-rules #tft-flow-logic .tft-step-label {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--muted) !important;
+      font-size: 14px !important;
+    }
+
+    #leader-tft-rules #tft-flow-logic .tft-step-card h3 {
+      margin: 0 0 10px !important;
+      color: var(--ink) !important;
+      font-size: 17px !important;
+      font-weight: 700 !important;
+      line-height: 1.5 !important;
+    }
+
+    #leader-tft-rules #tft-flow-logic .tft-step-card p {
+      margin: 0 !important;
+      color: var(--muted) !important;
+      font-size: 14px !important;
+      line-height: 1.7 !important;
+    }
+
+    #leader-tft-rules #tft-flow-logic .tft-step-card:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      top: 50%;
+      right: -29px;
+      transform: translateY(-50%);
+      color: #EC6443;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    @media (max-width:900px) {
+      #leader-tft-rules #tft-flow-logic .tft-step-flow {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+      }
+
+      #leader-tft-rules #tft-flow-logic .tft-step-card:not(:last-child)::after {
+        content: "↓";
+        top: auto;
+        right: 50%;
+        bottom: -25px;
+        transform: translateX(50%);
+      }
+    }
+
+    #leader-tft-rules .layout-framework-card {
+      overflow: visible !important;
+    }
+
+    #leader-tft-rules .layout-framework-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+      gap: 48px;
+      align-items: center;
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      justify-items: center;
+      overflow: visible;
+    }
+
+    #leader-tft-rules .framework-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      min-width: 0;
+    }
+
+    #leader-tft-rules .framework-name {
+      width: 100%;
+      margin: 0 0 20px;
+      color: var(--muted) !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 1.65 !important;
+      text-align: center !important;
+      white-space: normal !important;
+    }
+
+    #leader-tft-rules .tft-layout-figure {
+      width: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+      position: static;
+    }
+
+    #leader-tft-rules .tft-layout-image {
+      display: block;
+      height: auto;
+      border-radius: 28px;
+      margin: 0 auto;
+      position: static;
+      transform: none;
+    }
+
+    #leader-tft-rules .tft-layout-image-portrait {
+      width: 42%;
+      max-width: 42%;
+    }
+
+    #leader-tft-rules .tft-layout-image-landscape {
+      width: 70%;
+      max-width: 70%;
+    }
+
+    @media (max-width:1050px) {
+      #leader-tft-rules .layout-framework-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        justify-items: center;
+      }
+
+      #leader-tft-rules .tft-layout-image-portrait,
+      #leader-tft-rules .tft-layout-image-landscape {
+        width: 70%;
+        max-width: 70%;
+      }
+    }
+
+    #leader-tft-rules .product-screen-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 18px;
+      width: 100%;
+      align-items: start;
+      justify-items: center;
+    }
+
+    #leader-tft-rules .product-screen-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-width: 0;
+      text-align: center;
+    }
+
+    #leader-tft-rules .product-screen-item .framework-name {
+      width: 100%;
+      margin: 0 0 16px;
+      color: var(--muted) !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 1.65 !important;
+      text-align: center !important;
+      white-space: normal !important;
+    }
+
+    #leader-tft-rules .product-screen-item .product-position-image {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+      margin: 0;
+    }
+
+    #leader-tft-rules .product-screen-item .product-position-image img {
+      display: block;
+      flex-shrink: 0;
+      max-width: none;
+      margin: 0 auto;
+    }
+
+    @media (max-width:1100px) {
+      #leader-tft-rules .product-screen-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 28px 16px;
+      }
+    }
+
+    @media (max-width:767px) {
+      #leader-tft-rules .product-screen-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 16px;
+        padding: 0;
+      }
+    }
+
+    #leader-tft-rules .tft-info-framework-board .tft-info-framework-heading {
+      margin: 0 0 12px;
+      color: var(--ink) !important;
+      font-size: 24px !important;
+      font-weight: 700 !important;
+      line-height: 1.4 !important;
+    }
+
+    #leader-tft-rules .tft-info-framework-board .tft-info-framework-description {
+      margin: 0 0 28px;
+      color: var(--muted) !important;
+      font-size: 14px !important;
+      line-height: 1.8 !important;
+    }
+
+    #leader-tft-rules .tft-info-framework-board .tft-info-framework-subheading {
+      margin: 40px 0 14px;
+      color: var(--ink) !important;
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      line-height: 24px !important;
+    }
+
+    #leader-tft-rules .tft-info-framework-board .tft-info-framework-subheading:first-of-type {
+      margin-top: 0;
+    }
+
+    #leader-tft-rules .tft-info-framework-board .tft-info-framework-figure {
+      margin: 0 0 28px;
+      overflow: hidden !important;
+      border: 1px solid #E5E6EB !important;
+      border-radius: 14px !important;
+      background: #FFFFFF;
+    }
+
+    #leader-tft-rules .tft-info-framework-board .tft-info-framework-figure:last-child {
+      margin-bottom: 0;
+    }
+
+    #leader-tft-rules .tft-info-framework-board .tft-info-framework-figure img {
+      display: block !important;
+      width: calc(100% + 4px) !important;
+      max-width: none !important;
+      margin: -2px !important;
+      height: auto;
+      border: 0 !important;
+      border-radius: 14px !important;
+      background: #FFFFFF;
+    }
+
+    #leader-tft-rules .tft-landscape-screenshot-board .tft-landscape-screenshot-title {
+      margin: 0 0 18px;
+      color: var(--ink) !important;
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      line-height: 1.5 !important;
+    }
+
+    #leader-tft-rules .tft-landscape-screenshot-board .tft-landscape-group {
+      padding-top: 40px;
+      margin-top: 0;
+      border-top: 0;
+    }
+
+    #leader-tft-rules .tft-landscape-screenshot-board .tft-landscape-group:first-child {
+      padding-top: 0;
+      margin-top: 0;
+      border-top: 0;
+    }
+
+    #leader-tft-rules .tft-landscape-screenshot-board .tft-landscape-group-title {
+      margin: 0 0 16px;
+      color: var(--ink) !important;
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      line-height: 24px !important;
+    }
+
+    #leader-tft-rules .tft-landscape-screenshot-board .tft-landscape-image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+
+    /* 横屏、竖屏示例：figure 纵向排列，图注在上，图片框在下 */
+    #leader-tft-rules .tft-landscape-example-item,
+    #leader-tft-rules .tft-portrait-example-item {
+      overflow: visible !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* 图片描边框：只包图片，不包图注 */
+    #leader-tft-rules .tft-image-frame {
+      display: block !important;
+      border: 1px solid #E5E6EB !important;
+      border-radius: 14px !important;
+      overflow: hidden !important;
+      background: #FFFFFF !important;
+      line-height: 0 !important;
+      order: 2 !important;
+      width: 100% !important;
+    }
+
+    #leader-tft-rules .tft-image-frame img {
+      display: block !important;
+      width: calc(100% + 6px) !important;
+      max-width: none !important;
+      height: auto !important;
+      margin: -3px !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      background: #FFFFFF !important;
+      clip-path: inset(3px round 13px) !important;
+    }
+
+    #leader-tft-rules .tft-landscape-caption,
+    #leader-tft-rules .tft-portrait-caption {
+      display: block !important;
+      order: 1 !important;
+      margin: 0 0 6px 0 !important;
+      color: var(--muted) !important;
+      font-size: 12px !important;
+      font-weight: 400 !important;
+      line-height: 1.5 !important;
+    }
+
+    #leader-tft-rules .tft-portrait-caption {
+      margin-bottom: 8px !important;
+      white-space: nowrap;
+    }
+
+    @media (max-width:760px) {
+      #leader-tft-rules .tft-landscape-screenshot-board .tft-landscape-image-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+    }
+
+    #leader-tft-rules .tft-portrait-screenshot-board .tft-portrait-screenshot-title {
+      margin: 0 0 40px;
+      color: var(--ink) !important;
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      line-height: 1.5 !important;
+    }
+
+    #leader-tft-rules .tft-portrait-screenshot-board .tft-portrait-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(28px, 5vw, 56px);
+      align-items: start;
+    }
+
+    #leader-tft-rules .tft-portrait-screenshot-board .tft-portrait-row+.tft-portrait-row {
+      padding-top: 40px;
+      margin-top: 0;
+      border-top: 0;
+    }
+
+    #leader-tft-rules .tft-portrait-screenshot-board .tft-portrait-group-title {
+      margin: 0 0 16px;
+      color: var(--ink) !important;
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      line-height: 24px !important;
+    }
+
+    #leader-tft-rules .tft-portrait-screenshot-board .tft-portrait-row:first-child .tft-portrait-group-title {
+      margin-top: 0;
+    }
+
+    #leader-tft-rules .tft-portrait-screenshot-board .tft-portrait-image-grid {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      flex-wrap: nowrap;
+    }
+
+    #leader-tft-rules .tft-portrait-screenshot-board .tft-portrait-example-item {
+      flex: 0 0 auto;
+      width: clamp(126px, 15.4vw, 168px);
+      margin: 0;
+      text-align: center;
+    }
+
+    @media (max-width:760px) {
+      #leader-tft-rules .tft-portrait-screenshot-board .tft-portrait-row {
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+
+      #leader-tft-rules .tft-portrait-screenshot-board .tft-portrait-row+.tft-portrait-row {
+        padding-top: 26px;
+        margin-top: 0;
+      }
+    }
+
+    #leader-tft-rules .tft-tabs {
+      display: inline-flex;
+      align-items: center;
+      gap: 32px;
+      max-width: 100%;
+      overflow-x: auto;
+      border: 0;
+      border-bottom: 1px solid #E5E6EB;
+      padding: 0;
+      scrollbar-width: none;
+    }
+
+    #leader-tft-rules .tft-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    #leader-tft-rules .tft-tab {
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      min-width: 0;
+      margin: 0;
+      padding: 8px 20px;
+      border: 0 solid transparent;
+      border-bottom: 2px solid transparent;
+      border-radius: 9999px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: #86909C;
+      background: transparent;
+      text-align: center;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    #leader-tft-rules .tft-tab:hover {
+      color: #EC6443;
+    }
+
+    #leader-tft-rules .tft-tab.active {
+      color: #FFF;
+      background: #EC6443;
+      border-bottom-color: transparent;
+      font-weight: 700;
+    }
+
+    #leader-tft-rules .tft-tab:focus-visible {
+      outline: 2px solid #EC6443;
+      outline-offset: 4px;
+    }
+
+    #leader-tft-rules .tft-pane {
+      display: none;
+    }
+
+    #leader-tft-rules .tft-pane.active {
+      display: block;
+      animation: leader-tft-pane-in .24s ease-out;
+    }
+
+    @keyframes leader-tft-pane-in {
+      from {
+        opacity: 0;
+        transform: translateY(4px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    #leader-tft-rules .leader-tft-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    #leader-tft-rules .leader-tft-home-link,
+    #leader-tft-rules #lang-toggle {
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, .5);
+      border: 1px solid rgba(229, 231, 235, .5);
+      border-radius: 9999px;
+      color: #374151;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+      backdrop-filter: blur(12px);
+      cursor: pointer;
+    }
+
+    #leader-tft-rules .leader-tft-home-link:hover,
+    #leader-tft-rules #lang-toggle:hover {
+      background: rgba(255, 255, 255, .9);
+    }
+
+    #leader-tft-rules #mobile-menu-btn {
+      color: #374151;
+      background: rgba(0, 0, 0, .05);
+      border: 0;
+      border-radius: 8px;
+    }
+
+    #leader-tft-rules #mobile-menu-btn span {
+      background: #374151 !important;
+    }
+
+    #leader-tft-rules footer {
+      color: var(--muted) !important;
+    }
+
+    #leader-tft-rules *,
+    #leader-tft-rules #main-content {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 0, 0, .1) transparent;
+    }
+
+    #leader-tft-rules ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    #leader-tft-rules ::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, .1);
+      border-radius: 10px;
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      #leader-tft-rules .aura-blob {
+        animation: none;
+      }
+    }
+
+    /* 橙色小圆点 */
+    #leader-tft-rules .tft-info-framework-board .tft-info-framework-subheading::before,
+    #leader-tft-rules .tft-landscape-screenshot-board .tft-landscape-group-title::before,
+    #leader-tft-rules .tft-portrait-screenshot-board .tft-portrait-group-title::before {
+      content: "";
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 10px;
+      border-radius: 9999px;
+      background: #EC6443;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    /* 白色小卡片 */
+    #leader-tft-rules .tft-group-card {
+      display: block !important;
+      background: #FFFFFF !important;
+      border: 0 !important;
+      border-radius: 28px !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .04) !important;
+      padding: 18px 20px !important;
+      box-sizing: border-box !important;
+      width: max-content !important;
+      max-width: 100% !important;
+      min-width: 0;
+    }
+
+    #leader-tft-rules .tft-group-card .tft-info-framework-figure,
+    #leader-tft-rules .tft-group-card .tft-landscape-image-grid,
+    #leader-tft-rules .tft-group-card .tft-portrait-image-grid {
+      margin: 0 !important;
+    }
+
+    #leader-tft-rules .tft-portrait-screenshot-board .tft-portrait-group:nth-child(2) {
+      margin-left: -50px;
+    }
+  </style>
+</head>
+
+<body class="antialiased leader-tft-document">
+  <div id="leader-tft-rules" class="leader-tft-rules">
+    <div class="aura-background">
+      <div class="aura-blob aura-blob-1"></div>
+      <div class="aura-blob aura-blob-2"></div>
+      <div class="aura-blob aura-blob-3"></div>
+    </div>
+
+    <header
+      class="md:hidden glass-panel rounded-none fixed top-0 w-full z-50 p-4 flex justify-between items-center border-b border-white/50">
+      <div class="flex items-center">
+        <div class="leader-logo-container w-8 h-8 mr-2 text-[12px]">Leader</div>
+        <h1 class="font-bold text-base text-gray-800" data-i18n-zh="TFT布局" data-i18n-en="TFT Layout">TFT布局</h1>
+      </div>
+      <button id="mobile-menu-btn" class="p-2 bg-black/5 hover:bg-black/10 rounded-lg" aria-label="打开导航"
+        data-i18n-aria-label-zh="打开导航" data-i18n-aria-label-en="Open navigation">
+        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span><span
+          class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span><span class="block w-6 h-0.5 bg-gray-700"></span>
+      </button>
+    </header>
+
+    <div class="flex h-screen pt-16 md:pt-0">
+      <aside id="sidebar"
+        class="hidden md:flex flex-col w-72 h-full fixed top-0 left-0 glass-panel rounded-none border-r border-white/50 z-40 overflow-y-auto"
+        aria-label="Leader Design 设计规范导航" data-i18n-aria-label-zh="Leader Design 设计规范导航"
+        data-i18n-aria-label-en="Leader Design guideline navigation" aria-hidden="true"></aside>
+      <div id="sidebar-backdrop" class="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 hidden md:hidden"
+        aria-hidden="true"></div>
+
+      <main class="flex-1 md:ml-72 p-6 md:p-10 lg:p-12 overflow-y-auto h-full scroll-smooth" id="main-content">
+        <div class="max-w-[1200px] mx-auto pb-24">
+          <div class="leader-tft-toolbar hidden md:flex">
+            <a href="leader_os_design_system.html" class="leader-tft-home-link">
+              <span data-i18n-zh="返回主页" data-i18n-en="Back to Home">返回主页</span>
+            </a>
+            <button id="lang-toggle" type="button" data-lang="zh" aria-label="切换到英文"><span
+                id="lang-label">EN</span></button>
+          </div>
+
+          <section class="mb-12 leader-tft-page-heading">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-2 text-gray-900" data-i18n-zh="TFT布局"
+              data-i18n-en="TFT Layout">TFT布局</h1>
+            <p class="text-lg w-full max-w-none leading-relaxed mb-5"
+              data-i18n-zh="统一 TFT 载体下的信息分类、界面框架与场景交互布局规则，建立跨品类清晰、一致且易理解的智能屏体验。"
+              data-i18n-en="Standardize information categories, interface frameworks, and scenario-based interaction and layout rules for TFT displays to deliver a clear, consistent, and intuitive smart-screen experience across appliance categories.">
+              统一 TFT 载体下的信息分类、界面框架与场景交互布局规则，建立跨品类清晰、一致且易理解的智能屏体验。
+            </p>
+          </section>
+
+          <nav class="tft-tabs mb-12" role="tablist" aria-label="TFT 规则分类" data-i18n-aria-label-zh="TFT 规则分类"
+            data-i18n-aria-label-en="TFT guideline categories">
+            <button class="tft-tab active" type="button" role="tab" aria-selected="true" id="tab-classification"
+              aria-controls="pane-classification" tabindex="0" data-tft-tab="classification" data-i18n-zh="信息组织"
+              data-i18n-en="Information Organization">信息组织</button>
+            <button class="tft-tab" type="button" role="tab" aria-selected="false" id="tab-scene"
+              aria-controls="pane-scene" tabindex="-1" data-tft-tab="scene" data-i18n-zh="交互示例"
+              data-i18n-en="Interaction Examples">交互示例</button>
+          </nav>
+
+          <div class="tft-pane active" id="pane-classification" role="tabpanel" aria-labelledby="tab-classification"
+            tabindex="0" data-tft-pane="classification">
+
+            <section id="information-category" class="scroll-mt-8 leader-tft-module">
+              <div class="leader-tft-module-header">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3 leader-tft-section-title" data-i18n-zh="信息分类"
+                  data-i18n-en="Information Categories">信息分类</h2>
+                <p class="text-sm text-gray-600 leading-7 leader-tft-body-copy"
+                  data-i18n-zh="各品类 TFT 屏幕的信息统一分为以下七类，便于组织内容并保持一致的操作逻辑。"
+                  data-i18n-en="Organize information on TFT displays into the following seven categories across product categories to structure content and maintain consistent interaction logic.">
+                  各品类 TFT 屏幕的信息统一分为以下七类，便于组织内容并保持一致的操作逻辑。</p>
+              </div>
+              <div class="glass-panel leader-tft-module-card">
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+                  <article>
+                    <div>01</div>
+                    <div>
+                      <h3 class="text-base font-bold text-gray-900 mb-2 leader-tft-card-title" data-i18n-zh="电源启动类"
+                        data-i18n-en="Power and Start Controls">电源启动类</h3>
+                      <p class="info-card-desc leader-tft-body-copy" data-i18n-zh="承载设备开关机、启停等核心控制。"
+                        data-i18n-en="Provides core controls such as power on/off and start/stop.">承载设备开关机、启停等核心控制。</p>
+                    </div>
+                  </article>
+                  <article>
+                    <div>02</div>
+                    <div>
+                      <h3 class="text-base font-bold text-gray-900 mb-2 leader-tft-card-title" data-i18n-zh="模式选择类"
+                        data-i18n-en="Operating Modes">模式选择类</h3>
+                      <p class="info-card-desc leader-tft-body-copy" data-i18n-zh="用于切换设备的工作模式、使用场景或任务类型。"
+                        data-i18n-en="Switches between operating modes, use scenarios, and task types.">
+                        用于切换设备的工作模式、使用场景或任务类型。</p>
+                    </div>
+                  </article>
+                  <article>
+                    <div>03</div>
+                    <div>
+                      <h3 class="text-base font-bold text-gray-900 mb-2 leader-tft-card-title" data-i18n-zh="功能模块/程序类"
+                        data-i18n-en="Function Modules / Programs">功能模块/程序类</h3>
+                      <p class="info-card-desc leader-tft-body-copy" data-i18n-zh="承载用户主要任务，是程序选择和功能操作的核心区域。"
+                        data-i18n-en="Supports primary user tasks and serves as the main area for selecting programs and operating functions.">
+                        承载用户主要任务，是程序选择和功能操作的核心区域。</p>
+                    </div>
+                  </article>
+                  <article>
+                    <div>04</div>
+                    <div>
+                      <h3 class="text-base font-bold text-gray-900 mb-2 leader-tft-card-title" data-i18n-zh="参数调节类"
+                        data-i18n-en="Adjustable Parameters">参数调节类</h3>
+                      <p class="info-card-desc leader-tft-body-copy" data-i18n-zh="用于调节温度、时间、档位、转速等任务参数。"
+                        data-i18n-en="Adjusts task parameters such as temperature, time, level, and spin speed.">
+                        用于调节温度、时间、档位、转速等任务参数。</p>
+                    </div>
+                  </article>
+                  <article>
+                    <div>05</div>
+                    <div>
+                      <h3 class="text-base font-bold text-gray-900 mb-2 leader-tft-card-title" data-i18n-zh="状态提示类"
+                        data-i18n-en="Status Indicators">状态提示类</h3>
+                      <p class="info-card-desc leader-tft-body-copy" data-i18n-zh="显示运行状态、任务阶段、异常提醒及操作反馈。"
+                        data-i18n-en="Displays operating status, task progress, alerts, and interaction feedback.">
+                        显示运行状态、任务阶段、异常提醒及操作反馈。</p>
+                    </div>
+                  </article>
+                  <article>
+                    <div>06</div>
+                    <div>
+                      <h3 class="text-base font-bold text-gray-900 mb-2 leader-tft-card-title" data-i18n-zh="语音助手"
+                        data-i18n-en="Voice Assistant">语音助手</h3>
+                      <p class="info-card-desc leader-tft-body-copy" data-i18n-zh="通过语音指令完成设备控制、参数调节及信息查询。"
+                        data-i18n-en="Use voice commands to control the appliance, adjust parameters, and retrieve information.">
+                        通过语音指令完成设备控制、参数调节及信息查询。</p>
+                    </div>
+                  </article>
+                  <article>
+                    <div>07</div>
+                    <div>
+                      <h3 class="text-base font-bold text-gray-900 mb-2 leader-tft-card-title" data-i18n-zh="附加功能类"
+                        data-i18n-en="Additional Functions">附加功能类</h3>
+                      <p class="info-card-desc leader-tft-body-copy" data-i18n-zh="为主程序提供增强、辅助或个性化能力，可按需选择。"
+                        data-i18n-en="Offers optional enhancements, assistance, and personalization for the main program.">
+                        为主程序提供增强、辅助或个性化能力，可按需选择。</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section id="tft-experience-rules" class="scroll-mt-8 leader-tft-module">
+              <div class="leader-tft-module-header">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3 leader-tft-section-title" data-i18n-zh="核心原则"
+                  data-i18n-en="Core Principles">核心原则</h2>
+                <p class="text-sm text-gray-600 leading-7 leader-tft-body-copy"
+                  data-i18n-zh="基于易用性建立 TFT 屏交互的核心体验规则，保障用户体验轻便高效、学习成本更低，并建立跨品类一致的操作体验。"
+                  data-i18n-en="Define core TFT interaction rules around usability to support efficient operation, lower learning effort, and consistent experiences across product categories.">
+                  基于易用性建立 TFT 屏交互的核心体验规则，保障用户体验轻便高效、学习成本更低，并建立跨品类一致的操作体验。</p>
+              </div>
+              <div class="glass-panel leader-tft-module-card">
+                <div class="tft-rule-grid">
+                  <article class="tft-rule-card">
+                    <div class="tft-rule-demo"><img data-i18n-alt-zh="焦点式交互，单屏聚焦单任务示意图"
+                        data-i18n-alt-en="Illustration of focused interaction with one primary task per screen"
+                        class="tft-rule-image"
+                        src="leader-assets/examples/tft_Information_classification/information_1.png"
+                        alt="焦点式交互，单屏聚焦单任务示意图" style="width:100%;height:auto;margin:0 auto;"></div>
+                    <div class="tft-rule-copy">
+                      <div class="tft-rule-index" data-i18n-zh="原则 01" data-i18n-en="Principle 01">原则 01</div>
+                      <h3 data-i18n-zh="焦点交互，单屏聚焦单任务" data-i18n-en="Focused Interaction: One Primary Task per Screen"
+                        class="leader-tft-card-title">焦点交互，单屏聚焦单任务</h3>
+                      <p data-i18n-zh="当前操作对象保持明确焦点，同一时刻突出一个主任务，减少信息干扰。"
+                        data-i18n-en="Keep the current interaction target clearly in focus. Emphasize one primary task at a time to reduce distractions."
+                        class="leader-tft-body-copy">当前操作对象保持明确焦点，同一时刻突出一个主任务，减少信息干扰。</p>
+                    </div>
+                  </article>
+                  <article class="tft-rule-card">
+                    <div class="tft-rule-demo"><img data-i18n-alt-zh="扁平化弱层级交互，直达触发示意图"
+                        data-i18n-alt-en="Illustration of shallow navigation with direct access to actions"
+                        class="tft-rule-image"
+                        src="leader-assets/examples/tft_Information_classification/information_2.png"
+                        alt="扁平化弱层级交互，直达触发示意图" style="width:80%;height:auto;margin:0 auto;"></div>
+                    <div class="tft-rule-copy">
+                      <div class="tft-rule-index" data-i18n-zh="原则 02" data-i18n-en="Principle 02">原则 02</div>
+                      <h3 data-i18n-zh="精简层级，高频直达" data-i18n-en="Fewer Levels, Direct Access to Frequent Tasks"
+                        class="leader-tft-card-title">精简层级，高频直达</h3>
+                      <p data-i18n-zh="减少页面层级与操作步骤，高频任务优先直达，支持快速返回。"
+                        data-i18n-en="Reduce navigation levels and interaction steps. Prioritize direct access to frequent tasks and support quick return navigation."
+                        class="leader-tft-body-copy">减少页面层级与操作步骤，高频任务优先直达，支持快速返回。</p>
+                    </div>
+                  </article>
+                  <article class="tft-rule-card">
+                    <div class="tft-rule-demo"><img data-i18n-alt-zh="跨品类同一属性的信息模块交互方式一致示意图"
+                        data-i18n-alt-en="Illustration of consistent interaction for equivalent information modules across product categories"
+                        class="tft-rule-image"
+                        src="leader-assets/examples/tft_Information_classification/information_3.png"
+                        alt="跨品类同一属性的信息模块交互方式一致示意图" style="width:65%;height:auto;margin:0 auto;"></div>
+                    <div class="tft-rule-copy">
+                      <div class="tft-rule-index" data-i18n-zh="原则 03" data-i18n-en="Principle 03">原则 03</div>
+                      <h3 data-i18n-zh="同类信息模块，交互统一"
+                        data-i18n-en="Consistent Interaction for Similar Information Modules"
+                        class="leader-tft-card-title">同类信息模块，交互统一</h3>
+                      <p data-i18n-zh="同类功能统一选择与调节方式，保持跨页面、跨场景的交互一致性。"
+                        data-i18n-en="Use consistent selection and adjustment methods for similar functions across screens and scenarios."
+                        class="leader-tft-body-copy">同类功能统一选择与调节方式，保持跨页面、跨场景的交互一致性。</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section id="tft-main-interaction" class="scroll-mt-8 leader-tft-module">
+              <div class="leader-tft-module-header">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3 leader-tft-section-title" data-i18n-zh="交互方式"
+                  data-i18n-en="Interaction Methods">交互方式</h2>
+                <p class="text-sm text-gray-600 leading-7 leader-tft-body-copy"
+                  data-i18n-zh="横屏中，左右切换程序或功能，上下选择其详情调节项；竖屏中，两者的操作方向相应对调。"
+                  data-i18n-en="On landscape screens, switch programs or functions left and right, and select their detailed adjustment options up and down. Reverse these interaction directions on portrait screens.">
+                  横屏中，左右切换程序或功能，上下选择其详情调节项；竖屏中，两者的操作方向相应对调。</p>
+                <p class="text-sm text-gray-600 leading-7 leader-tft-body-copy"
+                  data-i18n-zh="选择选项时，始终突出当前选中项。通过选择、调节与进入详情三个方向，建立统一的 XYZ 交互方式（见下图）。"
+                  data-i18n-en="Always highlight the currently selected option. Establish a consistent XYZ interaction model through three directions: selection, adjustment, and opening details (see the illustration below).">
+                  选择选项时，始终突出当前选中项。通过选择、调节与进入详情三个方向，建立统一的 XYZ 交互方式（见下图）。</p>
+              </div>
+              <div class="glass-panel leader-tft-module-card">
+                <div class="xyz-stage">
+                  <img data-i18n-alt-zh="XYZ主交互方式规则示意图"
+                    data-i18n-alt-en="Illustration of the XYZ primary interaction model" class="xyz-rule-image"
+                    src="leader-assets/examples/tft_Information_classification/information_6.png" alt="XYZ主交互方式规则示意图">
+                </div>
+              </div>
+            </section>
+
+            <section id="tft-flow-logic" class="scroll-mt-8 leader-tft-module">
+              <div class="leader-tft-module-header">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3 leader-tft-section-title" data-i18n-zh="交互步骤"
+                  data-i18n-en="Interaction Steps">交互步骤</h2>
+                <p class="text-sm text-gray-600 leading-7 leader-tft-body-copy"
+                  data-i18n-zh="统筹各品类 TFT 载体下的产品信息与核心交互流程，建立从功能选择到任务执行的一致性步骤逻辑，降低跨产品学习成本。"
+                  data-i18n-en="Unify product information and core interaction flows across TFT devices, establishing a consistent sequence from function selection to task execution and reducing cross-product learning effort.">
+                  统筹各品类 TFT 载体下的产品信息与核心交互流程，建立从功能选择到任务执行的一致性步骤逻辑，降低跨产品学习成本。</p>
+              </div>
+              <div class="glass-panel leader-tft-module-card">
+                <ol class="tft-step-flow" aria-label="核心交互步骤" data-i18n-aria-label-zh="核心交互步骤"
+                  data-i18n-aria-label-en="Core interaction steps">
+                  <li class="tft-step-card"><span class="tft-step-number">01</span>
+                    <div><span class="tft-step-label" data-i18n-zh="第一步" data-i18n-en="Step 1">第一步</span>
+                      <h3 data-i18n-zh="选择程序或功能" data-i18n-en="Select a program or function"
+                        class="leader-tft-card-title">选择程序或功能</h3>
+                      <p data-i18n-zh="程序选择 / 功能模块选择页" data-i18n-en="Program / function selection screen"
+                        class="leader-tft-body-copy">程序选择 / 功能模块选择页</p>
+                    </div>
+                  </li>
+                  <li class="tft-step-card"><span class="tft-step-number">02</span>
+                    <div><span class="tft-step-label" data-i18n-zh="第二步" data-i18n-en="Step 2">第二步</span>
+                      <h3 data-i18n-zh="查看详情与调节参数" data-i18n-en="Review details and adjust parameters"
+                        class="leader-tft-card-title">查看详情与调节参数</h3>
+                      <p data-i18n-zh="程序或功能模块的详情 / 调节页" data-i18n-en="Program / function details and adjustment screen"
+                        class="leader-tft-body-copy">程序或功能模块的详情 / 调节页</p>
+                    </div>
+                  </li>
+                  <li class="tft-step-card"><span class="tft-step-number">03</span>
+                    <div><span class="tft-step-label" data-i18n-zh="第三步" data-i18n-en="Step 3">第三步</span>
+                      <h3 data-i18n-zh="启动并查看运行状态" data-i18n-en="Start and monitor progress"
+                        class="leader-tft-card-title">启动并查看运行状态</h3>
+                      <p data-i18n-zh="程序或子模块功能运行页" data-i18n-en="Program / sub-function running screen"
+                        class="leader-tft-body-copy">程序或子模块功能运行页</p>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </section>
+
+            <section id="tft-layout-framework" class="scroll-mt-8 leader-tft-module">
+              <div class="leader-tft-module-header">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3 leader-tft-section-title" data-i18n-zh="布局框架"
+                  data-i18n-en="Layout Framework">布局框架</h2>
+                <p class="text-sm text-gray-600 leading-7 leader-tft-body-copy"
+                  data-i18n-zh="根据横向与竖向屏幕比例，建立一致的系统状态、模式分类、内容区与辅助操作区域。"
+                  data-i18n-en="Define consistent system-status, mode-category, content, and auxiliary-control areas for landscape and portrait screen proportions.">
+                  根据横向与竖向屏幕比例，建立一致的系统状态、模式分类、内容区与辅助操作区域。</p>
+              </div>
+              <div class="glass-panel leader-tft-module-card layout-framework-card">
+                <div class="layout-framework-grid">
+                  <div class="framework-item">
+                    <div class="framework-name leader-tft-label" data-i18n-zh="竖向屏幕布局" data-i18n-en="Portrait Layout">
+                      竖向屏幕布局</div>
+                    <figure class="tft-layout-figure">
+                      <img data-i18n-alt-zh="竖向屏幕主界面布局基础框架"
+                        data-i18n-alt-en="Main interface layout framework for portrait screens"
+                        src="./leader-assets/examples/tft_Information_classification/information_5.png"
+                        alt="竖向屏幕主界面布局基础框架" class="tft-layout-image tft-layout-image-portrait">
+                    </figure>
+                  </div>
+                  <div class="framework-item">
+                    <div class="framework-name leader-tft-label" data-i18n-zh="横向屏幕布局" data-i18n-en="Landscape Layout">
+                      横向屏幕布局</div>
+                    <figure class="tft-layout-figure">
+                      <img data-i18n-alt-zh="横向屏幕主界面布局基础框架"
+                        data-i18n-alt-en="Main interface layout framework for landscape screens"
+                        src="./leader-assets/examples/tft_Information_classification/information_4.png"
+                        alt="横向屏幕主界面布局基础框架" class="tft-layout-image tft-layout-image-landscape">
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="tft-screen-product" class="scroll-mt-8 leader-tft-module">
+              <div class="leader-tft-module-header">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3 leader-tft-section-title" data-i18n-zh="位置关系"
+                  data-i18n-en="Screen Placement">位置关系</h2>
+                <p class="text-sm text-gray-600 leading-7 leader-tft-body-copy"
+                  data-i18n-zh="TFT 屏幕及 TFT+LED 组合屏幕的位置，应与产品中心轴、核心结构或主要操作区域相对应。"
+                  data-i18n-en="For both TFT and TFT+LED configurations, align screen placement with the product centerline, key physical structures, or primary operating area.">
+                  TFT 屏幕及 TFT+LED 组合屏幕的位置，应与产品中心轴、核心结构或主要操作区域相对应。</p>
+              </div>
+              <div class="glass-panel leader-tft-module-card">
+                <div class="product-screen-grid">
+                  <div class="product-screen-item">
+                    <p class="framework-name" data-i18n-zh="蒸烤箱" data-i18n-en="Combi Steam Oven">蒸烤箱</p>
+                    <figure class="product-position-image"><img data-i18n-alt-zh="横向品类屏幕与产品中心轴对齐示意"
+                        data-i18n-alt-en="Illustration of screen alignment with the product centerline for landscape appliances"
+                        src="./leader-assets/examples/tft_Information_classification/information_7.png"
+                        alt="横向品类屏幕与产品中心轴对齐示意" style="width:110px;height:auto;"></figure>
+                  </div>
+                  <div class="product-screen-item">
+                    <p class="framework-name" data-i18n-zh="洗衣机" data-i18n-en="Washing Machine">洗衣机</p>
+                    <figure class="product-position-image"><img data-i18n-alt-zh="洗衣机屏幕与筒心对齐示意"
+                        data-i18n-alt-en="Illustration of a washing machine screen aligned with the drum center"
+                        src="./leader-assets/examples/tft_Information_classification/information_8.png"
+                        alt="洗衣机屏幕与筒心对齐示意" style="width:120px;height:auto;"></figure>
+                  </div>
+                  <div class="product-screen-item">
+                    <p class="framework-name" data-i18n-zh="空调竖屏" data-i18n-en="Air Conditioner — Portrait Screen">空调竖屏
+                    </p>
+                    <figure class="product-position-image"><img data-i18n-alt-zh="窄竖向品类屏幕布局示意"
+                        data-i18n-alt-en="Illustration of screen placement for narrow portrait appliances"
+                        src="./leader-assets/examples/tft_Information_classification/information_9.png"
+                        alt="窄竖向品类屏幕布局示意" style="width:80px;height:auto;"></figure>
+                  </div>
+                  <div class="product-screen-item">
+                    <p class="framework-name" data-i18n-zh="空调横屏" data-i18n-en="Air Conditioner — Landscape Screen">空调横屏
+                    </p>
+                    <figure class="product-position-image"><img data-i18n-alt-zh="高竖向品类屏幕布局示意"
+                        data-i18n-alt-en="Illustration of screen placement for tall portrait appliances"
+                        src="./leader-assets/examples/tft_Information_classification/information_10.png"
+                        alt="高竖向品类屏幕布局示意" style="width:80px;height:auto;"></figure>
+                  </div>
+                  <div class="product-screen-item">
+                    <p class="framework-name" data-i18n-zh="双塔式空调" data-i18n-en="Dual-Tower Air Conditioner">双塔式空调</p>
+                    <figure class="product-position-image"><img data-i18n-alt-zh="双门品类屏幕布局示意"
+                        data-i18n-alt-en="Illustration of screen placement for double-door appliances"
+                        src="./leader-assets/examples/tft_Information_classification/information_11.png"
+                        alt="双门品类屏幕布局示意" style="width:80px;height:auto;"></figure>
+                  </div>
+                  <div class="product-screen-item">
+                    <p class="framework-name" data-i18n-zh="冰箱" data-i18n-en="Refrigerator">冰箱</p>
+                    <figure class="product-position-image"><img data-i18n-alt-zh="大屏品类屏幕布局示意"
+                        data-i18n-alt-en="Illustration of screen placement for large-screen appliances"
+                        src="./leader-assets/examples/tft_Information_classification/information_12.png"
+                        alt="大屏品类屏幕布局示意" style="width:120px;height:auto;"></figure>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="tft-pane" id="pane-scene" role="tabpanel" aria-labelledby="tab-scene" tabindex="0"
+            data-tft-pane="scene">
+            <section class="tft-info-framework-board leader-tft-module" aria-labelledby="tft-info-framework-title">
+              <div class="leader-tft-module-header">
+                <h2 id="tft-info-framework-title" class="tft-info-framework-heading leader-tft-section-title"
+                  data-i18n-zh="信息框架" data-i18n-en="Information Framework">信息框架</h2>
+                <p class="tft-info-framework-description leader-tft-body-copy"
+                  data-i18n-zh="以 AI 和标准模式作为首层入口，建立一致的交互起点。"
+                  data-i18n-en="Use AI and Standard modes as the top-level entry points to establish a consistent starting point for interaction.">
+                  以 AI 和标准模式作为首层入口，建立一致的交互起点。</p>
+              </div>
+              <div class="glass-panel leader-tft-module-card">
+                <h3 class="tft-info-framework-subheading leader-tft-subsection-title" data-i18n-zh="信息分区"
+                  data-i18n-en="Information Zones">信息分区</h3>
+                <div class="tft-group-card">
+                  <figure class="tft-info-framework-figure"><img data-i18n-alt-zh="信息分区示意图"
+                      data-i18n-alt-en="Illustration of information zones"
+                      src="./leader-assets/examples/tft_scene/scene_1.png" alt="信息分区示意图"></figure>
+                </div>
+                <h3 class="tft-info-framework-subheading leader-tft-subsection-title" data-i18n-zh="主页示例"
+                  data-i18n-en="Home Screen Example">主页示例</h3>
+                <div class="tft-group-card">
+                  <figure class="tft-info-framework-figure"><img data-i18n-alt-zh="主页示例"
+                      data-i18n-alt-en="Home screen example" src="./leader-assets/examples/tft_scene/scene_2.png"
+                      alt="主页示例"></figure>
+                </div>
+              </div>
+            </section>
+
+            <section id="tft-washer-landscape" class="scroll-mt-8 tft-landscape-screenshot-board leader-tft-module">
+              <div class="leader-tft-module-header">
+                <h2 class="tft-landscape-screenshot-title leader-tft-section-title" data-i18n-zh="横屏示例"
+                  data-i18n-en="Landscape Examples">横屏示例</h2>
+              </div>
+              <div class="glass-panel leader-tft-module-card">
+                <div class="tft-landscape-groups">
+                  <section class="tft-landscape-group">
+                    <h3 class="tft-landscape-group-title leader-tft-subsection-title" data-i18n-zh="首页"
+                      data-i18n-en="Home Screen">首页</h3>
+                    <div class="tft-group-card">
+                      <div class="tft-landscape-image-grid">
+                        <figure class="tft-landscape-example-item">
+                          <figcaption class="tft-landscape-caption" data-i18n-zh="多层级" data-i18n-en="Multi-level">多层级
+                          </figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="首页多层级示例"
+                              data-i18n-alt-en="Home screen example with multiple navigation levels"
+                              src="./leader-assets/examples/tft_scene/scene_3.png" alt="首页多层级示例"></div>
+                        </figure>
+                        <figure class="tft-landscape-example-item">
+                          <figcaption class="tft-landscape-caption" data-i18n-zh="单层级" data-i18n-en="Single-level">单层级
+                          </figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="首页单层级示例"
+                              data-i18n-alt-en="Home screen example with a single navigation level"
+                              src="./leader-assets/examples/tft_scene/scene_4.png" alt="首页单层级示例"></div>
+                        </figure>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="tft-landscape-group">
+                    <h3 class="tft-landscape-group-title leader-tft-subsection-title" data-i18n-zh="设置页"
+                      data-i18n-en="Settings Screen">设置页</h3>
+                    <div class="tft-group-card">
+                      <div class="tft-landscape-image-grid">
+                        <figure class="tft-landscape-example-item">
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="设置页示例"
+                              data-i18n-alt-en="Settings screen example"
+                              src="./leader-assets/examples/tft_scene/scene_5.png" alt="设置页示例"></div>
+                        </figure>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="tft-landscape-group">
+                    <h3 class="tft-landscape-group-title leader-tft-subsection-title" data-i18n-zh="二级页"
+                      data-i18n-en="Level 2 Screens">二级页</h3>
+                    <div class="tft-group-card">
+                      <div class="tft-landscape-image-grid">
+                        <figure class="tft-landscape-example-item">
+                          <figcaption class="tft-landscape-caption" data-i18n-zh="二级分类页面"
+                            data-i18n-en="Level 2 Category Screen">二级分类页面</figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="二级分类页面示例"
+                              data-i18n-alt-en="Level 2 category screen example"
+                              src="./leader-assets/examples/tft_scene/scene_6.png" alt="二级分类页面示例"></div>
+                        </figure>
+                        <figure class="tft-landscape-example-item">
+                          <figcaption class="tft-landscape-caption" data-i18n-zh="参数调节"
+                            data-i18n-en="Parameter Adjustment">参数调节</figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="参数调节示例"
+                              data-i18n-alt-en="Parameter adjustment example"
+                              src="./leader-assets/examples/tft_scene/scene_7.png" alt="参数调节示例"></div>
+                        </figure>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="tft-landscape-group">
+                    <h3 class="tft-landscape-group-title leader-tft-subsection-title" data-i18n-zh="进程页"
+                      data-i18n-en="Progress Screens">进程页</h3>
+                    <div class="tft-group-card">
+                      <div class="tft-landscape-image-grid">
+                        <figure class="tft-landscape-example-item">
+                          <figcaption class="tft-landscape-caption" data-i18n-zh="程序运行" data-i18n-en="Program Running">
+                            程序运行</figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="程序运行示例"
+                              data-i18n-alt-en="Program running example"
+                              src="./leader-assets/examples/tft_scene/scene_8.png" alt="程序运行示例"></div>
+                        </figure>
+                        <figure class="tft-landscape-example-item">
+                          <figcaption class="tft-landscape-caption" data-i18n-zh="程序完成"
+                            data-i18n-en="Program Completed">程序完成</figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="程序完成示例"
+                              data-i18n-alt-en="Program completed example"
+                              src="./leader-assets/examples/tft_scene/scene_9.png" alt="程序完成示例"></div>
+                        </figure>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="tft-landscape-group">
+                    <h3 class="tft-landscape-group-title leader-tft-subsection-title" data-i18n-zh="AI模式"
+                      data-i18n-en="AI Mode">AI模式</h3>
+                    <div class="tft-group-card">
+                      <div class="tft-landscape-image-grid">
+                        <figure class="tft-landscape-example-item">
+                          <figcaption class="tft-landscape-caption" data-i18n-zh="待机" data-i18n-en="Standby">待机
+                          </figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="AI模式快捷示例"
+                              data-i18n-alt-en="AI mode shortcut example"
+                              src="./leader-assets/examples/tft_scene/scene_10.png" alt="AI模式快捷示例"></div>
+                        </figure>
+                        <figure class="tft-landscape-example-item">
+                          <figcaption class="tft-landscape-caption" data-i18n-zh="识别" data-i18n-en="Recognition">识别
+                          </figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="AI模式识别示例"
+                              data-i18n-alt-en="AI mode recognition example"
+                              src="./leader-assets/examples/tft_scene/scene_11.png" alt="AI模式识别示例"></div>
+                        </figure>
+                        <figure class="tft-landscape-example-item">
+                          <figcaption class="tft-landscape-caption" data-i18n-zh="结果" data-i18n-en="Results">结果
+                          </figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="AI模式结果示例"
+                              data-i18n-alt-en="AI mode results example"
+                              src="./leader-assets/examples/tft_scene/scene_12.png" alt="AI模式结果示例"></div>
+                        </figure>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="tft-landscape-group">
+                    <h3 class="tft-landscape-group-title leader-tft-subsection-title" data-i18n-zh="设备页"
+                      data-i18n-en="Device Pages">设备页</h3>
+                    <div class="tft-group-card">
+                      <div class="tft-landscape-image-grid">
+                        <figure class="tft-landscape-example-item">
+                          <figcaption class="tft-landscape-caption" data-i18n-zh="耗材" data-i18n-en="Consumables">耗材
+                          </figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="设备耗材示例"
+                              data-i18n-alt-en="Device consumables example"
+                              src="./leader-assets/examples/tft_scene/scene_13.png" alt="设备耗材示例"></div>
+                        </figure>
+                        <figure class="tft-landscape-example-item">
+                          <figcaption class="tft-landscape-caption" data-i18n-zh="能耗" data-i18n-en="Energy Use">能耗
+                          </figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="设备能耗示例"
+                              data-i18n-alt-en="Device energy use example"
+                              src="./leader-assets/examples/tft_scene/scene_14.png" alt="设备能耗示例"></div>
+                        </figure>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </section>
+
+            <section id="tft-vertical-layout" class="scroll-mt-8 tft-portrait-screenshot-board leader-tft-module">
+              <div class="leader-tft-module-header">
+                <h2 class="tft-portrait-screenshot-title leader-tft-section-title" data-i18n-zh="竖屏示例"
+                  data-i18n-en="Portrait Examples">竖屏示例</h2>
+              </div>
+              <div class="glass-panel leader-tft-module-card">
+                <div class="tft-portrait-row">
+                  <section class="tft-portrait-group">
+                    <h3 class="tft-portrait-group-title leader-tft-subsection-title" data-i18n-zh="首页"
+                      data-i18n-en="Home Screen">首页</h3>
+                    <div class="tft-group-card">
+                      <div class="tft-portrait-image-grid">
+                        <figure class="tft-portrait-example-item">
+                          <figcaption class="tft-portrait-caption" data-i18n-zh="多层级" data-i18n-en="Multi-level">多层级
+                          </figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="首页多层级示例"
+                              data-i18n-alt-en="Home screen example with multiple navigation levels"
+                              src="./leader-assets/examples/tft_scene/scene_15.png" alt="首页多层级示例"></div>
+                        </figure>
+                        <figure class="tft-portrait-example-item">
+                          <figcaption class="tft-portrait-caption" data-i18n-zh="单层级" data-i18n-en="Single-level">单层级
+                          </figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="首页单层级示例"
+                              data-i18n-alt-en="Home screen example with a single navigation level"
+                              src="./leader-assets/examples/tft_scene/scene_16.png" alt="首页单层级示例"></div>
+                        </figure>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="tft-portrait-group">
+                    <h3 class="tft-portrait-group-title leader-tft-subsection-title" data-i18n-zh="二级页"
+                      data-i18n-en="Level 2 Screens">二级页</h3>
+                    <div class="tft-group-card">
+                      <div class="tft-portrait-image-grid">
+                        <figure class="tft-portrait-example-item">
+                          <figcaption class="tft-portrait-caption" data-i18n-zh="二级分类页面"
+                            data-i18n-en="Level 2 Category Screen">二级分类页面</figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="二级分类页面示例"
+                              data-i18n-alt-en="Level 2 category screen example"
+                              src="./leader-assets/examples/tft_scene/scene_17.png" alt="二级分类页面示例"></div>
+                        </figure>
+                        <figure class="tft-portrait-example-item">
+                          <figcaption class="tft-portrait-caption" data-i18n-zh="参数调节"
+                            data-i18n-en="Parameter Adjustment">参数调节</figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="参数调节示例"
+                              data-i18n-alt-en="Parameter adjustment example"
+                              src="./leader-assets/examples/tft_scene/scene_18.png" alt="参数调节示例"></div>
+                        </figure>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="tft-portrait-row">
+                  <section class="tft-portrait-group">
+                    <h3 class="tft-portrait-group-title leader-tft-subsection-title" data-i18n-zh="进程页"
+                      data-i18n-en="Progress Screens">进程页</h3>
+                    <div class="tft-group-card">
+                      <div class="tft-portrait-image-grid">
+                        <figure class="tft-portrait-example-item">
+                          <figcaption class="tft-portrait-caption" data-i18n-zh="程序运行" data-i18n-en="Program Running">
+                            程序运行</figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="程序运行示例"
+                              data-i18n-alt-en="Program running example"
+                              src="./leader-assets/examples/tft_scene/scene_19.png" alt="程序运行示例"></div>
+                        </figure>
+                        <figure class="tft-portrait-example-item">
+                          <figcaption class="tft-portrait-caption" data-i18n-zh="程序完成" data-i18n-en="Program Completed">
+                            程序完成</figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="程序完成示例"
+                              data-i18n-alt-en="Program completed example"
+                              src="./leader-assets/examples/tft_scene/scene_20.png" alt="程序完成示例"></div>
+                        </figure>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="tft-portrait-group">
+                    <h3 class="tft-portrait-group-title leader-tft-subsection-title" data-i18n-zh="AI模式"
+                      data-i18n-en="AI Mode">AI模式</h3>
+                    <div class="tft-group-card">
+                      <div class="tft-portrait-image-grid">
+                        <figure class="tft-portrait-example-item">
+                          <figcaption class="tft-portrait-caption" data-i18n-zh="待机" data-i18n-en="Standby">待机
+                          </figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="AI模式待机示例"
+                              data-i18n-alt-en="AI mode standby example"
+                              src="./leader-assets/examples/tft_scene/scene_21.png" alt="AI模式待机示例"></div>
+                        </figure>
+                        <figure class="tft-portrait-example-item">
+                          <figcaption class="tft-portrait-caption" data-i18n-zh="识别" data-i18n-en="Recognition">识别
+                          </figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="AI模式识别示例"
+                              data-i18n-alt-en="AI mode recognition example"
+                              src="./leader-assets/examples/tft_scene/scene_22.png" alt="AI模式识别示例"></div>
+                        </figure>
+                        <figure class="tft-portrait-example-item">
+                          <figcaption class="tft-portrait-caption" data-i18n-zh="结果" data-i18n-en="Results">结果
+                          </figcaption>
+                          <div class="tft-image-frame"><img data-i18n-alt-zh="AI模式结果示例"
+                              data-i18n-alt-en="AI mode results example"
+                              src="./leader-assets/examples/tft_scene/scene_23.png" alt="AI模式结果示例"></div>
+                        </figure>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <footer class="pt-10 pb-16 text-center text-sm border-t border-gray-200">
+            <p class="font-light" data-i18n-zh="© 2026 Haier UX Design Lab. Internal Confidential."
+              data-i18n-en="© 2026 Haier UX Design Lab. Internal Confidential.">© 2026 Haier UX Design Lab. Internal
+              Confidential.</p>
+          </footer>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="leader-nav.js"></script>
+  <script>
+    (() => {
+      const root = document.getElementById('leader-tft-rules');
+      const tabs = [...root.querySelectorAll('[data-tft-tab]')];
+      const panes = [...root.querySelectorAll('[data-tft-pane]')];
+
+      function selectTab(tab) {
+        tabs.forEach(item => {
+          const selected = item === tab;
+          item.classList.toggle('active', selected);
+          item.setAttribute('aria-selected', String(selected));
+          item.tabIndex = selected ? 0 : -1;
+        });
+        panes.forEach(pane => {
+          const selected = pane.dataset.tftPane === tab.dataset.tftTab;
+          pane.classList.toggle('active', selected);
+          pane.hidden = !selected;
+        });
+      }
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => selectTab(tab));
+        tab.addEventListener('keydown', event => {
+          let next;
+          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+          if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+          if (event.key === 'Home') next = 0;
+          if (event.key === 'End') next = tabs.length - 1;
+          if (next === undefined) return;
+          event.preventDefault();
+          selectTab(tabs[next]);
+          tabs[next].focus();
+        });
+      });
+
+      selectTab(tabs[0]);
+    })();
+
+    (() => {
+      const root = document.querySelector('#leader-tft-rules');
+      const button = root.querySelector('#lang-toggle');
+      const label = button.querySelector('#lang-label');
+      const originals = new Map();
+      root.querySelectorAll('[data-i18n-zh][data-i18n-en]').forEach(el => originals.set(el, el.innerHTML));
+      let lang = 'zh';
+
+      function apply(next) {
+        lang = next;
+        document.querySelectorAll('title[data-i18n-zh], #leader-tft-rules [data-i18n-zh][data-i18n-en]').forEach(el => {
+          const text = el.getAttribute('data-i18n-' + lang);
+          if (text === null) return;
+          if (lang === 'zh' && originals.has(el)) { el.innerHTML = originals.get(el); return; }
+          el.textContent = text;
+        });
+        ['alt', 'title', 'aria-label', 'placeholder'].forEach(attr => {
+          root.querySelectorAll('[data-i18n-' + attr + '-' + lang + ']').forEach(el => {
+            el.setAttribute(attr, el.getAttribute('data-i18n-' + attr + '-' + lang));
+          });
+        });
+        label.textContent = lang === 'zh' ? 'EN' : '中文';
+        button.dataset.lang = lang;
+        button.setAttribute('aria-label', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        try { localStorage.setItem('leader-guideline-language', lang); } catch (_) { }
+        document.dispatchEvent(new CustomEvent('leader-language-change', { detail: { lang } }));
+      }
+
+      button.addEventListener('click', e => { e.stopImmediatePropagation(); apply(lang === 'zh' ? 'en' : 'zh'); }, true);
+      label.textContent = 'EN';
+
+      function savedLanguage() {
+        try { return localStorage.getItem('leader-guideline-language') === 'en' ? 'en' : 'zh'; } catch (_) { return 'zh'; }
+      }
+      if (savedLanguage() === 'en') apply('en');
+      window.addEventListener('storage', e => { if (e.key === 'leader-guideline-language') apply(savedLanguage()); });
+    })();
+  </script>
+</body>
+
+</html>

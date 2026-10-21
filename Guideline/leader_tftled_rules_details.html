@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title data-i18n-en="Haier Design | Combined Layout" data-i18n-zh="Haier Design | 组合布局">Haier Design | 组合布局</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+    rel="stylesheet">
+  <style>
+    body.leader-tftled-document {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: #F5F7FA;
+    }
+
+    .leader-tftled-page {
+      --brand: #EC6443;
+      --brand-light: #FFE5E0;
+      --ink: #1D1D1F;
+      --muted: #86868B;
+      --glass: rgba(255, 255, 255, .6);
+      --glass-bg: rgba(255, 255, 255, .6);
+      --glass-border: rgba(255, 255, 255, .4);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: var(--ink);
+      background: transparent;
+      min-height: 100vh;
+      isolation: isolate;
+    }
+
+    .leader-tftled-page .aura-background {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: #F4F4F4;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .leader-tftled-page .aura-blob {
+      position: absolute;
+      filter: blur(120px);
+      opacity: .6;
+      animation: leader-tftled-float 20s infinite ease-in-out alternate;
+      background: #E6E6E6;
+    }
+
+    .leader-tftled-page .aura-blob-1 {
+      top: -10%;
+      left: -10%;
+      width: 50vw;
+      height: 50vw;
+    }
+
+    .leader-tftled-page .aura-blob-2 {
+      bottom: -20%;
+      right: -10%;
+      width: 60vw;
+      height: 60vw;
+      animation-delay: -5s;
+    }
+
+    .leader-tftled-page .aura-blob-3 {
+      top: 40%;
+      left: 60%;
+      width: 40vw;
+      height: 40vw;
+      animation-delay: -10s;
+    }
+
+    @keyframes leader-tftled-float {
+      from {
+        transform: translate(0, 0) scale(1)
+      }
+
+      to {
+        transform: translate(10%, 15%) scale(1.1)
+      }
+    }
+
+    .leader-tftled-page .glass-panel:where(:not(#sidebar)),
+    .leader-tftled-page .prototype-section,
+    .leader-tftled-page .tftled-pane>section.glass-panel,
+    .leader-tftled-page .tftled-pane>section.prototype-section {
+      background: var(--glass-bg) !important;
+      border: 1px solid var(--glass-border) !important;
+      border-radius: 40px !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .04) !important;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    .leader-tftled-page>header,
+    .leader-tftled-page #sidebar {
+      border-radius: 0 !important;
+    }
+
+    .leader-tftled-page #main-content {
+      min-width: 0;
+      color: var(--ink);
+    }
+
+    .leader-tftled-page h1:where(:not(#sidebar *)),
+    .leader-tftled-page h2:where(:not(#sidebar *)),
+    .leader-tftled-page h3:where(:not(#sidebar *)),
+    .leader-tftled-page h4:where(:not(#sidebar *)),
+    .leader-tftled-page main section.glass-panel h2,
+    .leader-tftled-page .tftled-pane .scene-heading h2,
+    .leader-tftled-page .tftled-pane .prototype-section .scene-heading h2 {
+      color: var(--ink) !important;
+    }
+
+    .leader-tftled-page main .text-gray-900 {
+      color: #111827 !important;
+    }
+
+    .leader-tftled-page main .text-gray-600,
+    .leader-tftled-page main .text-gray-700,
+    .leader-tftled-page main .text-gray-800 {
+      color: #4B5563 !important;
+    }
+
+    .leader-tftled-page main .text-gray-300,
+    .leader-tftled-page main .text-gray-400,
+    .leader-tftled-page main .text-gray-500 {
+      color: var(--muted) !important;
+    }
+
+    .leader-tftled-page .layout-rule-title,
+    .leader-tftled-page .prototype-subtitle,
+    .leader-tftled-page .scene-category-header h3,
+    .leader-tftled-page .layout-example-name,
+    .leader-tftled-page .vertical-scheme-title {
+      color: var(--ink) !important;
+    }
+
+    .leader-tftled-page .layout-framework-description,
+    .leader-tftled-page .layout-image-description,
+    .leader-tftled-page .prototype-caption,
+    .leader-tftled-page .scene-heading p,
+    .leader-tftled-page .meta {
+      color: var(--muted) !important;
+    }
+
+    .leader-tftled-page .leader-logo-container:where(:not(#sidebar *)) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #EC6443 !important;
+      color: #FFF !important;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      border-radius: 8px !important;
+    }
+
+    .leader-tftled-page .scene-heading-num,
+    .leader-tftled-page .scene-index {
+      background: var(--brand-light) !important;
+      color: var(--brand) !important;
+      border: 1px solid rgba(236, 100, 67, .15);
+      border-radius: 14px !important;
+    }
+
+    .leader-tftled-page .scene-card,
+    .leader-tftled-page .scene-rule,
+    .leader-tftled-page .scene-vertical-card {
+      background: #FFFFFF !important;
+      border: 1px solid #EC6443 !important;
+      border-radius: 28px !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .04);
+      color: var(--ink);
+    }
+
+    /* 竖向图片：统一白色背景卡片 */
+    .leader-tftled-page .vertical-image-grid figure {
+      background: #FFFFFF !important;
+      border: 1px solid #E5E6EB !important;
+      border-radius: 24px !important;
+      padding: 16px !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .04);
+    }
+
+    .leader-tftled-page footer {
+      color: var(--muted) !important;
+    }
+
+    .leader-tftled-page .leader-tftled-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .leader-tftled-page .leader-tftled-home-link {
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, .5);
+      border: 1px solid rgba(229, 231, 235, .5);
+      border-radius: 9999px;
+      color: #374151;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+      backdrop-filter: blur(12px);
+      cursor: pointer;
+    }
+
+    .leader-tftled-page .leader-tftled-home-link:hover {
+      background: rgba(255, 255, 255, .9);
+    }
+
+    .leader-tftled-page #lang-toggle {
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, .5);
+      border: 1px solid rgba(229, 231, 235, .5);
+      border-radius: 9999px;
+      color: #374151;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+      backdrop-filter: blur(12px);
+      cursor: pointer;
+    }
+
+    .leader-tftled-page #lang-toggle:hover {
+      background: rgba(255, 255, 255, .9);
+    }
+
+    .leader-tftled-page button:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 4px;
+    }
+
+    .leader-tftled-page *,
+    .leader-tftled-page #main-content {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 0, 0, .1) transparent;
+    }
+
+    .leader-tftled-page ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    .leader-tftled-page ::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, .1);
+      border-radius: 10px;
+    }
+
+    .leader-tftled-page img {
+      max-width: 100%;
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .leader-tftled-page .aura-blob {
+        animation: none;
+      }
+    }
+
+    /* ==== 模块与标题层级 ==== */
+    .leader-tftled-page #main-content .leader-tftled-module {
+      padding: 0 !important;
+      margin: 0 0 64px !important;
+      min-width: 0;
+    }
+
+    .leader-tftled-page #main-content .leader-tftled-module-header {
+      margin: 0 0 24px;
+      padding: 0;
+    }
+
+    .leader-tftled-page #main-content .leader-tftled-module-header .scene-heading {
+      display: block !important;
+      margin: 0 !important;
+      padding: 0;
+    }
+
+    .leader-tftled-page #main-content .leader-tftled-module .leader-tftled-section-title {
+      margin: 0 !important;
+      font-size: 24px !important;
+      font-weight: 700 !important;
+      line-height: 32px !important;
+      letter-spacing: normal !important;
+      color: #111827 !important;
+    }
+
+    .leader-tftled-page #main-content .leader-tftled-module-header .layout-framework-description {
+      margin: 12px 0 0 !important;
+    }
+
+    .leader-tftled-page #main-content .leader-tftled-module-card {
+      padding: 24px !important;
+      margin: 0 !important;
+      border-radius: 40px !important;
+      min-width: 0;
+    }
+
+    .leader-tftled-page #main-content .leader-tftled-module .leader-tftled-body-copy {
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 1.625 !important;
+      letter-spacing: normal !important;
+      color: #4B5563 !important;
+    }
+
+    .leader-tftled-page #main-content .leader-tftled-module .leader-tftled-subsection-title {
+      font-size: 24px !important;
+      font-weight: 400 !important;
+      line-height: 32px !important;
+      letter-spacing: normal !important;
+      color: #111827 !important;
+      margin-bottom: 24px;
+    }
+
+    .leader-tftled-page #main-content .leader-tftled-module-card>.leader-tftled-subsection-title:first-child {
+      margin-top: 0 !important;
+    }
+
+    .leader-tftled-page #main-content .leader-tftled-module .layout-example-name,
+    .leader-tftled-page #main-content .leader-tftled-module .vertical-scheme-title {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      line-height: 24px !important;
+      letter-spacing: normal !important;
+      color: #111827 !important;
+    }
+
+    .leader-tftled-page #main-content .leader-tftled-module .prototype-caption {
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 1.625 !important;
+      letter-spacing: normal !important;
+      color: #4B5563 !important;
+    }
+
+    .leader-tftled-page #main-content .leader-tftled-page-heading h1 {
+      font-size: 36px !important;
+      font-weight: 700 !important;
+      line-height: 40px !important;
+      letter-spacing: -.025em !important;
+      color: #111827 !important;
+      margin-bottom: 16px;
+    }
+
+    .leader-tftled-page #main-content .leader-tftled-page-heading p {
+      width: 100%;
+      max-width: none;
+      font-size: 18px !important;
+      font-weight: 400 !important;
+      line-height: 1.625 !important;
+      color: #1D1D1F !important;
+      margin-bottom: 0;
+    }
+
+    @media(min-width:640px) {
+      .leader-tftled-page #main-content .leader-tftled-module-card {
+        padding: 40px !important;
+      }
+    }
+
+    @media(min-width:768px) {
+      .leader-tftled-page #main-content .leader-tftled-page-heading h1 {
+        font-size: 48px !important;
+        line-height: 48px !important;
+      }
+    }
+
+    /* ==== 布局规则标题：橙色圆点 ==== */
+    .leader-tftled-page .layout-rule-title,
+    .leader-tftled-page .prototype-subtitle {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 32px 0 16px;
+      color: #111827;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .leader-tftled-page .layout-rule-title::before,
+    .leader-tftled-page .prototype-subtitle::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+      background: #EC6443;
+      border-radius: 50% !important;
+    }
+
+    /* ==== 图片白卡片 ==== */
+    .leader-tftled-page .layout-horizontal-stack {
+      display: grid;
+      gap: 20px;
+    }
+
+    .leader-tftled-page .layout-horizontal-stack figure,
+    .leader-tftled-page .prototype-image {
+      margin: 0;
+      padding: 20px;
+      background: #FFFFFF;
+      border-radius: 28px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .04);
+    }
+
+    .leader-tftled-page .layout-horizontal-stack img,
+    .leader-tftled-page .prototype-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .leader-tftled-page .layout-image-description {
+      margin: 0 0 12px;
+      color: #4B5563;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.7;
+      text-align: left;
+    }
+
+    .leader-tftled-page .layout-image-description-c {
+      margin-top: 20px;
+    }
+
+    /* ==== 竖向对比 ==== */
+    .leader-tftled-page .layout-vertical-compare {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 48px;
+      margin-top: 28px;
+    }
+
+    .leader-tftled-page .layout-vertical-compare-item {
+      min-width: 0;
+    }
+
+    .leader-tftled-page .layout-vertical-compare-item p {
+      margin: 0 0 16px;
+      color: #111827;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .leader-tftled-page .layout-vertical-compare-item figure {
+      margin: 0;
+      padding: 20px;
+      background: #FFFFFF;
+      border-radius: 28px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .04);
+    }
+
+    .leader-tftled-page .layout-vertical-compare-item img {
+      display: block;
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 12px;
+    }
+
+    @media (max-width:760px) {
+      .leader-tftled-page .layout-vertical-compare {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    /* ==== 原型堆叠 ==== */
+    .leader-tftled-page .prototype-stack {
+      display: grid;
+      gap: 20px;
+    }
+
+    .leader-tftled-page .prototype-image,
+    .leader-tftled-page .prototype-image img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ==== 竖向方案（改为两列：每列一个卡片）==== */
+    .leader-tftled-page .vertical-scheme-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 46px;
+      margin-top: 32px;
+    }
+
+    .leader-tftled-page .vertical-scheme-title {
+      margin: 0 0 16px;
+      color: #111827;
+      font-size: 17px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* 每列内部：标题与卡片居中对齐 */
+    .leader-tftled-page .vertical-scheme-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .leader-tftled-page .vertical-scheme-column > p {
+      margin: 0 0 16px;
+      text-align: center;
+    }
+
+    /* 一个白色卡片里放两张图 */
+    .leader-tftled-page .vertical-scheme-card {
+      width: 100%;
+      padding: 16px;
+      background: #FFFFFF;
+      border-radius: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .04);
+      border: 1px solid #E5E6EB;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 32px;
+    }
+
+    .leader-tftled-page .vertical-scheme-card figure {
+      flex: 0 0 auto;
+      width: 220px;
+      margin: 0;
+      min-width: 0;
+    }
+
+    .leader-tftled-page .vertical-scheme-card figure img {
+      display: block;
+      width: 100% !important;
+      max-width: none;
+      height: auto !important;
+      margin: 0 !important;
+      border-radius: 12px;
+    }
+
+    @media (max-width:768px) {
+      .leader-tftled-page .vertical-scheme-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .leader-tftled-page .prototype-subtitle {
+        font-size: 18px;
+        color: #1D1D1F;
+      }
+    }
+
+    /* ==== 页签 ==== */
+    .leader-tftled-page .tftled-pane {
+      display: none;
+    }
+
+    .leader-tftled-page .tftled-pane.active {
+      display: block;
+      animation: leader-tftled-pane-in .24s ease-out;
+    }
+
+    @keyframes leader-tftled-pane-in {
+      from {
+        opacity: 0;
+        transform: translateY(4px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .leader-tftled-page .tftled-pane>section.glass-panel,
+    .leader-tftled-page .tftled-pane>section.prototype-section {
+      padding: 40px !important;
+      margin-bottom: 40px !important;
+    }
+
+    @media (max-width:767px) {
+
+      .leader-tftled-page .tftled-pane>section.glass-panel,
+      .leader-tftled-page .tftled-pane>section.prototype-section {
+        padding: 24px !important;
+        margin-bottom: 24px !important;
+      }
+    }
+
+    .leader-tftled-page .tftled-tabs {
+      display: inline-flex;
+      align-items: center;
+      gap: 32px;
+      max-width: 100%;
+      overflow-x: auto;
+      border: 0;
+      border-bottom: 1px solid #E5E6EB;
+      padding: 0;
+      scrollbar-width: none;
+    }
+
+    .leader-tftled-page .tftled-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .leader-tftled-page .tftled-tab {
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      min-width: 0;
+      margin: 0;
+      padding: 8px 20px;
+      border: 0 solid transparent;
+      border-bottom: 2px solid transparent;
+      border-radius: 9999px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: #86909C;
+      background: transparent;
+      text-align: center;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .leader-tftled-page .tftled-tab:hover {
+      color: #EC6443;
+    }
+
+    .leader-tftled-page .tftled-tab.active {
+      color: #FFF;
+      background: #EC6443;
+      border-bottom-color: transparent;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body class="antialiased leader-tftled-document">
+  <div class="leader-tftled-page">
+    <div class="aura-background">
+      <div class="aura-blob aura-blob-1"></div>
+      <div class="aura-blob aura-blob-2"></div>
+      <div class="aura-blob aura-blob-3"></div>
+    </div>
+
+    <header
+      class="md:hidden glass-panel rounded-none fixed top-0 w-full z-50 p-4 flex justify-between items-center border-b border-white/50">
+      <div class="flex items-center">
+        <div class="leader-logo-container w-8 h-8 mr-2 text-[12px]">Haier</div>
+        <h1 class="font-bold text-base text-gray-800" data-i18n-zh="Haier Design"
+          data-i18n-en="Haier Design">Haier Design</h1>
+      </div>
+      <button aria-label="打开导航" data-i18n-aria-label-zh="打开导航" data-i18n-aria-label-en="Open navigation"
+        class="p-2 bg-black/5 hover:bg-black/10 rounded-lg" id="mobile-menu-btn">
+        <span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span><span
+          class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span><span class="block w-6 h-0.5 bg-gray-700"></span>
+      </button>
+    </header>
+
+    <div class="flex h-screen pt-16 md:pt-0">
+      <aside aria-hidden="true" aria-label="Leader Design 设计规范导航" data-i18n-aria-label-zh="Leader Design 设计规范导航"
+        data-i18n-aria-label-en="Leader Design guideline navigation"
+        class="hidden md:flex flex-col w-72 h-full fixed top-0 left-0 glass-panel rounded-none border-r border-white/50 z-40 overflow-y-auto"
+        id="sidebar"></aside>
+      <div aria-hidden="true" class="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 hidden md:hidden"
+        id="sidebar-backdrop"></div>
+
+      <main class="flex-1 md:ml-72 p-6 md:p-10 lg:p-12 overflow-y-auto h-full scroll-smooth" id="main-content">
+        <div class="max-w-[1200px] mx-auto pb-24">
+          <div class="leader-tftled-toolbar hidden md:flex">
+            <a href="leader_os_design_system.html" class="leader-tftled-home-link">
+              <span data-i18n-zh="返回主页" data-i18n-en="Back to Home">返回主页</span>
+            </a>
+            <button id="lang-toggle" type="button" data-lang="zh" aria-label="切换到英文"><span
+                id="lang-label">EN</span></button>
+          </div>
+
+          <section class="mb-12 scene-hero leader-tftled-page-heading">
+            <div>
+              <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4"
+                data-i18n-en="Combined Layout" data-i18n-zh="组合布局">组合布局</h1>
+              <p class="text-lg leading-relaxed mb-5"
+                data-i18n-en="Standardize design prototypes and scenario-based interaction layouts for TFT+LED interfaces to ensure clear information presentation and consistent experiences across product categories and display configurations."
+                data-i18n-zh="统一 TFT+LED 显示载体下的方案原型与场景交互布局规则，确保不同品类、不同屏幕形态下的信息呈现清晰且体验一致。">
+                统一 TFT+LED 显示载体下的方案原型与场景交互布局规则，确保不同品类、不同屏幕形态下的信息呈现清晰且体验一致。
+              </p>
+            </div>
+          </section>
+
+          <nav aria-label="TFT+LED 规则分类" data-i18n-aria-label-zh="TFT+LED 规则分类"
+            data-i18n-aria-label-en="TFT+LED guideline categories" class="tftled-tabs mb-12" role="tablist">
+            <button aria-selected="true" class="tftled-tab active" data-i18n-en="Information Organization"
+              data-i18n-zh="信息组织" data-tftled-tab="prototype" role="tab" type="button">
+              信息组织
+            </button>
+            <button aria-selected="false" class="tftled-tab" data-i18n-en="Interaction Examples"
+              data-i18n-zh="交互示例" data-tftled-tab="scene" role="tab" type="button">
+              交互示例
+            </button>
+          </nav>
+
+          <!-- 页签 1：信息组织 -->
+          <div class="tftled-pane active" data-tftled-pane="prototype">
+
+            <section class="leader-tftled-module scroll-mt-8" id="layout-horizontal-rule">
+              <div class="leader-tftled-module-header">
+                <div class="scene-heading">
+                  <div>
+                    <h2 class="leader-tftled-section-title" data-i18n-zh="横向布局示例"
+                      data-i18n-en="Horizontal Layout Examples">横向布局示例</h2>
+                  </div>
+                </div>
+                <p class="layout-framework-description leader-tftled-body-copy" data-i18n-zh="以 3.5”屏为代表"
+                  data-i18n-en="Using a 3.5-inch screen as an example">以 3.5”屏为代表</p>
+              </div>
+
+              <div class="glass-panel leader-tftled-module-card">
+                <div class="layout-rule-title leader-tftled-subsection-title" data-i18n-zh="垂直居中对称型"
+                  data-i18n-en="Vertically Centered Symmetric Layout">垂直居中对称型</div>
+
+                <div class="layout-horizontal-stack">
+                  <figure>
+                    <p class="layout-image-description leader-tftled-body-copy"
+                      data-i18n-zh="A. 屏幕可触控，电源与启停按键聚合于中心区域"
+                      data-i18n-en="A. Touchscreen; power and start/pause controls grouped in the center">
+                      A. 屏幕可触控，电源与启停按键聚合于中心区域</p>
+                    <img data-i18n-alt-zh="垂直居中对称型，屏幕可触控，示例一"
+                      data-i18n-alt-en="Vertically centered symmetric layout, touchscreen, example one"
+                      alt="垂直居中对称型，屏幕可触控，示例一"
+                      src="./leader-assets/examples/tftled/frame_1.png">
+                  </figure>
+
+                  <figure>
+                    <p class="layout-image-description leader-tftled-body-copy"
+                      data-i18n-zh="B. 屏幕可触控，电源与启停按键置于右侧"
+                      data-i18n-en="B. Touchscreen; power and start/pause controls on the right">
+                      B. 屏幕可触控，电源与启停按键置于右侧</p>
+                    <img data-i18n-alt-zh="垂直居中对称型，屏幕可触控，示例二"
+                      data-i18n-alt-en="Vertically centered symmetric layout, touchscreen, example two"
+                      alt="垂直居中对称型，屏幕可触控，示例二"
+                      src="./leader-assets/examples/tftled/frame_2.png">
+                  </figure>
+                </div>
+
+                <div class="layout-image-description layout-image-description-c leader-tftled-body-copy"
+                  data-i18n-zh="C. 屏幕不可触控，屏幕交互按键区聚合于中心区域，电源与启停按键置于右侧"
+                  data-i18n-en="C. Non-touchscreen; screen interaction buttons grouped in the center, with power and start/pause controls on the right">
+                  C. 屏幕不可触控，屏幕交互按键区聚合于中心区域，电源与启停按键置于右侧</div>
+                <div class="layout-horizontal-stack">
+                  <figure>
+                    <img data-i18n-alt-zh="垂直居中对称型，屏幕不可触控"
+                      data-i18n-alt-en="Vertically centered symmetric layout, non-touchscreen"
+                      alt="垂直居中对称型，屏幕不可触控"
+                      src="./leader-assets/examples/tftled/frame_3.png">
+                  </figure>
+                </div>
+
+                <div class="layout-rule-title leader-tftled-subsection-title" data-i18n-zh="整体右侧型"
+                  data-i18n-en="Right-aligned Layout">整体右侧型</div>
+
+                <div class="layout-horizontal-stack">
+                  <figure>
+                    <p class="layout-image-description leader-tftled-body-copy"
+                      data-i18n-zh="A. 屏幕垂直居中，屏幕可触控，电源与启停按键聚合于中心区域"
+                      data-i18n-en="A. Vertically centered touchscreen; power and start/pause controls grouped in the center">
+                      A. 屏幕垂直居中，屏幕可触控，电源与启停按键聚合于中心区域</p>
+                    <img data-i18n-alt-zh="整体右侧型，屏幕可触控，示例一"
+                      data-i18n-alt-en="Right-aligned layout, touchscreen, example one"
+                      alt="整体右侧型，屏幕可触控，示例一"
+                      src="./leader-assets/examples/tftled/frame_4.png">
+                  </figure>
+
+                  <figure>
+                    <p class="layout-image-description leader-tftled-body-copy"
+                      data-i18n-zh="B. 屏幕垂直居中，屏幕可触控，电源与启停按键置于右侧"
+                      data-i18n-en="B. Vertically centered touchscreen; power and start/pause controls on the right">
+                      B. 屏幕垂直居中，屏幕可触控，电源与启停按键置于右侧</p>
+                    <img data-i18n-alt-zh="整体右侧型，屏幕可触控，示例二"
+                      data-i18n-alt-en="Right-aligned layout, touchscreen, example two"
+                      alt="整体右侧型，屏幕可触控，示例二"
+                      src="./leader-assets/examples/tftled/frame_5.png">
+                  </figure>
+
+                  <figure>
+                    <p class="layout-image-description leader-tftled-body-copy"
+                      data-i18n-zh="C. 屏幕垂直居中，屏幕不可触控，屏幕交互按键区聚合于中心区域"
+                      data-i18n-en="C. Vertically centered non-touchscreen; screen interaction buttons grouped in the center">
+                      C. 屏幕垂直居中，屏幕不可触控，屏幕交互按键区聚合于中心区域</p>
+                    <img data-i18n-alt-zh="整体右侧型，屏幕不可触控"
+                      data-i18n-alt-en="Right-aligned layout, non-touchscreen"
+                      alt="整体右侧型，屏幕不可触控"
+                      src="./leader-assets/examples/tftled/frame_6.png">
+                  </figure>
+                </div>
+              </div>
+            </section>
+
+            <section class="leader-tftled-module scroll-mt-8" id="layout-vertical-rule">
+              <div class="leader-tftled-module-header">
+                <div class="scene-heading">
+                  <div>
+                    <h2 class="leader-tftled-section-title" data-i18n-en="Vertical Layout Examples"
+                      data-i18n-zh="竖向布局示例">竖向布局示例</h2>
+                  </div>
+                </div>
+                <p class="layout-framework-description leader-tftled-body-copy" data-i18n-zh="以 3.5”屏为代表"
+                  data-i18n-en="Using a 3.5-inch screen as an example">以 3.5”屏为代表</p>
+              </div>
+
+              <div class="glass-panel leader-tftled-module-card">
+                <div class="layout-vertical-compare">
+                  <div class="layout-vertical-compare-item">
+                    <p class="leader-tftled-body-copy" data-i18n-en="Touchscreen" data-i18n-zh="屏幕可触控">屏幕可触控</p>
+                    <figure>
+                      <img data-i18n-alt-zh="竖向信息布局，屏幕可触控"
+                        data-i18n-alt-en="Vertical information layout, touchscreen"
+                        alt="竖向信息布局，屏幕可触控"
+                        src="./leader-assets/examples/tftled/frame_7.png">
+                    </figure>
+                  </div>
+                  <div class="layout-vertical-compare-item">
+                    <p class="leader-tftled-body-copy" data-i18n-en="Non-touchscreen" data-i18n-zh="屏幕不可触控">屏幕不可触控
+                    </p>
+                    <figure>
+                      <img data-i18n-alt-zh="竖向信息布局，屏幕不可触控"
+                        data-i18n-alt-en="Vertical information layout, non-touchscreen"
+                        alt="竖向信息布局，屏幕不可触控"
+                        src="./leader-assets/examples/tftled/frame_8.png">
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- 页签 2：交互示例 -->
+          <div class="tftled-pane" data-tftled-pane="scene">
+
+            <section class="leader-tftled-module scroll-mt-8" id="horizontal-screen-prototype">
+              <div class="leader-tftled-module-header">
+                <div class="scene-heading">
+                  <h2 data-i18n-en="Horizontal Interaction Examples" data-i18n-zh="横向交互示例"
+                    class="leader-tftled-section-title">横向交互示例</h2>
+                </div>
+                <p class="layout-framework-description leader-tftled-body-copy" data-i18n-zh="以 3.5”屏为代表"
+                  data-i18n-en="Using a 3.5-inch screen as an example">以 3.5”屏为代表</p>
+              </div>
+
+              <div class="glass-panel leader-tftled-module-card prototype-section">
+                <h3 class="prototype-subtitle leader-tftled-subsection-title"
+                  data-i18n-en="Vertically Centered Symmetric Layout" data-i18n-zh="垂直居中对称型">垂直居中对称型</h3>
+                <div class="prototype-stack">
+                  <figure class="prototype-image">
+                    <p class="layout-image-description leader-tftled-body-copy"
+                      data-i18n-zh="A. 屏幕可触控，电源与启停按键聚合于中心区域"
+                      data-i18n-en="A. Touchscreen; power and start/pause controls grouped in the center">
+                      A. 屏幕可触控，电源与启停按键聚合于中心区域</p>
+                    <img data-i18n-alt-zh="垂直居中对称型，屏幕可触控，布局示意图一"
+                      data-i18n-alt-en="Vertically centered symmetric layout, touchscreen, layout diagram one"
+                      alt="垂直居中对称型，屏幕可触控，布局示意图一"
+                      src="leader-assets/examples/tftled_prototype/scene_1.png">
+                  </figure>
+
+                  <figure class="prototype-image">
+                    <p class="layout-image-description leader-tftled-body-copy"
+                      data-i18n-zh="B. 屏幕可触控，电源与启停按键置于右侧"
+                      data-i18n-en="B. Touchscreen; power and start/pause controls on the right">
+                      B. 屏幕可触控，电源与启停按键置于右侧</p>
+                    <img data-i18n-alt-zh="垂直居中对称型，屏幕可触控，布局示意图二"
+                      data-i18n-alt-en="Vertically centered symmetric layout, touchscreen, layout diagram two"
+                      alt="垂直居中对称型，屏幕可触控，布局示意图二"
+                      src="leader-assets/examples/tftled_prototype/scene_2.png">
+                  </figure>
+                </div>
+
+                <p class="layout-image-description layout-image-description-c leader-tftled-body-copy"
+                  data-i18n-zh="C. 屏幕垂直居中，屏幕不可触控，屏幕交互按键区聚合于中心区域"
+                  data-i18n-en="C. Vertically centered non-touchscreen; screen interaction buttons grouped in the center">
+                  C. 屏幕垂直居中，屏幕不可触控，屏幕交互按键区聚合于中心区域</p>
+                <figure class="prototype-image">
+                  <img data-i18n-alt-zh="垂直居中对称型，屏幕可触控，屏内代表画面原型"
+                    data-i18n-alt-en="Vertically centered symmetric layout, touchscreen, representative on-screen interface prototype"
+                    alt="垂直居中对称型，屏幕可触控，屏内代表画面原型"
+                    src="leader-assets/examples/tftled_prototype/scene_3.png">
+                </figure>
+
+                <h3 class="prototype-subtitle leader-tftled-subsection-title" data-i18n-zh="整体右侧型"
+                  data-i18n-en="Right-aligned Layout">整体右侧型</h3>
+
+                <div class="prototype-stack">
+                  <figure class="prototype-image">
+                    <p class="layout-image-description leader-tftled-body-copy"
+                      data-i18n-zh="A. 屏幕可触控，电源与启停按键聚合于中心区域"
+                      data-i18n-en="A. Touchscreen; power and start/pause controls grouped in the center">
+                      A. 屏幕可触控，电源与启停按键聚合于中心区域</p>
+                    <img data-i18n-alt-zh="整体右侧型布局示意图一"
+                      data-i18n-alt-en="Right-aligned layout diagram one"
+                      alt="整体右侧型布局示意图一"
+                      src="leader-assets/examples/tftled_prototype/scene_4.png">
+                  </figure>
+
+                  <figure class="prototype-image">
+                    <p class="layout-image-description leader-tftled-body-copy"
+                      data-i18n-zh="B. 屏幕可触控，电源与启停按键置于右侧"
+                      data-i18n-en="B. Touchscreen; power and start/pause controls on the right">
+                      B. 屏幕可触控，电源与启停按键置于右侧</p>
+                    <img data-i18n-alt-zh="整体右侧型布局示意图二"
+                      data-i18n-alt-en="Right-aligned layout diagram two"
+                      alt="整体右侧型布局示意图二"
+                      src="leader-assets/examples/tftled_prototype/scene_5.png">
+                  </figure>
+
+                  <figure class="prototype-image">
+                    <p class="layout-image-description leader-tftled-body-copy"
+                      data-i18n-zh="C. 屏幕垂直居中，屏幕不可触控，屏幕交互按键区聚合于中心区域"
+                      data-i18n-en="C. Vertically centered non-touchscreen; screen interaction buttons grouped in the center">
+                      C. 屏幕垂直居中，屏幕不可触控，屏幕交互按键区聚合于中心区域</p>
+                    <img data-i18n-alt-zh="整体右侧型布局示意图三"
+                      data-i18n-alt-en="Right-aligned layout diagram three"
+                      alt="整体右侧型布局示意图三"
+                      src="leader-assets/examples/tftled_prototype/scene_6.png">
+                  </figure>
+                </div>
+
+                <p class="prototype-subtitle leader-tftled-body-copy leader-tftled-subsection-title"
+                  data-i18n-zh="屏内代表画面原型" data-i18n-en="Representative On-screen Interface Prototype">
+                  屏内代表画面原型</p>
+
+                <figure class="prototype-image">
+                  <img data-i18n-alt-zh="屏内代表画面原型"
+                    data-i18n-alt-en="Representative on-screen interface prototype"
+                    alt="屏内代表画面原型"
+                    src="leader-assets/examples/tftled_prototype/scene_7.png">
+                </figure>
+              </div>
+            </section>
+
+            <section class="leader-tftled-module scroll-mt-8" id="vertical-screen-prototype">
+              <div class="leader-tftled-module-header">
+                <div class="scene-heading">
+                  <h2 data-i18n-en="Vertical Interaction Examples" data-i18n-zh="竖向交互示例"
+                    class="leader-tftled-section-title">竖向交互示例</h2>
+                </div>
+                <p class="layout-framework-description leader-tftled-body-copy" data-i18n-zh="以 3.5”屏为代表"
+                  data-i18n-en="Using a 3.5-inch screen as an example">以 3.5”屏为代表</p>
+              </div>
+
+              <div class="glass-panel leader-tftled-module-card prototype-section">
+                <div class="vertical-scheme-grid">
+
+                  <!-- 左列：屏幕可触控 + 一个卡片（左1、左2） -->
+                  <div class="vertical-scheme-column">
+                    <p class="layout-image-description leader-tftled-body-copy"
+                      data-i18n-en="Touchscreen" data-i18n-zh="屏幕可触控">屏幕可触控</p>
+                    <div class="vertical-scheme-card">
+                      <figure>
+                        <img data-i18n-alt-zh="竖向信息方案原型一"
+                          data-i18n-alt-en="Vertical information layout prototype one"
+                          alt="竖向信息方案原型一"
+                          src="leader-assets/examples/tftled_prototype/scene_8.png">
+                      </figure>
+                      <figure>
+                        <img data-i18n-alt-zh="竖向信息方案原型二"
+                          data-i18n-alt-en="Vertical information layout prototype two"
+                          alt="竖向信息方案原型二"
+                          src="leader-assets/examples/tftled_prototype/scene_9.png">
+                      </figure>
+                    </div>
+                  </div>
+
+                  <!-- 右列：屏幕不可触控 + 一个卡片（右1、右2） -->
+                  <div class="vertical-scheme-column">
+                    <p class="layout-image-description leader-tftled-body-copy"
+                      data-i18n-en="Non-touchscreen" data-i18n-zh="屏幕不可触控">屏幕不可触控</p>
+                    <div class="vertical-scheme-card">
+                      <figure>
+                        <img data-i18n-alt-zh="竖向信息方案原型三"
+                          data-i18n-alt-en="Vertical information layout prototype three"
+                          alt="竖向信息方案原型三"
+                          src="leader-assets/examples/tftled_prototype/scene_10.png">
+                      </figure>
+                      <figure>
+                        <img data-i18n-alt-zh="竖向信息方案原型四"
+                          data-i18n-alt-en="Vertical information layout prototype four"
+                          alt="竖向信息方案原型四"
+                          src="leader-assets/examples/tftled_prototype/scene_11.png">
+                      </figure>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <footer class="pt-10 pb-16 text-center text-sm border-t border-gray-200">
+            <p class="font-light" data-i18n-zh="© 2026 Haier UX Design Lab. Internal Confidential."
+              data-i18n-en="© 2026 Haier UX Design Lab. Internal Confidential.">© 2026 Haier UX Design Lab. Internal
+              Confidential.</p>
+          </footer>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="leader-nav.js"></script>
+  <script>
+    (() => {
+      const tftledTabs = document.querySelectorAll(".leader-tftled-page [data-tftled-tab]");
+      const tftledPanes = document.querySelectorAll(".leader-tftled-page [data-tftled-pane]");
+
+      tftledTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const target = tab.dataset.tftledTab;
+
+          tftledTabs.forEach((item) => {
+            const isSelected = item === tab;
+            item.classList.toggle("active", isSelected);
+            item.setAttribute("aria-selected", String(isSelected));
+          });
+
+          tftledPanes.forEach((pane) => {
+            pane.classList.toggle("active", pane.dataset.tftledPane === target);
+          });
+
+          document.querySelector(".leader-tftled-page #main-content").scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    /* Page-local fallback: language switching works even without the navigation file. */
+    (() => {
+      const root = document.querySelector('.leader-tftled-page');
+      const button = root.querySelector('#lang-toggle');
+      const label = button.querySelector('#lang-label');
+      const originals = new Map();
+      root.querySelectorAll('[data-i18n-zh][data-i18n-en]').forEach(el => originals.set(el, el.innerHTML));
+      let lang = 'zh';
+
+      function apply(next) {
+        lang = next;
+        document.querySelectorAll('title[data-i18n-zh], .leader-tftled-page [data-i18n-zh][data-i18n-en]').forEach(el => {
+          const text = el.getAttribute('data-i18n-' + lang);
+          if (text === null) return;
+          if (lang === 'zh' && originals.has(el)) { el.innerHTML = originals.get(el); return; }
+          if (/<\/?(?:strong|b|em|span|br)\b/i.test(text)) el.innerHTML = text;
+          else if (!el.children.length) el.textContent = text;
+          else {
+            const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+            const nodes = [];
+            let n;
+            while (n = walker.nextNode()) if (n.textContent.trim()) nodes.push(n);
+            if (nodes.length === 1) nodes[0].textContent = text;
+          }
+        });
+        ['alt', 'title', 'aria-label', 'placeholder'].forEach(attr => {
+          root.querySelectorAll('[data-i18n-' + attr + '-' + lang + ']').forEach(el => {
+            el.setAttribute(attr, el.getAttribute('data-i18n-' + attr + '-' + lang));
+          });
+        });
+        label.textContent = lang === 'zh' ? 'EN' : '中文';
+        button.dataset.lang = lang;
+        button.setAttribute('aria-label', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        try { localStorage.setItem('leader-guideline-language', lang); } catch (_) { }
+        document.dispatchEvent(new CustomEvent('leader-language-change', { detail: { lang } }));
+      }
+
+      button.addEventListener('click', e => {
+        e.stopImmediatePropagation();
+        apply(lang === 'zh' ? 'en' : 'zh');
+      }, true);
+
+      label.textContent = 'EN';
+
+      function savedLanguage() {
+        try { return localStorage.getItem('leader-guideline-language') === 'en' ? 'en' : 'zh'; } catch (_) { return 'zh'; }
+      }
+      if (savedLanguage() === 'en') apply('en');
+      window.addEventListener('storage', e => {
+        if (e.key === 'leader-guideline-language') apply(savedLanguage());
+      });
+
+      /* Mobile menu */
+      const menu = root.querySelector('#mobile-menu-btn');
+      const sidebar = root.querySelector('#sidebar');
+      const backdrop = root.querySelector('#sidebar-backdrop');
+      function close() {
+        sidebar.classList.add('hidden'); sidebar.classList.remove('flex');
+        sidebar.setAttribute('aria-hidden', 'true');
+        backdrop.classList.add('hidden');
+        menu.setAttribute('aria-expanded', 'false');
+      }
+      if (menu && sidebar && backdrop) {
+        menu.addEventListener('click', e => {
+          e.stopImmediatePropagation();
+          const open = sidebar.classList.contains('hidden');
+          sidebar.classList.toggle('hidden', !open);
+          sidebar.classList.toggle('flex', open);
+          sidebar.setAttribute('aria-hidden', String(!open));
+          backdrop.classList.toggle('hidden', !open);
+          menu.setAttribute('aria-expanded', String(open));
+        }, true);
+        backdrop.addEventListener('click', close);
+        root.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+        menu.setAttribute('aria-controls', 'sidebar');
+        menu.setAttribute('aria-expanded', 'false');
+      }
+    })();
+  </script>
+</body>
+
+</html>

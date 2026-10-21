@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title data-i18n-zh="Leader Design | 基础设计规则" data-i18n-en="Leader Design | Basic Design Rules">Leader Design | 基础设计规则</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { important: "#leader-basic-rules", corePlugins: { preflight: false } };</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body.leader-basic-document { margin:0; height:100vh; overflow:hidden; background:#F5F7FA; }
+#leader-basic-rules, #leader-basic-rules *, #leader-basic-rules *::before, #leader-basic-rules *::after { box-sizing:border-box; }
+#leader-basic-rules {
+ --brand-primary:#EC6443; --brand-light:#FFE5E0; --text-main:#1D1D1F; --text-secondary:#86868B;
+ --glass-bg:rgba(255,255,255,.6); --glass-border:rgba(255,255,255,.4);
+ position:relative; isolation:isolate; width:100%; min-width:0; height:100vh; overflow:hidden;
+ color:var(--text-main); font:16px/1.5 'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+}
+#leader-basic-rules h1, #leader-basic-rules h2, #leader-basic-rules h3, #leader-basic-rules p, #leader-basic-rules figure { margin:0; }
+#leader-basic-rules h1, #leader-basic-rules h2, #leader-basic-rules h3 { font-size:inherit; font-weight:inherit; }
+#leader-basic-rules button { font:inherit; color:inherit; cursor:pointer; }
+#leader-basic-rules .aura-background { position:fixed; inset:0; z-index:-1; overflow:hidden; background:#F4F4F4; pointer-events:none; }
+#leader-basic-rules .aura-blob { position:absolute; filter:blur(120px); opacity:.6; background:#E6E6E6; animation:leader-basic-float 20s infinite ease-in-out alternate; }
+#leader-basic-rules .aura-blob-1 { top:-10%; left:-10%; width:50vw; height:50vw; }
+#leader-basic-rules .aura-blob-2 { bottom:-20%; right:-10%; width:60vw; height:60vw; animation-delay:-5s; }
+#leader-basic-rules .aura-blob-3 { top:40%; left:60%; width:40vw; height:40vw; animation-delay:-10s; }
+@keyframes leader-basic-float { from {transform:translate(0,0) scale(1)} to {transform:translate(10%,15%) scale(1.1)} }
+#leader-basic-rules .glass-panel { background:var(--glass-bg); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border:1px solid var(--glass-border); box-shadow:0 8px 32px rgba(0,0,0,.04); border-radius:40px; }
+#leader-basic-rules > .h-screen { display:flex; height:100vh; padding-top:64px; }
+#leader-basic-rules > header { display:flex; position:fixed; top:0; left:0; width:100%; z-index:50; border-radius:0; }
+#leader-basic-rules header h1 { color:#1F2937; }
+#leader-basic-rules .leader-logo-container { display:flex; align-items:center; justify-content:center; background:#EC6443; color:#FFF; border-radius:8px; font-family:Arial,Helvetica,sans-serif; font-weight:700; }
+#leader-basic-rules #main-content { flex:1; min-width:0; height:100%; overflow-y:auto; overflow-x:hidden; margin-left:0; padding:24px; }
+#leader-basic-rules #main-content > div { width:100%; max-width:1200px; margin:0 auto; padding-bottom:96px; }
+#leader-basic-rules #main-content > div > section.mb-12 { margin-bottom:48px; }
+#leader-basic-rules #main-content > div > section.mb-12 h1 { margin:0 0 16px; color:#111827; font-size:36px; font-weight:700; line-height:40px; letter-spacing:-.025em; }
+#leader-basic-rules #main-content > div > section.mb-12 p { width:100%; max-width:none; color:var(--text-main); font-size:18px; line-height:1.625; margin-bottom:96px; }
+#leader-basic-rules .leader-basic-toolbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; }
+#leader-basic-rules .leader-basic-toolbar a,
+#leader-basic-rules .leader-basic-toolbar button {
+ display:inline-flex; align-items:center; justify-content:center;
+ padding:8px 16px; border-radius:9999px;
+ background:rgba(255,255,255,.5);
+ border:1px solid rgba(229,231,235,.5);
+ color:#374151; font-size:14px; font-weight:600;
+ text-decoration:none; cursor:pointer;
+ transition:background .2s ease;
+ backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+ box-shadow:0 1px 2px rgba(0,0,0,.04);
+}
+#leader-basic-rules .leader-basic-toolbar a:hover,
+#leader-basic-rules .leader-basic-toolbar button:hover { background:rgba(255,255,255,.9); }
+#leader-basic-rules .leader-basic-module { margin:0 0 64px; padding:0; min-width:0; }
+#leader-basic-rules .leader-basic-module-card { margin:0; padding:24px; min-width:0; }
+#leader-basic-rules .leader-basic-module-header { margin-bottom:24px; }
+#leader-basic-rules .leader-basic-module-header h2 { margin:0 0 12px; color:#111827; font-size:24px; font-weight:700; line-height:32px; }
+#leader-basic-rules .leader-basic-module-header p { color:#4B5563; font-size:14px; font-weight:400; line-height:1.625; letter-spacing:normal; }
+
+/* 每组独立重置序号，避免连续编号到 24 */
+#leader-basic-rules .ia-seven-grid { counter-reset:leader-basic-principle; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px 16px; align-items:stretch; }
+#leader-basic-rules .ia-seven-item {
+ min-width:0; height:100%; display:flex; flex-direction:column; overflow:hidden;
+ border:1px solid #EC6443; border-radius:28px; background:#FFF;
+ box-shadow:0 8px 32px rgba(0,0,0,.04);
+ counter-increment:leader-basic-principle;
+ transition:border-color .24s ease, transform .24s ease, box-shadow .24s ease;
+}
+#leader-basic-rules .ia-seven-item:hover { transform:translateY(-3px); border-color:#EC6443; box-shadow:0 12px 30px rgba(0,0,0,.08); }
+#leader-basic-rules .ia-image-box { order:1; width:100%; aspect-ratio:4/3; min-height:0; overflow:hidden; display:flex; align-items:center; justify-content:center; border:0; border-bottom:1px solid #E5E6EB; border-radius:0; background:rgba(255,255,255,.38); }
+#leader-basic-rules .ia-image-box img { display:block; max-width:100%; width:100%; height:100%; object-fit:contain; transform-origin:center; }
+#leader-basic-rules .ia-seven-item h3 {
+ order:2; flex:1; min-height:122px; margin:0; padding:17px 18px 20px;
+ color:#4B5563; background:transparent; text-align:left;
+ font-size:14px; font-weight:400; line-height:1.625; letter-spacing:normal; overflow-wrap:anywhere;
+}
+#leader-basic-rules .ia-seven-item h3::before {
+ content:'原则 ' counter(leader-basic-principle,decimal-leading-zero);
+ display:table; height:28px; padding:0 12px; margin-bottom:14px;
+ border-radius:9999px; background:#EC6443; color:#FFF;
+ font-size:12px; font-weight:700; line-height:28px;
+}
+#leader-basic-rules[lang="en"] .ia-seven-item h3::before { content:'PRINCIPLE ' counter(leader-basic-principle,decimal-leading-zero); }
+#leader-basic-rules footer { padding-top:40px; padding-bottom:64px; text-align:center; color:var(--text-secondary); font-size:14px; border-top:1px solid #E5E7EB; }
+#leader-basic-rules button:focus-visible { outline:2px solid var(--brand-primary); outline-offset:4px; }
+#leader-basic-rules * { scrollbar-width:thin; scrollbar-color:rgba(0,0,0,.1) transparent; }
+#leader-basic-rules ::-webkit-scrollbar { width:5px; height:5px; }
+#leader-basic-rules ::-webkit-scrollbar-track { background:transparent; }
+#leader-basic-rules ::-webkit-scrollbar-thumb { background:rgba(0,0,0,.1); border-radius:10px; }
+@media(min-width:768px) {
+ #leader-basic-rules > .h-screen { padding-top:0; }
+ #leader-basic-rules > header { display:none; }
+ #leader-basic-rules #main-content { margin-left:18rem; padding:40px; }
+ #leader-basic-rules #main-content > div > section.mb-12 h1 { font-size:48px; line-height:48px; }
+}
+@media(min-width:1024px) { #leader-basic-rules #main-content {padding:48px;} }
+@media(min-width:640px) { #leader-basic-rules .leader-basic-module-card { padding:40px; } }
+@media(max-width:1050px) { #leader-basic-rules .ia-seven-grid {grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media(max-width:640px) {
+ #leader-basic-rules .ia-seven-grid {grid-template-columns:1fr; gap:14px;}
+ #leader-basic-rules .ia-seven-item {display:grid; grid-template-columns:minmax(112px,38%) 1fr; align-items:stretch;}
+ #leader-basic-rules .ia-image-box {grid-column:1; grid-row:1; aspect-ratio:1/1; border-right:1px solid #E5E6EB; border-bottom:0;}
+ #leader-basic-rules .ia-seven-item h3 {grid-column:2; grid-row:1; min-height:0; align-self:center; padding:14px; font-size:14px;}
+}
+@media(prefers-reduced-motion:reduce) { #leader-basic-rules .aura-blob {animation:none;} }
+</style>
+</head>
+<body class="antialiased leader-basic-document">
+<div id="leader-basic-rules" lang="zh-CN">
+<div class="aura-background"><div class="aura-blob aura-blob-1"></div><div class="aura-blob aura-blob-2"></div><div class="aura-blob aura-blob-3"></div></div>
+<header class="md:hidden glass-panel rounded-none fixed top-0 w-full z-50 p-4 flex justify-between items-center border-b border-white/50">
+<div class="flex items-center">
+<div class="leader-logo-container w-8 h-8 mr-2 text-[12px]">Leader</div>
+<h1 class="font-bold text-base text-gray-800" data-i18n-zh="基础设计规则" data-i18n-en="Basic Design Rules">基础设计规则</h1>
+</div>
+<button aria-label="打开导航" data-i18n-aria-label-zh="打开导航" data-i18n-aria-label-en="Open navigation" class="p-2 bg-black/5 hover:bg-black/10 rounded-lg" id="mobile-menu-btn">
+<span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span><span class="block w-6 h-0.5 bg-gray-700 mb-1.5"></span><span class="block w-6 h-0.5 bg-gray-700"></span>
+</button>
+</header>
+<div class="flex h-screen pt-16 md:pt-0">
+<aside aria-hidden="true" aria-label="Leader Design 设计规范导航" data-i18n-aria-label-zh="Leader Design 设计规范导航" data-i18n-aria-label-en="Leader Design guideline navigation" class="hidden md:flex flex-col w-72 h-full fixed top-0 left-0 glass-panel rounded-none border-r border-white/50 z-40 overflow-y-auto" id="sidebar"></aside>
+<div aria-hidden="true" class="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 hidden md:hidden" id="sidebar-backdrop"></div>
+<main class="flex-1 md:ml-72 p-6 md:p-10 lg:p-12 overflow-y-auto h-full scroll-smooth" id="main-content">
+<div class="max-w-[1200px] mx-auto pb-24">
+<div class="leader-basic-toolbar">
+<a href="leader_os_design_system.html" data-leader-home><span data-i18n-zh="返回主页" data-i18n-en="Back to Home">返回主页</span></a>
+<button id="lang-toggle" type="button" data-lang="zh" aria-label="切换到英文"><span id="lang-label">EN</span></button>
+</div>
+
+<section class="mb-12">
+<h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gray-900" data-i18n-en="Basic Design Rules" data-i18n-zh="基础设计规则">基础设计规则</h1>
+<p class="text-lg text-gray-500 leading-relaxed mb-5" data-i18n-en="Unify information architecture, interaction logic, and page layout rules across product categories and display types. Ensure clear information, smooth operation, focused layouts, and a consistent branded interaction experience." data-i18n-zh="统一跨品类、跨显示载体的信息架构、交互逻辑与页面布局规则，保障界面信息清晰、操作顺畅、布局聚焦，建立一致的品牌交互体验。">
+统一跨品类、跨显示载体的信息架构、交互逻辑与页面布局规则，保障界面信息清晰、操作顺畅、布局聚焦，建立一致的品牌交互体验。
+</p>
+</section>
+
+<!-- 信息架构 -->
+<section class="leader-basic-module scroll-mt-8" id="architecture">
+<div class="leader-basic-module-header">
+<h2 class="text-2xl font-bold text-gray-900 mb-3" data-i18n-en="Information Architecture · Clear and Simple" data-i18n-zh="信息架构 · 清且轻">信息架构 · 清且轻</h2>
+<p class="text-sm text-gray-600 leading-6" data-i18n-en="Help users understand information and complete tasks through clear grouping, manageable hierarchy, and complete navigation." data-i18n-zh="通过清晰分组、适度层级和完整导航，帮助用户理解信息并完成任务。">通过清晰分组、适度层级和完整导航，帮助用户理解信息并完成任务。</p>
+</div>
+<div class="glass-panel leader-basic-module-card"><div class="ia-seven-grid">
+<article class="ia-seven-item">
+<h3 data-i18n-en="Group similar information together and keep clear boundaries between different types to avoid confusion." data-i18n-zh="同类信息应同组呈现；不同类信息应保持清晰边界，避免混淆。">同类信息应同组呈现；不同类信息应保持清晰边界，避免混淆。</h3>
+<div class="ia-image-box"><img alt="同类信息应同组呈现；不同类信息应保持清晰边界，避免混淆。示意图" class="scale-[0.8]" data-i18n-alt-en="Illustration of grouping similar information and separating different types." data-i18n-alt-zh="同类信息应同组呈现；不同类信息应保持清晰边界，避免混淆。示意图" src="leader-assets/examples/basic_design_rules/rule_1_1.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Limit information hierarchies to three levels or fewer to reduce comprehension and search effort." data-i18n-zh="信息层级应控制在三级以内，降低用户理解与查找成本。">信息层级应控制在三级以内，降低用户理解与查找成本。</h3>
+<div class="ia-image-box"><img alt="信息层级应控制在三级以内，降低用户理解与查找成本。示意图" class="scale-[0.8]" data-i18n-alt-en="Illustration of an information hierarchy with no more than three levels." data-i18n-alt-zh="信息层级应控制在三级以内，降低用户理解与查找成本。示意图" src="leader-assets/examples/basic_design_rules/rule_1_2.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Provide complete navigation paths for tasks, including entry and exit, up and down, and forward and back." data-i18n-zh="导航覆盖任务所需通路，确保进出、上下、前后交互闭环。">导航覆盖任务所需通路，确保进出、上下、前后交互闭环。</h3>
+<div class="ia-image-box"><img alt="导航覆盖任务所需通路，确保进出、上下、前后交互闭环。示意图" class="scale-[1.1]" data-i18n-alt-en="Illustration of complete task navigation paths for entry, exit, hierarchy, and forward and back navigation." data-i18n-alt-zh="导航覆盖任务所需通路，确保进出、上下、前后交互闭环。示意图" src="leader-assets/examples/basic_design_rules/rule_1_3.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Present same-level information side by side; avoid mixing levels or nesting across levels." data-i18n-zh="同层级信息并列展开，不同层级信息避免混排与交叉嵌套。">同层级信息并列展开，不同层级信息避免混排与交叉嵌套。</h3>
+<div class="ia-image-box"><img alt="同层级信息并列展开，不同层级信息避免混排与交叉嵌套。示意图" class="scale-[0.8]" data-i18n-alt-en="Illustration of presenting same-level information without mixing levels or nesting across levels." data-i18n-alt-zh="同层级信息并列展开，不同层级信息避免混排与交叉嵌套。示意图" src="leader-assets/examples/basic_design_rules/rule_1_4.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Show important messages promptly through global notifications or focused prompts." data-i18n-zh="重要消息即时呈现，通过全局推送、聚焦提示等方式强化触达。">重要消息即时呈现，通过全局推送、聚焦提示等方式强化触达。</h3>
+<div class="ia-image-box"><img alt="重要消息即时呈现，通过全局推送、聚焦提示等方式强化触达。示意图" class="scale-[0.8]" data-i18n-alt-en="Illustration of global notifications and focused prompts for important messages." data-i18n-alt-zh="重要消息即时呈现，通过全局推送、聚焦提示等方式强化触达。示意图" src="leader-assets/examples/basic_design_rules/rule_1_5.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Prioritize frequently used information and progressively hide nonessential details." data-i18n-zh="区分信息主次，常用信息优先呈现，非必要信息适度隐藏。">区分信息主次，常用信息优先呈现，非必要信息适度隐藏。</h3>
+<div class="ia-image-box"><img alt="区分信息主次，常用信息优先呈现，非必要信息适度隐藏。示意图" class="scale-[0.8]" data-i18n-alt-en="Illustration of prioritizing frequently used information and hiding nonessential details." data-i18n-alt-zh="区分信息主次，常用信息优先呈现，非必要信息适度隐藏。示意图" src="leader-assets/examples/basic_design_rules/rule_1_6.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Use consistent meanings and visual treatments for the same information states." data-i18n-zh="同一信息状态采用统一语义与视觉表达，确保识别一致性。">同一信息状态采用统一语义与视觉表达，确保识别一致性。</h3>
+<div class="ia-image-box"><img alt="同一信息状态采用统一语义与视觉表达，确保识别一致性。示意图" class="scale-[1]" data-i18n-alt-en="Illustration of consistent meanings and visual treatments for information states." data-i18n-alt-zh="同一信息状态采用统一语义与视觉表达，确保识别一致性。示意图" src="leader-assets/examples/basic_design_rules/rule_1_7.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Use consistent, user-friendly names for feature states; avoid technical or internal jargon." data-i18n-zh="功能状态命名统一、通俗易懂，避免工程化和内部化表述。">功能状态命名统一、通俗易懂，避免工程化和内部化表述。</h3>
+<div class="ia-image-box"><img alt="功能状态命名统一、通俗易懂，避免工程化和内部化表述。示意图" class="scale-[0.8]" data-i18n-alt-en="Illustration of consistent, user-friendly names for feature states." data-i18n-alt-zh="功能状态命名统一、通俗易懂，避免工程化和内部化表述。示意图" src="leader-assets/examples/basic_design_rules/rule_1_8.png"></div>
+</article>
+</div></div></section>
+
+<!-- 交互逻辑 -->
+<section class="leader-basic-module scroll-mt-8" id="interaction-logic">
+<div class="leader-basic-module-header">
+<h2 class="text-2xl font-bold text-gray-900 mb-3" data-i18n-en="Interaction Logic · Smooth and Precise" data-i18n-zh="交互逻辑 · 顺且准">交互逻辑 · 顺且准</h2>
+<p class="text-sm text-gray-600 leading-6" data-i18n-en="Keep task flows smooth, align actions with feedback, and maintain consistent interaction methods and state communication." data-i18n-zh="让任务路径顺畅、操作与反馈对应，保持交互方式和状态表达的一致性。">让任务路径顺畅、操作与反馈对应，保持交互方式和状态表达的一致性。</p>
+</div>
+<div class="glass-panel leader-basic-module-card"><div class="ia-seven-grid">
+<article class="ia-seven-item">
+<h3 data-i18n-en="Organize primary tasks in a natural sequence with a consistent direction, avoiding jumps and backtracking." data-i18n-zh="主任务按自然顺序组织，保持操作方向一致，避免跳转与折返。">主任务按自然顺序组织，保持操作方向一致，避免跳转与折返。</h3>
+<div class="ia-image-box"><img alt="线性任务路径与折返路径对比示意图" class="scale-[0.8]" data-i18n-alt-en="Comparison of linear task flows and flows with backtracking." data-i18n-alt-zh="线性任务路径与折返路径对比示意图" src="leader-assets/examples/basic_design_rules/rule_2_1.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Position controls and displays so hands do not block critical information." data-i18n-zh="合理规划操作区与显示区，避免手部遮挡关键信息。">合理规划操作区与显示区，避免手部遮挡关键信息。</h3>
+<div class="ia-image-box"><img alt="操作手与信息显示位置示意图" class="scale-[0.9]" data-i18n-alt-en="Illustration of hand positions relative to displayed information." data-i18n-alt-zh="操作手与信息显示位置示意图" src="leader-assets/examples/basic_design_rules/rule_2_2.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Align controls with their feedback; prefer controls on the right with displays on the left, or controls below displays." data-i18n-zh="操作与反馈位置对应，优先遵循右控左显、下控上显。">操作与反馈位置对应，优先遵循右控左显、下控上显。</h3>
+<div class="ia-image-box"><img alt="右控左显与下控上显示意图" class="scale-[0.8]" data-i18n-alt-en="Illustration of controls on the right with displays on the left, and controls below displays." data-i18n-alt-zh="右控左显与下控上显示意图" src="leader-assets/examples/basic_design_rules/rule_2_3.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Clearly distinguish interactive controls from display-only content so entry points are easy to recognize." data-i18n-zh="明确区分可交互控件与纯显示内容，确保操作入口易识别。">明确区分可交互控件与纯显示内容，确保操作入口易识别。</h3>
+<div class="ia-image-box"><img alt="可交互控件与非交互信息区分示意图" class="scale-[0.8]" data-i18n-alt-en="Illustration distinguishing interactive controls from noninteractive information." data-i18n-alt-zh="可交互控件与非交互信息区分示意图" src="leader-assets/examples/basic_design_rules/rule_2_4.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Provide timely, clear feedback; combine visual, audio, or haptic channels for key actions." data-i18n-zh="操作反馈及时明确，关键操作结合视觉、听觉或触觉等多通道反馈。">操作反馈及时明确，关键操作结合视觉、听觉或触觉等多通道反馈。</h3>
+<div class="ia-image-box"><img alt="视觉与听觉等双通道反馈示意图" class="scale-[0.7]" data-i18n-alt-en="Illustration of dual-channel feedback, such as visual and audio feedback." data-i18n-alt-zh="视觉与听觉等双通道反馈示意图" src="leader-assets/examples/basic_design_rules/rule_2_5.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Use consistent triggers, steps, and feedback for similar functions." data-i18n-zh="同类功能统一触发方式、操作步骤及反馈逻辑，保持交互一致性。">同类功能统一触发方式、操作步骤及反馈逻辑，保持交互一致性。</h3>
+<div class="ia-image-box"><img alt="点触、滑触、长按等交互方式示意图" class="scale-[0.9]" data-i18n-alt-en="Illustration of interaction methods such as tapping, swiping, and pressing and holding." data-i18n-alt-zh="点触、滑触、长按等交互方式示意图" src="leader-assets/examples/basic_design_rules/rule_2_6.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Minimize multi-function buttons and long presses; clearly indicate how to activate them when needed." data-i18n-zh="减少复合按键与长按操作，必要时明确标注触发方式。">减少复合按键与长按操作，必要时明确标注触发方式。</h3>
+<div class="ia-image-box"><img alt="复合按键与长按操作示意图" class="scale-[0.6]" data-i18n-alt-en="Illustration of multi-function buttons and press-and-hold actions." data-i18n-alt-zh="复合按键与长按操作示意图" src="leader-assets/examples/basic_design_rules/rule_2_7.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Focus each page on one primary task, highlight key actions, and reduce distractions." data-i18n-zh="页面聚焦单一核心任务，突出主要操作，减少无关信息干扰。">页面聚焦单一核心任务，突出主要操作，减少无关信息干扰。</h3>
+<div class="ia-image-box"><img alt="单页面聚焦单任务示意图" class="scale-[0.7]" data-i18n-alt-en="Illustration of a page focused on a single task." data-i18n-alt-zh="单页面聚焦单任务示意图" src="leader-assets/examples/basic_design_rules/rule_2_8.png"></div>
+</article>
+</div></div></section>
+
+<!-- 页面布局 -->
+<section class="leader-basic-module scroll-mt-8" id="page-layout">
+<div class="leader-basic-module-header">
+<h2 class="text-2xl font-bold text-gray-900 mb-3" data-i18n-en="Page Layout · Focused and Adaptive" data-i18n-zh="页面布局 · 聚且适">页面布局 · 聚且适</h2>
+<p class="text-sm text-gray-600 leading-6" data-i18n-en="Create a clear focal point for key information and common actions, with display and control positions aligned." data-i18n-zh="让核心信息与常用操作形成清晰焦点，并使显示位置与操作位置相互对应。">让核心信息与常用操作形成清晰焦点，并使显示位置与操作位置相互对应。</p>
+</div>
+<div class="glass-panel leader-basic-module-card"><div class="ia-seven-grid">
+<article class="ia-seven-item">
+<h3 data-i18n-en="Balance element positions, sizes, and spacing to avoid layouts that feel crowded or scattered." data-i18n-zh="合理分配元素位置、尺寸与间距，保持布局均衡，避免过密或分散。">合理分配元素位置、尺寸与间距，保持布局均衡，避免过密或分散。</h3>
+<div class="ia-image-box"><img alt="整体布局均衡匀称示意图" class="scale-[0.9]" data-i18n-alt-en="Illustration of a balanced overall layout." data-i18n-alt-zh="整体布局均衡匀称示意图" src="leader-assets/examples/basic_design_rules/rule_3_1.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Keep key controls in consistent positions across pages and similar products to reduce search effort." data-i18n-zh="跨页面及同类产品保持核心操作控件位置一致，降低寻找成本。">跨页面及同类产品保持核心操作控件位置一致，降低寻找成本。</h3>
+<div class="ia-image-box"><img alt="电源、启动及卖点功能按键位置示意图" class="scale-[0.9]" data-i18n-alt-en="Illustration of the positions of power, start, and signature feature buttons." data-i18n-alt-zh="电源、启动及卖点功能按键位置示意图" src="leader-assets/examples/basic_design_rules/rule_3_2.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Group related information and emphasize essential content by frequency of use and importance." data-i18n-zh="同类信息集中成组，依据使用频率与重要度突出核心内容。">同类信息集中成组，依据使用频率与重要度突出核心内容。</h3>
+<div class="ia-image-box"><img alt="主功能、参数及附加功能的信息重要度示意图" class="scale-[0.9]" data-i18n-alt-en="Illustration of the relative importance of primary functions, parameters, and additional functions." data-i18n-alt-zh="主功能、参数及附加功能的信息重要度示意图" src="leader-assets/examples/basic_design_rules/rule_3_3.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Place parameter controls near their values, using consistent symbols for adjustment and option switching." data-i18n-zh="参数控件与数值就近布局，统一增减调节与选项切换的符号。">参数控件与数值就近布局，统一增减调节与选项切换的符号。</h3>
+<div class="ia-image-box"><img alt="参数控件与数值显示相邻示意图" class="scale-[0.9]" data-i18n-alt-en="Illustration of parameter controls placed next to their displayed values." data-i18n-alt-zh="参数控件与数值显示相邻示意图" src="leader-assets/examples/basic_design_rules/rule_3_4.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Place selection controls next to their options with clear mappings; avoid cross-area interaction." data-i18n-zh="选择控件与对应选项相邻，保持明确映射，避免跨区域操作。">选择控件与对应选项相邻，保持明确映射，避免跨区域操作。</h3>
+<div class="ia-image-box"><img alt="选择控件、选项及物理旋钮的位置关系示意图" class="scale-[0.9]" data-i18n-alt-en="Illustration of the spatial relationship between selection controls, options, and a physical dial." data-i18n-alt-zh="选择控件、选项及物理旋钮的位置关系示意图" src="leader-assets/examples/basic_design_rules/rule_3_5.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Use position, size, contrast, and whitespace to establish a clear visual focal point." data-i18n-zh="通过位置、尺寸、对比度及留白突出核心信息，形成视觉焦点。">通过位置、尺寸、对比度及留白突出核心信息，形成视觉焦点。</h3>
+<div class="ia-image-box"><img alt="界面核心信息形成视觉焦点示意图" class="scale-[0.9]" data-i18n-alt-en="Illustration of core interface information forming a visual focal point." data-i18n-alt-zh="界面核心信息形成视觉焦点示意图" src="leader-assets/examples/basic_design_rules/rule_3_6.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Concentrate frequent functions and key actions in easy-to-see, easy-to-reach areas to reduce movement." data-i18n-zh="高频功能与关键操作集中在易识别、易触达区域，减少操作距离。">高频功能与关键操作集中在易识别、易触达区域，减少操作距离。</h3>
+<div class="ia-image-box"><img alt="常用操作与主要交互区域聚焦示意图" class="scale-[0.9]" data-i18n-alt-en="Illustration of frequently used controls concentrated in the primary interaction area." data-i18n-alt-zh="常用操作与主要交互区域聚焦示意图" src="leader-assets/examples/basic_design_rules/rule_3_7.png"></div>
+</article>
+<article class="ia-seven-item">
+<h3 data-i18n-en="Separate control and display areas, emphasize primary entry points, and group frequently used touchpoints." data-i18n-zh="明确区分操作区与显示区，突出主要入口，集中布局高频触点。">明确区分操作区与显示区，突出主要入口，集中布局高频触点。</h3>
+<div class="ia-image-box"><img alt="操作区与显示区的分区示意图" class="scale-[0.9]" data-i18n-alt-en="Illustration of separate control and display areas." data-i18n-alt-zh="操作区与显示区的分区示意图" src="leader-assets/examples/basic_design_rules/rule_3_8.png"></div>
+</article>
+</div></div></section>
+
+<footer class="pt-10 pb-16 text-center text-gray-400 text-sm border-t border-gray-200">
+<p class="font-light" data-i18n-zh="© 2026 Haier UX Design Lab. Internal Confidential." data-i18n-en="© 2026 Haier UX Design Lab. Internal Confidential.">© 2026 Haier UX Design Lab. Internal Confidential.</p>
+</footer>
+</div>
+</main>
+</div>
+<script src="leader-nav.js"></script>
+</div>
+<script>
+/* 页面内语言切换：不依赖导航文件也能工作 */
+(() => {
+  const root = document.querySelector('#leader-basic-rules');
+  const button = root.querySelector('#lang-toggle');
+  const label = button.querySelector('#lang-label');
+  const originals = new Map();
+  root.querySelectorAll('[data-i18n-zh][data-i18n-en]').forEach(el => originals.set(el, el.innerHTML));
+  let lang = 'zh';
+
+  function apply(next) {
+    lang = next;
+    document.querySelectorAll('title[data-i18n-zh], #leader-basic-rules [data-i18n-zh][data-i18n-en]').forEach(el => {
+      const text = el.getAttribute('data-i18n-' + lang);
+      if (text === null) return;
+      if (lang === 'zh' && originals.has(el)) { el.innerHTML = originals.get(el); return; }
+      el.textContent = text;
+    });
+    ['alt', 'title', 'aria-label', 'placeholder'].forEach(attr => {
+      root.querySelectorAll('[data-i18n-' + attr + '-' + lang + ']').forEach(el => {
+        el.setAttribute(attr, el.getAttribute('data-i18n-' + attr + '-' + lang));
+      });
+    });
+    label.textContent = lang === 'zh' ? 'EN' : '中文';
+    button.dataset.lang = lang;
+    button.setAttribute('aria-label', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    root.lang = document.documentElement.lang;
+    try { localStorage.setItem('leader-guideline-language', lang); } catch (_) {}
+    document.dispatchEvent(new CustomEvent('leader-language-change', { detail: { lang } }));
+  }
+
+  button.addEventListener('click', e => { e.stopImmediatePropagation(); apply(lang === 'zh' ? 'en' : 'zh'); }, true);
+  label.textContent = 'EN';
+
+  function savedLanguage() {
+    try { return localStorage.getItem('leader-guideline-language') === 'en' ? 'en' : 'zh'; } catch (_) { return 'zh'; }
+  }
+  if (savedLanguage() === 'en') apply('en');
+  window.addEventListener('storage', e => { if (e.key === 'leader-guideline-language') apply(savedLanguage()); });
+})();
+</script>
+</body>
+</html>
