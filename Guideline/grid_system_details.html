@@ -332,8 +332,8 @@
                 <section class="mb-16">
                     <h2 class="text-2xl font-bold mb-6 text-gray-900" data-i18n-zh="1. 核心规则" data-i18n-en="1. Core Rules">1. 核心规则</h2>
                     <div class="glass-panel p-6 sm:p-10">
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6" data-i18n-zh="内容显示区采用 12 列栅格，沟槽 16dp，支持 2、3、4、6 等分。12 列是内容区的统一标尺，不代表每块屏幕都显示 12 列；内容区变窄时，系统降为 8 列或 4 列，保持信息顺序与跨列比例。" data-i18n-en="The content display area uses a 12-column grid with 16dp gutters and supports 2, 3, 4, and 6 divisions. The 12 columns are a unified scale for the content area, but do not mean every screen shows 12 columns; when the content area narrows, the system collapses to 8 or 4 columns while preserving information order and span ratios.">
-                            内容显示区采用 12 列栅格，沟槽 16dp，支持 2、3、4、6 等分。12 列是内容区的统一标尺，不代表每块屏幕都显示 12 列；内容区变窄时，系统降为 8 列或 4 列，保持信息顺序与跨列比例。</p>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6" data-i18n-zh="内容显示区采用 12 列栅格，沟槽以可用宽度 1280px 对应 16px 为基准等比缩放，支持 2、3、4、6 等分。12 列是内容区的统一标尺，不代表每块屏幕都显示 12 列；内容区变窄时，系统降为 8 列或 4 列，保持信息顺序与跨列比例。" data-i18n-en="The content display area uses a 12-column grid. The gutter scales proportionally based on a reference of 16px at 1280px available width and supports 2, 3, 4, and 6 divisions. The 12 columns are a unified scale for the content area, but do not mean every screen shows 12 columns; when the content area narrows, the system collapses to 8 or 4 columns while preserving information order and span ratios.">
+                            内容显示区采用 12 列栅格，沟槽以可用宽度 1280px 对应 16px 为基准等比缩放，支持 2、3、4、6 等分。12 列是内容区的统一标尺，不代表每块屏幕都显示 12 列；内容区变窄时，系统降为 8 列或 4 列，保持信息顺序与跨列比例。</p>
                         <div class="fold-demo" aria-label="12、8、4 列的响应式折叠关系">
                             <div class="fold-row"><div class="fold-label"><strong data-i18n-zh="大屏" data-i18n-en="Large">大屏</strong><span data-i18n-zh="12 列" data-i18n-en="12 columns">12 列</span></div><div class="fold-cells is-primary" style="grid-template-columns:repeat(12,minmax(0,1fr))"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
                             <div class="fold-row"><div class="fold-label"><strong data-i18n-zh="中屏" data-i18n-en="Medium">中屏</strong><span data-i18n-zh="8 列" data-i18n-en="8 columns">8 列</span></div><div class="fold-cells" style="grid-template-columns:repeat(8,minmax(0,1fr))"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
@@ -348,8 +348,8 @@
                 <section class="mb-16">
                     <h2 class="text-2xl font-bold mb-6 text-gray-900" data-i18n-zh="2. 栅格构成" data-i18n-en="2. Grid Anatomy">2. 栅格构成</h2>
                     <div class="glass-panel p-6 sm:p-10">
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6" data-i18n-zh="栅格由容器、边距、列和沟槽共同组成。沟槽与边距均为 8 的倍数，沟槽固定 16dp。" data-i18n-en="A grid consists of a container, margins, columns, and gutters. Gutters and margins are multiples of 8, with the gutter fixed at 16dp.">
-                            栅格由容器、边距、列和沟槽共同组成。沟槽与边距均为 8 的倍数，沟槽固定 16dp。</p>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6" data-i18n-zh="栅格由容器、边距、列和沟槽共同组成。沟槽与边距按内容区可用宽度等比缩放，取整到 4 的倍数，最小 4px。" data-i18n-en="A grid consists of a container, margins, columns, and gutters. Gutters and margins scale proportionally with the available content width, rounded to multiples of 4, with a minimum of 4px.">
+                            栅格由容器、边距、列和沟槽共同组成。沟槽与边距按内容区可用宽度等比缩放，取整到 4 的倍数，最小 4px。</p>
                         <div class="grid lg:grid-cols-[1.12fr_.88fr] gap-6 items-stretch">
                             <div class="grid-anatomy-wrap">
                                 <div class="grid-anatomy" aria-label="容器宽度、外边距、列与沟槽的结构示意">
@@ -362,7 +362,7 @@
                                         <div class="grid-column">C</div>
                                         <div class="grid-margin">M</div>
                                     </div>
-                                    <div class="grid-gutter-marker"><span data-i18n-zh="｜ G · 沟槽 16dp ｜" data-i18n-en="| G · Gutter 16dp |">｜ G · 沟槽 16dp ｜</span></div>
+                                    <div class="grid-gutter-marker"><span data-i18n-zh="｜ G · 沟槽（等比缩放）｜" data-i18n-en="| G · Gutter (proportional) |">｜ G · 沟槽（等比缩放）｜</span></div>
                                 </div>
                             </div>
                             <div class="bg-white/60 p-8 rounded-[28px] border border-gray-200/60 definition-list">
@@ -372,7 +372,7 @@
                                 </div>
                                 <div class="definition-row">
                                     <p class="definition-symbol" data-i18n-zh="M · 边距" data-i18n-en="M · Margin">M · 边距</p>
-                                    <p class="text-sm text-gray-500 leading-6" data-i18n-zh="内容与容器边缘的保护空间，取 8 的倍数。" data-i18n-en="Protective space between content and container edges, a multiple of 8.">内容与容器边缘的保护空间，取 8 的倍数。</p>
+                                    <p class="text-sm text-gray-500 leading-6" data-i18n-zh="内容与容器边缘的保护空间，按可用宽度等比缩放，取整到 4 的倍数，最小 4px。" data-i18n-en="Protective space between content and container edges, scaled proportionally with the available width, rounded to multiples of 4, with a minimum of 4px.">内容与容器边缘的保护空间，按可用宽度等比缩放，取整到 4 的倍数，最小 4px。</p>
                                 </div>
                                 <div class="definition-row">
                                     <p class="definition-symbol" data-i18n-zh="A · 列数" data-i18n-en="A · Column Count">A · 列数</p>
@@ -384,7 +384,7 @@
                                 </div>
                                 <div class="definition-row">
                                     <p class="definition-symbol" data-i18n-zh="G · 沟槽" data-i18n-en="G · Gutter">G · 沟槽</p>
-                                    <p class="text-sm text-gray-500 leading-6" data-i18n-zh="固定 16dp。沟槽是逻辑尺寸，不随屏幕像素密度变化：Linux 下 DPR 按 1 处理，16dp 等于 16px；Android 下按 density ÷ 160 得 DPR，16dp 对应 16 × DPR 个物理像素。沟槽位于列与列之间，不属于任何一列，不放置文本或操作热区。容器内容边界位于列内，文字起始边对齐容器内容边界，不进入沟槽。" data-i18n-en="Fixed at 16dp. The gutter is a logical size that does not change with screen pixel density: on Linux, DPR is treated as 1, so 16dp equals 16px; on Android, DPR = density ÷ 160, so 16dp corresponds to 16 × DPR physical pixels. Gutters sit between columns, belong to no column, and carry no text or interactive hot zones. Container content boundaries sit inside columns; text start edges align to container content boundaries and do not enter the gutter.">固定 16dp。沟槽是逻辑尺寸，不随屏幕像素密度变化：Linux 下 DPR 按 1 处理，16dp 等于 16px；Android 下按 density ÷ 160 得 DPR，16dp 对应 16 × DPR 个物理像素。沟槽位于列与列之间，不属于任何一列，不放置文本或操作热区。容器内容边界位于列内，文字起始边对齐容器内容边界，不进入沟槽。</p>
+                                    <p class="text-sm text-gray-500 leading-6" data-i18n-zh="以内容区可用宽度 1280px 对应 16px 为基准等比缩放，取整到 4 的倍数，最小 4px，上不封顶。沟槽位于列与列之间，不属于任何一列，不放置文本或操作热区。容器内容边界位于列内，文字起始边对齐容器内容边界，不进入沟槽。" data-i18n-en="Scales proportionally based on a reference of 16px at 1280px available content width, rounded to multiples of 4, with a minimum of 4px and no upper limit. Gutters sit between columns, belong to no column, and carry no text or interactive hot zones. Container content boundaries sit inside columns; text start edges align to container content boundaries and do not enter the gutter.">以内容区可用宽度 1280px 对应 16px 为基准等比缩放，取整到 4 的倍数，最小 4px，上不封顶。沟槽位于列与列之间，不属于任何一列，不放置文本或操作热区。容器内容边界位于列内，文字起始边对齐容器内容边界，不进入沟槽。</p>
                                 </div>
                             </div>
                         </div>
@@ -432,11 +432,15 @@
 
                             <div class="result-box">
                                 <span class="result-box-title" data-i18n-zh="计算结果" data-i18n-en="Result">计算结果</span>
-                                <div class="result-items">
-                                    <div class="result-item"><span class="result-item-label" data-i18n-zh="可用大小（px）" data-i18n-en="Available size (px)">可用大小（px）</span><span class="result-item-value" id="result-available">—</span></div>
+                                <div class="result-items" id="result-items">
+                                    <div class="result-item" id="result-logical-width-item" style="display:none;">
+                                        <span class="result-item-label" data-i18n-zh="逻辑宽度（px）" data-i18n-en="Logical Width (px)">逻辑宽度（px）</span>
+                                        <span class="result-item-value" id="result-logical-width">—</span>
+                                    </div>
+                                    <div class="result-item"><span class="result-item-label" data-i18n-zh="可用大小（逻辑 px）" data-i18n-en="Available size (logical px)">可用大小（逻辑 px）</span><span class="result-item-value" id="result-available">—</span></div>
                                     <div class="result-item"><span class="result-item-label" data-i18n-zh="列数" data-i18n-en="Columns">列数</span><span class="result-item-value" id="result-cols">—</span></div>
-                                    <div class="result-item"><span class="result-item-label" data-i18n-zh="边距（px）" data-i18n-en="Margin (px)">边距（px）</span><span class="result-item-value" id="result-margin">—</span></div>
-                                    <div class="result-item"><span class="result-item-label" data-i18n-zh="沟槽（px）" data-i18n-en="Gutter (px)">沟槽（px）</span><span class="result-item-value" id="result-gutter">—</span></div>
+                                    <div class="result-item"><span class="result-item-label" data-i18n-zh="边距（逻辑 px）" data-i18n-en="Margin (logical px)">边距（逻辑 px）</span><span class="result-item-value" id="result-margin">—</span></div>
+                                    <div class="result-item"><span class="result-item-label" data-i18n-zh="沟槽（逻辑 px）" data-i18n-en="Gutter (logical px)">沟槽（逻辑 px）</span><span class="result-item-value" id="result-gutter">—</span></div>
                                 </div>
                             </div>
 
@@ -485,7 +489,7 @@
                                         </td>
                                         <td>4</td>
                                         <td>16</td>
-                                        <td>16 dp</td>
+                                        <td data-i18n-zh="等比缩放" data-i18n-en="Proportional scaling">等比缩放</td>
                                         <td data-i18n-zh="3.5 寸屏（480×320）；单主任务，内容纵向排列。" data-i18n-en="3.5-inch screen (480×320); single primary task, content stacked vertically.">3.5 寸屏（480×320）；单主任务，内容纵向排列。</td>
                                     </tr>
                                     <tr>
@@ -494,7 +498,7 @@
                                         </td>
                                         <td>8</td>
                                         <td>24</td>
-                                        <td>16 dp</td>
+                                        <td data-i18n-zh="等比缩放" data-i18n-en="Proportional scaling">等比缩放</td>
                                         <td data-i18n-zh="6.86 寸屏（1280×480）；允许 4+4 双栏，关键区至少跨 5 列。" data-i18n-en="6.86-inch screen (1280×480); 4+4 two-column layout allowed; key areas span at least 5 columns.">6.86 寸屏（1280×480）；允许 4+4 双栏，关键区至少跨 5 列。</td>
                                     </tr>
                                     <tr>
@@ -503,7 +507,7 @@
                                         </td>
                                         <td>12</td>
                                         <td>32</td>
-                                        <td>16 dp</td>
+                                        <td data-i18n-zh="等比缩放" data-i18n-en="Proportional scaling">等比缩放</td>
                                         <td data-i18n-zh="10.11 寸屏（1920×440）；容器达到上限后居中，主次区推荐 8+4 或 7+5。" data-i18n-en="10.11-inch screen (1920×440); center the container after reaching its max width; use 8+4 or 7+5 for primary/secondary regions.">10.11 寸屏（1920×440）；容器达到上限后居中，主次区推荐 8+4 或 7+5。</td>
                                     </tr>
                                 </tbody>
@@ -520,7 +524,7 @@
                             <div class="principle-card"><div class="principle-number">01</div><h3 class="font-bold text-gray-900 mb-2" data-i18n-zh="重排" data-i18n-en="Reflow">重排</h3><p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="从 12 列降到 4 列时，8+4 主次布局改为两个 4 列区块，主任务在前；不要把两栏同比缩窄。" data-i18n-en="When collapsing from 12 to 4 columns, turn an 8+4 primary/secondary layout into two 4-column blocks with the primary task first; do not shrink both columns proportionally.">从 12 列降到 4 列时，8+4 主次布局改为两个 4 列区块，主任务在前；不要把两栏同比缩窄。</p></div>
                             <div class="principle-card"><div class="principle-number">02</div><h3 class="font-bold text-gray-900 mb-2" data-i18n-zh="跨列" data-i18n-en="Span">跨列</h3><p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="同一组件跨档位保持相对比例，建议映射 2/4 → 4/8 → 6/12。正文容器在大屏不超过 8 列，控制单行长度，避免阅读疲劳。" data-i18n-en="Keep the same component's relative proportion across tiers; recommended mapping 2/4 → 4/8 → 6/12. Body containers should not exceed 8 columns on large screens to control line length and avoid reading fatigue.">同一组件跨档位保持相对比例，建议映射 2/4 → 4/8 → 6/12。正文容器在大屏不超过 8 列，控制单行长度，避免阅读疲劳。</p></div>
                             <div class="principle-card"><div class="principle-number">03</div><h3 class="font-bold text-gray-900 mb-2" data-i18n-zh="文字对齐" data-i18n-en="Text Alignment">文字对齐</h3><p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="栅格约束容器的左右边缘。容器内文字只需起始边对齐容器内容边界，结束边由自然换行决定，不强制对齐列边缘。" data-i18n-en="The grid constrains the left and right edges of containers. Text inside a container only needs its start edge aligned to the container content boundary; the end edge follows natural wrapping and is not forced to align to column edges.">栅格约束容器的左右边缘。容器内文字只需起始边对齐容器内容边界，结束边由自然换行决定，不强制对齐列边缘。</p></div>
-                            <div class="principle-card"><div class="principle-number">04</div><h3 class="font-bold text-gray-900 mb-2" data-i18n-zh="固定与流动" data-i18n-en="Fixed and Fluid">固定与流动</h3><p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="列宽与中、小屏容器随内容区可用宽度流动；沟槽 16dp 在所有档位保持固定。大屏容器达到上限后不再拉宽，只在内容区两侧增加留白。" data-i18n-en="Column widths and medium/small containers flow with the available content width; the 16dp gutter stays fixed across all tiers. Once the large-screen container reaches its max width, it stops widening and only adds whitespace on both sides.">列宽与中、小屏容器随内容区可用宽度流动；沟槽 16dp 在所有档位保持固定。大屏容器达到上限后不再拉宽，只在内容区两侧增加留白。</p></div>
+                            <div class="principle-card"><div class="principle-number">04</div><h3 class="font-bold text-gray-900 mb-2" data-i18n-zh="固定与流动" data-i18n-en="Fixed and Fluid">固定与流动</h3><p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="列宽与中、小屏容器随内容区可用宽度流动；沟槽按可用宽度等比缩放。大屏容器达到上限后不再拉宽，只在内容区两侧增加留白。" data-i18n-en="Column widths and medium/small containers flow with the available content width; the gutter scales proportionally with the available width. Once the large-screen container reaches its max width, it stops widening and only adds whitespace on both sides.">列宽与中、小屏容器随内容区可用宽度流动；沟槽按可用宽度等比缩放。大屏容器达到上限后不再拉宽，只在内容区两侧增加留白。</p></div>
                             <div class="principle-card"><div class="principle-number">05</div><h3 class="font-bold text-gray-900 mb-2" data-i18n-zh="方向变化" data-i18n-en="Orientation Change">方向变化</h3><p class="text-sm text-gray-600 leading-relaxed" data-i18n-zh="设备方向、分屏状态或系统栏出现变化后，重新测量内容区可用宽度。保持信息优先级和阅读顺序，不保证元素物理位置不变。" data-i18n-en="After device orientation, split-screen state, or system bar changes, remeasure the available content width. Preserve information priority and reading order, without guaranteeing fixed physical positions.">设备方向、分屏状态或系统栏出现变化后，重新测量内容区可用宽度。保持信息优先级和阅读顺序，不保证元素物理位置不变。</p></div>
                         </div>
                     </div>
@@ -535,7 +539,7 @@
                                 <h4 data-i18n-zh="设计检查" data-i18n-en="Design Checklist">设计检查</h4>
                                 <p class="mb-2" data-i18n-zh="✓ 设计稿标注物理分辨率、DPR、固定区域宽度与内容区可用宽度" data-i18n-en="✓ Mark physical resolution, DPR, fixed area width, and available content width in design files">✓ 设计稿标注物理分辨率、DPR、固定区域宽度与内容区可用宽度</p>
                                 <p class="mb-2" data-i18n-zh="✓ 内容块左右边缘对齐列边缘，无内容落在沟槽内" data-i18n-en="✓ Content block edges align to column edges; nothing falls inside gutters">✓ 内容块左右边缘对齐列边缘，无内容落在沟槽内</p>
-                                <p class="mb-2" data-i18n-zh="✓ 相邻内容块之间空隙等于沟槽 16dp" data-i18n-en="✓ Spacing between adjacent content blocks equals the 16dp gutter">✓ 相邻内容块之间空隙等于沟槽 16dp</p>
+                                <p class="mb-2" data-i18n-zh="✓ 相邻内容块之间空隙等于计算器给出的沟槽值" data-i18n-en="✓ Spacing between adjacent content blocks equals the gutter value from the calculator">✓ 相邻内容块之间空隙等于计算器给出的沟槽值</p>
                                 <p class="mb-2" data-i18n-zh="✓ 文字起始边对齐容器内容边界，结束边自然换行" data-i18n-en="✓ Text start edges align to container content boundaries; end edges wrap naturally">✓ 文字起始边对齐容器内容边界，结束边自然换行</p>
                                 <p data-i18n-zh="✓ 大屏容器达到上限后不再拉宽，且居中" data-i18n-en="✓ Large-screen containers stop widening after reaching the max width and stay centered">✓ 大屏容器达到上限后不再拉宽，且居中</p>
                             </div>
@@ -604,7 +608,7 @@
             updateLanguage(currentLang);
         })();
 
-        // ===== 档位换算器（全 px 逻辑，固定区域与物理宽度同维度） =====
+        // ===== 档位换算器（边距与沟槽按可用宽度等比缩放） =====
         (() => {
             const system = document.getElementById('system');
             const physicalInput = document.getElementById('physical-width');
@@ -612,10 +616,13 @@
             const dprField = document.getElementById('dpr-field');
             const reservedInput = document.getElementById('reserved');
 
+            const resultLogicalWidthItem = document.getElementById('result-logical-width-item');
+            const resultLogicalWidth = document.getElementById('result-logical-width');
             const resultAvailable = document.getElementById('result-available');
             const resultCols = document.getElementById('result-cols');
             const resultMargin = document.getElementById('result-margin');
             const resultGutter = document.getElementById('result-gutter');
+            const resultItems = document.getElementById('result-items');
 
             const layoutTitle = document.getElementById('result-layout-title');
             const layoutSubtitle = document.getElementById('result-layout-subtitle');
@@ -623,18 +630,27 @@
             const marginLeft = document.getElementById('result-margin-left');
             const marginRight = document.getElementById('result-margin-right');
 
+            // 列数断点：可用宽度 ≥1280 大屏 12 列；≥640 中屏 8 列；其余小屏 4 列
             const presets = [
-                { min: 1280, zh: '大屏', en: 'Large', cols: 12, margin: 32, gutter: 16 },
-                { min: 640,  zh: '中屏', en: 'Medium', cols: 8,  margin: 24, gutter: 16 },
-                { min: 0,    zh: '小屏', en: 'Small', cols: 4,  margin: 16, gutter: 16 }
+                { min: 1280, zh: '大屏', en: 'Large', cols: 12 },
+                { min: 640,  zh: '中屏', en: 'Medium', cols: 8 },
+                { min: 0,    zh: '小屏', en: 'Small', cols: 4 }
             ];
 
             const gapByCols = { 4: 8, 8: 7, 12: 6 };
 
+            // 等比缩放基准：可用宽度 1280 → 边距 24 / 沟槽 16
+            const BASE_AVAILABLE = 1280;
+            const BASE_MARGIN = 24;
+            const BASE_GUTTER = 16;
+            const MIN_SIZE = 4;
+
+            const round4 = (v) => Math.round(v / 4) * 4;
+
             let androidDPR = Number(dprInput.value) || 2;
             const isZh = () => (localStorage.getItem('leader-guideline-language') || 'zh') === 'zh';
 
-            const renderLayout = (preset, gutterPx) => {
+            const renderLayout = (preset, margin, gutterPx) => {
                 const lang = isZh() ? 'zh' : 'en';
                 const tierName = preset[lang];
                 layoutTitle.textContent = lang === 'zh' ? `${tierName}布局示意` : `${tierName} Layout Preview`;
@@ -642,8 +658,8 @@
                     ? `${preset.cols} 列 · 沟槽 ${gutterPx}px`
                     : `${preset.cols} columns · ${gutterPx}px gutter`;
 
-                marginLeft.textContent = preset.margin;
-                marginRight.textContent = preset.margin;
+                marginLeft.textContent = margin;
+                marginRight.textContent = margin;
 
                 layoutGrid.style.gridTemplateColumns = `repeat(${preset.cols}, minmax(0, 1fr))`;
                 layoutGrid.style.gap = `${gapByCols[preset.cols] || 6}px`;
@@ -661,21 +677,36 @@
                 const dpr = isAndroid ? Math.max(0.5, Number(dprInput.value) || 1) : 1;
                 const reserved = Math.max(0, Number(reservedInput.value) || 0);
 
-                // 固定区域与物理宽度同维度（物理像素）：
-                // 逻辑可用宽度 =（物理宽度 − 固定区域宽度）÷ DPR
+                // 物理宽度 ÷ DPR = 逻辑宽度（整屏）
+                const logicalWidth = physical / dpr;
+
+                // 内容区可用逻辑宽度 =（物理宽度 − 固定区域物理宽度）÷ DPR
                 const available = Math.max(0, (physical - reserved) / dpr);
                 const p = presets.find(item => available >= item.min);
                 const lang = isZh() ? 'zh' : 'en';
 
+                // 边距 / 沟槽：以可用宽度 1280 为基准等比缩放，取整 4 的倍数，最小 4
+                const scale = available / BASE_AVAILABLE;
+                const margin = Math.max(MIN_SIZE, round4(BASE_MARGIN * scale));
+                const gutter = Math.max(MIN_SIZE, round4(BASE_GUTTER * scale));
+
+                // DPR ≠ 1 时显示“逻辑宽度（px）”，放在最前面
+                if (dpr !== 1) {
+                    resultLogicalWidthItem.style.display = '';
+                    resultLogicalWidth.textContent = `${Math.round(logicalWidth)} px`;
+                    resultItems.style.gridTemplateColumns = 'repeat(5, minmax(0, 1fr))';
+                } else {
+                    resultLogicalWidthItem.style.display = 'none';
+                    resultLogicalWidth.textContent = '—';
+                    resultItems.style.gridTemplateColumns = 'repeat(4, minmax(0, 1fr))';
+                }
+
                 resultAvailable.textContent = `${Math.round(available)} px`;
                 resultCols.textContent = lang === 'zh' ? `${p.cols} 列` : `${p.cols}`;
-                resultMargin.textContent = `${p.margin} px`;
+                resultMargin.textContent = `${margin} px`;
+                resultGutter.textContent = `${gutter} px`;
 
-                // 沟槽（px）随输入动态计算：逻辑沟槽 16px × DPR
-                const gutterPx = Math.round(p.gutter * dpr);
-                resultGutter.textContent = `${gutterPx} px`;
-
-                renderLayout(p, gutterPx);
+                renderLayout(p, margin, gutter);
             };
 
             const updateSystem = () => {
