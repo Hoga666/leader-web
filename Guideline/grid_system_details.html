@@ -372,7 +372,7 @@
                                 </div>
                                 <div class="definition-row">
                                     <p class="definition-symbol" data-i18n-zh="M · 边距" data-i18n-en="M · Margin">M · 边距</p>
-                                    <p class="text-sm text-gray-500 leading-6" data-i18n-zh="内容与容器边缘的保护空间，按可用宽度等比缩放，取整到 4 的倍数，最小 4px。" data-i18n-en="Protective space between content and container edges, scaled proportionally with the available width, rounded to multiples of 4, with a minimum of 4px.">内容与容器边缘的保护空间，按可用宽度等比缩放，取整到 4 的倍数，最小 4px。</p>
+                                    <p class="text-sm text-gray-500 leading-6" data-i18n-zh="内容与容器边缘的保护空间，以内容区可用宽度 1280px 对应 24px 为基准等比缩放，取整到 4 的倍数，最小 4px，上不封顶。" data-i18n-en="Protective space between content and container edges, scaled proportionally based on a reference of 24px at 1280px available content width, rounded to multiples of 4, with a minimum of 4px and no upper limit.">内容与容器边缘的保护空间，以内容区可用宽度 1280px 对应 24px 为基准等比缩放，取整到 4 的倍数，最小 4px，上不封顶。</p>
                                 </div>
                                 <div class="definition-row">
                                     <p class="definition-symbol" data-i18n-zh="A · 列数" data-i18n-en="A · Column Count">A · 列数</p>
@@ -459,8 +459,8 @@
 
                         <div class="mt-6 bg-[#FFF6F3] border border-[#EC6443] rounded-[28px] p-5 text-sm text-gray-700 leading-6">
                             <strong data-i18n-zh="注意：" data-i18n-en="Note: ">注意：</strong>
-                            <span data-i18n-zh="固定区域宽度（导航+按键+间距）按档位分别定义，示例值为 144 / 280 / 352，需按实际组件尺寸确认后替换。替换后，内容区可用宽度与断点边界需重新验算。" data-i18n-en="Fixed area widths (navigation + buttons + spacing) are defined per tier. The example values 144 / 280 / 352 must be replaced with the actual component dimensions. After replacement, the available content width and breakpoint boundaries need to be recalculated.">
-                                固定区域宽度（导航+按键+间距）按档位分别定义，示例值为 144 / 280 / 352，需按实际组件尺寸确认后替换。替换后，内容区可用宽度与断点边界需重新验算。</span>
+                            <span data-i18n-zh="示例了 3 个固定区域宽度（导航+按键）值 144 / 280 / 352，使用时需按实际组件尺寸确认后替换。替换后，内容区可用宽度与断点边界会重新计算。" data-i18n-en="Three fixed area widths (navigation + buttons) are given as examples: 144 / 280 / 352. Replace them with the actual component dimensions when using. After replacement, the available content width and breakpoint boundaries will be recalculated.">
+                                示例了 3 个固定区域宽度（导航+按键）值 144 / 280 / 352，使用时需按实际组件尺寸确认后替换。替换后，内容区可用宽度与断点边界会重新计算。</span>
                         </div>
                     </div>
                 </section>
@@ -488,7 +488,7 @@
                                             <strong data-i18n-zh="小屏" data-i18n-en="Small">小屏</strong><br>&lt; 640px
                                         </td>
                                         <td>4</td>
-                                        <td>16</td>
+                                        <td data-i18n-zh="等比缩放" data-i18n-en="Proportional scaling">等比缩放</td>
                                         <td data-i18n-zh="等比缩放" data-i18n-en="Proportional scaling">等比缩放</td>
                                         <td data-i18n-zh="3.5 寸屏（480×320）；单主任务，内容纵向排列。" data-i18n-en="3.5-inch screen (480×320); single primary task, content stacked vertically.">3.5 寸屏（480×320）；单主任务，内容纵向排列。</td>
                                     </tr>
@@ -497,7 +497,7 @@
                                             <strong data-i18n-zh="中屏" data-i18n-en="Medium">中屏</strong><br>640–1279px
                                         </td>
                                         <td>8</td>
-                                        <td>24</td>
+                                        <td data-i18n-zh="等比缩放" data-i18n-en="Proportional scaling">等比缩放</td>
                                         <td data-i18n-zh="等比缩放" data-i18n-en="Proportional scaling">等比缩放</td>
                                         <td data-i18n-zh="6.86 寸屏（1280×480）；允许 4+4 双栏，关键区至少跨 5 列。" data-i18n-en="6.86-inch screen (1280×480); 4+4 two-column layout allowed; key areas span at least 5 columns.">6.86 寸屏（1280×480）；允许 4+4 双栏，关键区至少跨 5 列。</td>
                                     </tr>
@@ -506,13 +506,14 @@
                                             <strong data-i18n-zh="大屏" data-i18n-en="Large">大屏</strong><br>≥ 1280px
                                         </td>
                                         <td>12</td>
-                                        <td>32</td>
+                                        <td data-i18n-zh="等比缩放" data-i18n-en="Proportional scaling">等比缩放</td>
                                         <td data-i18n-zh="等比缩放" data-i18n-en="Proportional scaling">等比缩放</td>
                                         <td data-i18n-zh="10.11 寸屏（1920×440）；容器达到上限后居中，主次区推荐 8+4 或 7+5。" data-i18n-en="10.11-inch screen (1920×440); center the container after reaching its max width; use 8+4 or 7+5 for primary/secondary regions.">10.11 寸屏（1920×440）；容器达到上限后居中，主次区推荐 8+4 或 7+5。</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+                        <p class="mt-4 text-sm text-gray-500 leading-relaxed" data-i18n-zh="边距与沟槽以内容区可用宽度 1280px 对应边距 24px、沟槽 16px 为基准等比缩放，取整到 4 的倍数，最小 4px。" data-i18n-en="Margins and gutters scale proportionally based on a reference of 24px margin and 16px gutter at 1280px available content width, rounded to multiples of 4, with a minimum of 4px.">边距与沟槽以内容区可用宽度 1280px 对应边距 24px、沟槽 16px 为基准等比缩放，取整到 4 的倍数，最小 4px。</p>
                     </div>
                 </section>
 
