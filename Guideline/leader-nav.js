@@ -380,7 +380,7 @@ function normalizeNavPage(page) {
       <button type="button" class="leader-nav-collapse" data-sidebar-collapse aria-label="收起导航" title="收起导航" aria-controls="sidebar" aria-expanded="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <a href="leader_os_design_system.html" class="leader-logo-container w-16 h-16 mb-4 text-xl shadow-md rounded-xl flex items-center justify-center bg-[#EC6443] text-white font-bold text-sm" style="display:inline-flex; width:auto; height:48px; padding:0 12px; border-radius:9999px; font-size:16px; font-weight:700;" aria-label="Leader Design 首页">Leader</a>
       <h1 class="text-2xl font-bold tracking-tight">Leader Design</h1>
-      <p class="leader-nav-subtitle text-sm text-text-secondary mt-1">NEXT UX Guideline 1.0.0</p>
+      <p class="leader-nav-subtitle text-sm text-text-secondary mt-1">NEXT UX Guideline 1.0.1</p>
     </div>
     <nav class="flex-1 px-4 pb-12 space-y-1" aria-label="章节目录">
       ${LEADER_NAV_GROUPS.map(groupTemplate).join('')}
