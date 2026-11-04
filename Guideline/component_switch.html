@@ -1,40 +1,208 @@
 <!DOCTYPE html>
 <html lang="zh-CN" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haier Design | 组件</title>
+    <title data-i18n-zh="Leader Design | 开关" data-i18n-en="Leader Design | Switch">Leader Design | 开关</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        :root { --brand-primary:#2283E2; --brand-light:#E5F0FF; --text-main:#1D1D1F; --text-secondary:#86868B; --glass-bg:rgba(255,255,255,.6); --glass-border:rgba(255,255,255,.4); }
-        body { font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; background:#F5F7FA; color:var(--text-main); overflow-x:hidden; }
-        .aura-background { position:fixed; inset:0; z-index:-1; overflow:hidden; background:#F4F7FB; }
-        .aura-blob { position:absolute; filter:blur(120px); opacity:.6; animation:float 20s infinite ease-in-out alternate; }
-        .aura-blob-1 { top:-10%; left:-10%; width:50vw; height:50vw; background:#C4E0FF; }
-        .aura-blob-2 { bottom:-20%; right:-10%; width:60vw; height:60vw; background:#E0E8FF; animation-delay:-5s; }
-        .aura-blob-3 { top:40%; left:60%; width:40vw; height:40vw; background:#E8F4FF; animation-delay:-10s; }
-        @keyframes float { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(10%,15%) scale(1.1)} }
-        .glass-panel { background:var(--glass-bg); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border:1px solid var(--glass-border); box-shadow:0 8px 32px rgba(0,0,0,.04); border-radius:24px; }
-        .sidebar-nav-item { transition:all .3s ease; border-left:3px solid transparent; }
-        .sidebar-nav-item.active { color:var(--brand-primary); font-weight:600; border-left-color:var(--brand-primary); background:linear-gradient(90deg,var(--brand-light) 0%,transparent 100%); }
-        .haier-logo-container { display:flex; align-items:center; justify-content:center; background-color:#2283E2; color:white; font-family:Arial,Helvetica,sans-serif; font-weight:bold; border-radius:8px; }
+        :root {
+            --brand-primary: #EC6443;
+            --brand-light: #FFE5E0;
+            --brand-deep: #C4512F;
+            --text-main: #1D1D1F;
+            --text-secondary: #86868B;
+            --glass-bg: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family-body);
+            background-color: #F5F7FA;
+            color: var(--text-main);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .aura-background {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1; overflow: hidden; background: #f4f4f4;
+        }
+
+        .aura-blob {
+            position: absolute;
+            filter: blur(120px);
+            opacity: 0.6;
+            animation: float 20s infinite ease-in-out alternate;
+        }
+
+        .aura-blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #e6e6e6; animation-delay: 0s; }
+        .aura-blob-2 { bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: #e6e6e6; animation-delay: -5s; }
+        .aura-blob-3 { top: 40%; left: 60%; width: 40vw; height: 40vw; background: #e6e6e6; animation-delay: -10s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(10%, 15%) scale(1.1); }
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            border-radius: 40px !important;
+        }
+
+        #sidebar, #sidebar.glass-panel { border-radius: 0 !important; }
+
+        * { scrollbar-width: thin; scrollbar-color: rgba(0, 0, 0, 0.10) transparent; }
+        *::-webkit-scrollbar { width: 5px; height: 5px; }
+        *::-webkit-scrollbar-track { background: transparent; }
+        *::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.10); border-radius: 10px; }
+        *::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.20); }
+
+        #main-content { scrollbar-width: thin; scrollbar-color: rgba(0, 0, 0, 0.10) transparent; }
+        #main-content::-webkit-scrollbar { width: 5px; }
+        #main-content::-webkit-scrollbar-track { background: transparent; }
+        #main-content::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.10); border-radius: 10px; }
+        #main-content::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.20); }
+
+        #sidebar { scrollbar-width: thin; scrollbar-color: rgba(0, 0, 0, 0.08) transparent; }
+        #sidebar::-webkit-scrollbar { width: 4px; }
+        #sidebar::-webkit-scrollbar-track { background: transparent; }
+        #sidebar::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.08); border-radius: 10px; }
+        #sidebar::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.16); }
+
+        .leader-logo-container {
+            display: flex; align-items: center; justify-content: center;
+            background-color: var(--brand-primary); color: white;
+            font-family: Arial, Helvetica, sans-serif; font-weight: bold; border-radius: 8px;
+        }
+
+        .lang-btn { transition: all 0.2s ease; cursor: pointer; }
+        .lang-btn:hover { background: rgba(0, 0, 0, 0.05); }
+
+        @media (max-width: 767px) {
+            .mobile-pad { padding-top: 64px; }
+        }
     </style>
 </head>
+
 <body class="antialiased">
-    <div class="aura-background"><div class="aura-blob aura-blob-1"></div><div class="aura-blob aura-blob-2"></div><div class="aura-blob aura-blob-3"></div></div>
-    <header class="md:hidden glass-panel rounded-none fixed top-0 w-full z-50 p-4 flex justify-between items-center"><div class="flex items-center"><div class="haier-logo-container w-10 h-10 mr-3 text-[14px]">Haier</div><h1 class="font-bold text-lg">Haier Design</h1></div><button id="mobile-menu-btn" class="p-2 bg-black/5 rounded-lg" aria-label="打开目录"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button></header>
+    <div class="aura-background">
+        <div class="aura-blob aura-blob-1"></div>
+        <div class="aura-blob aura-blob-2"></div>
+        <div class="aura-blob aura-blob-3"></div>
+    </div>
+
+    <header class="md:hidden glass-panel rounded-none fixed top-0 w-full z-50 p-4 flex justify-between items-center border-b border-white/50">
+        <div class="flex items-center">
+            <div class="leader-logo-container w-8 h-8 mr-2 text-[12px]">Leader</div>
+            <h1 class="font-bold text-base text-gray-800" data-i18n-zh="开关" data-i18n-en="Switch">开关</h1>
+        </div>
+        <button id="mobile-menu-btn" class="p-2 bg-black/5 hover:bg-black/10 rounded-lg" aria-label="打开目录">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </header>
+
     <div class="flex h-screen pt-16 md:pt-0">
-        <aside id="sidebar" class="hidden md:flex flex-col w-72 h-full fixed top-0 left-0 glass-panel rounded-none border-r border-white/50 z-40 overflow-y-auto" aria-label="Haier Design 设计规范导航" aria-hidden="true"></aside>
+        <aside id="sidebar" class="hidden md:flex flex-col w-72 h-full fixed top-0 left-0 glass-panel rounded-none border-r border-white/50 z-40 overflow-y-auto" aria-label="Leader Design 设计规范导航" aria-hidden="true"></aside>
         <div id="sidebar-backdrop" class="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 hidden md:hidden" aria-hidden="true"></div>
+
         <main class="flex-1 md:ml-72 p-6 md:p-10 lg:p-12 overflow-y-auto h-full scroll-smooth" id="main-content">
             <div class="max-w-[1200px] mx-auto pb-24">
+                <div class="hidden md:flex items-center justify-between mb-8">
+                    <a href="leader_os_design_system.html" class="px-4 py-2 bg-white/50 hover:bg-white/90 rounded-full transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md">
+                        <span class="text-sm font-semibold" data-i18n-zh="返回主页" data-i18n-en="Back to Home">返回主页</span>
+                    </a>
+                    <button id="lang-toggle" class="lang-btn px-4 py-2 bg-white/50 hover:bg-white/90 rounded-full transition-colors flex items-center text-gray-700 shadow-sm border border-gray-200/50 backdrop-blur-md text-sm font-semibold" data-lang="zh">
+                        <span id="lang-label">EN</span>
+                    </button>
+                </div>
+
                 <div id="component-page"></div>
-                <footer class="pt-10 pb-16 text-center text-gray-400 text-sm border-t border-gray-200"><p class="font-light">&copy; 2026 Haier Design Lab. Internal Confidential.</p></footer>
+
+                <footer class="pt-10 pb-16 text-center text-gray-400 text-sm border-t border-gray-200">
+                    <p class="font-light" data-i18n-zh="&copy; 2026 Haier UX Design Lab. Internal Confidential." data-i18n-en="&copy; 2026 Haier UX Design Lab. Internal Confidential.">&copy; 2026 Haier UX Design Lab. Internal Confidential.</p>
+                </footer>
             </div>
         </main>
     </div>
+
     <script src="component-page.js"></script>
-    <script src="haier-nav.js"></script>
+    <script src="component-page-extra.js"></script>
+    <script>
+      window.__leaderRenderComponentPage();
+      document.addEventListener('leader-language-change', window.__leaderRenderComponentPage);
+      document.addEventListener('languagechange', window.__leaderRenderComponentPage);
+    </script>
+    <script src="leader-nav.js"></script>
+
+    <script>
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const backdrop = document.getElementById('sidebar-backdrop');
+
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('hidden');
+                sidebar.classList.toggle('flex');
+                backdrop.classList.toggle('hidden');
+            });
+        }
+        if (backdrop) {
+            backdrop.addEventListener('click', () => {
+                sidebar.classList.add('hidden');
+                sidebar.classList.remove('flex');
+                backdrop.classList.add('hidden');
+            });
+        }
+
+        (function () {
+            const langBtn = document.getElementById('lang-toggle');
+            const langLabel = document.getElementById('lang-label');
+            if (!langBtn) return;
+            const allElements = document.querySelectorAll('[data-i18n-zh][data-i18n-en]');
+            let currentLang = localStorage.getItem('leader-guideline-language') || 'zh';
+
+            function updateLanguage(lang) {
+                currentLang = lang;
+                allElements.forEach(el => {
+                    const text = el.getAttribute(`data-i18n-${lang}`);
+                    if (!text) return;
+                    if (el.children.length > 0) {
+                        let replaced = false;
+                        for (const node of el.childNodes) {
+                            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '') {
+                                node.textContent = text;
+                                replaced = true;
+                                break;
+                            }
+                        }
+                        if (!replaced) el.innerHTML = text;
+                    } else {
+                        el.textContent = text;
+                    }
+                });
+                langLabel.textContent = lang === 'zh' ? 'EN' : '中文';
+                localStorage.setItem('leader-guideline-language', lang);
+                document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+                // ★ 关键：通知 component-page.js 和 leader-nav.js 重新渲染
+                document.dispatchEvent(new CustomEvent('leader-language-change', { detail: { lang } }));
+            }
+
+            langBtn.addEventListener('click', () => updateLanguage(currentLang === 'zh' ? 'en' : 'zh'));
+            updateLanguage(currentLang);
+        })();
+    </script>
 </body>
+
 </html>

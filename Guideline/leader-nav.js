@@ -37,15 +37,15 @@ const LEADER_NAV_GROUPS = [
       { label: '按钮', href: 'component_buttons.html', page: 'component_buttons.html', child: true },
       { label: '开关', href: 'component_switch.html', page: 'component_switch.html', child: true },
       { label: '3.2 选择类', id: 'components-selection', disabled: true },
-      { label: '单选按钮', href: 'component_radio_button.html', page: 'component_radio_button.html', child: true },
+      { label: '单选框', href: 'component_radio_button.html', page: 'component_radio_button.html', child: true },
       { label: '复选框', href: 'component_checkbox.html', page: 'component_checkbox.html', child: true },
-      { label: '滚轮选择器', href: 'component_wheel_picker.html', page: 'component_wheel_picker.html', child: true },
+      { label: '选择器', href: 'component_wheel_picker.html', page: 'component_wheel_picker.html', child: true },
       { label: '3.3 输入类', id: 'components-input', disabled: true },
-      { label: '文本框', href: 'component_text_field.html', page: 'component_text_field.html', child: true },
-      { label: '下拉选择', href: 'component_dropdown_select.html', page: 'component_dropdown_select.html', child: true },
+      { label: '输入框', href: 'component_text_field.html', page: 'component_text_field.html', child: true },
       { label: '调控', href: 'component_slider.html', page: 'component_slider.html', child: true },
+      { label: '键盘', href: 'component_keyboard.html', page: 'component_keyboard.html', child: true },
       { label: '3.4 导航类', id: 'components-nav', disabled: true },
-      { label: '应用栏', href: 'component_app_bar.html', page: 'component_app_bar.html', child: true },
+      { label: '菜单', href: 'component_menu.html', page: 'component_menu.html', child: true },
       { label: '导航', href: 'component_navigation.html', page: 'component_navigation.html', child: true },
       { label: '标签页', href: 'component_tabs.html', page: 'component_tabs.html', child: true },
       { label: '面包屑', href: 'component_breadcrumbs.html', page: 'component_breadcrumbs.html', child: true },
@@ -53,16 +53,16 @@ const LEADER_NAV_GROUPS = [
       { label: '步骤条', href: 'component_stepper.html', page: 'component_stepper.html', child: true },
       { label: '3.5 数据展示', id: 'components-data', disabled: true },
       { label: '卡片', href: 'component_card.html', page: 'component_card.html', child: true },
-      { label: '列表 / 列表项', href: 'component_list_tile.html', page: 'component_list_tile.html', child: true },
+      { label: '列表', href: 'component_list_tile.html', page: 'component_list_tile.html', child: true },
       { label: '头像', href: 'component_avatar.html', page: 'component_avatar.html', child: true },
-      { label: '分割线', href: 'component_divider.html', page: 'component_divider.html', child: true },
+      { label: '图片轮播', href: 'component_carousel.html', page: 'component_carousel.html', child: true },
       { label: '徽标', href: 'component_badge.html', page: 'component_badge.html', child: true },
       { label: '3.6 反馈与浮层', id: 'components-feedback', disabled: true },
-      { label: '对话框 / 模态框', href: 'component_dialog_modal.html', page: 'component_dialog_modal.html', child: true },
-      { label: '底部面板', href: 'component_bottom_sheet.html', page: 'component_bottom_sheet.html', child: true },
-      { label: '消息条 / 轻提示', href: 'component_snackbar_toast.html', page: 'component_snackbar_toast.html', child: true },
-      { label: '工具提示', href: 'component_tooltip.html', page: 'component_tooltip.html', child: true },
-      { label: '进度指示器', href: 'component_progress_indicator.html', page: 'component_progress_indicator.html', child: true },
+      { label: '对话框', href: 'component_dialog_modal.html', page: 'component_dialog_modal.html', child: true },
+      { label: '抽屉', href: 'component_drawer.html', page: 'component_drawer.html', child: true },
+      { label: '消息提示', href: 'component_snackbar_toast.html', page: 'component_snackbar_toast.html', child: true },
+      { label: '弹窗', href: 'component_tooltip.html', page: 'component_tooltip.html', child: true },
+      { label: '进度条', href: 'component_progress_indicator.html', page: 'component_progress_indicator.html', child: true },
     ],
   },
   {
@@ -117,12 +117,9 @@ const LEADER_NAV_STANDALONE_ITEMS = [
 ];
 
 const LEADER_NAV_LABEL_EN = {
-  // 1. 原则
   '1. 原则 Principles': '1. Principles',
   '1.1 品牌': '1.1 Brand',
   '1.2 设计体验原则': '1.2 UX Principles',
-
-  // 2. 基础
   '2. 基础 Foundations': '2. Foundations',
   '2.1 视觉基础': '2.1 Visual Foundations',
   '2.1.1 色彩': '2.1.1 Color',
@@ -136,22 +133,20 @@ const LEADER_NAV_LABEL_EN = {
   '2.2.2 LED布局': '2.2.2 LED Layout',
   '2.2.3 TFT布局': '2.2.3 TFT Layout',
   '2.2.4 组合布局': '2.2.4 Combined Layout',
-
-  // 3. 组件
   '3. 组件 Components': '3. Components',
   '3.1 操作类': '3.1 Actions',
   '按钮': 'Buttons',
   '开关': 'Switch / Toggle',
   '3.2 选择类': '3.2 Selection',
-  '单选按钮': 'Radio Button',
+  '单选框': 'Radio Button',
   '复选框': 'Checkbox',
-  '滚轮选择器': 'Wheel Picker',
+  '选择器': 'Picker',
   '3.3 输入类': '3.3 Inputs',
-  '文本框': 'Text Field',
-  '下拉选择': 'Dropdown / Select',
+  '输入框': 'Input Field',
   '调控': 'Slider / Control',
+  '键盘': 'Keyboard',
   '3.4 导航类': '3.4 Navigation',
-  '应用栏': 'App Bar',
+  '菜单': 'Menu',
   '导航': 'Navigation',
   '标签页': 'Tabs',
   '面包屑': 'Breadcrumbs',
@@ -159,52 +154,39 @@ const LEADER_NAV_LABEL_EN = {
   '步骤条': 'Stepper',
   '3.5 数据展示': '3.5 Data Display',
   '卡片': 'Card',
-  '列表 / 列表项': 'List / List Tile',
+  '列表': 'List',
   '头像': 'Avatar',
-  '分割线': 'Divider',
+  '图片轮播': 'Image Carousel',
   '徽标': 'Badge',
   '3.6 反馈与浮层': '3.6 Feedback & Overlays',
-  '对话框 / 模态框': 'Dialog / Modal',
-  '底部面板': 'Bottom Sheet',
-  '消息条 / 轻提示': 'Snackbar / Toast',
-  '工具提示': 'Tooltip',
-  '进度指示器': 'Progress Indicator',
-
-  // 4. 硬件
+  '对话框': 'Dialog',
+  '抽屉': 'Drawer',
+  '消息提示': 'Message / Toast',
+  '弹窗': 'Popup',
+  '进度条': 'Progress Bar',
   '4. 硬件 Hardware': '4. Hardware',
   '4.1 TFT 屏幕': '4.1 TFT Screens',
   '4.2 LED 屏幕': '4.2 LED Screens',
   '4.3 其它屏幕形态': '4.3 Other Screens',
-
-  // 5. 动效
   '5. 动效 Motion': '5. Motion',
   '5.1 背景动效': '5.1 Background Motion',
   '5.2 转场 Transitions': '5.2 Transitions',
   '5.3 微交互': '5.3 Micro-interactions',
-
-  // 多感官交互
   '多感官交互 Sensory': 'Sensory Interaction',
   '灯光 Lighting': 'Lighting',
   '触摸 Touch': 'Touch',
   '音效 Audio': 'Audio',
-
-  // 7. AI
   '7. AI': '7. AI',
   '7.1 AI 视觉标准': '7.1 AI Visual Standards',
   '7.2 AI 使用标准': '7.2 AI Usage Guidelines',
-
-  // 8. 资产与推行
   '8. 资产与推行 Assets': '8. Assets & Governance',
   '8.1 强制规范标准': '8.1 Mandatory Standards',
   '8.2 UT数据推导与沉淀': '8.2 UT Data Derivation',
   '8.3 Figma资产授权': '8.3 Figma Assets',
   '8.4 统一度验收机制': '8.4 Consistency QA',
-
-  // 9. 更新日志
   '9. 更新日志 Log': '9. Changelog',
 };
 
-// 已开放页面白名单：点击跳转至未在白名单的本站 .html 页面时阻止跳转（外观不变，后期分批开放时加入即可）
 const PUBLISHED_PAGES = new Set([
   'leader_os_design_system.html',
   'haier_os_design_system.html',
@@ -221,12 +203,37 @@ const PUBLISHED_PAGES = new Set([
   'leader_led_rules_details.html',
   'leader_tft_rules_details.html',
   'leader_tftled_rules_details.html',
+  'component_buttons.html',
+  'component_switch.html',
+  'component_radio_button.html',
+  'component_checkbox.html',
+  'component_wheel_picker.html',
+  'component_text_field.html',
+  'component_dropdown_select.html',
+  'component_slider.html',
+  'component_keyboard.html',
+  'component_menu.html',
+  'component_app_bar.html',
+  'component_navigation.html',
+  'component_tabs.html',
+  'component_breadcrumbs.html',
+  'component_pagination.html',
+  'component_stepper.html',
+  'component_card.html',
+  'component_list_tile.html',
+  'component_avatar.html',
+  'component_divider.html',
+  'component_badge.html',
+  'component_dialog_modal.html',
+  'component_bottom_sheet.html',
+  'component_snackbar_toast.html',
+  'component_tooltip.html',
+  'component_progress_indicator.html',
 ]);
 
-// 导航开放闸门：拦截指向未开放页面的 <a> 跳转，外观保持原样，仅阻止默认跳转与冒泡
 function initNavigationGate() {
   document.addEventListener('click', function (e) {
-    const a = e.target.closest && e.target.closest('#sidebar a[href]');
+    const a = e.target.closest && e.target.closest('a[href]');
     if (!a) return;
     const href = a.getAttribute('href') || '';
     if (!href || /^(https?:|\/\/|mailto:|tel:|#)/.test(href)) return;
@@ -239,15 +246,11 @@ function initNavigationGate() {
   }, true);
 }
 
-// 修改侧边栏外观时统一维护此处；规则仅作用于导航及其控制按钮。
 function initSidebarActiveStyle() {
   if (document.getElementById('leader-navigation-styles')) return;
   const s = document.createElement('style');
   s.id = 'leader-navigation-styles';
   s.textContent = `
-/* Public sidebar contract: styles are independent of Tailwind and page resets.
-   Two copies of the ID deliberately outrank page-scoped #page #sidebar rules.
-   Content rules are untouched except the main margin while desktop navigation is collapsed. */
 #sidebar#sidebar { box-sizing:border-box; position:fixed; inset:0 auto 0 0; width:288px; height:100vh; height:100dvh; display:flex; flex-direction:column; overflow-y:auto; overflow-x:hidden; z-index:40; padding:0; margin:0; background:rgba(255,255,255,.6); border:1px solid rgba(255,255,255,.4); border-right-color:rgba(255,255,255,.5); border-radius:0; box-shadow:0 8px 32px rgba(0,0,0,.04); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); color:#1D1D1F; font:16px/1.5 'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif; scrollbar-width:thin; scrollbar-color:rgba(0,0,0,.08) transparent; }
 #sidebar#sidebar *, #sidebar#sidebar *::before, #sidebar#sidebar *::after { box-sizing:border-box; }
 #sidebar#sidebar a { text-decoration:none; }
@@ -296,7 +299,6 @@ function initSidebarActiveStyle() {
   (document.head || document.documentElement).appendChild(s);
 }
 
-// Storage can be unavailable in browser privacy modes; navigation still works.
 function readNavSetting(key) { try { return localStorage.getItem(key); } catch (_) { return null; } }
 function writeNavSetting(key, value) { try { localStorage.setItem(key, value); } catch (_) {} }
 
@@ -308,15 +310,11 @@ function normalizeNavPage(page) {
   const sidebar = document.getElementById('sidebar');
   const mobileButton = document.getElementById('mobile-menu-btn');
   const backdrop = document.getElementById('sidebar-backdrop');
-  const mainContent = document.getElementById('main-content') || document.querySelector('main');
   if (!sidebar) return;
   const currentPage = normalizeNavPage(window.location.pathname.split('/').pop() || 'leader_os_design_system.html');
-  // 首页强制中文，详情页读取存储的语言
-  const currentLanguage = currentPage === 'leader_os_design_system.html'
-    ? 'zh'
-    : (readNavSetting('leader-guideline-language') || 'zh');
-  const sensorySubpages = new Set(['lighting.html', 'touch.html', 'audio.html']);
-  let scrollSpyPausedUntil = 0;
+  
+  // ★★★ 关键改动：移除首页强制中文，统一读取存储的语言 ★★★
+  let currentLanguage = readNavSetting('leader-guideline-language') || 'zh';
 
   const stripNavNumber = (label) => label.replace(/^\d+(?:\.\d+)*\.?\s*/, '').trim();
 
@@ -343,7 +341,6 @@ function normalizeNavPage(page) {
   )?.id;
   const openGroups = new Set(currentGroup ? [currentGroup] : []);
 
-  // ★★★ disabled 项使用浅灰色 + 不可点击 ★★★
   const navItemTemplate = (item) => {
     if (item.disabled) {
       return `<span class="sidebar-nav-item nav-disabled block px-4 py-2.5 text-sm font-normal text-gray-300 rounded-xl cursor-not-allowed" data-nav-id="${item.id || ''}" data-label-zh="${zhNavLabel(item.label)}" data-label-en="${stripNavNumber(LEADER_NAV_LABEL_EN[item.label] || item.label)}">${navLabel(item.label)}</span>`;
@@ -392,7 +389,6 @@ function normalizeNavPage(page) {
     </nav>
   `;
 
-  // 侧边栏折叠功能
   const sidebarRestoreButton = document.createElement('button');
   sidebarRestoreButton.id = 'sidebar-restore-button';
   sidebarRestoreButton.type = 'button';
@@ -412,28 +408,28 @@ function normalizeNavPage(page) {
   sidebar.querySelector('[data-sidebar-collapse]')?.addEventListener('click', () => setSidebarCollapsed(true));
   sidebarRestoreButton.addEventListener('click', () => setSidebarCollapsed(false));
 
-  // 展开/收起分组
   const toggleGroup = (groupId) => {
     const isOpen = openGroups.has(groupId);
     const trigger = sidebar.querySelector(`[data-nav-toggle="${groupId}"]`);
     const panel = sidebar.querySelector(`#nav-panel-${groupId}`);
+    if (!trigger || !panel) return;
     if (isOpen) {
       openGroups.delete(groupId);
-      trigger?.setAttribute('aria-expanded', 'false');
-      trigger?.querySelector('svg')?.classList.remove('rotate-180');
-      panel?.classList.add('hidden');
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.querySelector('svg')?.classList.remove('rotate-180');
+      panel.classList.add('hidden');
     } else {
       openGroups.add(groupId);
-      trigger?.setAttribute('aria-expanded', 'true');
-      trigger?.querySelector('svg')?.classList.add('rotate-180');
-      panel?.classList.remove('hidden');
+      trigger.setAttribute('aria-expanded', 'true');
+      trigger.querySelector('svg')?.classList.add('rotate-180');
+      panel.classList.remove('hidden');
     }
   };
+
   sidebar.querySelectorAll('[data-nav-toggle]').forEach((button) => {
     button.addEventListener('click', () => toggleGroup(button.dataset.navToggle));
   });
 
-  // One owner for mobile state; Escape, backdrop and link activation close the drawer.
   let menuOpen = false;
   const setMenuOpen = (open) => {
     menuOpen = open && window.innerWidth < 768;
@@ -463,20 +459,20 @@ function normalizeNavPage(page) {
   window.addEventListener('resize', () => setMenuOpen(false));
   setMenuOpen(false);
 
-})();
-
-// 侧边栏语言同步：监听 detail 页 EN 按钮触发的语言切换
-function initSidebarLanguageSync() {
+  // ★★★ 核心改动：监听语言切换，实时更新侧边栏所有文字 ★★★
   document.addEventListener('leader-language-change', function (e) {
     const lang = e.detail && e.detail.lang ? e.detail.lang : 'zh';
-    document.querySelectorAll('#sidebar [data-label-zh][data-label-en]').forEach(function (el) {
-      var zh = el.getAttribute('data-label-zh');
-      var en = el.getAttribute('data-label-en');
+    currentLanguage = lang;
+    // 更新所有带 data-label-zh / data-label-en 的元素
+    sidebar.querySelectorAll('[data-label-zh][data-label-en]').forEach(function (el) {
+      const zh = el.getAttribute('data-label-zh');
+      const en = el.getAttribute('data-label-en');
       el.textContent = lang === 'zh' ? zh : en;
     });
   });
-}
-initSidebarLanguageSync();
+
+})();
+
 initNavigationGate();
 initSidebarActiveStyle();
 
