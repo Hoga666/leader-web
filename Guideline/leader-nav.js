@@ -193,6 +193,7 @@ const PUBLISHED_PAGES = new Set([
   'brand.html',
   'design_principles.html',
   'foundations.html',
+  'components.html',
   'color_details.html',
   'typography_details.html',
   'iconography_details.html',
