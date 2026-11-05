@@ -474,6 +474,40 @@ function normalizeNavPage(page) {
 
 })();
 
+/* ===== 侧边栏：锁定「导航」及其以下所有条目，可随时放开 ===== */
+(function initSidebarPartialLock() {
+  // 默认锁定
+  let locked = true;
+  window.leaderNavLock = function () { locked = true; };
+  window.leaderNavUnlock = function () { locked = false; };
+  window.leaderNavIsLocked = function () { return locked; };
+
+  // 锁定的起点（中文 label），从这里开始往下全部锁
+  const LOCK_START_LABEL_ZH = '导航';
+
+  document.addEventListener('click', function (e) {
+    if (!locked) return;
+    const sidebar = document.getElementById('sidebar');
+    if (!sidebar || !sidebar.contains(e.target)) return;
+
+    const a = e.target.closest && e.target.closest('a.sidebar-nav-item');
+    if (!a) return;
+
+    // 收集当前侧边栏内所有可点击条目（按 DOM 顺序）
+    const items = Array.from(sidebar.querySelectorAll('a.sidebar-nav-item'));
+    const startIndex = items.findIndex(
+      el => (el.getAttribute('data-label-zh') || '').trim() === LOCK_START_LABEL_ZH
+    );
+    if (startIndex < 0) return;
+
+    const clickedIndex = items.indexOf(a);
+    if (clickedIndex >= startIndex) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, true);
+})();
+
 initNavigationGate();
 initSidebarActiveStyle();
 
