@@ -18,7 +18,6 @@ const COMPONENT_PAGES = {
   'component_list_tile.html': ['3.5.2', '列表', 'List / List Tile', '以一致结构呈现可扫描的信息集合。主信息、辅助信息和操作保持稳定对齐。', 'Presents scannable collections with a consistent structure. Align primary content, supporting content, and actions predictably.'],
   'component_avatar.html': ['3.5.3', '头像', 'Avatar', '代表用户、家庭或设备身份。图片不可用时使用稳定的文字或图标占位。', 'Represents a person, household, or device identity. Use a stable text or icon fallback when imagery is unavailable.'],
   'component_image.html': ['3.5.4', '图片轮播', 'Image Carousel', '用于识别设备、呈现场景与说明操作。', 'Identify appliances, illustrate contexts, and explain tasks.'],
-  'component_divider.html': ['3.5.4', '图片轮播', 'Image Carousel', '用于识别设备、呈现场景与说明操作。', 'Identify appliances, illustrate contexts, and explain tasks.'],
   'component_badge.html': ['3.5.5', '徽标', 'Badge', '以紧凑形式表达计数或短状态。内容应简短，不将关键告警仅依赖颜色表达。', 'Expresses a count or short status compactly. Keep content brief and never communicate critical alerts by color alone.'],
   'component_dialog_modal.html': ['3.6.1', '对话框', 'Dialog / Modal', '用于需要用户立即关注或确认的短任务。避免嵌套弹窗，并始终提供明确退出路径。', 'Use for short tasks that require immediate attention or confirmation. Avoid nested dialogs and always provide a clear exit.'],
   'component_bottom_sheet.html': ['3.6.2', '抽屉', 'Bottom Sheet', '从屏幕底部呈现补充操作或内容，适合触控场景。保留背景上下文并支持清晰关闭。', 'Presents supporting actions or content from the bottom on touch devices. Preserve context and provide a clear dismiss path.'],
@@ -1295,6 +1294,10 @@ function renderComponentPage() {
     return;
   }
     if (window.__leaderComponentExtensions && window.__leaderComponentExtensions(file, root, language)) return;
+    if (window.__leaderSingleExtensions && window.__leaderSingleExtensions[file]) {
+    window.__leaderSingleExtensions[file](root, language);
+    return;
+  }
   root.innerHTML = `
     <section class="mb-12">
       <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gray-900">${text.title}</h1>

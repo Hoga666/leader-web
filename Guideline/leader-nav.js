@@ -55,7 +55,7 @@ const LEADER_NAV_GROUPS = [
       { label: '卡片', href: 'component_card.html', page: 'component_card.html', child: true },
       { label: '列表', href: 'component_list_tile.html', page: 'component_list_tile.html', child: true },
       { label: '头像', href: 'component_avatar.html', page: 'component_avatar.html', child: true },
-      { label: '图片轮播', href: 'component_carousel.html', page: 'component_carousel.html', child: true },
+      { label: '图片轮播', href: 'component_image.html', page: 'component_image.html', child: true },
       { label: '徽标', href: 'component_badge.html', page: 'component_badge.html', child: true },
       { label: '3.6 反馈与浮层', id: 'components-feedback', disabled: true },
       { label: '对话框', href: 'component_dialog_modal.html', page: 'component_dialog_modal.html', child: true },
@@ -223,7 +223,7 @@ const PUBLISHED_PAGES = new Set([
   'component_card.html',
   'component_list_tile.html',
   'component_avatar.html',
-  'component_divider.html',
+  'component_image.html',
   'component_badge.html',
   'component_dialog_modal.html',
   'component_bottom_sheet.html',
@@ -472,40 +472,6 @@ function normalizeNavPage(page) {
     });
   });
 
-})();
-
-/* ===== 侧边栏：锁定「导航」及其以下所有条目，可随时放开 ===== */
-(function initSidebarPartialLock() {
-  // 默认锁定
-  let locked = true;
-  window.leaderNavLock = function () { locked = true; };
-  window.leaderNavUnlock = function () { locked = false; };
-  window.leaderNavIsLocked = function () { return locked; };
-
-  // 锁定的起点（中文 label），从这里开始往下全部锁
-  const LOCK_START_LABEL_ZH = '导航';
-
-  document.addEventListener('click', function (e) {
-    if (!locked) return;
-    const sidebar = document.getElementById('sidebar');
-    if (!sidebar || !sidebar.contains(e.target)) return;
-
-    const a = e.target.closest && e.target.closest('a.sidebar-nav-item');
-    if (!a) return;
-
-    // 收集当前侧边栏内所有可点击条目（按 DOM 顺序）
-    const items = Array.from(sidebar.querySelectorAll('a.sidebar-nav-item'));
-    const startIndex = items.findIndex(
-      el => (el.getAttribute('data-label-zh') || '').trim() === LOCK_START_LABEL_ZH
-    );
-    if (startIndex < 0) return;
-
-    const clickedIndex = items.indexOf(a);
-    if (clickedIndex >= startIndex) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  }, true);
 })();
 
 initNavigationGate();
